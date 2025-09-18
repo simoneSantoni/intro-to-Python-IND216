@@ -1,0 +1,161 @@
+---
+title: "Module 1: Exercises"
+---
+
+## Getting Started with Python - Exercises
+
+These exercises will help you practice the concepts covered in Module 1.
+
+### Exercise 1.1: Environment Setup Verification
+
+Verify that your Python environment is correctly set up:
+
+```python
+# Run this code to check your setup
+import sys
+import numpy as np
+import pandas as pd
+
+print(f"Python version: {sys.version}")
+print(f"NumPy version: {np.__version__}")
+print(f"Pandas version: {pd.__version__}")
+```
+
+**Expected output**: You should see version numbers for Python (3.9+), NumPy, and Pandas.
+
+### Exercise 1.2: Basic Python Operations
+
+Complete the following tasks:
+
+```python
+# Task 1: Create variables of different types
+# Your code here
+
+# Task 2: Perform arithmetic operations
+# Calculate the area of a circle with radius 5
+# Your code here
+
+# Task 3: String manipulation
+# Create a greeting message using string formatting
+name = "Your Name"
+# Your code here
+
+# Task 4: Create a list of your favorite programming languages
+# Your code here
+```
+
+### Exercise 1.3: Interactive Python
+
+Practice using Python interactively:
+
+1. Open a Python shell or Jupyter notebook
+2. Calculate the following:
+   - 2 raised to the power of 10
+   - The square root of 144
+   - The remainder when 17 is divided by 5
+
+3. Import the `math` module and use it to calculate:
+   - The value of pi
+   - The sine of 45 degrees (remember to convert to radians)
+   - The natural logarithm of 10
+
+### Exercise 1.4: Creating Your First Script
+
+Create a Python script called `hello_analytics.py` that:
+
+1. Prints a welcome message
+2. Asks for the user's name
+3. Asks for their favorite number
+4. Calculates and displays the square of that number
+5. Says goodbye with their name
+
+**Sample interaction**:
+```
+Welcome to Python for Analytics!
+What's your name? Alice
+What's your favorite number? 7
+Alice, the square of 7 is 49
+Goodbye, Alice!
+```
+
+### Exercise 1.5: Working with Files
+
+Create a Python script that:
+
+1. Creates a new text file called `data.txt`
+2. Writes the numbers 1 through 10 (each on a new line)
+3. Closes the file
+4. Opens the file again for reading
+5. Reads and prints each line
+6. Calculates and prints the sum of all numbers
+
+### Challenge Problems
+
+#### Challenge 1: Temperature Converter
+
+Write a program that converts temperatures between Celsius, Fahrenheit, and Kelvin:
+
+```python
+def celsius_to_fahrenheit(c):
+    # Your code here
+    pass
+
+def fahrenheit_to_celsius(f):
+    # Your code here
+    pass
+
+def celsius_to_kelvin(c):
+    # Your code here
+    pass
+
+# Test your functions
+print(celsius_to_fahrenheit(0))    # Should print 32.0
+print(fahrenheit_to_celsius(98.6)) # Should print 37.0
+print(celsius_to_kelvin(25))       # Should print 298.15
+```
+
+#### Challenge 2: Simple Calculator
+
+Create an interactive calculator that:
+- Offers operations: addition, subtraction, multiplication, division
+- Handles division by zero gracefully
+- Continues until the user chooses to quit
+
+### Submission Guidelines
+
+1. Create a new folder called `module1_exercises`
+2. Save all your Python scripts in this folder
+3. Include comments explaining your code
+4. Test all your solutions before submission
+
+### Self-Assessment Checklist
+
+Before moving to Module 2, ensure you can:
+
+- [ ] Run Python code in multiple ways (script, interactive, Jupyter)
+- [ ] Create and manipulate variables
+- [ ] Perform basic arithmetic operations
+- [ ] Work with strings
+- [ ] Write and run Python scripts
+- [ ] Import and use modules
+- [ ] Read from and write to files
+- [ ] Use basic input/output functions
+
+### Additional Practice
+
+If you finish early or want extra practice:
+
+1. Explore the Python documentation for the `random` module
+2. Write a program that generates random numbers
+3. Create a simple number guessing game
+4. Experiment with different string methods
+5. Try creating functions with multiple parameters
+
+### Getting Help
+
+Remember:
+- Check the error messages carefully
+- Use `help()` and `dir()` functions
+- Consult the course resources
+- Ask on the forum if stuck
+- Attend office hours for personalized help

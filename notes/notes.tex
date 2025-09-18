@@ -10,7 +10,6 @@
 \usepackage[margin=2cm]{geometry}
 %\usepackage{color}
 %\usepackage[dvipsnames]{xcolor}
-\usepackage{tcolorbox}
 \usepackage{lineno}
 \usepackage{amsmath}
 \usepackage{appendix}
@@ -142,7 +141,7 @@ allcolors=tri_2,
 % title
 \title{%
         \begin{tcolorbox}[before skip = \baselineskip, after skip =-\baselineskip]
-            \centering\LARGE\sffamily SMM692\\ Introduction to Programming in Python
+            \centering\LARGE\sffamily IND216\\ Introduction to Programming in Python
 	    \footnote{These notes were type-setted in \LaTeX using the Cornell Notes Template} 
         \end{tcolorbox}
 
@@ -160,7 +159,7 @@ allcolors=tri_2,
 
 	\normalsize
 	\textcolor{blue}{Version 1.0}\\ 
-	(last edit, August 21$^{st}$ 2022)
+	(last edit, August 21$^{st}$ 2025)
 
 }
 
@@ -259,7 +258,7 @@ align=right,
 black!75
 ]
 {
-{\fontsize{25}{30} \selectfont \bf SMM692 \\[10pt] NOTES}
+{\fontsize{25}{30} \selectfont \bf IND216 \\[10pt] NOTES}
 } 
 node[
 midway,
@@ -268,7 +267,7 @@ text width=6cm,
 align=left,
 base_c]
 {
-{\fontsize{72}{86.4} \selectfont 2022}
+{\fontsize{72}{86.4} \selectfont 2025}
 };
 
 % Title
@@ -279,7 +278,7 @@ base_c]
 {\fontsize{16}{19.2} \selectfont \textcolor{base_c}{ \bf Dr. Simone Santoni}}\\[3pt]
 Bayes Business School\\[3pt]
 106 Bunhill Row, London, EC1Y 8TZ\\[3pt]
-}
+};
 \end{tikzpicture}
 
 \clearpage
@@ -299,7 +298,7 @@ Do not share or distribute without permission
 
 \textbf{Version}
 
-Current version is 1.0 --- last edited on August 21$^{st}$ 2022
+Current version is 1.0 --- last edited on August 21$^{st}$ 2025
 \clearpage
 
 \tableofcontents
@@ -313,7 +312,7 @@ Current version is 1.0 --- last edited on August 21$^{st}$ 2022
 \mainmatter
 \chapter*{Preface}
 
-\raggedright These notes were prepared for the Summer Module `SMM-692 --- Introduction to Programming in Python.' The materials I present condense more than ten years of experience I developed using Python for industrial applications and research. At the same time, the materials incorporate the feedback from four different cohorts of Bayes MSc students who took SMM692 and other modules for which Python is a prerequisite, such as `SMM638 --- Network Analytics,' `SMM635 --- Data Visualization,' and `SMM694 --- Natural Language Processing.' 
+\raggedright These notes were prepared for the Summer Module `IND216 --- Introduction to Programming in Python.' The materials I present condense more than ten years of experience I developed using Python for industrial applications and research. At the same time, the materials incorporate the feedback from four different cohorts of Bayes MSc students who took IND216 and other modules for which Python is a prerequisite, such as `SMM638 --- Network Analytics,' `SMM635 --- Data Visualization,' and `SMM694 --- Natural Language Processing.' 
 
 \quad I prepared these notes with two design principles in mind. First, the notes should have mimicked a conversation between a person interested in learning Python and a knowledge recipient (a robot or a human being, it does not matter!).  The \href{https://en.wikipedia.org/wiki/Cornell_Notes}{Cornell Notes Template} helped me emphasize the notes' conversational structure: the left-hand side of the page is reserved for questions, reported as blue boxes; answers are displayed on the right-hand side of the page.
 
@@ -329,7 +328,7 @@ Current version is 1.0 --- last edited on August 21$^{st}$ 2022
 
 \addcontentsline{toc}{chapter}{Preface}
 
-\chapter{Organization of the Notes and SMM692}
+\chapter{Organization of the Notes and IND216}
 \label{ch:organization}
 \par\noindent\rule{\textwidth}{0.4pt}
 
@@ -338,7 +337,7 @@ In this chapter, the reader is supposed to appreciate:
 \begin{itemize}
 	\item The justification for an introductory module on Python for Business Analytics students
 	\item The scope of the teaching materials included in these notes 
-	\item The learning and teaching activities that form `SMM692 --- Introduction to Programming in Python
+	\item The learning and teaching activities that form `IND216 --- Introduction to Programming in Python
 \end{itemize}
 
 \par\noindent\rule{\textwidth}{0.4pt}
@@ -366,7 +365,7 @@ In this chapter, the reader is supposed to appreciate:
         		\begin{axis}[
         			title = Interest Over Time (Worldwide),
         			xtick={0, 47, 95, 143},
-        			xticklabels={2010, 2014, 2018, 2022},
+        			xticklabels={2010, 2014, 2018, 2025},
         			xlabel = Time,
         			ylabel = Google Trends Index,
         			legend pos=north west
@@ -392,7 +391,7 @@ In this chapter, the reader is supposed to appreciate:
 \begin{paracol}{2}
 	\question{\raggedright Why do I need to take a pre-course module on Python?}
         \note{
-	There are at least three arguments for taking a module such as SMM692:
+	There are at least three arguments for taking a module such as IND216:
 	\begin{itemize}
 		\item Modern quantitative curricula increasingly depart from a spreadsheet-based approach to teaching and learning
 		\item For example, the Bayes Business Analytics MSc builds heavily on the Python programming language
@@ -408,8 +407,8 @@ In this chapter, the reader is supposed to appreciate:
 \section{Scope of the Notes}
 
 \begin{paracol}{2}
-	\question{\raggedright What is the scope of SMM692?}
-	\note{The scope of SMM692 has been tailored to the learning needs of the Bayes MSc students. Specifically, these notes were created based on the feedback comments provided by four cohorts of students. Hence, I warmly invite you to focus on these notes instead of learning Python using the many books and resources available on the web --- otherwise, you may miss core notions and tools or learn irrelevant ones!
+	\question{\raggedright What is the scope of IND216?}
+	\note{The scope of IND216 has been tailored to the learning needs of the Bayes MSc students. Specifically, these notes were created based on the feedback comments provided by four cohorts of students. Hence, I warmly invite you to focus on these notes instead of learning Python using the many books and resources available on the web --- otherwise, you may miss core notions and tools or learn irrelevant ones!
 	}
 \end{paracol}
 \clearpage
@@ -438,7 +437,7 @@ In this chapter, the reader is supposed to appreciate:
 
 \begin{paracol}{2}
 	\question{\raggedright Which technical and scientific modules will I learn in these notes?}
-	\note{Two foundational modules support statistical analysis, Viz, ML, and DL: NumPy and Pandas. These two modules are the focus of SMM692's second part.
+	\note{Two foundational modules support statistical analysis, Viz, ML, and DL: NumPy and Pandas. These two modules are the focus of IND216's second part.
 	}
 \end{paracol}
 
@@ -474,7 +473,6 @@ In this chapter, the reader is supposed to appreciate:
 	\question{\raggedright I am a Programming Newbie: How Do I Learn Python?}
 	\note{
 		Here is an approach that proved effective according to the pedagogical literature on learning programming languages:\footnote{See for example i) Mayer, Richard E. 1981. ``The Psychology of how Novices Learn Computer Programming.'' \textit{ACM Computing Surveys} (CSUR) 13 (1): 121–141, ii) Robins, Anthony, Janet Rountree, and Nathan Rountree. 2003. ``Learning and Teaching Programming: A Review and Discussion.'' \textit{Computer Science Education} 13 (2): 137–172, and iii) Soloway, Elliot, and James C Spohrer. 2013. \textit{Studying the Novice Programmer}. PsychologyPress.}
-    }
 
 	\begin{itemize}
 		\item Step 1: Focus on \emph{few core notions} at a time (e.g., `string methods')
@@ -482,12 +480,11 @@ In this chapter, the reader is supposed to appreciate:
 		\item Step 3: Open a Python session and practice the few core notions 
 		\item Step 4: Critically self-assess your learning (if your code is not working, Python will force you to understand what's wrong!)
 	\end{itemize}
-
 	}
 \end{paracol}
 
 \begin{paracol}{2}
-	\question{\raggedrith How do I assess my learning outcome?}
+	\question{\raggedright How do I assess my learning outcome?}
 	\note{You may want to assess your learning frequently, at the end of each chapter or, possibly, every two or three sections of the chapter. As Figure \ref{fig:assessement} suggests, the key idea is to adopt a sequential approach. Subject-by-subject, you may want to:
 	\begin{itemize}
 		\item Open a learning circle by watching the hook video and study the notes closely
@@ -649,7 +646,6 @@ At the end of the chapter, you will be able to:
 \begin{paracol}{2}
 	\question{\raggedright What are the pieces of software included in Anaconda?}
 	\note{There are plenty of applications included in the Anaconda installation. These applications can be accessed from within Anaconda Navigator (see Figure \ref{fig:anaconda_nav}), available in the launcher of your operating system.}
-	}
 \end{paracol}
 
 \begin{sidewaysfigure}
@@ -1232,7 +1228,7 @@ Implementation types & Compiled code, stack tracebacks                          
 
 \begin{paracol}{2}
 	\question{\raggedright How do I carry out technical and scientific computation with Python?}
-	\note{Python is at the center of a rich ecosystem of modules for technical and scientific computation. In the following chapter, the attention will revolve around one of the most prominent modules, namely, \href{https://numpy.org/}{NumPy}. In a nutshell, \href{https://numpy.org/}{NumPy} offers the infrastructure for efficiently manipulating data structures. \href{https://scipy.org/}{SciPy} builds on \href{https://numpy.org/}{NumPy} to implement many algorithms across the fields of statistics, linear algebra, optimization, calculus, signal processing,  image processing, and others. Another core module in the technical and scientific domain is \href{https://www.sympy.org/en/index.html}efficiently manipulatingSimPy}, a library for symbolic mathematics. Note that none of these three modules are shipped with Python and should be installed with the package manager of your choice (e.g., \texttt{conda}).}
+	\note{Python is at the center of a rich ecosystem of modules for technical and scientific computation. In the following chapter, the attention will revolve around one of the most prominent modules, namely, \href{https://numpy.org/}{NumPy}. In a nutshell, \href{https://numpy.org/}{NumPy} offers the infrastructure for efficiently manipulating data structures. \href{https://scipy.org/}{SciPy} builds on \href{https://numpy.org/}{NumPy} to implement many algorithms across the fields of statistics, linear algebra, optimization, calculus, signal processing,  image processing, and others. Another core module in the technical and scientific domain is \href{https://www.sympy.org/en/index.html}{SymPy}, a library for symbolic mathematics. Note that none of these three modules are shipped with Python and should be installed with the package manager of your choice (e.g., \texttt{conda}).}
 \end{paracol}
 \clearpage
 
@@ -3362,8 +3358,7 @@ matrix([[-1.60040278e+00,  1.98412698e-03, -1.19642857e-03],
 		\item Rearranging elements
 	\end{itemize}
 	
-        \quad Presenting every NumPy array manipulation routine would require writing a dedicated book (and certainly falls beyond the remit of an introductory module on Python). That said, let me whet the reader's appetite by illustrating a sample of miscellaneous routines (see Snippet 5.11). Here is the sequence of tasks we accomplish: first, we create an array of shape \texttt{(6,)} (see line 5); then, we change the shape of the array (line 10) and transpose its rows and columns (line 16); in the lower section of the snippet we join two arrays using several routines: \href{https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html\#numpy.concatenate}{\texttt{.concatenate}} joins two arrays along the desired axis (the default axis is the first one, meaning the second arrays are concatenated row-wise); \href{https://numpy.org/doc/stable/reference/generated/numpy.vstack.html\#numpy.vstack}{\texttt{.vstack}} requires to pass a tuple of arrays to stack row-wise; \href{https://numpy.org/doc/stable/reference/generated/numpy.hstack.html\#numpy.hstack}{\texttt{.hstack}} requires to pass a tuple of arrays to stack column-wise. It is worth noticing that the rules for vector/matrix manipulation we learned at school apply to the routines that join arrays. In other words, two NumPy arrays can be joined if and only have the same length on the joining axis. For example, it is possible to stack vertically two arrays with the shape \texttt{(3, 3)} and \texttt{(2, 3)} because they have the same number of columns.}  
-	}
+        \quad Presenting every NumPy array manipulation routine would require writing a dedicated book (and certainly falls beyond the remit of an introductory module on Python). That said, let me whet the reader's appetite by illustrating a sample of miscellaneous routines (see Snippet 5.11). Here is the sequence of tasks we accomplish: first, we create an array of shape \texttt{(6,)} (see line 5); then, we change the shape of the array (line 10) and transpose its rows and columns (line 16); in the lower section of the snippet we join two arrays using several routines: \href{https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html\#numpy.concatenate}{\texttt{.concatenate}} joins two arrays along the desired axis (the default axis is the first one, meaning the second arrays are concatenated row-wise); \href{https://numpy.org/doc/stable/reference/generated/numpy.vstack.html\#numpy.vstack}{\texttt{.vstack}} requires to pass a tuple of arrays to stack row-wise; \href{https://numpy.org/doc/stable/reference/generated/numpy.hstack.html\#numpy.hstack}{\texttt{.hstack}} requires to pass a tuple of arrays to stack column-wise. It is worth noticing that the rules for vector/matrix manipulation we learned at school apply to the routines that join arrays. In other words, two NumPy arrays can be joined if and only have the same length on the joining axis. For example, it is possible to stack vertically two arrays with the shape \texttt{(3, 3)} and \texttt{(2, 3)} because they have the same number of columns.}
 \end{paracol}
 \clearpage
 
@@ -4314,8 +4309,6 @@ plt.show()
 	\end{itemize}
 
 	\quad Regarding the `multiple array case,' it is worth noticing that it is possible to write the arrays to a file preserving the variable names assigned to the arrays (e.g., \texttt{A}, \texttt{B}, \texttt{C}, see line 55). Such an option is beneficial when the variable names are meaningful and, perhaps, we expect to load the data back sometime in the future, when we may or may not remember `what is what.'
-	}
-
 	}
 \end{paracol}
 
@@ -6522,7 +6515,7 @@ Since the 2018/19 academic year, my Python-related teaching has been based on Gi
 \textit{``I think GitHub is a very efficient platform for our study. It's mainly because our teacher always updates all information in advance, so we can easily find everything we want.''}
 \end{quote}
 
-\quad Unlike a traditional Moodle page, GitHub has a very granular and public logging system and visualizations that highlight any change in the set of materials hosted in a repository (see, for example, Figure \ref{fig:github_repo}). Furthermore, learners can decide how and to what extent to receive notifications on the changes affecting a GitHub repository.\footnote{Especially, GitHub users can fine-tune the amount of information to receive by selecting the following options: i) by following the user owning a repository, a learner gets their GitHub homepage with the recent activities performed by that user; ii) by starring a repository, a learner has access to shortcuts to quickly and conveniently access a GitHub repository; iii) by watching a repository, a learner receives emails regarding any edit regarding a GitHub repository.} Regarding `SMM694, Applied Natural Language Processing' --- delivered between May and July 2022 --- 15 students out of 67 (22\%) decided `to watch' the GitHub repository hosting my teaching materials. Hence, they received real-time notifications on any edits of the 81 commits I made in the Summer Term;\footnote{The inter-temporal distribution of commits regarding SMM694 is available at \url{https://github.com/simoneSantoni/NLP-orgs-markets/graphs/commit-activity}} 43 students out of 67 (64\%) added my GitHub repository to their library; 31 out of 67 (42\%) reused my repository's material for a new project.
+\quad Unlike a traditional Moodle page, GitHub has a very granular and public logging system and visualizations that highlight any change in the set of materials hosted in a repository (see, for example, Figure \ref{fig:github_repo}). Furthermore, learners can decide how and to what extent to receive notifications on the changes affecting a GitHub repository.\footnote{Especially, GitHub users can fine-tune the amount of information to receive by selecting the following options: i) by following the user owning a repository, a learner gets their GitHub homepage with the recent activities performed by that user; ii) by starring a repository, a learner has access to shortcuts to quickly and conveniently access a GitHub repository; iii) by watching a repository, a learner receives emails regarding any edit regarding a GitHub repository.} Regarding `SMM694, Applied Natural Language Processing' --- delivered between May and July 2025 --- 15 students out of 67 (22\%) decided `to watch' the GitHub repository hosting my teaching materials. Hence, they received real-time notifications on any edits of the 81 commits I made in the Summer Term;\footnote{The inter-temporal distribution of commits regarding SMM694 is available at \url{https://github.com/simoneSantoni/NLP-orgs-markets/graphs/commit-activity}} 43 students out of 67 (64\%) added my GitHub repository to their library; 31 out of 67 (42\%) reused my repository's material for a new project.
 
 \quad \textit{Second}, by engaging with GitHub, learners familiarise themselves with the industry-standard versioning software and collaborative platform. \textit{Third}, GitHub is a piece of open-source and free software. As such, it presents no entry barriers for learners and can be deployed to sustain inclusive forms of teaching over and beyond the boundaries of individual academic institutions.\footnote{Iiyoshi, Toru, and M. S. V. Kumar. \textit{Opening up education: The collective advancement of education through open technology, open content, and open knowledge}. The MIT Press, 2010.} According to the tracking system of GitHub, as of today, there are 154 projects (a.k.a., forks) that build on my teaching materials covering Python, network analytics, data visualization, and NLP. \texit{Finally}, in the case of hybrid teaching, the public logging system of GitHub provides the group of face-to-face learners and the group of remote learners with equivalent information about the functioning of the module and teaching materials. In other words, GitHub can prevent the formation of information asymmetry that potentially penalize remote learners because of their lack of physical proximity to the lecturer and fellow learners.
 

@@ -1,0 +1,369 @@
+---
+title: "Course Resources"
+---
+
+## Essential Resources
+
+A curated collection of resources to support your Python learning journey.
+
+### Course Materials
+
+::: {.resource-card}
+<div class="resource-icon">📚</div>
+<div class="resource-content">
+#### Course Notes (PDF)
+Complete LaTeX-compiled course notes covering all modules
+[Download PDF](/notes/notes.pdf)
+</div>
+:::
+
+::: {.resource-card}
+<div class="resource-icon">💻</div>
+<div class="resource-content">
+#### GitHub Repository
+All code examples, exercises, and solutions
+[View Repository](https://github.com/simoneSantoni/intro-to-Python-IND216)
+</div>
+:::
+
+::: {.resource-card}
+<div class="resource-icon">📓</div>
+<div class="resource-content">
+#### Jupyter Notebooks
+Interactive notebooks for each module
+[Access Notebooks](https://github.com/simoneSantoni/intro-to-Python-IND216/tree/master/notebooks)
+</div>
+:::
+
+### Software and Tools
+
+#### Required Software
+
+::: {.callout-important}
+**Essential installations**:
+1. [Anaconda Distribution](https://www.anaconda.com/products/distribution) - Includes Python, Jupyter, and essential packages
+2. [Visual Studio Code](https://code.visualstudio.com/) - Recommended code editor
+3. [Git](https://git-scm.com/) - Version control system
+:::
+
+#### Python Package Installation
+
+```bash
+# Create environment for the course
+conda create -n ind216 python=3.9
+
+# Activate environment
+conda activate ind216
+
+# Install required packages
+conda install numpy pandas matplotlib jupyter
+
+# Install additional useful packages
+conda install scipy scikit-learn seaborn plotly
+```
+
+### Textbooks and References
+
+#### Primary Textbooks
+
+1. **Python for Data Analysis** (3rd Edition)
+   - Author: Wes McKinney
+   - Publisher: O'Reilly Media, 2022
+   - [Publisher Link](https://www.oreilly.com/library/view/python-for-data/9781492057611/)
+   - Essential for Pandas and data wrangling
+
+2. **Python Data Science Handbook**
+   - Author: Jake VanderPlas
+   - Publisher: O'Reilly Media, 2016
+   - [Free Online Version](https://jakevdp.github.io/PythonDataScienceHandbook/)
+   - Comprehensive coverage of NumPy, Pandas, Matplotlib, and Scikit-Learn
+
+#### Supplementary Books
+
+3. **Think Python** (2nd Edition)
+   - Author: Allen B. Downey
+   - [Free Online Version](https://greenteapress.com/wp/think-python-2e/)
+   - Excellent for programming fundamentals
+
+4. **Automate the Boring Stuff with Python**
+   - Author: Al Sweigart
+   - [Free Online Version](https://automatetheboringstuff.com/)
+   - Practical Python applications
+
+5. **Effective Python** (2nd Edition)
+   - Author: Brett Slatkin
+   - Publisher: Addison-Wesley, 2019
+   - Best practices and Pythonic code
+
+### Online Documentation
+
+#### Official Documentation
+
+- [Python Official Documentation](https://docs.python.org/3/)
+  - Complete language reference
+  - Tutorial for beginners
+  - Standard library reference
+
+- [NumPy Documentation](https://numpy.org/doc/stable/)
+  - User guide
+  - API reference
+  - Tutorials and examples
+
+- [Pandas Documentation](https://pandas.pydata.org/docs/)
+  - Getting started guide
+  - User guide with examples
+  - API reference
+
+- [Jupyter Documentation](https://jupyter.org/documentation)
+  - Notebook basics
+  - Advanced features
+  - Extensions
+
+### Video Resources
+
+#### Course Lectures
+
+- Recorded lectures available on course platform
+- Review sessions before exams
+- Guest speaker presentations
+
+#### External Video Series
+
+::: {.callout-tip}
+**Recommended YouTube Channels**:
+
+1. **Corey Schafer**
+   - [Python Programming Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU)
+   - Clear explanations of Python concepts
+
+2. **sentdex**
+   - [Python Programming for Finance](https://www.youtube.com/playlist?list=PLQVvvaa0QuDcOdF96TBtRtuQksErCEBYZ)
+   - Pandas and data analysis tutorials
+
+3. **Keith Galli**
+   - [Complete Python NumPy Tutorial](https://www.youtube.com/watch?v=GB9ByFAIAH4)
+   - Comprehensive NumPy coverage
+:::
+
+### Interactive Learning Platforms
+
+#### Online Python Environments
+
+- [Google Colab](https://colab.research.google.com/)
+  - Free cloud-based Jupyter notebooks
+  - No installation required
+  - GPU support available
+
+- [Replit](https://replit.com/)
+  - Online IDE with Python support
+  - Collaborative coding
+  - Easy sharing
+
+- [Binder](https://mybinder.org/)
+  - Turn GitHub repos into interactive notebooks
+  - Share reproducible environments
+
+#### Practice and Challenges
+
+- [HackerRank Python Domain](https://www.hackerrank.com/domains/python)
+  - Structured Python challenges
+  - From basic to advanced
+
+- [Codewars](https://www.codewars.com/)
+  - Programming challenges (kata)
+  - Community solutions
+
+- [LeetCode](https://leetcode.com/)
+  - Algorithm and data structure problems
+  - Interview preparation
+
+- [Project Euler](https://projecteuler.net/)
+  - Mathematical/computer programming problems
+  - Requires algorithmic thinking
+
+### Cheat Sheets and Quick References
+
+::: {.resource-card}
+<div class="resource-icon">📋</div>
+<div class="resource-content">
+#### Python Cheat Sheet
+Quick reference for Python syntax and common operations
+[Download PDF](https://github.com/gto76/python-cheatsheet)
+</div>
+:::
+
+::: {.resource-card}
+<div class="resource-icon">📊</div>
+<div class="resource-content">
+#### NumPy Cheat Sheet
+Essential NumPy operations at a glance
+[View Online](https://numpy.org/doc/stable/user/numpy-for-matlab-users.html)
+</div>
+:::
+
+::: {.resource-card}
+<div class="resource-icon">🐼</div>
+<div class="resource-content">
+#### Pandas Cheat Sheet
+Common Pandas operations reference
+[Download PDF](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
+</div>
+:::
+
+### Community and Forums
+
+#### Getting Help Online
+
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/python)
+  - Q&A for specific problems
+  - Search before asking
+  - Tag questions appropriately
+
+- [Reddit Communities](https://www.reddit.com/r/learnpython/)
+  - r/learnpython for beginners
+  - r/Python for general discussion
+  - r/datascience for analytics focus
+
+- [Python Discord](https://pythondiscord.com/)
+  - Real-time chat support
+  - Active community
+  - Beginner-friendly
+
+### Development Tools
+
+#### IDEs and Editors
+
+1. **Jupyter Lab**
+   - Interactive development
+   - Great for exploration
+   - Inline visualizations
+
+2. **Visual Studio Code**
+   - Free and open source
+   - Excellent Python support
+   - Integrated terminal and debugging
+
+3. **PyCharm**
+   - Professional Python IDE
+   - Advanced features
+   - Free community edition
+
+4. **Spyder**
+   - Scientific Python IDE
+   - Similar to MATLAB interface
+   - Included with Anaconda
+
+#### Essential VS Code Extensions
+
+```json
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-toolsai.jupyter",
+    "ms-toolsai.jupyter-keymap",
+    "ms-toolsai.jupyter-renderers",
+    "njpwerner.autodocstring",
+    "kevinrose.vsc-python-indent"
+  ]
+}
+```
+
+### Data Sources for Practice
+
+#### Sample Datasets
+
+- [Kaggle Datasets](https://www.kaggle.com/datasets)
+  - Thousands of real-world datasets
+  - Community notebooks
+  - Competitions
+
+- [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/)
+  - Classic datasets
+  - Well-documented
+  - Academic quality
+
+- [Google Dataset Search](https://datasetsearch.research.google.com/)
+  - Search across multiple repositories
+  - Find specific types of data
+
+- [Seaborn Built-in Datasets](https://github.com/mwaskom/seaborn-data)
+  - Easy to load for practice
+  - Clean and ready to use
+
+### Style Guides and Best Practices
+
+#### Python Style Guides
+
+- [PEP 8](https://www.python.org/dev/peps/pep-0008/)
+  - Official Python style guide
+  - Naming conventions
+  - Code layout
+
+- [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)
+  - Industry best practices
+  - Documentation standards
+
+#### Code Quality Tools
+
+```bash
+# Install linting and formatting tools
+pip install black flake8 pylint
+
+# Format code automatically
+black your_script.py
+
+# Check for style issues
+flake8 your_script.py
+
+# Comprehensive code analysis
+pylint your_script.py
+```
+
+### Career Resources
+
+#### Python for Career Development
+
+- [Real Python Career Guide](https://realpython.com/learning-paths/perfect-your-python-development-setup/)
+  - Career paths in Python
+  - Skill development roadmap
+
+- [Python Job Board](https://www.python.org/jobs/)
+  - Python-specific job listings
+  - Industry insights
+
+#### Portfolio Development
+
+::: {.callout-tip}
+**Building Your Portfolio**:
+1. Create a GitHub profile
+2. Document your projects well
+3. Include README files
+4. Show progression of skills
+5. Contribute to open source
+:::
+
+### Troubleshooting Resources
+
+#### Common Issues and Solutions
+
+- [Python Error Messages Explained](https://realpython.com/python-traceback/)
+- [Debugging in Python](https://realpython.com/python-debugging-pdb/)
+- [Common Pandas Errors](https://pandas.pydata.org/pandas-docs/stable/user_guide/gotchas.html)
+
+#### Performance Optimization
+
+- [Python Performance Tips](https://wiki.python.org/moin/PythonSpeed/PerformanceTips)
+- [NumPy Performance Guide](https://numpy.org/doc/stable/user/c-info.python-as-glue.html)
+- [Pandas Performance](https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html)
+
+### Stay Updated
+
+#### Python News and Updates
+
+- [Python Weekly Newsletter](https://www.pythonweekly.com/)
+- [Real Python Newsletter](https://realpython.com/newsletter/)
+- [PyCoder's Weekly](https://pycoders.com/)
+- [Python Bytes Podcast](https://pythonbytes.fm/)
+
+Remember: The best resource is practice. Use these materials to support your hands-on coding experience!

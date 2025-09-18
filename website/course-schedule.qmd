@@ -1,0 +1,329 @@
+---
+title: "Course Schedule"
+---
+
+## Weekly Schedule
+
+::: {.callout-note}
+This schedule is tentative and may be adjusted based on class progress and needs.
+:::
+
+### Module 1: Getting Started with Python
+
+#### Week 1: Introduction & Environment Setup
+**Date**: January 8-12
+
+**Topics**:
+- Course overview and objectives
+- Why Python for analytics?
+- Installing Anaconda
+- Setting up development environments
+- Running your first Python program
+
+**Readings**:
+- Course syllabus
+- [Python.org Beginner's Guide](https://wiki.python.org/moin/BeginnersGuide)
+
+**Lab**:
+- Install Anaconda distribution
+- Set up Jupyter Lab
+- Create first Python notebook
+
+**Assignment**:
+- Environment setup confirmation
+- Hello World variations
+
+---
+
+#### Week 2: Python Fundamentals
+**Date**: January 15-19
+
+**Topics**:
+- Python syntax basics
+- Variables and data types
+- Basic operations
+- Input/output
+- Comments and documentation
+
+**Readings**:
+- VanderPlas Ch. 1: IPython
+- Course notes: Python basics
+
+**Lab**:
+- Interactive Python exercises
+- Simple calculator program
+- String manipulation tasks
+
+**Assignment**:
+- Exercise Set 1: Basic Python
+
+---
+
+### Module 2: Python Objects
+
+#### Week 3: Data Structures
+**Date**: January 22-26
+
+**Topics**:
+- Lists and tuples
+- Dictionaries and sets
+- String methods
+- Type conversion
+- Mutability concepts
+
+**Readings**:
+- McKinney Ch. 3: Built-in Data Structures
+- Python documentation: Data structures
+
+**Lab**:
+- Data structure manipulation
+- Student grade tracker
+- Dictionary exercises
+
+**Assignment**:
+- Exercise Set 2: Data structures
+
+---
+
+#### Week 4: Control Flow & Functions
+**Date**: January 29 - February 2
+
+**Topics**:
+- Conditional statements
+- Loops (for, while)
+- Functions and parameters
+- Scope and namespaces
+- Lambda functions
+
+**Readings**:
+- Course notes: Control flow
+- Python documentation: Functions
+
+**Lab**:
+- Function writing workshop
+- Debugging exercises
+- Code refactoring practice
+
+**Assignment**:
+- Exercise Set 3: Functions and control flow
+
+---
+
+### Module 3: NumPy
+
+#### Week 5: NumPy Fundamentals
+**Date**: February 5-9
+
+**Topics**:
+- NumPy arrays introduction
+- Array creation and properties
+- Indexing and slicing
+- Basic operations
+- Broadcasting
+
+**Readings**:
+- VanderPlas Ch. 2: NumPy
+- NumPy documentation: Quickstart
+
+**Lab**:
+- Array manipulation exercises
+- Performance comparisons
+- Broadcasting puzzles
+
+**Assignment**:
+- Exercise Set 4: NumPy basics
+
+---
+
+#### Week 6: Advanced NumPy
+**Date**: February 12-16
+
+**Topics**:
+- Mathematical functions
+- Statistical operations
+- Linear algebra
+- Random number generation
+- Array reshaping and stacking
+
+**Readings**:
+- McKinney Ch. 4: NumPy Basics
+- NumPy documentation: Advanced topics
+
+**Lab**:
+- Statistical analysis with NumPy
+- Matrix operations
+- Monte Carlo simulations
+
+**Assignment**:
+- Exercise Set 5: Advanced NumPy
+
+---
+
+### Module 4: Pandas
+
+#### Week 7: Pandas Fundamentals
+**Date**: February 19-23
+
+**Topics**:
+- Series and DataFrames
+- Reading/writing data files
+- Indexing and selection
+- Basic operations
+- Missing data handling
+
+**Readings**:
+- VanderPlas Ch. 3: Pandas
+- McKinney Ch. 5: Getting Started with pandas
+
+**Lab**:
+- DataFrame creation and manipulation
+- Data loading exercises
+- Missing data scenarios
+
+**Assignment**:
+- Exercise Set 6: Pandas basics
+
+---
+
+#### Week 8: Data Wrangling
+**Date**: February 26 - March 1
+
+**Topics**:
+- Grouping and aggregation
+- Merging and joining
+- Reshaping and pivoting
+- Time series basics
+- Data cleaning techniques
+
+**Readings**:
+- McKinney Ch. 7-8: Data Wrangling
+- Pandas documentation: User guide
+
+**Lab**:
+- Real dataset analysis
+- Data transformation pipeline
+- Time series analysis
+
+**Assignment**:
+- Exercise Set 7: Data wrangling
+- **Project proposal due**
+
+---
+
+### Module 5: Applied Examples
+
+#### Week 9: Case Studies
+**Date**: March 4-8
+
+**Topics**:
+- End-to-end data analysis workflow
+- Real-world datasets
+- Exploratory data analysis
+- Data visualization basics
+- Reporting results
+
+**Readings**:
+- Selected case studies
+- Best practices documentation
+
+**Lab**:
+- Complete analysis pipeline
+- Peer code review
+- Results presentation
+
+**Assignment**:
+- Case study analysis
+
+---
+
+#### Week 10: Best Practices & Final Project
+**Date**: March 11-15
+
+**Topics**:
+- Code organization
+- Documentation standards
+- Version control with Git
+- Debugging strategies
+- Performance optimization
+- Reproducible research
+
+**Readings**:
+- PEP 8 style guide
+- Git documentation
+- Course notes: Best practices
+
+**Lab**:
+- Code refactoring workshop
+- Git workflow practice
+- Project work time
+
+**Assignment**:
+- **Final project due: March 15**
+
+---
+
+### Important Dates
+
+::: {.callout-important}
+**Key Deadlines**:
+- Week 1: Environment setup confirmation
+- Week 8: Project proposal
+- Week 10: Final project submission
+:::
+
+### Office Hours
+
+**Regular Office Hours**:
+- Tuesdays: 2:00-4:00 PM
+- Thursdays: 2:00-4:00 PM
+- By appointment: Email to schedule
+
+**Location**: Office 312 or online via Zoom
+
+### Lab Sessions
+
+**Lab Schedule**:
+- Wednesdays: 10:00 AM - 12:00 PM
+- Fridays: 2:00-4:00 PM (optional support session)
+
+**Location**: Computer Lab 201
+
+### Exam Schedule
+
+- **Midterm**: None (continuous assessment)
+- **Final Project Presentations**: March 18-19
+
+### Holiday Schedule
+
+- **Winter Break**: No classes February 19-23 (Reading week)
+- **University Holidays**: Check academic calendar
+
+### Resources by Week
+
+Each week's materials will be posted on the course website by Monday morning, including:
+- Lecture slides
+- Code examples
+- Exercise notebooks
+- Additional readings
+- Video tutorials (when applicable)
+
+### Tips for Success
+
+::: {.callout-tip}
+**Weekly Workflow**:
+1. Review lecture materials before class
+2. Attend lectures and take notes
+3. Complete lab exercises
+4. Start assignments early
+5. Attend office hours if needed
+6. Review and practice regularly
+:::
+
+### Adjustments and Updates
+
+This schedule is subject to change based on:
+- Class progress and needs
+- University calendar changes
+- Unexpected closures
+
+All changes will be announced in class and posted on the course website.

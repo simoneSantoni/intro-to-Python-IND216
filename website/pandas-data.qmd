@@ -1,0 +1,673 @@
+---
+title: "Data Management with Pandas"
+---
+
+## Introduction
+
+Pandas is the cornerstone library for data analysis in Python. Built on top of NumPy, it provides high-level data structures and operations for manipulating structured data. This module covers the essential Pandas concepts for data wrangling, cleaning, and analysis that analytics professionals use daily.
+
+## Why Pandas?
+
+Pandas excels at handling real-world data challenges:
+
+- **Labeled data**: Work with row and column labels instead of just numeric indices
+- **Heterogeneous data**: Mix different data types (numbers, strings, dates) in one structure
+- **Missing data**: Robust handling of missing or incomplete data
+- **Data alignment**: Automatic alignment of data based on labels
+- **Flexible I/O**: Read/write many file formats (CSV, Excel, JSON, SQL, etc.)
+- **Data cleaning**: Built-in tools for common data preparation tasks
+
+```python
+import pandas as pd
+import numpy as np
+
+# Display all columns and more rows for better visibility
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', None)
+```
+
+## Core Data Structures
+
+### Series: One-Dimensional Labeled Data
+
+```python
+# Creating Series
+grades = pd.Series([85, 92, 78, 96, 88], 
+                   index=['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'])
+print("Student Grades:")
+print(grades)
+print(f"\nData type: {type(grades)}")
+print(f"Index: {grades.index.tolist()}")
+print(f"Values: {grades.values}")
+
+# Series from dictionary
+student_info = pd.Series({
+    'Alice': 22,
+    'Bob': 23,
+    'Charlie': 21,
+    'Diana': 22
+})
+print(f"\nStudent Ages:\n{student_info}")
+```
+
+### DataFrame: Two-Dimensional Labeled Data
+
+```python
+# Creating DataFrame from dictionary
+student_data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'],
+    'Age': [22, 23, 21, 22, 24],
+    'Major': ['Analytics', 'Statistics', 'Economics', 'Analytics', 'Mathematics'],
+    'GPA': [3.8, 3.6, 3.9, 3.7, 3.5],
+    'Credits': [45, 52, 38, 48, 55]
+}
+
+df = pd.DataFrame(student_data)
+print("Student DataFrame:")
+print(df)
+print(f"\nShape: {df.shape}")
+print(f"Columns: {df.columns.tolist()}")
+print(f"Index: {df.index.tolist()}")
+```
+
+## DataFrame Inspection
+
+```python
+# Basic information about the DataFrame
+print("DataFrame Info:")
+print(df.info())
+
+print("\nFirst few rows:")
+print(df.head(3))
+
+print("\nLast few rows:")
+print(df.tail(2))
+
+print("\nDescriptive statistics:")
+print(df.describe())
+
+print("\nData types:")
+print(df.dtypes)
+
+print("\nShape and size:")
+print(f"Shape: {df.shape}")
+print(f"Size: {df.size}")
+print(f"Number of dimensions: {df.ndim}")
+```
+
+## Data Selection and Indexing
+
+### Selecting Columns
+
+```python
+# Single column (returns Series)
+names = df['Name']
+print("Names (Series):")
+print(names)
+print(f"Type: {type(names)}")
+
+# Single column (returns DataFrame)
+name_df = df[['Name']]
+print("\nNames (DataFrame):")
+print(name_df)
+
+# Multiple columns
+subset = df[['Name', 'GPA', 'Major']]
+print("\nSelected columns:")
+print(subset)
+```
+
+### Selecting Rows
+
+```python
+# By position (iloc)
+print("First student (by position):")
+print(df.iloc[0])
+
+print("\nFirst three students:")
+print(df.iloc[:3])
+
+print("\nSpecific rows:")
+print(df.iloc[[0, 2, 4]])
+
+# By label (loc) - first set a meaningful index
+df_indexed = df.set_index('Name')
+print("\nDataFrame with Name as index:")
+print(df_indexed)
+
+print("\nAlice's data:")
+print(df_indexed.loc['Alice'])
+
+print("\nMultiple students:")
+print(df_indexed.loc[['Alice', 'Charlie']])
+```
+
+### Boolean Indexing
+
+```python
+# Students with high GPA
+high_gpa = df['GPA'] > 3.7
+print("High GPA mask:")
+print(high_gpa)
+
+print("\nStudents with GPA > 3.7:")
+print(df[high_gpa])
+
+# Multiple conditions
+analytics_majors = (df['Major'] == 'Analytics') & (df['GPA'] > 3.6)
+print("\nAnalytics majors with GPA > 3.6:")
+print(df[analytics_majors])
+
+# Using query method (more readable)
+result = df.query('GPA > 3.7 and Credits >= 45')
+print("\nUsing query method:")
+print(result)
+```
+
+## Data Manipulation
+
+### Adding and Modifying Columns
+
+```python
+# Add new column
+df['Year'] = 2024 - df['Age'] + 18  # Estimated starting year
+print("Added Year column:")
+print(df)
+
+# Create column based on conditions
+df['Status'] = df['GPA'].apply(lambda x: 'Dean\'s List' if x >= 3.7 else 'Good Standing')
+print("\nAdded Status column:")
+print(df[['Name', 'GPA', 'Status']])
+
+# Modify existing column
+df['GPA_Rounded'] = df['GPA'].round(1)
+print("\nGPA rounded:")
+print(df[['Name', 'GPA', 'GPA_Rounded']])
+```
+
+### Sorting Data
+
+```python
+# Sort by single column
+df_sorted_gpa = df.sort_values('GPA', ascending=False)
+print("Sorted by GPA (descending):")
+print(df_sorted_gpa[['Name', 'GPA']])
+
+# Sort by multiple columns
+df_sorted_multi = df.sort_values(['Major', 'GPA'], ascending=[True, False])
+print("\nSorted by Major (asc) then GPA (desc):")
+print(df_sorted_multi[['Name', 'Major', 'GPA']])
+
+# Sort by index
+df_sorted_index = df.sort_index()
+print("\nSorted by index:")
+print(df_sorted_index)
+```
+
+## Handling Missing Data
+
+```python
+# Create DataFrame with missing values
+data_with_na = {
+    'Student': ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'],
+    'Math': [85, np.nan, 78, 92, 88],
+    'Science': [90, 88, np.nan, 95, 91],
+    'English': [92, 85, 89, np.nan, 94]
+}
+
+df_na = pd.DataFrame(data_with_na)
+print("DataFrame with missing values:")
+print(df_na)
+
+# Check for missing values
+print("\nMissing values per column:")
+print(df_na.isnull().sum())
+
+print("\nRows with any missing values:")
+print(df_na[df_na.isnull().any(axis=1)])
+
+# Handle missing values
+# Drop rows with any missing values
+df_dropped = df_na.dropna()
+print("\nAfter dropping rows with missing values:")
+print(df_dropped)
+
+# Fill missing values
+df_filled = df_na.fillna(df_na.mean(numeric_only=True))
+print("\nAfter filling with column means:")
+print(df_filled)
+
+# Forward fill
+df_ffill = df_na.fillna(method='ffill')
+print("\nAfter forward fill:")
+print(df_ffill)
+```
+
+## Grouping and Aggregation
+
+```python
+# Create larger dataset for grouping examples
+np.random.seed(42)
+courses_data = {
+    'Student': ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'] * 3,
+    'Course': ['Math', 'Science', 'English'] * 5,
+    'Score': np.random.randint(70, 100, 15),
+    'Semester': ['Fall'] * 8 + ['Spring'] * 7
+}
+
+courses_df = pd.DataFrame(courses_data)
+print("Course scores data:")
+print(courses_df)
+
+# Group by single column
+by_course = courses_df.groupby('Course')['Score'].mean()
+print("\nAverage score by course:")
+print(by_course)
+
+# Group by multiple columns
+by_course_semester = courses_df.groupby(['Course', 'Semester'])['Score'].agg(['mean', 'std', 'count'])
+print("\nStatistics by course and semester:")
+print(by_course_semester)
+
+# Multiple aggregations
+student_stats = courses_df.groupby('Student').agg({
+    'Score': ['mean', 'min', 'max'],
+    'Course': 'count'
+})
+print("\nStudent statistics:")
+print(student_stats)
+```
+
+## Data Transformation
+
+### Reshaping Data
+
+```python
+# Create sample grade data
+grades_data = {
+    'Student': ['Alice', 'Bob', 'Charlie'],
+    'Math': [85, 90, 78],
+    'Science': [92, 88, 82],
+    'English': [78, 95, 89]
+}
+
+grades_wide = pd.DataFrame(grades_data)
+print("Wide format:")
+print(grades_wide)
+
+# Convert to long format (melt)
+grades_long = grades_wide.melt(
+    id_vars=['Student'], 
+    var_name='Subject', 
+    value_name='Grade'
+)
+print("\nLong format:")
+print(grades_long)
+
+# Convert back to wide format (pivot)
+grades_wide_again = grades_long.pivot(
+    index='Student', 
+    columns='Subject', 
+    values='Grade'
+)
+print("\nBack to wide format:")
+print(grades_wide_again)
+```
+
+### Merging and Joining
+
+```python
+# Create related datasets
+student_info = pd.DataFrame({
+    'Student': ['Alice', 'Bob', 'Charlie', 'Diana'],
+    'Age': [22, 23, 21, 22],
+    'Major': ['Analytics', 'Statistics', 'Economics', 'Analytics']
+})
+
+student_grades = pd.DataFrame({
+    'Student': ['Alice', 'Bob', 'Charlie', 'Eve'],
+    'Final_Grade': [88, 92, 85, 91],
+    'Course': ['IND216', 'IND216', 'IND216', 'IND216']
+})
+
+print("Student info:")
+print(student_info)
+print("\nStudent grades:")
+print(student_grades)
+
+# Inner join (only matching records)
+inner_merged = pd.merge(student_info, student_grades, on='Student', how='inner')
+print("\nInner join:")
+print(inner_merged)
+
+# Left join (all records from left DataFrame)
+left_merged = pd.merge(student_info, student_grades, on='Student', how='left')
+print("\nLeft join:")
+print(left_merged)
+
+# Outer join (all records from both DataFrames)
+outer_merged = pd.merge(student_info, student_grades, on='Student', how='outer')
+print("\nOuter join:")
+print(outer_merged)
+```
+
+## Working with Dates and Times
+
+```python
+# Create DataFrame with date information
+date_data = {
+    'Date': ['2024-01-15', '2024-02-20', '2024-03-18', '2024-04-22'],
+    'Sales': [1200, 1500, 1300, 1600],
+    'Region': ['North', 'South', 'East', 'West']
+}
+
+sales_df = pd.DataFrame(date_data)
+print("Sales data with string dates:")
+print(sales_df)
+print(f"Date column type: {sales_df['Date'].dtype}")
+
+# Convert to datetime
+sales_df['Date'] = pd.to_datetime(sales_df['Date'])
+print(f"\nAfter conversion: {sales_df['Date'].dtype}")
+
+# Extract date components
+sales_df['Year'] = sales_df['Date'].dt.year
+sales_df['Month'] = sales_df['Date'].dt.month
+sales_df['Month_Name'] = sales_df['Date'].dt.month_name()
+sales_df['Weekday'] = sales_df['Date'].dt.day_name()
+
+print("\nWith extracted date components:")
+print(sales_df)
+
+# Date filtering
+q1_sales = sales_df[sales_df['Date'] < '2024-04-01']
+print("\nQ1 sales:")
+print(q1_sales)
+```
+
+## Reading and Writing Data
+
+### CSV Files
+
+```python
+# Write DataFrame to CSV
+df.to_csv('student_data.csv', index=False)
+print("Data written to student_data.csv")
+
+# Read CSV file
+df_from_csv = pd.read_csv('student_data.csv')
+print("Data read from CSV:")
+print(df_from_csv.head())
+
+# Reading with specific options
+df_custom = pd.read_csv(
+    'student_data.csv',
+    usecols=['Name', 'GPA'],  # Only specific columns
+    nrows=3                   # Only first 3 rows
+)
+print("\nCustom read (specific columns, limited rows):")
+print(df_custom)
+```
+
+### Excel Files
+
+```python
+# Write to Excel (requires openpyxl: pip install openpyxl)
+try:
+    df.to_excel('student_data.xlsx', sheet_name='Students', index=False)
+    print("Data written to Excel file")
+    
+    # Read from Excel
+    df_from_excel = pd.read_excel('student_data.xlsx', sheet_name='Students')
+    print("Data read from Excel:")
+    print(df_from_excel.head())
+except ImportError:
+    print("Excel functionality requires openpyxl package")
+```
+
+### JSON Files
+
+```python
+# Write to JSON
+df.to_json('student_data.json', orient='records', indent=2)
+print("Data written to JSON file")
+
+# Read from JSON
+df_from_json = pd.read_json('student_data.json')
+print("Data read from JSON:")
+print(df_from_json.head())
+```
+
+## Data Analysis Examples
+
+### Descriptive Analysis
+
+```python
+# Create larger dataset for analysis
+np.random.seed(42)
+sales_data = pd.DataFrame({
+    'Date': pd.date_range('2024-01-01', periods=90, freq='D'),
+    'Region': np.random.choice(['North', 'South', 'East', 'West'], 90),
+    'Product': np.random.choice(['A', 'B', 'C'], 90),
+    'Sales': np.random.normal(1000, 200, 90),
+    'Units': np.random.poisson(50, 90)
+})
+
+print("Sales dataset:")
+print(sales_data.head())
+
+# Summary statistics
+print("\nSummary statistics:")
+print(sales_data.describe())
+
+# Analysis by region
+print("\nSales by region:")
+regional_analysis = sales_data.groupby('Region').agg({
+    'Sales': ['mean', 'sum', 'count'],
+    'Units': ['mean', 'sum']
+}).round(2)
+print(regional_analysis)
+
+# Time series analysis
+sales_data['Month'] = sales_data['Date'].dt.month
+monthly_sales = sales_data.groupby('Month')['Sales'].sum()
+print("\nMonthly sales totals:")
+print(monthly_sales)
+```
+
+### Data Quality Assessment
+
+```python
+# Check data quality
+print("Data quality assessment:")
+print(f"Shape: {sales_data.shape}")
+print(f"Missing values:\n{sales_data.isnull().sum()}")
+print(f"Duplicate rows: {sales_data.duplicated().sum()}")
+
+# Check for outliers using IQR method
+def find_outliers(data, column):
+    Q1 = data[column].quantile(0.25)
+    Q3 = data[column].quantile(0.75)
+    IQR = Q3 - Q1
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+    outliers = data[(data[column] < lower_bound) | (data[column] > upper_bound)]
+    return outliers
+
+sales_outliers = find_outliers(sales_data, 'Sales')
+print(f"\nSales outliers: {len(sales_outliers)} rows")
+if len(sales_outliers) > 0:
+    print(sales_outliers[['Date', 'Region', 'Sales']].head())
+```
+
+## Exercise: Comprehensive Data Analysis
+
+::: {.exercise-box}
+### Exercise 1: Student Performance Dashboard
+
+Create a comprehensive analysis of student performance:
+
+```python
+# Sample student data
+student_performance = pd.DataFrame({
+    'StudentID': range(1, 101),
+    'Name': [f'Student_{i}' for i in range(1, 101)],
+    'Major': np.random.choice(['Analytics', 'Statistics', 'Economics', 'Mathematics'], 100),
+    'Year': np.random.choice([1, 2, 3, 4], 100),
+    'Math_Score': np.random.normal(80, 10, 100),
+    'Science_Score': np.random.normal(75, 12, 100),
+    'English_Score': np.random.normal(82, 8, 100),
+    'Credits_Completed': np.random.randint(30, 120, 100)
+})
+
+# Tasks:
+# 1. Calculate overall GPA for each student (average of three scores)
+# 2. Find the top 10 students by overall GPA
+# 3. Analyze performance by major and year
+# 4. Identify students who may need academic support (GPA < 70)
+# 5. Create a summary report showing:
+#    - Average scores by major
+#    - Distribution of students by year
+#    - Correlation between different subjects
+```
+:::
+
+::: {.exercise-box}
+### Exercise 2: Sales Data Analysis
+
+Analyze sales performance across different dimensions:
+
+```python
+# Sales dataset
+sales_analysis = pd.DataFrame({
+    'Date': pd.date_range('2023-01-01', '2023-12-31', freq='D'),
+    'Region': np.random.choice(['North', 'South', 'East', 'West'], 365),
+    'Product_Category': np.random.choice(['Electronics', 'Clothing', 'Books', 'Home'], 365),
+    'Sales_Amount': np.random.gamma(2, 500, 365),
+    'Units_Sold': np.random.poisson(25, 365),
+    'Customer_Satisfaction': np.random.normal(4.2, 0.5, 365)
+})
+
+# Tasks:
+# 1. Calculate monthly and quarterly sales totals
+# 2. Find the best and worst performing regions
+# 3. Analyze seasonal trends in sales
+# 4. Determine which product categories are most profitable
+# 5. Examine relationship between units sold and customer satisfaction
+# 6. Create a pivot table showing sales by region and product category
+```
+:::
+
+## Performance Tips for Large Datasets
+
+### Memory Optimization
+
+```python
+# Check memory usage
+print("Memory usage:")
+print(df.memory_usage(deep=True))
+
+# Optimize data types
+def optimize_dataframe(df):
+    """Optimize DataFrame memory usage."""
+    start_mem = df.memory_usage(deep=True).sum() / 1024**2
+    
+    for col in df.columns:
+        col_type = df[col].dtype
+        
+        if col_type != object:
+            c_min = df[col].min()
+            c_max = df[col].max()
+            
+            if str(col_type)[:3] == 'int':
+                if c_min > np.iinfo(np.int8).min and c_max < np.iinfo(np.int8).max:
+                    df[col] = df[col].astype(np.int8)
+                elif c_min > np.iinfo(np.int16).min and c_max < np.iinfo(np.int16).max:
+                    df[col] = df[col].astype(np.int16)
+                elif c_min > np.iinfo(np.int32).min and c_max < np.iinfo(np.int32).max:
+                    df[col] = df[col].astype(np.int32)
+            
+            else:
+                if c_min > np.finfo(np.float32).min and c_max < np.finfo(np.float32).max:
+                    df[col] = df[col].astype(np.float32)
+    
+    end_mem = df.memory_usage(deep=True).sum() / 1024**2
+    print(f'Memory usage decreased from {start_mem:.2f} MB to {end_mem:.2f} MB')
+    return df
+
+# Example usage (commented out as it modifies the DataFrame)
+# df_optimized = optimize_dataframe(df.copy())
+```
+
+### Efficient Operations
+
+```python
+# Use vectorized operations instead of loops
+# Inefficient
+def calculate_grade_slow(df):
+    grades = []
+    for index, row in df.iterrows():
+        if row['GPA'] >= 3.7:
+            grades.append('A')
+        elif row['GPA'] >= 3.3:
+            grades.append('B')
+        else:
+            grades.append('C')
+    return grades
+
+# Efficient
+def calculate_grade_fast(df):
+    return pd.cut(df['GPA'], 
+                  bins=[0, 3.3, 3.7, 4.0], 
+                  labels=['C', 'B', 'A'])
+
+# Use .loc for conditional assignments
+df.loc[df['GPA'] >= 3.7, 'Letter_Grade'] = 'A'
+df.loc[(df['GPA'] >= 3.3) & (df['GPA'] < 3.7), 'Letter_Grade'] = 'B'
+df.loc[df['GPA'] < 3.3, 'Letter_Grade'] = 'C'
+
+print("Efficient grade assignment:")
+print(df[['Name', 'GPA', 'Letter_Grade']])
+```
+
+## Next Steps
+
+You now have a solid foundation in data management with Pandas. These skills form the backbone of data analysis workflows in Python. The combination of Python objects, NumPy arrays, and Pandas DataFrames gives you powerful tools for:
+
+- Data loading and cleaning
+- Exploratory data analysis
+- Data transformation and aggregation
+- Statistical analysis and reporting
+
+Continue practicing with real datasets to solidify these concepts and explore more advanced Pandas features as needed for your analytics projects.
+
+## Quick Reference
+
+```python
+# DataFrame creation
+pd.DataFrame(data)              # From dictionary, list, etc.
+pd.read_csv('file.csv')         # From CSV file
+pd.read_excel('file.xlsx')      # From Excel file
+
+# Data selection
+df['column']                    # Select column
+df[['col1', 'col2']]           # Select multiple columns
+df.iloc[0:5]                   # Select by position
+df.loc[df['col'] > 5]          # Select by condition
+
+# Data manipulation
+df.groupby('column').mean()     # Group and aggregate
+df.merge(other, on='key')       # Merge DataFrames
+df.pivot(index, columns, values) # Reshape data
+df.sort_values('column')        # Sort data
+
+# Data cleaning
+df.dropna()                     # Remove missing values
+df.fillna(value)               # Fill missing values
+df.drop_duplicates()           # Remove duplicates
+
+# File I/O
+df.to_csv('file.csv')          # Write to CSV
+df.to_excel('file.xlsx')       # Write to Excel
+df.to_json('file.json')        # Write to JSON
+```

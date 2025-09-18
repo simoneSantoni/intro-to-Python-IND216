@@ -1,0 +1,113 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+
+website:
+  title: "IND216 - Introduction to Python"
+  description: "MSc Module on Python Programming for Analytics - Learn Python for data wrangling and scientific computing"
+  site-url: https://simonesantoni.github.io/intro-to-Python-IND216
+  repo-url: https://github.com/simoneSantoni/intro-to-Python-IND216
+
+  page-navigation: true
+
+  #navbar:
+  #  background: primary
+  #  search: true
+  #  left:
+  #    - text: "IND216"
+  #      href: index.qmd
+  #    - text: "Schedule"
+  #      href: course-schedule.qmd
+  #    - text: "Syllabus"
+  #      href: course-syllabus.qmd
+  #    - text: "Support"
+  #      href: course-support.qmd
+  #  right:
+  #    - icon: github
+  #      href: https://github.com/simoneSantoni/intro-to-Python-IND216
+
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - section: "Course Information"
+        contents:
+          - text: "Overview"
+            href: index.qmd
+          - text: "Syllabus"
+            href: course-syllabus.qmd
+          - text: "Schedule"
+            href: course-schedule.qmd
+          - text: "Support"
+            href: course-support.qmd
+          - text: "Resources"
+            href: course-resources.qmd
+
+      - section: "Module 1: Getting Started"
+        contents:
+          - text: "Installation & Setup"
+            href: getting-started.qmd
+          - text: "Exercises"
+            href: modules/module1-exercises.qmd
+
+      - section: "Module 2: Python Objects"
+        contents:
+          - text: "Data Types & Control Flow"
+            href: python-objects.qmd
+          - text: "Exercises"
+            href: modules/module2-exercises.qmd
+
+      - section: "Module 3: NumPy"
+        contents:
+          - text: "Arrays & Operations"
+            href: numpy-computation.qmd
+          - text: "Exercises"
+            href: modules/module3-exercises.qmd
+
+      - section: "Module 4: Pandas"
+        contents:
+          - text: "DataFrames & Series"
+            href: pandas-data.qmd
+          - text: "Exercises"
+            href: modules/module4-exercises.qmd
+
+      - section: "Module 5: Applied Examples"
+        contents:
+          - text: "Case Studies"
+            href: modules/module5-cases.qmd
+          - text: "Best Practices"
+            href: modules/module5-practices.qmd
+
+  page-footer:
+    left: |
+      &copy; 2025 Simone Santoni
+    center: |
+      [IND216 - Introduction to Python](https://github.com/simoneSantoni/intro-to-Python-IND216)
+    right: |
+      Made with [Quarto](https://quarto.org/)
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss]
+      dark: [cosmo, theme-dark.scss]
+    mainfont: "Atkinson Hyperlegible"
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    number-sections: false
+    number-depth: 3
+    callout-appearance: simple
+    callout-icon: false
+    citations-hover: true
+    footnotes-hover: true
+
+execute:
+  freeze: auto
+  echo: true
+  warning: false
+  message: false

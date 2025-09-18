@@ -1,0 +1,541 @@
+---
+title: "Technical & Scientific Computation with NumPy"
+---
+
+## Introduction
+
+NumPy (Numerical Python) is the foundation of the Python scientific computing ecosystem. It provides efficient operations on large arrays of data, making it essential for analytics work. This module covers the core NumPy concepts you'll use for numerical computing and data manipulation.
+
+## Why NumPy?
+
+NumPy offers significant advantages over pure Python for numerical work:
+
+- **Performance**: Operations are implemented in C, making them much faster
+- **Memory efficiency**: Arrays use less memory than Python lists
+- **Vectorization**: Apply operations to entire arrays without writing loops
+- **Broadcasting**: Perform operations on arrays of different shapes
+- **Foundation**: Base for pandas, matplotlib, scikit-learn, and other analytics libraries
+
+```python
+import numpy as np
+import time
+
+# Performance comparison
+python_list = list(range(1000000))
+numpy_array = np.arange(1000000)
+
+# Time Python list operation
+start = time.time()
+python_result = [x * 2 for x in python_list]
+python_time = time.time() - start
+
+# Time NumPy array operation
+start = time.time()
+numpy_result = numpy_array * 2
+numpy_time = time.time() - start
+
+print(f"Python list time: {python_time:.4f} seconds")
+print(f"NumPy array time: {numpy_time:.4f} seconds")
+print(f"NumPy is {python_time/numpy_time:.1f}x faster")
+```
+
+## Creating NumPy Arrays
+
+### From Python Lists
+
+```python
+import numpy as np
+
+# 1D arrays
+numbers = np.array([1, 2, 3, 4, 5])
+print(f"1D array: {numbers}")
+print(f"Shape: {numbers.shape}")
+print(f"Data type: {numbers.dtype}")
+
+# 2D arrays (matrices)
+matrix = np.array([[1, 2, 3], 
+                   [4, 5, 6], 
+                   [7, 8, 9]])
+print(f"2D array:\n{matrix}")
+print(f"Shape: {matrix.shape}")  # (rows, columns)
+```
+
+### Array Creation Functions
+
+```python
+# Arrays of zeros and ones
+zeros = np.zeros((3, 4))        # 3x4 array of zeros
+ones = np.ones((2, 3))          # 2x3 array of ones
+identity = np.eye(3)            # 3x3 identity matrix
+
+print(f"Zeros:\n{zeros}")
+print(f"Ones:\n{ones}")
+print(f"Identity:\n{identity}")
+
+# Arrays with specific values
+full_array = np.full((2, 3), 7)  # 2x3 array filled with 7
+print(f"Full array:\n{full_array}")
+
+# Sequences
+sequence = np.arange(0, 10, 2)   # Start, stop, step
+linspace = np.linspace(0, 1, 5)  # 5 evenly spaced values from 0 to 1
+
+print(f"Sequence: {sequence}")
+print(f"Linspace: {linspace}")
+```
+
+### Random Arrays
+
+```python
+# Set random seed for reproducibility
+np.random.seed(42)
+
+# Random arrays
+random_uniform = np.random.random((2, 3))       # Uniform [0, 1)
+random_normal = np.random.normal(0, 1, (2, 3))  # Normal distribution
+random_integers = np.random.randint(1, 10, (2, 3))  # Random integers
+
+print(f"Random uniform:\n{random_uniform}")
+print(f"Random normal:\n{random_normal}")
+print(f"Random integers:\n{random_integers}")
+```
+
+## Array Properties and Attributes
+
+```python
+# Create sample array
+data = np.array([[1, 2, 3, 4],
+                 [5, 6, 7, 8],
+                 [9, 10, 11, 12]])
+
+# Array properties
+print(f"Array:\n{data}")
+print(f"Shape: {data.shape}")        # (rows, columns)
+print(f"Size: {data.size}")          # Total number of elements
+print(f"Dimensions: {data.ndim}")    # Number of dimensions
+print(f"Data type: {data.dtype}")    # Data type of elements
+print(f"Item size: {data.itemsize}") # Size of each element in bytes
+```
+
+## Array Indexing and Slicing
+
+### Basic Indexing
+
+```python
+# 1D array indexing
+arr_1d = np.array([10, 20, 30, 40, 50])
+
+print(f"First element: {arr_1d[0]}")
+print(f"Last element: {arr_1d[-1]}")
+print(f"First three: {arr_1d[:3]}")
+print(f"Every other: {arr_1d[::2]}")
+
+# 2D array indexing
+arr_2d = np.array([[1, 2, 3],
+                   [4, 5, 6],
+                   [7, 8, 9]])
+
+print(f"Element at row 1, col 2: {arr_2d[1, 2]}")
+print(f"First row: {arr_2d[0, :]}")
+print(f"Second column: {arr_2d[:, 1]}")
+print(f"Top-left 2x2:\n{arr_2d[:2, :2]}")
+```
+
+### Boolean Indexing
+
+```python
+# Create sample data
+grades = np.array([85, 92, 78, 96, 88, 73, 94])
+
+# Boolean conditions
+high_grades = grades > 90
+print(f"High grade mask: {high_grades}")
+print(f"High grades: {grades[high_grades]}")
+
+# Multiple conditions
+good_grades = (grades >= 80) & (grades < 95)
+print(f"Good grades (80-94): {grades[good_grades]}")
+
+# Modify based on condition
+grades_copy = grades.copy()
+grades_copy[grades_copy < 80] = 80  # Curve grades below 80
+print(f"Curved grades: {grades_copy}")
+```
+
+## Array Operations
+
+### Arithmetic Operations
+
+```python
+# Create sample arrays
+a = np.array([1, 2, 3, 4])
+b = np.array([10, 20, 30, 40])
+
+# Element-wise operations
+print(f"Addition: {a + b}")
+print(f"Subtraction: {a - b}")
+print(f"Multiplication: {a * b}")
+print(f"Division: {a / b}")
+print(f"Power: {a ** 2}")
+
+# Operations with scalars
+print(f"Add 10: {a + 10}")
+print(f"Multiply by 2: {a * 2}")
+```
+
+### Mathematical Functions
+
+```python
+# Sample data
+angles = np.array([0, np.pi/6, np.pi/4, np.pi/3, np.pi/2])
+values = np.array([1, 4, 9, 16, 25])
+
+# Trigonometric functions
+print(f"Sine: {np.sin(angles)}")
+print(f"Cosine: {np.cos(angles)}")
+
+# Other mathematical functions
+print(f"Square root: {np.sqrt(values)}")
+print(f"Natural log: {np.log(values)}")
+print(f"Exponential: {np.exp([1, 2, 3])}")
+
+# Rounding
+decimals = np.array([1.234, 2.567, 3.891])
+print(f"Round to 2 decimals: {np.round(decimals, 2)}")
+print(f"Floor: {np.floor(decimals)}")
+print(f"Ceiling: {np.ceil(decimals)}")
+```
+
+## Statistical Functions
+
+```python
+# Sample dataset: test scores
+scores = np.array([[85, 92, 78, 96],
+                   [88, 74, 91, 83],
+                   [92, 89, 95, 87],
+                   [76, 82, 88, 90]])
+
+print(f"Test scores:\n{scores}")
+
+# Basic statistics
+print(f"Mean: {np.mean(scores):.2f}")
+print(f"Median: {np.median(scores):.2f}")
+print(f"Standard deviation: {np.std(scores):.2f}")
+print(f"Variance: {np.var(scores):.2f}")
+print(f"Min: {np.min(scores)}")
+print(f"Max: {np.max(scores)}")
+
+# Statistics along axes
+print(f"Mean by student (rows): {np.mean(scores, axis=1)}")
+print(f"Mean by test (columns): {np.mean(scores, axis=0)}")
+
+# Percentiles
+print(f"25th percentile: {np.percentile(scores, 25)}")
+print(f"75th percentile: {np.percentile(scores, 75)}")
+```
+
+## Array Reshaping and Manipulation
+
+### Reshaping Arrays
+
+```python
+# Create array and reshape
+original = np.arange(12)
+print(f"Original: {original}")
+
+# Reshape to different dimensions
+matrix_3x4 = original.reshape(3, 4)
+matrix_2x6 = original.reshape(2, 6)
+matrix_4x3 = original.reshape(4, 3)
+
+print(f"3x4 matrix:\n{matrix_3x4}")
+print(f"2x6 matrix:\n{matrix_2x6}")
+print(f"4x3 matrix:\n{matrix_4x3}")
+
+# Flatten back to 1D
+flattened = matrix_3x4.flatten()
+print(f"Flattened: {flattened}")
+```
+
+### Stacking and Splitting
+
+```python
+# Create sample arrays
+a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6], [7, 8]])
+
+# Stacking arrays
+vertical_stack = np.vstack([a, b])    # Stack vertically
+horizontal_stack = np.hstack([a, b])  # Stack horizontally
+
+print(f"Array a:\n{a}")
+print(f"Array b:\n{b}")
+print(f"Vertical stack:\n{vertical_stack}")
+print(f"Horizontal stack:\n{horizontal_stack}")
+
+# Splitting arrays
+data = np.arange(10)
+split_data = np.split(data, 5)  # Split into 5 equal parts
+print(f"Original: {data}")
+print(f"Split: {split_data}")
+```
+
+## Broadcasting
+
+Broadcasting allows operations between arrays of different shapes.
+
+```python
+# Broadcasting examples
+matrix = np.array([[1, 2, 3],
+                   [4, 5, 6],
+                   [7, 8, 9]])
+
+row_vector = np.array([10, 20, 30])
+col_vector = np.array([[1], [2], [3]])
+
+print(f"Matrix:\n{matrix}")
+print(f"Row vector: {row_vector}")
+print(f"Col vector:\n{col_vector}")
+
+# Broadcasting operations
+print(f"Matrix + row vector:\n{matrix + row_vector}")
+print(f"Matrix + col vector:\n{matrix + col_vector}")
+
+# Practical example: normalizing data
+data = np.array([[1, 2, 3],
+                 [4, 5, 6],
+                 [7, 8, 9]])
+
+# Normalize each column (subtract mean, divide by std)
+column_means = np.mean(data, axis=0)
+column_stds = np.std(data, axis=0)
+normalized = (data - column_means) / column_stds
+
+print(f"Original data:\n{data}")
+print(f"Column means: {column_means}")
+print(f"Normalized data:\n{normalized}")
+```
+
+## Linear Algebra with NumPy
+
+```python
+# Matrix operations
+A = np.array([[1, 2], 
+              [3, 4]])
+B = np.array([[5, 6], 
+              [7, 8]])
+
+# Matrix multiplication
+matrix_product = np.dot(A, B)  # or A @ B
+print(f"Matrix A:\n{A}")
+print(f"Matrix B:\n{B}")
+print(f"A × B:\n{matrix_product}")
+
+# Matrix properties
+print(f"Determinant of A: {np.linalg.det(A):.2f}")
+print(f"Trace of A: {np.trace(A)}")
+
+# Eigenvalues and eigenvectors
+eigenvalues, eigenvectors = np.linalg.eig(A)
+print(f"Eigenvalues: {eigenvalues}")
+print(f"Eigenvectors:\n{eigenvectors}")
+
+# Solving linear systems: Ax = b
+b = np.array([5, 11])
+x = np.linalg.solve(A, b)
+print(f"Solution to Ax = b: {x}")
+print(f"Verification Ax = {A @ x}")
+```
+
+## Working with Real Data
+
+### Loading and Saving Data
+
+```python
+# Create sample dataset
+sales_data = np.array([[120, 150, 180, 200],
+                       [110, 130, 160, 190],
+                       [100, 140, 170, 210],
+                       [130, 160, 190, 220]])
+
+# Save to file
+np.save('sales_data.npy', sales_data)
+np.savetxt('sales_data.csv', sales_data, delimiter=',', fmt='%d')
+
+# Load from file
+loaded_data = np.load('sales_data.npy')
+csv_data = np.loadtxt('sales_data.csv', delimiter=',')
+
+print(f"Original data:\n{sales_data}")
+print(f"Loaded data:\n{loaded_data}")
+print(f"CSV data:\n{csv_data}")
+```
+
+### Data Analysis Example
+
+```python
+# Simulate temperature data for a year
+np.random.seed(42)
+days = np.arange(1, 366)  # 365 days
+base_temp = 20 + 15 * np.sin(2 * np.pi * days / 365)  # Seasonal variation
+noise = np.random.normal(0, 3, 365)  # Random variation
+temperatures = base_temp + noise
+
+# Analysis
+print(f"Temperature Statistics:")
+print(f"Mean: {np.mean(temperatures):.1f}°C")
+print(f"Min: {np.min(temperatures):.1f}°C (Day {np.argmin(temperatures) + 1})")
+print(f"Max: {np.max(temperatures):.1f}°C (Day {np.argmax(temperatures) + 1})")
+print(f"Standard deviation: {np.std(temperatures):.1f}°C")
+
+# Monthly averages (assuming 30 days per month)
+monthly_temps = temperatures[:360].reshape(12, 30)  # First 360 days
+monthly_averages = np.mean(monthly_temps, axis=1)
+
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+print(f"\nMonthly Averages:")
+for month, avg_temp in zip(months, monthly_averages):
+    print(f"{month}: {avg_temp:.1f}°C")
+```
+
+## Exercise: NumPy Data Analysis
+
+::: {.exercise-box}
+### Exercise 1: Student Performance Analysis
+
+You have test scores for a class of students across multiple subjects:
+
+```python
+# Student scores: rows = students, columns = subjects
+# Subjects: Math, Science, English, History
+scores = np.array([[85, 92, 78, 88],
+                   [90, 88, 95, 87],
+                   [75, 82, 89, 84],
+                   [88, 94, 91, 93],
+                   [92, 85, 87, 90],
+                   [78, 79, 83, 81]])
+
+subjects = ['Math', 'Science', 'English', 'History']
+
+# Tasks:
+# 1. Calculate each student's average score
+# 2. Find the class average for each subject
+# 3. Identify the highest and lowest scoring student overall
+# 4. Find which subject has the highest average
+# 5. Normalize scores by subject (subtract mean, divide by std)
+```
+:::
+
+::: {.exercise-box}
+### Exercise 2: Sales Data Analysis
+
+Analyze quarterly sales data:
+
+```python
+# Sales data: rows = quarters, columns = regions
+# Regions: North, South, East, West
+quarterly_sales = np.array([[120, 130, 110, 140],
+                           [125, 135, 115, 145],
+                           [130, 140, 120, 150],
+                           [135, 145, 125, 155]])
+
+# Tasks:
+# 1. Calculate total sales by quarter and by region
+# 2. Find growth rate between quarters
+# 3. Identify the best performing region
+# 4. Calculate what percentage each region contributes to total sales
+```
+:::
+
+## Performance Tips
+
+### Vectorization vs Loops
+
+```python
+# Inefficient: Python loop
+def slow_calculation(data):
+    result = []
+    for x in data:
+        result.append(x**2 + 2*x + 1)
+    return np.array(result)
+
+# Efficient: NumPy vectorization
+def fast_calculation(data):
+    return data**2 + 2*data + 1
+
+# Test with large array
+large_data = np.random.random(100000)
+
+# Time both approaches
+import time
+
+start = time.time()
+slow_result = slow_calculation(large_data)
+slow_time = time.time() - start
+
+start = time.time()
+fast_result = fast_calculation(large_data)
+fast_time = time.time() - start
+
+print(f"Loop time: {slow_time:.4f} seconds")
+print(f"Vectorized time: {fast_time:.4f} seconds")
+print(f"Speedup: {slow_time/fast_time:.1f}x")
+```
+
+### Memory Efficiency
+
+```python
+# Memory-efficient operations
+large_array = np.random.random((1000, 1000))
+
+# In-place operations save memory
+large_array *= 2  # More efficient than: large_array = large_array * 2
+
+# Use views instead of copies when possible
+subset = large_array[:100, :100]  # This is a view, not a copy
+subset_copy = large_array[:100, :100].copy()  # This creates a copy
+
+print(f"Original array shape: {large_array.shape}")
+print(f"Subset shares memory: {np.shares_memory(large_array, subset)}")
+print(f"Copy shares memory: {np.shares_memory(large_array, subset_copy)}")
+```
+
+## Next Steps
+
+NumPy provides the foundation for efficient numerical computing in Python. The vectorized operations and array-based thinking you've learned here will be essential as we move to Pandas for data management. Continue to [Data Management with Pandas](pandas-data.qmd) to learn how to work with structured, labeled data.
+
+## Quick Reference
+
+```python
+# Array creation
+np.array([1, 2, 3])         # From list
+np.zeros((3, 4))            # Array of zeros
+np.ones((2, 3))             # Array of ones
+np.arange(0, 10, 2)         # Sequence
+np.linspace(0, 1, 5)        # Evenly spaced values
+np.random.random((2, 3))    # Random array
+
+# Array properties
+arr.shape                   # Dimensions
+arr.size                    # Total elements
+arr.dtype                   # Data type
+
+# Indexing and slicing
+arr[0]                      # First element
+arr[-1]                     # Last element
+arr[1:4]                    # Slice
+arr[arr > 5]                # Boolean indexing
+
+# Operations
+arr1 + arr2                 # Element-wise addition
+arr * 2                     # Scalar multiplication
+np.dot(arr1, arr2)          # Matrix multiplication
+
+# Statistics
+np.mean(arr)                # Mean
+np.std(arr)                 # Standard deviation
+np.min(arr)                 # Minimum
+np.max(arr)                 # Maximum
+```

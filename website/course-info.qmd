@@ -1,0 +1,105 @@
+---
+title: "Course Information"
+---
+
+## Course Overview
+
+IND216 - Introduction to Python for Analytics is designed specifically for MSc students in analytics who want to develop practical programming skills for data analysis. This course provides a foundation in Python programming with a focus on the tools and techniques most relevant to data science and analytics work.
+
+## Learning Philosophy
+
+This course takes a practical, hands-on approach to learning Python. Rather than covering every aspect of the language, we focus on the core concepts and libraries that analytics professionals use daily:
+
+- **Practical Focus**: Learn by doing with real-world examples and exercises
+- **Analytics-Oriented**: Emphasis on data manipulation, analysis, and visualization
+- **Progressive Learning**: Build skills incrementally from basic concepts to advanced applications
+- **Modern Tools**: Use current best practices and industry-standard libraries
+
+## Course Structure
+
+The course is organized into five substantive modules:
+
+### Module 1: Getting Started with Python
+- Python installation and setup
+- Development environments (Jupyter, VS Code)
+- Basic syntax and programming concepts
+- Writing and running Python scripts
+
+### Module 2: Python Objects
+- Data types (numbers, strings, lists, dictionaries)
+- Control flow (if statements, loops)
+- Functions and modules
+- File handling and I/O operations
+
+### Module 3: Technical & Scientific Computation with NumPy
+- Introduction to NumPy arrays
+- Array operations and broadcasting
+- Mathematical functions and linear algebra
+- Performance considerations for numerical computing
+
+### Module 4: Data Management with Pandas
+- DataFrames and Series
+- Reading and writing data files
+- Data cleaning and transformation
+- Grouping, merging, and reshaping data
+
+## Learning Objectives
+
+By the end of this course, students will be able to:
+
+1. **Set up and manage Python environments** for data analysis projects
+2. **Write clean, efficient Python code** using best practices
+3. **Manipulate and analyze data** using NumPy arrays for numerical computing
+4. **Process and transform datasets** using Pandas DataFrames
+5. **Develop reproducible data analysis workflows** from raw data to insights
+6. **Debug and troubleshoot** common programming issues
+7. **Apply object-oriented programming concepts** where appropriate for analytics tasks
+
+## Prerequisites
+
+- **No prior programming experience required**
+- Basic computer literacy (file management, using applications)
+- Willingness to learn through trial and error
+- Access to a computer for hands-on practice
+
+## Software Requirements
+
+- **Python 3.8+** (we recommend Python 3.9 or 3.10)
+- **Anaconda distribution** (includes Jupyter, NumPy, Pandas, and other essential packages)
+- **Text editor or IDE** (Jupyter Lab, VS Code, or PyCharm)
+- **Git** for version control (optional but recommended)
+
+## Assessment and Practice
+
+This course emphasizes practical skill development through:
+
+- **Interactive exercises** embedded in each module
+- **Hands-on coding assignments** using real datasets
+- **Progressive projects** that build on previous concepts
+- **Self-assessment opportunities** to check understanding
+
+## Getting Help
+
+- Use the course materials and examples as your first reference
+- Practice with the provided exercises and datasets
+- Consult Python documentation and community resources
+- Ask questions during class sessions or office hours
+
+## Success Tips
+
+1. **Practice regularly**: Programming is a skill that improves with consistent practice
+2. **Start small**: Begin with simple examples and gradually tackle more complex problems
+3. **Read error messages**: They often contain helpful information about what went wrong
+4. **Use online resources**: The Python community has excellent documentation and tutorials
+5. **Don't be afraid to experiment**: Try different approaches and see what works
+
+## Course Resources
+
+- **Official Python Documentation**: [python.org](https://docs.python.org/)
+- **NumPy Documentation**: [numpy.org](https://numpy.org/doc/)
+- **Pandas Documentation**: [pandas.pydata.org](https://pandas.pydata.org/docs/)
+- **Jupyter Project**: [jupyter.org](https://jupyter.org/)
+
+## Next Steps
+
+Ready to begin? Start with [Getting Started with Python](getting-started.qmd) to set up your development environment and write your first Python programs.

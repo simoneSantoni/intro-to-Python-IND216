@@ -1,0 +1,290 @@
+---
+title: "Course Support"
+---
+
+## Getting Help
+
+Learning to program can be challenging, but you don't have to do it alone. This page provides information about all the support resources available to help you succeed in IND216.
+
+### Quick Help Guide
+
+::: {.callout-tip}
+**Where to get help**:
+- **Installation issues** → Office hours or lab sessions
+- **Coding questions** → Course forum, then office hours
+- **Conceptual questions** → Lecture Q&A or course forum
+- **Project guidance** → Schedule appointment with instructor
+- **Technical emergencies** → Email instructor directly
+:::
+
+## Support Resources
+
+### Office Hours
+
+**Regular Schedule**:
+- **Tuesdays**: 2:00-4:00 PM
+- **Thursdays**: 2:00-4:00 PM
+- **Location**: Office 312 or via Zoom
+
+No appointment needed during regular hours. Come with:
+- Specific questions prepared
+- Code attempts you've made
+- Error messages documented
+
+**By Appointment**:
+For longer discussions or project consultations, email to schedule a meeting outside regular hours.
+
+### Lab Support Sessions
+
+**Scheduled Labs**:
+- **Wednesdays**: 10:00 AM - 12:00 PM (structured lab)
+- **Fridays**: 2:00-4:00 PM (open support)
+- **Location**: Computer Lab 201
+
+Lab sessions provide:
+- Hands-on guidance with exercises
+- Troubleshooting assistance
+- Peer collaboration opportunities
+- TA support
+
+### Course Forum
+
+Access the course forum through the website for:
+- Asking questions (conceptual or technical)
+- Sharing helpful resources
+- Discussing course material
+- Finding study partners
+
+**Forum Guidelines**:
+1. Search before posting (your question may be answered)
+2. Use descriptive titles
+3. Include error messages and code snippets
+4. Be respectful and helpful
+5. Don't share complete assignment solutions
+
+### Email Support
+
+**Email**: instructor@university.edu
+
+**When to email**:
+- Personal matters (illness, accommodations)
+- Scheduling appointments
+- Urgent technical issues
+- Administrative questions
+
+**Response time**: 24-48 hours on weekdays
+
+**Email tips**:
+- Use clear subject line: "IND216: [Topic]"
+- Include your student ID
+- Be specific about your issue
+- Attach relevant files if needed
+
+## Common Issues and Solutions
+
+### Installation Problems
+
+::: {.callout-warning}
+**Common Installation Issues**:
+
+**Problem**: Anaconda won't install
+- **Solution**: Check system requirements, disable antivirus temporarily, run as administrator
+
+**Problem**: Jupyter won't start
+- **Solution**: Update Anaconda, check firewall settings, try different browser
+
+**Problem**: Packages won't import
+- **Solution**: Verify installation with `conda list`, reinstall package, check environment
+:::
+
+### Coding Challenges
+
+**"I don't know where to start"**:
+1. Break the problem into smaller steps
+2. Write pseudocode first
+3. Start with the simplest part
+4. Use print statements to debug
+5. Look at similar examples
+
+**"My code doesn't work"**:
+1. Read error messages carefully
+2. Check for typos and syntax errors
+3. Verify data types
+4. Test with simple inputs
+5. Use debugging tools
+
+**"I don't understand the concept"**:
+1. Review lecture notes
+2. Try additional examples
+3. Watch supplementary videos
+4. Ask on the forum
+5. Attend office hours
+
+## Study Resources
+
+### Recommended Learning Path
+
+1. **Before Class**:
+   - Review previous material
+   - Read assigned sections
+   - Note questions
+
+2. **During Class**:
+   - Take active notes
+   - Try examples
+   - Ask questions
+
+3. **After Class**:
+   - Review notes same day
+   - Complete exercises
+   - Practice additional problems
+
+### Online Resources
+
+**Official Documentation**:
+- [Python.org Documentation](https://docs.python.org/3/)
+- [NumPy User Guide](https://numpy.org/doc/stable/user/)
+- [Pandas User Guide](https://pandas.pydata.org/docs/user_guide/)
+
+**Interactive Learning**:
+- [Python Tutor Visualizer](http://pythontutor.com/)
+- [Jupyter Notebooks Gallery](https://github.com/jupyter/jupyter/wiki)
+- [Real Python Tutorials](https://realpython.com/)
+
+**Video Tutorials**:
+- [Corey Schafer Python Series](https://www.youtube.com/user/schafer5)
+- [3Blue1Brown (Math concepts)](https://www.youtube.com/c/3blue1brown)
+
+**Practice Platforms**:
+- [HackerRank Python](https://www.hackerrank.com/domains/python)
+- [LeetCode](https://leetcode.com/)
+- [Project Euler](https://projecteuler.net/)
+
+### Peer Support
+
+**Study Groups**:
+- Form groups of 3-4 students
+- Meet regularly to review material
+- Work through problems together
+- Share different approaches
+
+**Peer Tutoring**:
+- Advanced students available for tutoring
+- Sign up through course website
+- Free service for enrolled students
+
+## Mental Health and Wellbeing
+
+Programming can be frustrating at times. Remember:
+
+::: {.callout-note}
+**It's normal to**:
+- Feel stuck sometimes
+- Need multiple attempts
+- Make lots of errors
+- Need to ask for help
+- Take breaks when frustrated
+:::
+
+**Campus Resources**:
+- Student Counseling Services: ext. 1234
+- Academic Success Center: ext. 5678
+- Student Health Services: ext. 9012
+
+## Accessibility and Accommodations
+
+### Disability Services
+
+Students with documented disabilities should:
+1. Register with Office of Disability Services
+2. Provide documentation to instructor
+3. Discuss specific accommodations needed
+
+**Common Accommodations**:
+- Extended time for assignments
+- Alternative format materials
+- Assistive technology support
+- Note-taking assistance
+
+### Technical Accommodations
+
+We can provide:
+- Screen reader compatible materials
+- Larger font versions
+- Color-blind friendly visualizations
+- Keyboard-only navigation options
+
+## Emergency Procedures
+
+### Technical Emergencies
+
+**System crash before deadline**:
+1. Document the issue (screenshots)
+2. Email instructor immediately
+3. Submit what you have
+4. Complete when system restored
+
+**Lost work**:
+- Use version control (Git)
+- Save frequently
+- Use cloud backup
+- Keep multiple copies
+
+### Personal Emergencies
+
+**Illness or emergency**:
+- Email instructor ASAP
+- Provide documentation if extended
+- Discuss makeup options
+- Don't fall behind
+
+## FAQ
+
+**Q: How much time should I spend on this course?**
+A: Plan for 2-3 hours outside class for every hour in class (6-9 hours/week total).
+
+**Q: Can I use AI tools like ChatGPT?**
+A: You may use them for learning and understanding concepts, but submitted code must be your own work. Always cite any assistance received.
+
+**Q: What if I'm falling behind?**
+A: Seek help immediately. The course builds on itself, so early gaps become bigger problems later.
+
+**Q: Do I need a powerful computer?**
+A: No, basic Python programming doesn't require much computing power. Any computer from the last 5 years should work fine.
+
+**Q: Can I use a different IDE than recommended?**
+A: Yes, but you're responsible for any setup issues. We can only provide support for recommended tools.
+
+## Success Tips
+
+::: {.callout-tip}
+**Top tips from successful students**:
+1. **Start early** - Don't wait until the deadline
+2. **Practice daily** - Even 20 minutes helps
+3. **Make mistakes** - They're learning opportunities
+4. **Ask questions** - No question is too basic
+5. **Help others** - Teaching reinforces learning
+6. **Take breaks** - Fresh eyes spot errors
+7. **Document everything** - Comment your code
+8. **Stay organized** - Use folders and naming conventions
+:::
+
+## Contact Information
+
+**Course Instructor**:
+- Name: Dr. [Instructor Name]
+- Email: instructor@university.edu
+- Office: Building A, Room 312
+- Phone: (555) 123-4567
+
+**Teaching Assistants**:
+- TA 1: ta1@university.edu
+- TA 2: ta2@university.edu
+- Office hours: Posted on course website
+
+**Technical Support**:
+- IT Help Desk: helpdesk@university.edu
+- Phone: (555) 987-6543
+- Hours: Monday-Friday, 8 AM - 6 PM
+
+Remember: We want you to succeed! Don't hesitate to reach out when you need help.

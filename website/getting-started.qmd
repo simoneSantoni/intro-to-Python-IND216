@@ -1,0 +1,276 @@
+---
+title: "Getting Started with Python"
+---
+
+## Introduction
+
+Welcome to your Python journey! This module will guide you through setting up Python on your computer and introduce you to the essential tools for analytics work. By the end of this section, you'll have a working Python environment and understand how to run Python code.
+
+## Why Python for Analytics?
+
+Python has become the language of choice for data analysis and analytics for several reasons:
+
+- **Readable syntax**: Python code is close to natural language, making it easier to learn and maintain
+- **Rich ecosystem**: Extensive libraries for data manipulation, analysis, and visualization
+- **Versatile**: Used across web development, data science, automation, and machine learning
+- **Large community**: Abundant resources, tutorials, and support available online
+- **Industry standard**: Widely adopted in academia and industry for analytics work
+
+## Installing Python
+
+### Option 1: Anaconda Distribution (Recommended)
+
+Anaconda is a Python distribution that includes Python itself plus many useful packages for data science. It's the easiest way to get started.
+
+1. **Download Anaconda**:
+   - Visit [anaconda.com](https://www.anaconda.com/products/distribution)
+   - Choose the installer for your operating system
+   - Download the Python 3.9+ version
+
+2. **Install Anaconda**:
+   - Run the installer and follow the prompts
+   - Accept the default settings unless you have specific requirements
+   - This will install Python, Jupyter, and essential data science packages
+
+3. **Verify Installation**:
+   - Open Anaconda Navigator or command prompt/terminal
+   - Type `python --version` to confirm Python is installed
+
+### Option 2: Python.org (Advanced Users)
+
+If you prefer a minimal installation, you can download Python directly from [python.org](https://www.python.org/) and install packages separately using pip.
+
+## Development Environments
+
+### Jupyter Lab/Notebook
+
+Jupyter is an interactive environment perfect for data analysis and learning Python.
+
+```python
+# Starting Jupyter
+# Open Anaconda Navigator and click "Launch" under Jupyter Lab
+# Or from command line:
+jupyter lab
+```
+
+**Benefits of Jupyter**:
+- Interactive code execution
+- Mix code, text, and visualizations
+- Great for experimentation and prototyping
+- Industry standard for data analysis
+
+### Python Scripts
+
+For larger projects, you'll write Python files (`.py` extension) that can be run from the command line.
+
+```python
+# Example: hello.py
+print("Hello, Python world!")
+print("Welcome to IND216!")
+```
+
+To run a Python script:
+```bash
+python hello.py
+```
+
+### Integrated Development Environments (IDEs)
+
+Popular choices for Python development:
+
+- **VS Code**: Free, lightweight, excellent Python support
+- **PyCharm**: Full-featured IDE with advanced debugging tools
+- **Spyder**: Designed specifically for scientific Python
+
+## Your First Python Program
+
+Let's start with a simple example:
+
+```python
+# This is a comment - Python ignores this line
+print("Hello, Analytics World!")
+
+# Variables store data
+course_name = "IND216"
+student_count = 25
+
+# Display information
+print(f"Welcome to {course_name}!")
+print(f"We have {student_count} students in this course.")
+```
+
+## Python Execution Model
+
+Understanding how Python runs your code:
+
+1. **Python Interpreter**: Reads and executes your code line by line
+2. **Interactive Mode**: Type code directly in Python shell for immediate execution
+3. **Script Mode**: Write code in files and run the entire file
+4. **Jupyter Cells**: Execute code in individual cells for interactive analysis
+
+## Package Management with conda
+
+Conda is a package manager that comes with Anaconda. It helps you install and manage Python packages.
+
+```bash
+# Create a new environment for this course
+conda create -n ind216 python=3.9
+
+# Activate the environment
+conda activate ind216
+
+# Install essential packages
+conda install numpy pandas matplotlib jupyter
+
+# List installed packages
+conda list
+
+# Deactivate environment when done
+conda deactivate
+```
+
+## Essential Packages for Analytics
+
+Here are the key packages we'll use throughout the course:
+
+```python
+import numpy as np          # Numerical computing
+import pandas as pd         # Data manipulation
+import matplotlib.pyplot as plt  # Basic plotting
+
+# Check if packages are working
+print(f"NumPy version: {np.__version__}")
+print(f"Pandas version: {pd.__version__}")
+```
+
+## Working with Files and Directories
+
+Python can interact with your file system:
+
+```python
+import os
+
+# Get current working directory
+current_dir = os.getcwd()
+print(f"Current directory: {current_dir}")
+
+# List files in directory
+files = os.listdir('.')
+print(f"Files in current directory: {files}")
+
+# Create a new directory
+os.makedirs('data', exist_ok=True)
+print("Created 'data' directory")
+```
+
+## Basic Python Syntax
+
+### Variables and Data Types
+
+```python
+# Numbers
+age = 25
+height = 5.8
+temperature = -2.5
+
+# Strings (text)
+name = "Analytics Student"
+course = 'IND216'
+
+# Boolean (True/False)
+is_enrolled = True
+has_experience = False
+
+# Display variable information
+print(f"Name: {name}")
+print(f"Age: {age}")
+print(f"Enrolled: {is_enrolled}")
+```
+
+### Simple Operations
+
+```python
+# Arithmetic
+a = 10
+b = 3
+
+print(f"Addition: {a + b}")
+print(f"Subtraction: {a - b}")
+print(f"Multiplication: {a * b}")
+print(f"Division: {a / b}")
+print(f"Integer division: {a // b}")
+print(f"Remainder: {a % b}")
+print(f"Power: {a ** b}")
+```
+
+### Getting Help
+
+Python has built-in help systems:
+
+```python
+# Get help on a function
+help(print)
+
+# In Jupyter, use ? for quick help
+?print
+
+# Use dir() to see available methods
+dir(str)  # Methods available for strings
+```
+
+## Exercise: Setting Up Your Environment
+
+::: {.exercise-box}
+### Exercise 1: Environment Setup
+
+1. Install Anaconda or Python on your computer
+2. Create a new conda environment called "ind216"
+3. Install numpy, pandas, and matplotlib
+4. Start Jupyter Lab
+5. Create a new notebook and run the following code:
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+print("Environment setup successful!")
+print(f"NumPy version: {np.__version__}")
+print(f"Pandas version: {pd.__version__}")
+
+# Create a simple plot to test matplotlib
+plt.plot([1, 2, 3, 4], [1, 4, 2, 3])
+plt.title("Test Plot")
+plt.show()
+```
+:::
+
+## Common Beginner Mistakes
+
+::: {.warning-box}
+### Watch Out For:
+
+1. **Case sensitivity**: `Name` and `name` are different variables
+2. **Indentation**: Python uses indentation to organize code blocks
+3. **Quotation marks**: Use matching quotes for strings (`"hello"` or `'hello'`)
+4. **Parentheses**: Don't forget closing parentheses in function calls
+5. **Variable names**: Cannot start with numbers or contain spaces
+:::
+
+## Next Steps
+
+Now that you have Python set up and understand the basics, you're ready to dive deeper into Python objects and data types. Continue to [Python Objects](python-objects.qmd) to learn about the fundamental building blocks of Python programming.
+
+## Quick Reference
+
+```python
+# Running Python code
+python script.py           # Run a Python file
+python -i script.py        # Run and enter interactive mode
+jupyter lab                # Start Jupyter Lab
+
+# Package management
+conda install package      # Install a package
+conda list                 # List installed packages
+pip install package        # Alternative package installer
+```

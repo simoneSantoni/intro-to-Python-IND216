@@ -1,0 +1,1085 @@
+[
+  {
+    "objectID": "python-objects.html",
+    "href": "python-objects.html",
+    "title": "Python Objects",
+    "section": "",
+    "text": "In Python, everything is an object. Understanding Python’s built-in data types and how to manipulate them is fundamental to effective programming for analytics. This module covers the essential Python objects you’ll use daily in data analysis work.",
+    "crumbs": [
+      "IND216",
+      "Module 2: Python Objects",
+      "Data Types & Control Flow"
+    ]
+  },
+  {
+    "objectID": "python-objects.html#introduction",
+    "href": "python-objects.html#introduction",
+    "title": "Python Objects",
+    "section": "",
+    "text": "In Python, everything is an object. Understanding Python’s built-in data types and how to manipulate them is fundamental to effective programming for analytics. This module covers the essential Python objects you’ll use daily in data analysis work.",
+    "crumbs": [
+      "IND216",
+      "Module 2: Python Objects",
+      "Data Types & Control Flow"
+    ]
+  },
+  {
+    "objectID": "python-objects.html#numbers",
+    "href": "python-objects.html#numbers",
+    "title": "Python Objects",
+    "section": "Numbers",
+    "text": "Numbers\nPython handles different types of numbers with ease:\n\nIntegers\n# Integers (whole numbers)\nstudent_count = 25\nyear = 2024\ntemperature = -5\n\n# Python integers can be arbitrarily large\nbig_number = 123456789012345678901234567890\nprint(f\"Big number: {big_number}\")\n\n\nFloating Point Numbers\n# Decimals\nheight = 5.8\nprice = 29.99\nscientific_notation = 1.5e6  # 1,500,000\n\n# Arithmetic with floats\nresult = height * 2\nprint(f\"Double height: {result}\")\n\n\nMathematical Operations\nimport math\n\n# Basic arithmetic\na, b = 10, 3\nprint(f\"Addition: {a + b}\")\nprint(f\"Subtraction: {a - b}\")\nprint(f\"Multiplication: {a * b}\")\nprint(f\"Division: {a / b}\")\nprint(f\"Floor division: {a // b}\")\nprint(f\"Modulus: {a % b}\")\nprint(f\"Exponentiation: {a ** b}\")\n\n# Using the math module\nprint(f\"Square root: {math.sqrt(16)}\")\nprint(f\"Ceiling: {math.ceil(4.3)}\")\nprint(f\"Floor: {math.floor(4.7)}\")\nprint(f\"Pi: {math.pi}\")",
+    "crumbs": [
+      "IND216",
+      "Module 2: Python Objects",
+      "Data Types & Control Flow"
+    ]
+  },
+  {
+    "objectID": "python-objects.html#strings",
+    "href": "python-objects.html#strings",
+    "title": "Python Objects",
+    "section": "Strings",
+    "text": "Strings\nStrings are sequences of characters used to represent text data.\n\nCreating Strings\n# Different ways to create strings\nname = \"Data Analyst\"\ncourse = 'IND216'\ndescription = \"\"\"This is a multi-line string\nthat can span several lines\nand is useful for longer text.\"\"\"\n\n# String formatting\nstudent = \"Alice\"\ngrade = 95.5\nmessage = f\"Student {student} scored {grade:.1f}%\"\nprint(message)\n\n\nString Operations\ntext = \"Python for Analytics\"\n\n# Basic operations\nprint(f\"Length: {len(text)}\")\nprint(f\"Uppercase: {text.upper()}\")\nprint(f\"Lowercase: {text.lower()}\")\nprint(f\"Replace: {text.replace('Python', 'R')}\")\n\n# String methods for data cleaning\ndata = \"  messy data  \"\nprint(f\"Original: '{data}'\")\nprint(f\"Stripped: '{data.strip()}'\")\nprint(f\"Split: {text.split()}\")\n\n# Checking string content\nemail = \"student@university.edu\"\nprint(f\"Contains @: {'@' in email}\")\nprint(f\"Ends with .edu: {email.endswith('.edu')}\")\nprint(f\"Starts with student: {email.startswith('student')}\")\n\n\nString Indexing and Slicing\ncourse_name = \"Python Analytics\"\n\n# Indexing (0-based)\nprint(f\"First character: {course_name[0]}\")\nprint(f\"Last character: {course_name[-1]}\")\n\n# Slicing [start:end:step]\nprint(f\"First 6 characters: {course_name[:6]}\")\nprint(f\"Last 9 characters: {course_name[-9:]}\")\nprint(f\"Every other character: {course_name[::2]}\")",
+    "crumbs": [
+      "IND216",
+      "Module 2: Python Objects",
+      "Data Types & Control Flow"
+    ]
+  },
+  {
+    "objectID": "python-objects.html#lists",
+    "href": "python-objects.html#lists",
+    "title": "Python Objects",
+    "section": "Lists",
+    "text": "Lists\nLists are ordered collections that can hold different types of data.\n\nCreating and Modifying Lists\n# Creating lists\nnumbers = [1, 2, 3, 4, 5]\nmixed_data = [\"Alice\", 25, True, 3.14]\nempty_list = []\n\n# Adding elements\nnumbers.append(6)           # Add to end\nnumbers.insert(0, 0)        # Insert at position\nnumbers.extend([7, 8, 9])   # Add multiple elements\n\nprint(f\"Modified numbers: {numbers}\")\n\n# Removing elements\nnumbers.remove(0)           # Remove first occurrence\nlast_item = numbers.pop()   # Remove and return last item\nprint(f\"After removal: {numbers}\")\nprint(f\"Removed item: {last_item}\")\n\n\nList Operations\ngrades = [85, 92, 78, 96, 88]\n\n# Basic operations\nprint(f\"Length: {len(grades)}\")\nprint(f\"Maximum: {max(grades)}\")\nprint(f\"Minimum: {min(grades)}\")\nprint(f\"Sum: {sum(grades)}\")\nprint(f\"Average: {sum(grades) / len(grades)}\")\n\n# List methods\ngrades.sort()                    # Sort in place\nprint(f\"Sorted: {grades}\")\ngrades.reverse()                 # Reverse in place\nprint(f\"Reversed: {grades}\")\n\n# List comprehensions (advanced)\nsquares = [x**2 for x in range(1, 6)]\nprint(f\"Squares: {squares}\")\n\n# Filtering with comprehensions\nhigh_grades = [grade for grade in grades if grade &gt;= 90]\nprint(f\"High grades: {high_grades}\")",
+    "crumbs": [
+      "IND216",
+      "Module 2: Python Objects",
+      "Data Types & Control Flow"
+    ]
+  },
+  {
+    "objectID": "python-objects.html#dictionaries",
+    "href": "python-objects.html#dictionaries",
+    "title": "Python Objects",
+    "section": "Dictionaries",
+    "text": "Dictionaries\nDictionaries store key-value pairs, perfect for structured data.\n\nCreating and Using Dictionaries\n# Creating dictionaries\nstudent = {\n    \"name\": \"Alice Johnson\",\n    \"age\": 22,\n    \"major\": \"Analytics\",\n    \"gpa\": 3.8,\n    \"courses\": [\"IND216\", \"STAT301\", \"MATH205\"]\n}\n\n# Accessing values\nprint(f\"Name: {student['name']}\")\nprint(f\"GPA: {student.get('gpa', 'N/A')}\")  # Safe access with default\n\n# Modifying dictionaries\nstudent[\"age\"] = 23                    # Update existing key\nstudent[\"graduation_year\"] = 2024      # Add new key\ndel student[\"courses\"]                 # Remove key\n\nprint(f\"Updated student: {student}\")\n\n\nDictionary Operations\ncourse_enrollments = {\n    \"IND216\": 45,\n    \"STAT301\": 38,\n    \"MATH205\": 52,\n    \"BUS400\": 29\n}\n\n# Dictionary methods\nprint(f\"Courses: {list(course_enrollments.keys())}\")\nprint(f\"Enrollments: {list(course_enrollments.values())}\")\nprint(f\"Course-enrollment pairs: {list(course_enrollments.items())}\")\n\n# Iterating through dictionaries\nprint(\"Course enrollments:\")\nfor course, count in course_enrollments.items():\n    print(f\"  {course}: {count} students\")\n\n# Dictionary comprehensions\nlarge_courses = {course: count for course, count in course_enrollments.items() \n                 if count &gt; 40}\nprint(f\"Large courses: {large_courses}\")",
+    "crumbs": [
+      "IND216",
+      "Module 2: Python Objects",
+      "Data Types & Control Flow"
+    ]
+  },
+  {
+    "objectID": "python-objects.html#control-flow",
+    "href": "python-objects.html#control-flow",
+    "title": "Python Objects",
+    "section": "Control Flow",
+    "text": "Control Flow\n\nConditional Statements\ngrade = 87\n\n# if-elif-else statements\nif grade &gt;= 90:\n    letter_grade = \"A\"\nelif grade &gt;= 80:\n    letter_grade = \"B\"\nelif grade &gt;= 70:\n    letter_grade = \"C\"\nelif grade &gt;= 60:\n    letter_grade = \"D\"\nelse:\n    letter_grade = \"F\"\n\nprint(f\"Grade {grade} corresponds to letter grade {letter_grade}\")\n\n# Compact conditional (ternary operator)\nstatus = \"Pass\" if grade &gt;= 60 else \"Fail\"\nprint(f\"Status: {status}\")\n\n\nLoops\n# For loops with lists\nscores = [85, 92, 78, 96, 88]\n\nprint(\"Individual scores:\")\nfor score in scores:\n    print(f\"  Score: {score}\")\n\n# For loops with enumerate (get index and value)\nprint(\"Scores with position:\")\nfor i, score in enumerate(scores, 1):\n    print(f\"  Test {i}: {score}\")\n\n# For loops with range\nprint(\"Numbers 1-5:\")\nfor i in range(1, 6):\n    print(f\"  {i}\")\n\n# While loops\ncount = 0\nwhile count &lt; 3:\n    print(f\"Count: {count}\")\n    count += 1\n\n\nLoop Control\nnumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n\n# Break: exit loop early\nprint(\"Numbers until we hit 6:\")\nfor num in numbers:\n    if num == 6:\n        break\n    print(num)\n\n# Continue: skip to next iteration\nprint(\"Odd numbers only:\")\nfor num in numbers:\n    if num % 2 == 0:  # Skip even numbers\n        continue\n    print(num)",
+    "crumbs": [
+      "IND216",
+      "Module 2: Python Objects",
+      "Data Types & Control Flow"
+    ]
+  },
+  {
+    "objectID": "python-objects.html#functions",
+    "href": "python-objects.html#functions",
+    "title": "Python Objects",
+    "section": "Functions",
+    "text": "Functions\nFunctions help organize code and avoid repetition.\n\nDefining Functions\ndef calculate_grade_average(grades):\n    \"\"\"Calculate the average of a list of grades.\"\"\"\n    if not grades:  # Handle empty list\n        return 0\n    return sum(grades) / len(grades)\n\ndef grade_to_letter(numeric_grade):\n    \"\"\"Convert numeric grade to letter grade.\"\"\"\n    if numeric_grade &gt;= 90:\n        return \"A\"\n    elif numeric_grade &gt;= 80:\n        return \"B\"\n    elif numeric_grade &gt;= 70:\n        return \"C\"\n    elif numeric_grade &gt;= 60:\n        return \"D\"\n    else:\n        return \"F\"\n\n# Using functions\nstudent_grades = [85, 92, 78, 96, 88]\naverage = calculate_grade_average(student_grades)\nletter = grade_to_letter(average)\n\nprint(f\"Average grade: {average:.1f}\")\nprint(f\"Letter grade: {letter}\")\n\n\nFunction Parameters\ndef analyze_dataset(data, metric=\"mean\", decimals=2):\n    \"\"\"Analyze a dataset with different metrics.\"\"\"\n    if metric == \"mean\":\n        result = sum(data) / len(data)\n    elif metric == \"median\":\n        sorted_data = sorted(data)\n        n = len(sorted_data)\n        if n % 2 == 0:\n            result = (sorted_data[n//2-1] + sorted_data[n//2]) / 2\n        else:\n            result = sorted_data[n//2]\n    elif metric == \"max\":\n        result = max(data)\n    elif metric == \"min\":\n        result = min(data)\n    else:\n        return \"Unknown metric\"\n    \n    return round(result, decimals)\n\n# Function calls with different parameters\ndata = [10, 15, 20, 25, 30, 35, 40]\nprint(f\"Mean: {analyze_dataset(data)}\")\nprint(f\"Median: {analyze_dataset(data, metric='median')}\")\nprint(f\"Max: {analyze_dataset(data, metric='max', decimals=0)}\")",
+    "crumbs": [
+      "IND216",
+      "Module 2: Python Objects",
+      "Data Types & Control Flow"
+    ]
+  },
+  {
+    "objectID": "python-objects.html#file-handling",
+    "href": "python-objects.html#file-handling",
+    "title": "Python Objects",
+    "section": "File Handling",
+    "text": "File Handling\nReading and writing files is essential for data analysis.\n\nReading Files\n# Reading text files\ntry:\n    with open('data.txt', 'r') as file:\n        content = file.read()\n        print(content)\nexcept FileNotFoundError:\n    print(\"File not found!\")\n\n# Reading line by line\ntry:\n    with open('data.txt', 'r') as file:\n        for line_number, line in enumerate(file, 1):\n            print(f\"Line {line_number}: {line.strip()}\")\nexcept FileNotFoundError:\n    print(\"File not found!\")\n\n\nWriting Files\n# Writing to files\nstudent_data = [\n    \"Alice,85,92,78\",\n    \"Bob,90,88,95\",\n    \"Charlie,75,82,89\"\n]\n\nwith open('student_grades.csv', 'w') as file:\n    file.write(\"Name,Test1,Test2,Test3\\n\")  # Header\n    for student in student_data:\n        file.write(student + \"\\n\")\n\nprint(\"Data written to student_grades.csv\")\n\n# Appending to files\nwith open('student_grades.csv', 'a') as file:\n    file.write(\"Diana,88,94,91\\n\")\n\nprint(\"Additional student data appended\")",
+    "crumbs": [
+      "IND216",
+      "Module 2: Python Objects",
+      "Data Types & Control Flow"
+    ]
+  },
+  {
+    "objectID": "python-objects.html#exercise-working-with-python-objects",
+    "href": "python-objects.html#exercise-working-with-python-objects",
+    "title": "Python Objects",
+    "section": "Exercise: Working with Python Objects",
+    "text": "Exercise: Working with Python Objects\n\nExercise 1: Student Grade Analyzer\nCreate a program that analyzes student grade data:\n# Student data\nstudents = {\n    \"Alice\": [85, 92, 78, 96],\n    \"Bob\": [90, 88, 95, 87],\n    \"Charlie\": [75, 82, 89, 84],\n    \"Diana\": [88, 94, 91, 93]\n}\n\n# Tasks:\n# 1. Calculate each student's average grade\n# 2. Find the highest and lowest individual scores\n# 3. Determine which student has the highest average\n# 4. Count how many students have an average &gt;= 85\n\n# Your solution here:\nExpected Output:\nAlice's average: 87.8\nBob's average: 90.0\nCharlie's average: 82.5\nDiana's average: 91.5\n\nHighest individual score: 96 (Alice)\nLowest individual score: 75 (Charlie)\nTop student: Diana (91.5)\nStudents with average &gt;= 85: 3\n\n\nExercise 2: Text Analysis\nWrite functions to analyze a text string:\ndef word_count(text):\n    \"\"\"Count the number of words in text.\"\"\"\n    # Your code here\n    pass\n\ndef character_frequency(text):\n    \"\"\"Return a dictionary of character frequencies.\"\"\"\n    # Your code here\n    pass\n\ndef clean_text(text):\n    \"\"\"Remove extra spaces and convert to lowercase.\"\"\"\n    # Your code here\n    pass\n\n# Test your functions\nsample_text = \"  Python is Great for Data Analysis  \"",
+    "crumbs": [
+      "IND216",
+      "Module 2: Python Objects",
+      "Data Types & Control Flow"
+    ]
+  },
+  {
+    "objectID": "python-objects.html#common-patterns-in-analytics",
+    "href": "python-objects.html#common-patterns-in-analytics",
+    "title": "Python Objects",
+    "section": "Common Patterns in Analytics",
+    "text": "Common Patterns in Analytics\n\nData Cleaning\n# Common data cleaning operations\nraw_data = [\"  Alice  \", \"BOB\", \"charlie\", \"\", \"DIANA \"]\n\n# Clean the data\ncleaned_data = []\nfor item in raw_data:\n    if item.strip():  # Skip empty strings\n        cleaned_data.append(item.strip().title())\n\nprint(f\"Original: {raw_data}\")\nprint(f\"Cleaned: {cleaned_data}\")\n\n# List comprehension version\ncleaned_data_v2 = [item.strip().title() for item in raw_data if item.strip()]\nprint(f\"Cleaned (v2): {cleaned_data_v2}\")\n\n\nData Aggregation\n# Sales data by month\nsales_data = {\n    \"January\": [1200, 1500, 1100, 1300],\n    \"February\": [1400, 1600, 1200, 1350],\n    \"March\": [1300, 1450, 1250, 1400]\n}\n\n# Calculate monthly totals\nmonthly_totals = {}\nfor month, daily_sales in sales_data.items():\n    monthly_totals[month] = sum(daily_sales)\n\nprint(\"Monthly sales totals:\")\nfor month, total in monthly_totals.items():\n    print(f\"  {month}: ${total:,}\")\n\n# Find best performing month\nbest_month = max(monthly_totals, key=monthly_totals.get)\nprint(f\"Best month: {best_month} (${monthly_totals[best_month]:,})\")",
+    "crumbs": [
+      "IND216",
+      "Module 2: Python Objects",
+      "Data Types & Control Flow"
+    ]
+  },
+  {
+    "objectID": "python-objects.html#next-steps",
+    "href": "python-objects.html#next-steps",
+    "title": "Python Objects",
+    "section": "Next Steps",
+    "text": "Next Steps\nYou now understand Python’s fundamental objects and control structures. These building blocks are essential for all data analysis work. Next, we’ll explore how to use NumPy for efficient numerical computing in Technical & Scientific Computation with NumPy.",
+    "crumbs": [
+      "IND216",
+      "Module 2: Python Objects",
+      "Data Types & Control Flow"
+    ]
+  },
+  {
+    "objectID": "python-objects.html#quick-reference",
+    "href": "python-objects.html#quick-reference",
+    "title": "Python Objects",
+    "section": "Quick Reference",
+    "text": "Quick Reference\n# String operations\ntext.upper()            # Convert to uppercase\ntext.lower()            # Convert to lowercase\ntext.strip()            # Remove whitespace\ntext.split()            # Split into list\ntext.replace(old, new)  # Replace text\n\n# List operations\nlist.append(item)       # Add item to end\nlist.insert(i, item)    # Insert at position\nlist.remove(item)       # Remove first occurrence\nlist.pop()              # Remove and return last item\nlist.sort()             # Sort in place\n\n# Dictionary operations\ndict[key]               # Access value\ndict.get(key, default)  # Safe access\ndict.keys()             # Get all keys\ndict.values()           # Get all values\ndict.items()            # Get key-value pairs\n\n# Control flow\nif condition:           # Conditional execution\nfor item in sequence:   # Iterate over sequence\nwhile condition:        # Loop while condition is true\nbreak                   # Exit loop\ncontinue                # Skip to next iteration",
+    "crumbs": [
+      "IND216",
+      "Module 2: Python Objects",
+      "Data Types & Control Flow"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html",
+    "href": "numpy-computation.html",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "",
+    "text": "NumPy (Numerical Python) is the foundation of the Python scientific computing ecosystem. It provides efficient operations on large arrays of data, making it essential for analytics work. This module covers the core NumPy concepts you’ll use for numerical computing and data manipulation.",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#introduction",
+    "href": "numpy-computation.html#introduction",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "",
+    "text": "NumPy (Numerical Python) is the foundation of the Python scientific computing ecosystem. It provides efficient operations on large arrays of data, making it essential for analytics work. This module covers the core NumPy concepts you’ll use for numerical computing and data manipulation.",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#why-numpy",
+    "href": "numpy-computation.html#why-numpy",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Why NumPy?",
+    "text": "Why NumPy?\nNumPy offers significant advantages over pure Python for numerical work:\n\nPerformance: Operations are implemented in C, making them much faster\nMemory efficiency: Arrays use less memory than Python lists\nVectorization: Apply operations to entire arrays without writing loops\nBroadcasting: Perform operations on arrays of different shapes\nFoundation: Base for pandas, matplotlib, scikit-learn, and other analytics libraries\n\nimport numpy as np\nimport time\n\n# Performance comparison\npython_list = list(range(1000000))\nnumpy_array = np.arange(1000000)\n\n# Time Python list operation\nstart = time.time()\npython_result = [x * 2 for x in python_list]\npython_time = time.time() - start\n\n# Time NumPy array operation\nstart = time.time()\nnumpy_result = numpy_array * 2\nnumpy_time = time.time() - start\n\nprint(f\"Python list time: {python_time:.4f} seconds\")\nprint(f\"NumPy array time: {numpy_time:.4f} seconds\")\nprint(f\"NumPy is {python_time/numpy_time:.1f}x faster\")",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#creating-numpy-arrays",
+    "href": "numpy-computation.html#creating-numpy-arrays",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Creating NumPy Arrays",
+    "text": "Creating NumPy Arrays\n\nFrom Python Lists\nimport numpy as np\n\n# 1D arrays\nnumbers = np.array([1, 2, 3, 4, 5])\nprint(f\"1D array: {numbers}\")\nprint(f\"Shape: {numbers.shape}\")\nprint(f\"Data type: {numbers.dtype}\")\n\n# 2D arrays (matrices)\nmatrix = np.array([[1, 2, 3], \n                   [4, 5, 6], \n                   [7, 8, 9]])\nprint(f\"2D array:\\n{matrix}\")\nprint(f\"Shape: {matrix.shape}\")  # (rows, columns)\n\n\nArray Creation Functions\n# Arrays of zeros and ones\nzeros = np.zeros((3, 4))        # 3x4 array of zeros\nones = np.ones((2, 3))          # 2x3 array of ones\nidentity = np.eye(3)            # 3x3 identity matrix\n\nprint(f\"Zeros:\\n{zeros}\")\nprint(f\"Ones:\\n{ones}\")\nprint(f\"Identity:\\n{identity}\")\n\n# Arrays with specific values\nfull_array = np.full((2, 3), 7)  # 2x3 array filled with 7\nprint(f\"Full array:\\n{full_array}\")\n\n# Sequences\nsequence = np.arange(0, 10, 2)   # Start, stop, step\nlinspace = np.linspace(0, 1, 5)  # 5 evenly spaced values from 0 to 1\n\nprint(f\"Sequence: {sequence}\")\nprint(f\"Linspace: {linspace}\")\n\n\nRandom Arrays\n# Set random seed for reproducibility\nnp.random.seed(42)\n\n# Random arrays\nrandom_uniform = np.random.random((2, 3))       # Uniform [0, 1)\nrandom_normal = np.random.normal(0, 1, (2, 3))  # Normal distribution\nrandom_integers = np.random.randint(1, 10, (2, 3))  # Random integers\n\nprint(f\"Random uniform:\\n{random_uniform}\")\nprint(f\"Random normal:\\n{random_normal}\")\nprint(f\"Random integers:\\n{random_integers}\")",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#array-properties-and-attributes",
+    "href": "numpy-computation.html#array-properties-and-attributes",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Array Properties and Attributes",
+    "text": "Array Properties and Attributes\n# Create sample array\ndata = np.array([[1, 2, 3, 4],\n                 [5, 6, 7, 8],\n                 [9, 10, 11, 12]])\n\n# Array properties\nprint(f\"Array:\\n{data}\")\nprint(f\"Shape: {data.shape}\")        # (rows, columns)\nprint(f\"Size: {data.size}\")          # Total number of elements\nprint(f\"Dimensions: {data.ndim}\")    # Number of dimensions\nprint(f\"Data type: {data.dtype}\")    # Data type of elements\nprint(f\"Item size: {data.itemsize}\") # Size of each element in bytes",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#array-indexing-and-slicing",
+    "href": "numpy-computation.html#array-indexing-and-slicing",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Array Indexing and Slicing",
+    "text": "Array Indexing and Slicing\n\nBasic Indexing\n# 1D array indexing\narr_1d = np.array([10, 20, 30, 40, 50])\n\nprint(f\"First element: {arr_1d[0]}\")\nprint(f\"Last element: {arr_1d[-1]}\")\nprint(f\"First three: {arr_1d[:3]}\")\nprint(f\"Every other: {arr_1d[::2]}\")\n\n# 2D array indexing\narr_2d = np.array([[1, 2, 3],\n                   [4, 5, 6],\n                   [7, 8, 9]])\n\nprint(f\"Element at row 1, col 2: {arr_2d[1, 2]}\")\nprint(f\"First row: {arr_2d[0, :]}\")\nprint(f\"Second column: {arr_2d[:, 1]}\")\nprint(f\"Top-left 2x2:\\n{arr_2d[:2, :2]}\")\n\n\nBoolean Indexing\n# Create sample data\ngrades = np.array([85, 92, 78, 96, 88, 73, 94])\n\n# Boolean conditions\nhigh_grades = grades &gt; 90\nprint(f\"High grade mask: {high_grades}\")\nprint(f\"High grades: {grades[high_grades]}\")\n\n# Multiple conditions\ngood_grades = (grades &gt;= 80) & (grades &lt; 95)\nprint(f\"Good grades (80-94): {grades[good_grades]}\")\n\n# Modify based on condition\ngrades_copy = grades.copy()\ngrades_copy[grades_copy &lt; 80] = 80  # Curve grades below 80\nprint(f\"Curved grades: {grades_copy}\")",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#array-operations",
+    "href": "numpy-computation.html#array-operations",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Array Operations",
+    "text": "Array Operations\n\nArithmetic Operations\n# Create sample arrays\na = np.array([1, 2, 3, 4])\nb = np.array([10, 20, 30, 40])\n\n# Element-wise operations\nprint(f\"Addition: {a + b}\")\nprint(f\"Subtraction: {a - b}\")\nprint(f\"Multiplication: {a * b}\")\nprint(f\"Division: {a / b}\")\nprint(f\"Power: {a ** 2}\")\n\n# Operations with scalars\nprint(f\"Add 10: {a + 10}\")\nprint(f\"Multiply by 2: {a * 2}\")\n\n\nMathematical Functions\n# Sample data\nangles = np.array([0, np.pi/6, np.pi/4, np.pi/3, np.pi/2])\nvalues = np.array([1, 4, 9, 16, 25])\n\n# Trigonometric functions\nprint(f\"Sine: {np.sin(angles)}\")\nprint(f\"Cosine: {np.cos(angles)}\")\n\n# Other mathematical functions\nprint(f\"Square root: {np.sqrt(values)}\")\nprint(f\"Natural log: {np.log(values)}\")\nprint(f\"Exponential: {np.exp([1, 2, 3])}\")\n\n# Rounding\ndecimals = np.array([1.234, 2.567, 3.891])\nprint(f\"Round to 2 decimals: {np.round(decimals, 2)}\")\nprint(f\"Floor: {np.floor(decimals)}\")\nprint(f\"Ceiling: {np.ceil(decimals)}\")",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#statistical-functions",
+    "href": "numpy-computation.html#statistical-functions",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Statistical Functions",
+    "text": "Statistical Functions\n# Sample dataset: test scores\nscores = np.array([[85, 92, 78, 96],\n                   [88, 74, 91, 83],\n                   [92, 89, 95, 87],\n                   [76, 82, 88, 90]])\n\nprint(f\"Test scores:\\n{scores}\")\n\n# Basic statistics\nprint(f\"Mean: {np.mean(scores):.2f}\")\nprint(f\"Median: {np.median(scores):.2f}\")\nprint(f\"Standard deviation: {np.std(scores):.2f}\")\nprint(f\"Variance: {np.var(scores):.2f}\")\nprint(f\"Min: {np.min(scores)}\")\nprint(f\"Max: {np.max(scores)}\")\n\n# Statistics along axes\nprint(f\"Mean by student (rows): {np.mean(scores, axis=1)}\")\nprint(f\"Mean by test (columns): {np.mean(scores, axis=0)}\")\n\n# Percentiles\nprint(f\"25th percentile: {np.percentile(scores, 25)}\")\nprint(f\"75th percentile: {np.percentile(scores, 75)}\")",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#array-reshaping-and-manipulation",
+    "href": "numpy-computation.html#array-reshaping-and-manipulation",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Array Reshaping and Manipulation",
+    "text": "Array Reshaping and Manipulation\n\nReshaping Arrays\n# Create array and reshape\noriginal = np.arange(12)\nprint(f\"Original: {original}\")\n\n# Reshape to different dimensions\nmatrix_3x4 = original.reshape(3, 4)\nmatrix_2x6 = original.reshape(2, 6)\nmatrix_4x3 = original.reshape(4, 3)\n\nprint(f\"3x4 matrix:\\n{matrix_3x4}\")\nprint(f\"2x6 matrix:\\n{matrix_2x6}\")\nprint(f\"4x3 matrix:\\n{matrix_4x3}\")\n\n# Flatten back to 1D\nflattened = matrix_3x4.flatten()\nprint(f\"Flattened: {flattened}\")\n\n\nStacking and Splitting\n# Create sample arrays\na = np.array([[1, 2], [3, 4]])\nb = np.array([[5, 6], [7, 8]])\n\n# Stacking arrays\nvertical_stack = np.vstack([a, b])    # Stack vertically\nhorizontal_stack = np.hstack([a, b])  # Stack horizontally\n\nprint(f\"Array a:\\n{a}\")\nprint(f\"Array b:\\n{b}\")\nprint(f\"Vertical stack:\\n{vertical_stack}\")\nprint(f\"Horizontal stack:\\n{horizontal_stack}\")\n\n# Splitting arrays\ndata = np.arange(10)\nsplit_data = np.split(data, 5)  # Split into 5 equal parts\nprint(f\"Original: {data}\")\nprint(f\"Split: {split_data}\")",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#broadcasting",
+    "href": "numpy-computation.html#broadcasting",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Broadcasting",
+    "text": "Broadcasting\nBroadcasting allows operations between arrays of different shapes.\n# Broadcasting examples\nmatrix = np.array([[1, 2, 3],\n                   [4, 5, 6],\n                   [7, 8, 9]])\n\nrow_vector = np.array([10, 20, 30])\ncol_vector = np.array([[1], [2], [3]])\n\nprint(f\"Matrix:\\n{matrix}\")\nprint(f\"Row vector: {row_vector}\")\nprint(f\"Col vector:\\n{col_vector}\")\n\n# Broadcasting operations\nprint(f\"Matrix + row vector:\\n{matrix + row_vector}\")\nprint(f\"Matrix + col vector:\\n{matrix + col_vector}\")\n\n# Practical example: normalizing data\ndata = np.array([[1, 2, 3],\n                 [4, 5, 6],\n                 [7, 8, 9]])\n\n# Normalize each column (subtract mean, divide by std)\ncolumn_means = np.mean(data, axis=0)\ncolumn_stds = np.std(data, axis=0)\nnormalized = (data - column_means) / column_stds\n\nprint(f\"Original data:\\n{data}\")\nprint(f\"Column means: {column_means}\")\nprint(f\"Normalized data:\\n{normalized}\")",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#linear-algebra-with-numpy",
+    "href": "numpy-computation.html#linear-algebra-with-numpy",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Linear Algebra with NumPy",
+    "text": "Linear Algebra with NumPy\n# Matrix operations\nA = np.array([[1, 2], \n              [3, 4]])\nB = np.array([[5, 6], \n              [7, 8]])\n\n# Matrix multiplication\nmatrix_product = np.dot(A, B)  # or A @ B\nprint(f\"Matrix A:\\n{A}\")\nprint(f\"Matrix B:\\n{B}\")\nprint(f\"A × B:\\n{matrix_product}\")\n\n# Matrix properties\nprint(f\"Determinant of A: {np.linalg.det(A):.2f}\")\nprint(f\"Trace of A: {np.trace(A)}\")\n\n# Eigenvalues and eigenvectors\neigenvalues, eigenvectors = np.linalg.eig(A)\nprint(f\"Eigenvalues: {eigenvalues}\")\nprint(f\"Eigenvectors:\\n{eigenvectors}\")\n\n# Solving linear systems: Ax = b\nb = np.array([5, 11])\nx = np.linalg.solve(A, b)\nprint(f\"Solution to Ax = b: {x}\")\nprint(f\"Verification Ax = {A @ x}\")",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#working-with-real-data",
+    "href": "numpy-computation.html#working-with-real-data",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Working with Real Data",
+    "text": "Working with Real Data\n\nLoading and Saving Data\n# Create sample dataset\nsales_data = np.array([[120, 150, 180, 200],\n                       [110, 130, 160, 190],\n                       [100, 140, 170, 210],\n                       [130, 160, 190, 220]])\n\n# Save to file\nnp.save('sales_data.npy', sales_data)\nnp.savetxt('sales_data.csv', sales_data, delimiter=',', fmt='%d')\n\n# Load from file\nloaded_data = np.load('sales_data.npy')\ncsv_data = np.loadtxt('sales_data.csv', delimiter=',')\n\nprint(f\"Original data:\\n{sales_data}\")\nprint(f\"Loaded data:\\n{loaded_data}\")\nprint(f\"CSV data:\\n{csv_data}\")\n\n\nData Analysis Example\n# Simulate temperature data for a year\nnp.random.seed(42)\ndays = np.arange(1, 366)  # 365 days\nbase_temp = 20 + 15 * np.sin(2 * np.pi * days / 365)  # Seasonal variation\nnoise = np.random.normal(0, 3, 365)  # Random variation\ntemperatures = base_temp + noise\n\n# Analysis\nprint(f\"Temperature Statistics:\")\nprint(f\"Mean: {np.mean(temperatures):.1f}°C\")\nprint(f\"Min: {np.min(temperatures):.1f}°C (Day {np.argmin(temperatures) + 1})\")\nprint(f\"Max: {np.max(temperatures):.1f}°C (Day {np.argmax(temperatures) + 1})\")\nprint(f\"Standard deviation: {np.std(temperatures):.1f}°C\")\n\n# Monthly averages (assuming 30 days per month)\nmonthly_temps = temperatures[:360].reshape(12, 30)  # First 360 days\nmonthly_averages = np.mean(monthly_temps, axis=1)\n\nmonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',\n          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']\n\nprint(f\"\\nMonthly Averages:\")\nfor month, avg_temp in zip(months, monthly_averages):\n    print(f\"{month}: {avg_temp:.1f}°C\")",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#exercise-numpy-data-analysis",
+    "href": "numpy-computation.html#exercise-numpy-data-analysis",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Exercise: NumPy Data Analysis",
+    "text": "Exercise: NumPy Data Analysis\n\nExercise 1: Student Performance Analysis\nYou have test scores for a class of students across multiple subjects:\n# Student scores: rows = students, columns = subjects\n# Subjects: Math, Science, English, History\nscores = np.array([[85, 92, 78, 88],\n                   [90, 88, 95, 87],\n                   [75, 82, 89, 84],\n                   [88, 94, 91, 93],\n                   [92, 85, 87, 90],\n                   [78, 79, 83, 81]])\n\nsubjects = ['Math', 'Science', 'English', 'History']\n\n# Tasks:\n# 1. Calculate each student's average score\n# 2. Find the class average for each subject\n# 3. Identify the highest and lowest scoring student overall\n# 4. Find which subject has the highest average\n# 5. Normalize scores by subject (subtract mean, divide by std)\n\n\nExercise 2: Sales Data Analysis\nAnalyze quarterly sales data:\n# Sales data: rows = quarters, columns = regions\n# Regions: North, South, East, West\nquarterly_sales = np.array([[120, 130, 110, 140],\n                           [125, 135, 115, 145],\n                           [130, 140, 120, 150],\n                           [135, 145, 125, 155]])\n\n# Tasks:\n# 1. Calculate total sales by quarter and by region\n# 2. Find growth rate between quarters\n# 3. Identify the best performing region\n# 4. Calculate what percentage each region contributes to total sales",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#performance-tips",
+    "href": "numpy-computation.html#performance-tips",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Performance Tips",
+    "text": "Performance Tips\n\nVectorization vs Loops\n# Inefficient: Python loop\ndef slow_calculation(data):\n    result = []\n    for x in data:\n        result.append(x**2 + 2*x + 1)\n    return np.array(result)\n\n# Efficient: NumPy vectorization\ndef fast_calculation(data):\n    return data**2 + 2*data + 1\n\n# Test with large array\nlarge_data = np.random.random(100000)\n\n# Time both approaches\nimport time\n\nstart = time.time()\nslow_result = slow_calculation(large_data)\nslow_time = time.time() - start\n\nstart = time.time()\nfast_result = fast_calculation(large_data)\nfast_time = time.time() - start\n\nprint(f\"Loop time: {slow_time:.4f} seconds\")\nprint(f\"Vectorized time: {fast_time:.4f} seconds\")\nprint(f\"Speedup: {slow_time/fast_time:.1f}x\")\n\n\nMemory Efficiency\n# Memory-efficient operations\nlarge_array = np.random.random((1000, 1000))\n\n# In-place operations save memory\nlarge_array *= 2  # More efficient than: large_array = large_array * 2\n\n# Use views instead of copies when possible\nsubset = large_array[:100, :100]  # This is a view, not a copy\nsubset_copy = large_array[:100, :100].copy()  # This creates a copy\n\nprint(f\"Original array shape: {large_array.shape}\")\nprint(f\"Subset shares memory: {np.shares_memory(large_array, subset)}\")\nprint(f\"Copy shares memory: {np.shares_memory(large_array, subset_copy)}\")",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#next-steps",
+    "href": "numpy-computation.html#next-steps",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Next Steps",
+    "text": "Next Steps\nNumPy provides the foundation for efficient numerical computing in Python. The vectorized operations and array-based thinking you’ve learned here will be essential as we move to Pandas for data management. Continue to Data Management with Pandas to learn how to work with structured, labeled data.",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "numpy-computation.html#quick-reference",
+    "href": "numpy-computation.html#quick-reference",
+    "title": "Technical & Scientific Computation with NumPy",
+    "section": "Quick Reference",
+    "text": "Quick Reference\n# Array creation\nnp.array([1, 2, 3])         # From list\nnp.zeros((3, 4))            # Array of zeros\nnp.ones((2, 3))             # Array of ones\nnp.arange(0, 10, 2)         # Sequence\nnp.linspace(0, 1, 5)        # Evenly spaced values\nnp.random.random((2, 3))    # Random array\n\n# Array properties\narr.shape                   # Dimensions\narr.size                    # Total elements\narr.dtype                   # Data type\n\n# Indexing and slicing\narr[0]                      # First element\narr[-1]                     # Last element\narr[1:4]                    # Slice\narr[arr &gt; 5]                # Boolean indexing\n\n# Operations\narr1 + arr2                 # Element-wise addition\narr * 2                     # Scalar multiplication\nnp.dot(arr1, arr2)          # Matrix multiplication\n\n# Statistics\nnp.mean(arr)                # Mean\nnp.std(arr)                 # Standard deviation\nnp.min(arr)                 # Minimum\nnp.max(arr)                 # Maximum",
+    "crumbs": [
+      "IND216",
+      "Module 3: NumPy",
+      "Arrays & Operations"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Python for Analytics",
+    "section": "",
+    "text": "This interactive website provides a comprehensive five-part introduction to Python programming specifically designed for MSc students in analytics. The course emphasizes practical data wrangling skills using Python’s technical and scientific computing ecosystem.",
+    "crumbs": [
+      "Course Information",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#welcome-to-ind216",
+    "href": "index.html#welcome-to-ind216",
+    "title": "Introduction to Python for Analytics",
+    "section": "",
+    "text": "This interactive website provides a comprehensive five-part introduction to Python programming specifically designed for MSc students in analytics. The course emphasizes practical data wrangling skills using Python’s technical and scientific computing ecosystem.",
+    "crumbs": [
+      "Course Information",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#course-overview",
+    "href": "index.html#course-overview",
+    "title": "Introduction to Python for Analytics",
+    "section": "Course Overview",
+    "text": "Course Overview\nRather than attempting an exhaustive coverage of Python’s features, this course focuses on building a solid foundation in:\n\nCore Python programming concepts\nData manipulation fundamentals\n\nScientific computing with NumPy\nData analysis with Pandas",
+    "crumbs": [
+      "Course Information",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#what-youll-learn",
+    "href": "index.html#what-youll-learn",
+    "title": "Introduction to Python for Analytics",
+    "section": "What You’ll Learn",
+    "text": "What You’ll Learn\nUpon completion of this course, you will be able to:\n\nWrite Python scripts for data processing tasks\nManipulate and analyze data using NumPy arrays\nPerform data wrangling operations with Pandas DataFrames\nDevelop reproducible data analysis workflows",
+    "crumbs": [
+      "Course Information",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#prerequisites",
+    "href": "index.html#prerequisites",
+    "title": "Introduction to Python for Analytics",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nNo prior programming experience is required. The course is designed to take students from zero coding knowledge to practical data analysis skills.",
+    "crumbs": [
+      "Course Information",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#course-structure",
+    "href": "index.html#course-structure",
+    "title": "Introduction to Python for Analytics",
+    "section": "Course Structure",
+    "text": "Course Structure\nThe course is organized into five main modules:\n\nCourse Information - Course overview and learning approach\nGetting Started with Python - Installation, environments, and running programs\nPython Objects - Data types, control flow, and basic programming constructs\nTechnical & Scientific Computation with NumPy - Array operations and numerical computing\nData Management with Pandas - DataFrames and data manipulation",
+    "crumbs": [
+      "Course Information",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "Introduction to Python for Analytics",
+    "section": "Getting Started",
+    "text": "Getting Started\nTo begin your Python journey, start with the Course Information section to understand the learning approach, then proceed through each module sequentially.\nEach section includes interactive examples, code snippets, and hands-on exercises to reinforce your learning.",
+    "crumbs": [
+      "Course Information",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html",
+    "href": "course-syllabus.html",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "This comprehensive introductory course provides MSc Analytics students with a solid foundation in Python programming for data analysis. The course emphasizes practical skills in data wrangling, numerical computation, and analytical workflows using Python’s scientific computing ecosystem.\n\n\n\nUpon successful completion of this course, students will be able to:\n\nSet up and manage Python environments for data analysis projects\nWrite clean, efficient Python code using best practices and Pythonic idioms\nManipulate and analyze data using NumPy arrays for numerical computing\nProcess and transform datasets using Pandas DataFrames\nDevelop reproducible data analysis workflows from raw data to insights\nDebug and troubleshoot common programming issues\nApply programming concepts to real-world analytics problems\n\n\n\n\n\nNo prior programming experience required\nBasic computer literacy (file management, using applications)\nWillingness to learn through trial and error\nAccess to a computer for hands-on practice\n\n\n\n\nThe course is organized into five progressive modules:\n\n\n\nPython installation and setup\nDevelopment environments (Jupyter, VS Code)\nBasic syntax and programming concepts\nWriting and running Python scripts\n\n\n\n\n\nData types (numbers, strings, lists, dictionaries)\nControl flow (if statements, loops)\nFunctions and modules\nFile handling and I/O operations\n\n\n\n\n\nIntroduction to NumPy arrays\nArray operations and broadcasting\nMathematical functions and linear algebra\nPerformance considerations for numerical computing\n\n\n\n\n\nDataFrames and Series\nReading and writing data files\nData cleaning and transformation\nGrouping, merging, and reshaping data\n\n\n\n\n\nReal-world case studies\nData analysis workflows\nCode organization and documentation\nBest practices for reproducible research\n\n\n\n\n\n\n\n\nWeekly exercises and problem sets\nCode submissions via GitHub\nPeer code reviews\n\n\n\n\n\nComprehensive data analysis project\nWritten report with code documentation\nPresentation of findings\n\n\n\n\n\n\n\n\nGrade\nPercentage\nDescription\n\n\n\n\nA\n90-100%\nOutstanding performance\n\n\nB\n80-89%\nGood performance\n\n\nC\n70-79%\nSatisfactory performance\n\n\nD\n60-69%\nBelow average performance\n\n\nF\nBelow 60%\nFail\n\n\n\n\n\n\n\n\n\nPython 3.9+ (via Anaconda distribution)\nJupyter Lab/Notebook\nGit for version control\nText editor or IDE (VS Code recommended)\n\n\n\n\n\nMcKinney, W. (2022). Python for Data Analysis (3rd ed.). O’Reilly Media.\nVanderPlas, J. (2016). Python Data Science Handbook. O’Reilly Media. Free online\n\n\n\n\n\nOfficial Python Documentation\nNumPy Documentation\nPandas Documentation\nCourse GitHub repository with examples and exercises\n\n\n\n\n\n\n\n\nRegular attendance is expected but not mandatory\nActive participation in class discussions encouraged\nOffice hours available for additional support\n\n\n\n\n\nAll assignments submitted via GitHub\nLate submissions accepted with 10% penalty per day\nMaximum 3 days late submission\n\n\n\n\n\nAll submitted code must be your own work\nCollaboration encouraged, but copying prohibited\nProper attribution required for external code\nViolations will result in course failure\n\n\n\n\n\nPrimary communication via course website\nEmail for urgent matters only\nResponse time: 24-48 hours on weekdays\n\n\n\n\n\n\n\n\nWeek\nTopic\nAssignments\n\n\n\n\n1\nIntroduction & Setup\nEnvironment setup\n\n\n2\nPython Basics\nExercise Set 1\n\n\n3\nData Types & Control Flow\nExercise Set 2\n\n\n4\nFunctions & Modules\nExercise Set 3\n\n\n5\nNumPy Fundamentals\nExercise Set 4\n\n\n6\nAdvanced NumPy\nExercise Set 5\n\n\n7\nPandas Basics\nExercise Set 6\n\n\n8\nData Wrangling with Pandas\nExercise Set 7\n\n\n9\nCase Studies\nProject Proposal\n\n\n10\nBest Practices\nFinal Project\n\n\n\n\n\n\n\nOffice Hours: Tuesdays and Thursdays, 2-4 PM\nEmail: instructor@university.edu\nCourse Forum: Available on course website\nPeer Study Groups: Self-organized, facilitated by instructor\n\n\n\n\nStudents with documented disabilities who may need accommodations should make an appointment with the instructor as soon as possible. All discussions will remain confidential. Students should also contact the Office of Disability Services to verify their eligibility for reasonable accommodations.\n\n\n\nThe instructor reserves the right to modify this syllabus as needed. Any changes will be announced in class and posted on the course website with adequate notice.",
+    "crumbs": [
+      "Course Information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#ind216---introduction-to-python-for-analytics",
+    "href": "course-syllabus.html#ind216---introduction-to-python-for-analytics",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "This comprehensive introductory course provides MSc Analytics students with a solid foundation in Python programming for data analysis. The course emphasizes practical skills in data wrangling, numerical computation, and analytical workflows using Python’s scientific computing ecosystem.\n\n\n\nUpon successful completion of this course, students will be able to:\n\nSet up and manage Python environments for data analysis projects\nWrite clean, efficient Python code using best practices and Pythonic idioms\nManipulate and analyze data using NumPy arrays for numerical computing\nProcess and transform datasets using Pandas DataFrames\nDevelop reproducible data analysis workflows from raw data to insights\nDebug and troubleshoot common programming issues\nApply programming concepts to real-world analytics problems\n\n\n\n\n\nNo prior programming experience required\nBasic computer literacy (file management, using applications)\nWillingness to learn through trial and error\nAccess to a computer for hands-on practice\n\n\n\n\nThe course is organized into five progressive modules:\n\n\n\nPython installation and setup\nDevelopment environments (Jupyter, VS Code)\nBasic syntax and programming concepts\nWriting and running Python scripts\n\n\n\n\n\nData types (numbers, strings, lists, dictionaries)\nControl flow (if statements, loops)\nFunctions and modules\nFile handling and I/O operations\n\n\n\n\n\nIntroduction to NumPy arrays\nArray operations and broadcasting\nMathematical functions and linear algebra\nPerformance considerations for numerical computing\n\n\n\n\n\nDataFrames and Series\nReading and writing data files\nData cleaning and transformation\nGrouping, merging, and reshaping data\n\n\n\n\n\nReal-world case studies\nData analysis workflows\nCode organization and documentation\nBest practices for reproducible research\n\n\n\n\n\n\n\n\nWeekly exercises and problem sets\nCode submissions via GitHub\nPeer code reviews\n\n\n\n\n\nComprehensive data analysis project\nWritten report with code documentation\nPresentation of findings\n\n\n\n\n\n\n\n\nGrade\nPercentage\nDescription\n\n\n\n\nA\n90-100%\nOutstanding performance\n\n\nB\n80-89%\nGood performance\n\n\nC\n70-79%\nSatisfactory performance\n\n\nD\n60-69%\nBelow average performance\n\n\nF\nBelow 60%\nFail\n\n\n\n\n\n\n\n\n\nPython 3.9+ (via Anaconda distribution)\nJupyter Lab/Notebook\nGit for version control\nText editor or IDE (VS Code recommended)\n\n\n\n\n\nMcKinney, W. (2022). Python for Data Analysis (3rd ed.). O’Reilly Media.\nVanderPlas, J. (2016). Python Data Science Handbook. O’Reilly Media. Free online\n\n\n\n\n\nOfficial Python Documentation\nNumPy Documentation\nPandas Documentation\nCourse GitHub repository with examples and exercises\n\n\n\n\n\n\n\n\nRegular attendance is expected but not mandatory\nActive participation in class discussions encouraged\nOffice hours available for additional support\n\n\n\n\n\nAll assignments submitted via GitHub\nLate submissions accepted with 10% penalty per day\nMaximum 3 days late submission\n\n\n\n\n\nAll submitted code must be your own work\nCollaboration encouraged, but copying prohibited\nProper attribution required for external code\nViolations will result in course failure\n\n\n\n\n\nPrimary communication via course website\nEmail for urgent matters only\nResponse time: 24-48 hours on weekdays\n\n\n\n\n\n\n\n\nWeek\nTopic\nAssignments\n\n\n\n\n1\nIntroduction & Setup\nEnvironment setup\n\n\n2\nPython Basics\nExercise Set 1\n\n\n3\nData Types & Control Flow\nExercise Set 2\n\n\n4\nFunctions & Modules\nExercise Set 3\n\n\n5\nNumPy Fundamentals\nExercise Set 4\n\n\n6\nAdvanced NumPy\nExercise Set 5\n\n\n7\nPandas Basics\nExercise Set 6\n\n\n8\nData Wrangling with Pandas\nExercise Set 7\n\n\n9\nCase Studies\nProject Proposal\n\n\n10\nBest Practices\nFinal Project\n\n\n\n\n\n\n\nOffice Hours: Tuesdays and Thursdays, 2-4 PM\nEmail: instructor@university.edu\nCourse Forum: Available on course website\nPeer Study Groups: Self-organized, facilitated by instructor\n\n\n\n\nStudents with documented disabilities who may need accommodations should make an appointment with the instructor as soon as possible. All discussions will remain confidential. Students should also contact the Office of Disability Services to verify their eligibility for reasonable accommodations.\n\n\n\nThe instructor reserves the right to modify this syllabus as needed. Any changes will be announced in class and posted on the course website with adequate notice.",
+    "crumbs": [
+      "Course Information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-schedule.html",
+    "href": "course-schedule.html",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "This schedule is tentative and may be adjusted based on class progress and needs.\n\n\n\n\n\n\n\nDate: January 8-12\nTopics: - Course overview and objectives - Why Python for analytics? - Installing Anaconda - Setting up development environments - Running your first Python program\nReadings: - Course syllabus - Python.org Beginner’s Guide\nLab: - Install Anaconda distribution - Set up Jupyter Lab - Create first Python notebook\nAssignment: - Environment setup confirmation - Hello World variations\n\n\n\n\nDate: January 15-19\nTopics: - Python syntax basics - Variables and data types - Basic operations - Input/output - Comments and documentation\nReadings: - VanderPlas Ch. 1: IPython - Course notes: Python basics\nLab: - Interactive Python exercises - Simple calculator program - String manipulation tasks\nAssignment: - Exercise Set 1: Basic Python\n\n\n\n\n\n\n\nDate: January 22-26\nTopics: - Lists and tuples - Dictionaries and sets - String methods - Type conversion - Mutability concepts\nReadings: - McKinney Ch. 3: Built-in Data Structures - Python documentation: Data structures\nLab: - Data structure manipulation - Student grade tracker - Dictionary exercises\nAssignment: - Exercise Set 2: Data structures\n\n\n\n\nDate: January 29 - February 2\nTopics: - Conditional statements - Loops (for, while) - Functions and parameters - Scope and namespaces - Lambda functions\nReadings: - Course notes: Control flow - Python documentation: Functions\nLab: - Function writing workshop - Debugging exercises - Code refactoring practice\nAssignment: - Exercise Set 3: Functions and control flow\n\n\n\n\n\n\n\nDate: February 5-9\nTopics: - NumPy arrays introduction - Array creation and properties - Indexing and slicing - Basic operations - Broadcasting\nReadings: - VanderPlas Ch. 2: NumPy - NumPy documentation: Quickstart\nLab: - Array manipulation exercises - Performance comparisons - Broadcasting puzzles\nAssignment: - Exercise Set 4: NumPy basics\n\n\n\n\nDate: February 12-16\nTopics: - Mathematical functions - Statistical operations - Linear algebra - Random number generation - Array reshaping and stacking\nReadings: - McKinney Ch. 4: NumPy Basics - NumPy documentation: Advanced topics\nLab: - Statistical analysis with NumPy - Matrix operations - Monte Carlo simulations\nAssignment: - Exercise Set 5: Advanced NumPy\n\n\n\n\n\n\n\nDate: February 19-23\nTopics: - Series and DataFrames - Reading/writing data files - Indexing and selection - Basic operations - Missing data handling\nReadings: - VanderPlas Ch. 3: Pandas - McKinney Ch. 5: Getting Started with pandas\nLab: - DataFrame creation and manipulation - Data loading exercises - Missing data scenarios\nAssignment: - Exercise Set 6: Pandas basics\n\n\n\n\nDate: February 26 - March 1\nTopics: - Grouping and aggregation - Merging and joining - Reshaping and pivoting - Time series basics - Data cleaning techniques\nReadings: - McKinney Ch. 7-8: Data Wrangling - Pandas documentation: User guide\nLab: - Real dataset analysis - Data transformation pipeline - Time series analysis\nAssignment: - Exercise Set 7: Data wrangling - Project proposal due\n\n\n\n\n\n\n\nDate: March 4-8\nTopics: - End-to-end data analysis workflow - Real-world datasets - Exploratory data analysis - Data visualization basics - Reporting results\nReadings: - Selected case studies - Best practices documentation\nLab: - Complete analysis pipeline - Peer code review - Results presentation\nAssignment: - Case study analysis\n\n\n\n\nDate: March 11-15\nTopics: - Code organization - Documentation standards - Version control with Git - Debugging strategies - Performance optimization - Reproducible research\nReadings: - PEP 8 style guide - Git documentation - Course notes: Best practices\nLab: - Code refactoring workshop - Git workflow practice - Project work time\nAssignment: - Final project due: March 15\n\n\n\n\n\n\n\n\n\n\n\nKey Deadlines: - Week 1: Environment setup confirmation - Week 8: Project proposal - Week 10: Final project submission\n\n\n\n\n\n\nRegular Office Hours: - Tuesdays: 2:00-4:00 PM - Thursdays: 2:00-4:00 PM - By appointment: Email to schedule\nLocation: Office 312 or online via Zoom\n\n\n\nLab Schedule: - Wednesdays: 10:00 AM - 12:00 PM - Fridays: 2:00-4:00 PM (optional support session)\nLocation: Computer Lab 201\n\n\n\n\nMidterm: None (continuous assessment)\nFinal Project Presentations: March 18-19\n\n\n\n\n\nWinter Break: No classes February 19-23 (Reading week)\nUniversity Holidays: Check academic calendar\n\n\n\n\nEach week’s materials will be posted on the course website by Monday morning, including: - Lecture slides - Code examples - Exercise notebooks - Additional readings - Video tutorials (when applicable)\n\n\n\n\n\n\n\n\n\nWeekly Workflow: 1. Review lecture materials before class 2. Attend lectures and take notes 3. Complete lab exercises 4. Start assignments early 5. Attend office hours if needed 6. Review and practice regularly\n\n\n\n\n\n\nThis schedule is subject to change based on: - Class progress and needs - University calendar changes - Unexpected closures\nAll changes will be announced in class and posted on the course website.",
+    "crumbs": [
+      "Course Information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "course-schedule.html#weekly-schedule",
+    "href": "course-schedule.html#weekly-schedule",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "This schedule is tentative and may be adjusted based on class progress and needs.\n\n\n\n\n\n\n\nDate: January 8-12\nTopics: - Course overview and objectives - Why Python for analytics? - Installing Anaconda - Setting up development environments - Running your first Python program\nReadings: - Course syllabus - Python.org Beginner’s Guide\nLab: - Install Anaconda distribution - Set up Jupyter Lab - Create first Python notebook\nAssignment: - Environment setup confirmation - Hello World variations\n\n\n\n\nDate: January 15-19\nTopics: - Python syntax basics - Variables and data types - Basic operations - Input/output - Comments and documentation\nReadings: - VanderPlas Ch. 1: IPython - Course notes: Python basics\nLab: - Interactive Python exercises - Simple calculator program - String manipulation tasks\nAssignment: - Exercise Set 1: Basic Python\n\n\n\n\n\n\n\nDate: January 22-26\nTopics: - Lists and tuples - Dictionaries and sets - String methods - Type conversion - Mutability concepts\nReadings: - McKinney Ch. 3: Built-in Data Structures - Python documentation: Data structures\nLab: - Data structure manipulation - Student grade tracker - Dictionary exercises\nAssignment: - Exercise Set 2: Data structures\n\n\n\n\nDate: January 29 - February 2\nTopics: - Conditional statements - Loops (for, while) - Functions and parameters - Scope and namespaces - Lambda functions\nReadings: - Course notes: Control flow - Python documentation: Functions\nLab: - Function writing workshop - Debugging exercises - Code refactoring practice\nAssignment: - Exercise Set 3: Functions and control flow\n\n\n\n\n\n\n\nDate: February 5-9\nTopics: - NumPy arrays introduction - Array creation and properties - Indexing and slicing - Basic operations - Broadcasting\nReadings: - VanderPlas Ch. 2: NumPy - NumPy documentation: Quickstart\nLab: - Array manipulation exercises - Performance comparisons - Broadcasting puzzles\nAssignment: - Exercise Set 4: NumPy basics\n\n\n\n\nDate: February 12-16\nTopics: - Mathematical functions - Statistical operations - Linear algebra - Random number generation - Array reshaping and stacking\nReadings: - McKinney Ch. 4: NumPy Basics - NumPy documentation: Advanced topics\nLab: - Statistical analysis with NumPy - Matrix operations - Monte Carlo simulations\nAssignment: - Exercise Set 5: Advanced NumPy\n\n\n\n\n\n\n\nDate: February 19-23\nTopics: - Series and DataFrames - Reading/writing data files - Indexing and selection - Basic operations - Missing data handling\nReadings: - VanderPlas Ch. 3: Pandas - McKinney Ch. 5: Getting Started with pandas\nLab: - DataFrame creation and manipulation - Data loading exercises - Missing data scenarios\nAssignment: - Exercise Set 6: Pandas basics\n\n\n\n\nDate: February 26 - March 1\nTopics: - Grouping and aggregation - Merging and joining - Reshaping and pivoting - Time series basics - Data cleaning techniques\nReadings: - McKinney Ch. 7-8: Data Wrangling - Pandas documentation: User guide\nLab: - Real dataset analysis - Data transformation pipeline - Time series analysis\nAssignment: - Exercise Set 7: Data wrangling - Project proposal due\n\n\n\n\n\n\n\nDate: March 4-8\nTopics: - End-to-end data analysis workflow - Real-world datasets - Exploratory data analysis - Data visualization basics - Reporting results\nReadings: - Selected case studies - Best practices documentation\nLab: - Complete analysis pipeline - Peer code review - Results presentation\nAssignment: - Case study analysis\n\n\n\n\nDate: March 11-15\nTopics: - Code organization - Documentation standards - Version control with Git - Debugging strategies - Performance optimization - Reproducible research\nReadings: - PEP 8 style guide - Git documentation - Course notes: Best practices\nLab: - Code refactoring workshop - Git workflow practice - Project work time\nAssignment: - Final project due: March 15\n\n\n\n\n\n\n\n\n\n\n\nKey Deadlines: - Week 1: Environment setup confirmation - Week 8: Project proposal - Week 10: Final project submission\n\n\n\n\n\n\nRegular Office Hours: - Tuesdays: 2:00-4:00 PM - Thursdays: 2:00-4:00 PM - By appointment: Email to schedule\nLocation: Office 312 or online via Zoom\n\n\n\nLab Schedule: - Wednesdays: 10:00 AM - 12:00 PM - Fridays: 2:00-4:00 PM (optional support session)\nLocation: Computer Lab 201\n\n\n\n\nMidterm: None (continuous assessment)\nFinal Project Presentations: March 18-19\n\n\n\n\n\nWinter Break: No classes February 19-23 (Reading week)\nUniversity Holidays: Check academic calendar\n\n\n\n\nEach week’s materials will be posted on the course website by Monday morning, including: - Lecture slides - Code examples - Exercise notebooks - Additional readings - Video tutorials (when applicable)\n\n\n\n\n\n\n\n\n\nWeekly Workflow: 1. Review lecture materials before class 2. Attend lectures and take notes 3. Complete lab exercises 4. Start assignments early 5. Attend office hours if needed 6. Review and practice regularly\n\n\n\n\n\n\nThis schedule is subject to change based on: - Class progress and needs - University calendar changes - Unexpected closures\nAll changes will be announced in class and posted on the course website.",
+    "crumbs": [
+      "Course Information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "course-info.html",
+    "href": "course-info.html",
+    "title": "Course Information",
+    "section": "",
+    "text": "IND216 - Introduction to Python for Analytics is designed specifically for MSc students in analytics who want to develop practical programming skills for data analysis. This course provides a foundation in Python programming with a focus on the tools and techniques most relevant to data science and analytics work."
+  },
+  {
+    "objectID": "course-info.html#course-overview",
+    "href": "course-info.html#course-overview",
+    "title": "Course Information",
+    "section": "",
+    "text": "IND216 - Introduction to Python for Analytics is designed specifically for MSc students in analytics who want to develop practical programming skills for data analysis. This course provides a foundation in Python programming with a focus on the tools and techniques most relevant to data science and analytics work."
+  },
+  {
+    "objectID": "course-info.html#learning-philosophy",
+    "href": "course-info.html#learning-philosophy",
+    "title": "Course Information",
+    "section": "Learning Philosophy",
+    "text": "Learning Philosophy\nThis course takes a practical, hands-on approach to learning Python. Rather than covering every aspect of the language, we focus on the core concepts and libraries that analytics professionals use daily:\n\nPractical Focus: Learn by doing with real-world examples and exercises\nAnalytics-Oriented: Emphasis on data manipulation, analysis, and visualization\nProgressive Learning: Build skills incrementally from basic concepts to advanced applications\nModern Tools: Use current best practices and industry-standard libraries"
+  },
+  {
+    "objectID": "course-info.html#course-structure",
+    "href": "course-info.html#course-structure",
+    "title": "Course Information",
+    "section": "Course Structure",
+    "text": "Course Structure\nThe course is organized into five substantive modules:\n\nModule 1: Getting Started with Python\n\nPython installation and setup\nDevelopment environments (Jupyter, VS Code)\nBasic syntax and programming concepts\nWriting and running Python scripts\n\n\n\nModule 2: Python Objects\n\nData types (numbers, strings, lists, dictionaries)\nControl flow (if statements, loops)\nFunctions and modules\nFile handling and I/O operations\n\n\n\nModule 3: Technical & Scientific Computation with NumPy\n\nIntroduction to NumPy arrays\nArray operations and broadcasting\nMathematical functions and linear algebra\nPerformance considerations for numerical computing\n\n\n\nModule 4: Data Management with Pandas\n\nDataFrames and Series\nReading and writing data files\nData cleaning and transformation\nGrouping, merging, and reshaping data"
+  },
+  {
+    "objectID": "course-info.html#learning-objectives",
+    "href": "course-info.html#learning-objectives",
+    "title": "Course Information",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBy the end of this course, students will be able to:\n\nSet up and manage Python environments for data analysis projects\nWrite clean, efficient Python code using best practices\nManipulate and analyze data using NumPy arrays for numerical computing\nProcess and transform datasets using Pandas DataFrames\nDevelop reproducible data analysis workflows from raw data to insights\nDebug and troubleshoot common programming issues\nApply object-oriented programming concepts where appropriate for analytics tasks"
+  },
+  {
+    "objectID": "course-info.html#prerequisites",
+    "href": "course-info.html#prerequisites",
+    "title": "Course Information",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nNo prior programming experience required\nBasic computer literacy (file management, using applications)\nWillingness to learn through trial and error\nAccess to a computer for hands-on practice"
+  },
+  {
+    "objectID": "course-info.html#software-requirements",
+    "href": "course-info.html#software-requirements",
+    "title": "Course Information",
+    "section": "Software Requirements",
+    "text": "Software Requirements\n\nPython 3.8+ (we recommend Python 3.9 or 3.10)\nAnaconda distribution (includes Jupyter, NumPy, Pandas, and other essential packages)\nText editor or IDE (Jupyter Lab, VS Code, or PyCharm)\nGit for version control (optional but recommended)"
+  },
+  {
+    "objectID": "course-info.html#assessment-and-practice",
+    "href": "course-info.html#assessment-and-practice",
+    "title": "Course Information",
+    "section": "Assessment and Practice",
+    "text": "Assessment and Practice\nThis course emphasizes practical skill development through:\n\nInteractive exercises embedded in each module\nHands-on coding assignments using real datasets\nProgressive projects that build on previous concepts\nSelf-assessment opportunities to check understanding"
+  },
+  {
+    "objectID": "course-info.html#getting-help",
+    "href": "course-info.html#getting-help",
+    "title": "Course Information",
+    "section": "Getting Help",
+    "text": "Getting Help\n\nUse the course materials and examples as your first reference\nPractice with the provided exercises and datasets\nConsult Python documentation and community resources\nAsk questions during class sessions or office hours"
+  },
+  {
+    "objectID": "course-info.html#success-tips",
+    "href": "course-info.html#success-tips",
+    "title": "Course Information",
+    "section": "Success Tips",
+    "text": "Success Tips\n\nPractice regularly: Programming is a skill that improves with consistent practice\nStart small: Begin with simple examples and gradually tackle more complex problems\nRead error messages: They often contain helpful information about what went wrong\nUse online resources: The Python community has excellent documentation and tutorials\nDon’t be afraid to experiment: Try different approaches and see what works"
+  },
+  {
+    "objectID": "course-info.html#course-resources",
+    "href": "course-info.html#course-resources",
+    "title": "Course Information",
+    "section": "Course Resources",
+    "text": "Course Resources\n\nOfficial Python Documentation: python.org\nNumPy Documentation: numpy.org\nPandas Documentation: pandas.pydata.org\nJupyter Project: jupyter.org"
+  },
+  {
+    "objectID": "course-info.html#next-steps",
+    "href": "course-info.html#next-steps",
+    "title": "Course Information",
+    "section": "Next Steps",
+    "text": "Next Steps\nReady to begin? Start with Getting Started with Python to set up your development environment and write your first Python programs."
+  },
+  {
+    "objectID": "course-resources.html",
+    "href": "course-resources.html",
+    "title": "Course Resources",
+    "section": "",
+    "text": "A curated collection of resources to support your Python learning journey.\n\n\n\n\n📚\n\n\n\nComplete LaTeX-compiled course notes covering all modules Download PDF\n\n\n\n\n💻\n\n\n\nAll code examples, exercises, and solutions View Repository\n\n\n\n\n📓\n\n\n\nInteractive notebooks for each module Access Notebooks\n\n\n\n\n\n\n\n\n\n\n\n\n\nEssential installations: 1. Anaconda Distribution - Includes Python, Jupyter, and essential packages 2. Visual Studio Code - Recommended code editor 3. Git - Version control system\n\n\n\n\n\n\n# Create environment for the course\nconda create -n ind216 python=3.9\n\n# Activate environment\nconda activate ind216\n\n# Install required packages\nconda install numpy pandas matplotlib jupyter\n\n# Install additional useful packages\nconda install scipy scikit-learn seaborn plotly\n\n\n\n\n\n\n\nPython for Data Analysis (3rd Edition)\n\nAuthor: Wes McKinney\nPublisher: O’Reilly Media, 2022\nPublisher Link\nEssential for Pandas and data wrangling\n\nPython Data Science Handbook\n\nAuthor: Jake VanderPlas\nPublisher: O’Reilly Media, 2016\nFree Online Version\nComprehensive coverage of NumPy, Pandas, Matplotlib, and Scikit-Learn\n\n\n\n\n\n\nThink Python (2nd Edition)\n\nAuthor: Allen B. Downey\nFree Online Version\nExcellent for programming fundamentals\n\nAutomate the Boring Stuff with Python\n\nAuthor: Al Sweigart\nFree Online Version\nPractical Python applications\n\nEffective Python (2nd Edition)\n\nAuthor: Brett Slatkin\nPublisher: Addison-Wesley, 2019\nBest practices and Pythonic code\n\n\n\n\n\n\n\n\n\nPython Official Documentation\n\nComplete language reference\nTutorial for beginners\nStandard library reference\n\nNumPy Documentation\n\nUser guide\nAPI reference\nTutorials and examples\n\nPandas Documentation\n\nGetting started guide\nUser guide with examples\nAPI reference\n\nJupyter Documentation\n\nNotebook basics\nAdvanced features\nExtensions\n\n\n\n\n\n\n\n\n\nRecorded lectures available on course platform\nReview sessions before exams\nGuest speaker presentations\n\n\n\n\n\n\n\n\n\n\nRecommended YouTube Channels:\n\nCorey Schafer\n\nPython Programming Tutorials\nClear explanations of Python concepts\n\nsentdex\n\nPython Programming for Finance\nPandas and data analysis tutorials\n\nKeith Galli\n\nComplete Python NumPy Tutorial\nComprehensive NumPy coverage\n\n\n\n\n\n\n\n\n\n\n\n\nGoogle Colab\n\nFree cloud-based Jupyter notebooks\nNo installation required\nGPU support available\n\nReplit\n\nOnline IDE with Python support\nCollaborative coding\nEasy sharing\n\nBinder\n\nTurn GitHub repos into interactive notebooks\nShare reproducible environments\n\n\n\n\n\n\nHackerRank Python Domain\n\nStructured Python challenges\nFrom basic to advanced\n\nCodewars\n\nProgramming challenges (kata)\nCommunity solutions\n\nLeetCode\n\nAlgorithm and data structure problems\nInterview preparation\n\nProject Euler\n\nMathematical/computer programming problems\nRequires algorithmic thinking\n\n\n\n\n\n\n\n\n📋\n\n\n\nQuick reference for Python syntax and common operations Download PDF\n\n\n\n\n📊\n\n\n\nEssential NumPy operations at a glance View Online\n\n\n\n\n🐼\n\n\n\nCommon Pandas operations reference Download PDF\n\n\n\n\n\n\n\n\nStack Overflow\n\nQ&A for specific problems\nSearch before asking\nTag questions appropriately\n\nReddit Communities\n\nr/learnpython for beginners\nr/Python for general discussion\nr/datascience for analytics focus\n\nPython Discord\n\nReal-time chat support\nActive community\nBeginner-friendly\n\n\n\n\n\n\n\n\n\nJupyter Lab\n\nInteractive development\nGreat for exploration\nInline visualizations\n\nVisual Studio Code\n\nFree and open source\nExcellent Python support\nIntegrated terminal and debugging\n\nPyCharm\n\nProfessional Python IDE\nAdvanced features\nFree community edition\n\nSpyder\n\nScientific Python IDE\nSimilar to MATLAB interface\nIncluded with Anaconda\n\n\n\n\n\n{\n  \"recommendations\": [\n    \"ms-python.python\",\n    \"ms-python.vscode-pylance\",\n    \"ms-toolsai.jupyter\",\n    \"ms-toolsai.jupyter-keymap\",\n    \"ms-toolsai.jupyter-renderers\",\n    \"njpwerner.autodocstring\",\n    \"kevinrose.vsc-python-indent\"\n  ]\n}\n\n\n\n\n\n\n\nKaggle Datasets\n\nThousands of real-world datasets\nCommunity notebooks\nCompetitions\n\nUCI Machine Learning Repository\n\nClassic datasets\nWell-documented\nAcademic quality\n\nGoogle Dataset Search\n\nSearch across multiple repositories\nFind specific types of data\n\nSeaborn Built-in Datasets\n\nEasy to load for practice\nClean and ready to use\n\n\n\n\n\n\n\n\n\nPEP 8\n\nOfficial Python style guide\nNaming conventions\nCode layout\n\nGoogle Python Style Guide\n\nIndustry best practices\nDocumentation standards\n\n\n\n\n\n# Install linting and formatting tools\npip install black flake8 pylint\n\n# Format code automatically\nblack your_script.py\n\n# Check for style issues\nflake8 your_script.py\n\n# Comprehensive code analysis\npylint your_script.py\n\n\n\n\n\n\n\nReal Python Career Guide\n\nCareer paths in Python\nSkill development roadmap\n\nPython Job Board\n\nPython-specific job listings\nIndustry insights\n\n\n\n\n\n\n\n\n\n\n\nBuilding Your Portfolio: 1. Create a GitHub profile 2. Document your projects well 3. Include README files 4. Show progression of skills 5. Contribute to open source\n\n\n\n\n\n\n\n\n\n\nPython Error Messages Explained\nDebugging in Python\nCommon Pandas Errors\n\n\n\n\n\nPython Performance Tips\nNumPy Performance Guide\nPandas Performance\n\n\n\n\n\n\n\n\nPython Weekly Newsletter\nReal Python Newsletter\nPyCoder’s Weekly\nPython Bytes Podcast\n\nRemember: The best resource is practice. Use these materials to support your hands-on coding experience!",
+    "crumbs": [
+      "IND216",
+      "Course Information",
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "course-resources.html#essential-resources",
+    "href": "course-resources.html#essential-resources",
+    "title": "Course Resources",
+    "section": "",
+    "text": "A curated collection of resources to support your Python learning journey.\n\n\n\n\n📚\n\n\n\nComplete LaTeX-compiled course notes covering all modules Download PDF\n\n\n\n\n💻\n\n\n\nAll code examples, exercises, and solutions View Repository\n\n\n\n\n📓\n\n\n\nInteractive notebooks for each module Access Notebooks\n\n\n\n\n\n\n\n\n\n\n\n\n\nEssential installations: 1. Anaconda Distribution - Includes Python, Jupyter, and essential packages 2. Visual Studio Code - Recommended code editor 3. Git - Version control system\n\n\n\n\n\n\n# Create environment for the course\nconda create -n ind216 python=3.9\n\n# Activate environment\nconda activate ind216\n\n# Install required packages\nconda install numpy pandas matplotlib jupyter\n\n# Install additional useful packages\nconda install scipy scikit-learn seaborn plotly\n\n\n\n\n\n\n\nPython for Data Analysis (3rd Edition)\n\nAuthor: Wes McKinney\nPublisher: O’Reilly Media, 2022\nPublisher Link\nEssential for Pandas and data wrangling\n\nPython Data Science Handbook\n\nAuthor: Jake VanderPlas\nPublisher: O’Reilly Media, 2016\nFree Online Version\nComprehensive coverage of NumPy, Pandas, Matplotlib, and Scikit-Learn\n\n\n\n\n\n\nThink Python (2nd Edition)\n\nAuthor: Allen B. Downey\nFree Online Version\nExcellent for programming fundamentals\n\nAutomate the Boring Stuff with Python\n\nAuthor: Al Sweigart\nFree Online Version\nPractical Python applications\n\nEffective Python (2nd Edition)\n\nAuthor: Brett Slatkin\nPublisher: Addison-Wesley, 2019\nBest practices and Pythonic code\n\n\n\n\n\n\n\n\n\nPython Official Documentation\n\nComplete language reference\nTutorial for beginners\nStandard library reference\n\nNumPy Documentation\n\nUser guide\nAPI reference\nTutorials and examples\n\nPandas Documentation\n\nGetting started guide\nUser guide with examples\nAPI reference\n\nJupyter Documentation\n\nNotebook basics\nAdvanced features\nExtensions\n\n\n\n\n\n\n\n\n\nRecorded lectures available on course platform\nReview sessions before exams\nGuest speaker presentations\n\n\n\n\n\n\n\n\n\n\nRecommended YouTube Channels:\n\nCorey Schafer\n\nPython Programming Tutorials\nClear explanations of Python concepts\n\nsentdex\n\nPython Programming for Finance\nPandas and data analysis tutorials\n\nKeith Galli\n\nComplete Python NumPy Tutorial\nComprehensive NumPy coverage\n\n\n\n\n\n\n\n\n\n\n\n\nGoogle Colab\n\nFree cloud-based Jupyter notebooks\nNo installation required\nGPU support available\n\nReplit\n\nOnline IDE with Python support\nCollaborative coding\nEasy sharing\n\nBinder\n\nTurn GitHub repos into interactive notebooks\nShare reproducible environments\n\n\n\n\n\n\nHackerRank Python Domain\n\nStructured Python challenges\nFrom basic to advanced\n\nCodewars\n\nProgramming challenges (kata)\nCommunity solutions\n\nLeetCode\n\nAlgorithm and data structure problems\nInterview preparation\n\nProject Euler\n\nMathematical/computer programming problems\nRequires algorithmic thinking\n\n\n\n\n\n\n\n\n📋\n\n\n\nQuick reference for Python syntax and common operations Download PDF\n\n\n\n\n📊\n\n\n\nEssential NumPy operations at a glance View Online\n\n\n\n\n🐼\n\n\n\nCommon Pandas operations reference Download PDF\n\n\n\n\n\n\n\n\nStack Overflow\n\nQ&A for specific problems\nSearch before asking\nTag questions appropriately\n\nReddit Communities\n\nr/learnpython for beginners\nr/Python for general discussion\nr/datascience for analytics focus\n\nPython Discord\n\nReal-time chat support\nActive community\nBeginner-friendly\n\n\n\n\n\n\n\n\n\nJupyter Lab\n\nInteractive development\nGreat for exploration\nInline visualizations\n\nVisual Studio Code\n\nFree and open source\nExcellent Python support\nIntegrated terminal and debugging\n\nPyCharm\n\nProfessional Python IDE\nAdvanced features\nFree community edition\n\nSpyder\n\nScientific Python IDE\nSimilar to MATLAB interface\nIncluded with Anaconda\n\n\n\n\n\n{\n  \"recommendations\": [\n    \"ms-python.python\",\n    \"ms-python.vscode-pylance\",\n    \"ms-toolsai.jupyter\",\n    \"ms-toolsai.jupyter-keymap\",\n    \"ms-toolsai.jupyter-renderers\",\n    \"njpwerner.autodocstring\",\n    \"kevinrose.vsc-python-indent\"\n  ]\n}\n\n\n\n\n\n\n\nKaggle Datasets\n\nThousands of real-world datasets\nCommunity notebooks\nCompetitions\n\nUCI Machine Learning Repository\n\nClassic datasets\nWell-documented\nAcademic quality\n\nGoogle Dataset Search\n\nSearch across multiple repositories\nFind specific types of data\n\nSeaborn Built-in Datasets\n\nEasy to load for practice\nClean and ready to use\n\n\n\n\n\n\n\n\n\nPEP 8\n\nOfficial Python style guide\nNaming conventions\nCode layout\n\nGoogle Python Style Guide\n\nIndustry best practices\nDocumentation standards\n\n\n\n\n\n# Install linting and formatting tools\npip install black flake8 pylint\n\n# Format code automatically\nblack your_script.py\n\n# Check for style issues\nflake8 your_script.py\n\n# Comprehensive code analysis\npylint your_script.py\n\n\n\n\n\n\n\nReal Python Career Guide\n\nCareer paths in Python\nSkill development roadmap\n\nPython Job Board\n\nPython-specific job listings\nIndustry insights\n\n\n\n\n\n\n\n\n\n\n\nBuilding Your Portfolio: 1. Create a GitHub profile 2. Document your projects well 3. Include README files 4. Show progression of skills 5. Contribute to open source\n\n\n\n\n\n\n\n\n\n\nPython Error Messages Explained\nDebugging in Python\nCommon Pandas Errors\n\n\n\n\n\nPython Performance Tips\nNumPy Performance Guide\nPandas Performance\n\n\n\n\n\n\n\n\nPython Weekly Newsletter\nReal Python Newsletter\nPyCoder’s Weekly\nPython Bytes Podcast\n\nRemember: The best resource is practice. Use these materials to support your hands-on coding experience!",
+    "crumbs": [
+      "IND216",
+      "Course Information",
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "course-support.html",
+    "href": "course-support.html",
+    "title": "Course Support",
+    "section": "",
+    "text": "Learning to program can be challenging, but you don’t have to do it alone. This page provides information about all the support resources available to help you succeed in IND216.\n\n\n\n\n\n\n\n\nWhere to get help: - Installation issues → Office hours or lab sessions - Coding questions → Course forum, then office hours - Conceptual questions → Lecture Q&A or course forum - Project guidance → Schedule appointment with instructor - Technical emergencies → Email instructor directly",
+    "crumbs": [
+      "IND216",
+      "Course Information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#getting-help",
+    "href": "course-support.html#getting-help",
+    "title": "Course Support",
+    "section": "",
+    "text": "Learning to program can be challenging, but you don’t have to do it alone. This page provides information about all the support resources available to help you succeed in IND216.\n\n\n\n\n\n\n\n\nWhere to get help: - Installation issues → Office hours or lab sessions - Coding questions → Course forum, then office hours - Conceptual questions → Lecture Q&A or course forum - Project guidance → Schedule appointment with instructor - Technical emergencies → Email instructor directly",
+    "crumbs": [
+      "IND216",
+      "Course Information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#support-resources",
+    "href": "course-support.html#support-resources",
+    "title": "Course Support",
+    "section": "Support Resources",
+    "text": "Support Resources\n\nOffice Hours\nRegular Schedule: - Tuesdays: 2:00-4:00 PM - Thursdays: 2:00-4:00 PM - Location: Office 312 or via Zoom\nNo appointment needed during regular hours. Come with: - Specific questions prepared - Code attempts you’ve made - Error messages documented\nBy Appointment: For longer discussions or project consultations, email to schedule a meeting outside regular hours.\n\n\nLab Support Sessions\nScheduled Labs: - Wednesdays: 10:00 AM - 12:00 PM (structured lab) - Fridays: 2:00-4:00 PM (open support) - Location: Computer Lab 201\nLab sessions provide: - Hands-on guidance with exercises - Troubleshooting assistance - Peer collaboration opportunities - TA support\n\n\nCourse Forum\nAccess the course forum through the website for: - Asking questions (conceptual or technical) - Sharing helpful resources - Discussing course material - Finding study partners\nForum Guidelines: 1. Search before posting (your question may be answered) 2. Use descriptive titles 3. Include error messages and code snippets 4. Be respectful and helpful 5. Don’t share complete assignment solutions\n\n\nEmail Support\nEmail: instructor@university.edu\nWhen to email: - Personal matters (illness, accommodations) - Scheduling appointments - Urgent technical issues - Administrative questions\nResponse time: 24-48 hours on weekdays\nEmail tips: - Use clear subject line: “IND216: [Topic]” - Include your student ID - Be specific about your issue - Attach relevant files if needed",
+    "crumbs": [
+      "IND216",
+      "Course Information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#common-issues-and-solutions",
+    "href": "course-support.html#common-issues-and-solutions",
+    "title": "Course Support",
+    "section": "Common Issues and Solutions",
+    "text": "Common Issues and Solutions\n\nInstallation Problems\n\n\n\n\n\n\nCommon Installation Issues:\nProblem: Anaconda won’t install - Solution: Check system requirements, disable antivirus temporarily, run as administrator\nProblem: Jupyter won’t start - Solution: Update Anaconda, check firewall settings, try different browser\nProblem: Packages won’t import - Solution: Verify installation with conda list, reinstall package, check environment\n\n\n\n\n\nCoding Challenges\n“I don’t know where to start”: 1. Break the problem into smaller steps 2. Write pseudocode first 3. Start with the simplest part 4. Use print statements to debug 5. Look at similar examples\n“My code doesn’t work”: 1. Read error messages carefully 2. Check for typos and syntax errors 3. Verify data types 4. Test with simple inputs 5. Use debugging tools\n“I don’t understand the concept”: 1. Review lecture notes 2. Try additional examples 3. Watch supplementary videos 4. Ask on the forum 5. Attend office hours",
+    "crumbs": [
+      "IND216",
+      "Course Information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#study-resources",
+    "href": "course-support.html#study-resources",
+    "title": "Course Support",
+    "section": "Study Resources",
+    "text": "Study Resources\n\nRecommended Learning Path\n\nBefore Class:\n\nReview previous material\nRead assigned sections\nNote questions\n\nDuring Class:\n\nTake active notes\nTry examples\nAsk questions\n\nAfter Class:\n\nReview notes same day\nComplete exercises\nPractice additional problems\n\n\n\n\nOnline Resources\nOfficial Documentation: - Python.org Documentation - NumPy User Guide - Pandas User Guide\nInteractive Learning: - Python Tutor Visualizer - Jupyter Notebooks Gallery - Real Python Tutorials\nVideo Tutorials: - Corey Schafer Python Series - 3Blue1Brown (Math concepts)\nPractice Platforms: - HackerRank Python - LeetCode - Project Euler\n\n\nPeer Support\nStudy Groups: - Form groups of 3-4 students - Meet regularly to review material - Work through problems together - Share different approaches\nPeer Tutoring: - Advanced students available for tutoring - Sign up through course website - Free service for enrolled students",
+    "crumbs": [
+      "IND216",
+      "Course Information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#mental-health-and-wellbeing",
+    "href": "course-support.html#mental-health-and-wellbeing",
+    "title": "Course Support",
+    "section": "Mental Health and Wellbeing",
+    "text": "Mental Health and Wellbeing\nProgramming can be frustrating at times. Remember:\n\n\n\n\n\n\nIt’s normal to: - Feel stuck sometimes - Need multiple attempts - Make lots of errors - Need to ask for help - Take breaks when frustrated\n\n\n\nCampus Resources: - Student Counseling Services: ext. 1234 - Academic Success Center: ext. 5678 - Student Health Services: ext. 9012",
+    "crumbs": [
+      "IND216",
+      "Course Information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#accessibility-and-accommodations",
+    "href": "course-support.html#accessibility-and-accommodations",
+    "title": "Course Support",
+    "section": "Accessibility and Accommodations",
+    "text": "Accessibility and Accommodations\n\nDisability Services\nStudents with documented disabilities should: 1. Register with Office of Disability Services 2. Provide documentation to instructor 3. Discuss specific accommodations needed\nCommon Accommodations: - Extended time for assignments - Alternative format materials - Assistive technology support - Note-taking assistance\n\n\nTechnical Accommodations\nWe can provide: - Screen reader compatible materials - Larger font versions - Color-blind friendly visualizations - Keyboard-only navigation options",
+    "crumbs": [
+      "IND216",
+      "Course Information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#emergency-procedures",
+    "href": "course-support.html#emergency-procedures",
+    "title": "Course Support",
+    "section": "Emergency Procedures",
+    "text": "Emergency Procedures\n\nTechnical Emergencies\nSystem crash before deadline: 1. Document the issue (screenshots) 2. Email instructor immediately 3. Submit what you have 4. Complete when system restored\nLost work: - Use version control (Git) - Save frequently - Use cloud backup - Keep multiple copies\n\n\nPersonal Emergencies\nIllness or emergency: - Email instructor ASAP - Provide documentation if extended - Discuss makeup options - Don’t fall behind",
+    "crumbs": [
+      "IND216",
+      "Course Information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#faq",
+    "href": "course-support.html#faq",
+    "title": "Course Support",
+    "section": "FAQ",
+    "text": "FAQ\nQ: How much time should I spend on this course? A: Plan for 2-3 hours outside class for every hour in class (6-9 hours/week total).\nQ: Can I use AI tools like ChatGPT? A: You may use them for learning and understanding concepts, but submitted code must be your own work. Always cite any assistance received.\nQ: What if I’m falling behind? A: Seek help immediately. The course builds on itself, so early gaps become bigger problems later.\nQ: Do I need a powerful computer? A: No, basic Python programming doesn’t require much computing power. Any computer from the last 5 years should work fine.\nQ: Can I use a different IDE than recommended? A: Yes, but you’re responsible for any setup issues. We can only provide support for recommended tools.",
+    "crumbs": [
+      "IND216",
+      "Course Information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#success-tips",
+    "href": "course-support.html#success-tips",
+    "title": "Course Support",
+    "section": "Success Tips",
+    "text": "Success Tips\n\n\n\n\n\n\nTop tips from successful students: 1. Start early - Don’t wait until the deadline 2. Practice daily - Even 20 minutes helps 3. Make mistakes - They’re learning opportunities 4. Ask questions - No question is too basic 5. Help others - Teaching reinforces learning 6. Take breaks - Fresh eyes spot errors 7. Document everything - Comment your code 8. Stay organized - Use folders and naming conventions",
+    "crumbs": [
+      "IND216",
+      "Course Information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "course-support.html#contact-information",
+    "href": "course-support.html#contact-information",
+    "title": "Course Support",
+    "section": "Contact Information",
+    "text": "Contact Information\nCourse Instructor: - Name: Dr. [Instructor Name] - Email: instructor@university.edu - Office: Building A, Room 312 - Phone: (555) 123-4567\nTeaching Assistants: - TA 1: ta1@university.edu - TA 2: ta2@university.edu - Office hours: Posted on course website\nTechnical Support: - IT Help Desk: helpdesk@university.edu - Phone: (555) 987-6543 - Hours: Monday-Friday, 8 AM - 6 PM\nRemember: We want you to succeed! Don’t hesitate to reach out when you need help.",
+    "crumbs": [
+      "IND216",
+      "Course Information",
+      "Support"
+    ]
+  },
+  {
+    "objectID": "getting-started.html",
+    "href": "getting-started.html",
+    "title": "Getting Started with Python",
+    "section": "",
+    "text": "Welcome to your Python journey! This module will guide you through setting up Python on your computer and introduce you to the essential tools for analytics work. By the end of this section, you’ll have a working Python environment and understand how to run Python code.",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#introduction",
+    "href": "getting-started.html#introduction",
+    "title": "Getting Started with Python",
+    "section": "",
+    "text": "Welcome to your Python journey! This module will guide you through setting up Python on your computer and introduce you to the essential tools for analytics work. By the end of this section, you’ll have a working Python environment and understand how to run Python code.",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#why-python-for-analytics",
+    "href": "getting-started.html#why-python-for-analytics",
+    "title": "Getting Started with Python",
+    "section": "Why Python for Analytics?",
+    "text": "Why Python for Analytics?\nPython has become the language of choice for data analysis and analytics for several reasons:\n\nReadable syntax: Python code is close to natural language, making it easier to learn and maintain\nRich ecosystem: Extensive libraries for data manipulation, analysis, and visualization\nVersatile: Used across web development, data science, automation, and machine learning\nLarge community: Abundant resources, tutorials, and support available online\nIndustry standard: Widely adopted in academia and industry for analytics work",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#installing-python",
+    "href": "getting-started.html#installing-python",
+    "title": "Getting Started with Python",
+    "section": "Installing Python",
+    "text": "Installing Python\n\nOption 1: Anaconda Distribution (Recommended)\nAnaconda is a Python distribution that includes Python itself plus many useful packages for data science. It’s the easiest way to get started.\n\nDownload Anaconda:\n\nVisit anaconda.com\nChoose the installer for your operating system\nDownload the Python 3.9+ version\n\nInstall Anaconda:\n\nRun the installer and follow the prompts\nAccept the default settings unless you have specific requirements\nThis will install Python, Jupyter, and essential data science packages\n\nVerify Installation:\n\nOpen Anaconda Navigator or command prompt/terminal\nType python --version to confirm Python is installed\n\n\n\n\nOption 2: Python.org (Advanced Users)\nIf you prefer a minimal installation, you can download Python directly from python.org and install packages separately using pip.",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#development-environments",
+    "href": "getting-started.html#development-environments",
+    "title": "Getting Started with Python",
+    "section": "Development Environments",
+    "text": "Development Environments\n\nJupyter Lab/Notebook\nJupyter is an interactive environment perfect for data analysis and learning Python.\n# Starting Jupyter\n# Open Anaconda Navigator and click \"Launch\" under Jupyter Lab\n# Or from command line:\njupyter lab\nBenefits of Jupyter: - Interactive code execution - Mix code, text, and visualizations - Great for experimentation and prototyping - Industry standard for data analysis\n\n\nPython Scripts\nFor larger projects, you’ll write Python files (.py extension) that can be run from the command line.\n# Example: hello.py\nprint(\"Hello, Python world!\")\nprint(\"Welcome to IND216!\")\nTo run a Python script:\npython hello.py\n\n\nIntegrated Development Environments (IDEs)\nPopular choices for Python development:\n\nVS Code: Free, lightweight, excellent Python support\nPyCharm: Full-featured IDE with advanced debugging tools\nSpyder: Designed specifically for scientific Python",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#your-first-python-program",
+    "href": "getting-started.html#your-first-python-program",
+    "title": "Getting Started with Python",
+    "section": "Your First Python Program",
+    "text": "Your First Python Program\nLet’s start with a simple example:\n# This is a comment - Python ignores this line\nprint(\"Hello, Analytics World!\")\n\n# Variables store data\ncourse_name = \"IND216\"\nstudent_count = 25\n\n# Display information\nprint(f\"Welcome to {course_name}!\")\nprint(f\"We have {student_count} students in this course.\")",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#python-execution-model",
+    "href": "getting-started.html#python-execution-model",
+    "title": "Getting Started with Python",
+    "section": "Python Execution Model",
+    "text": "Python Execution Model\nUnderstanding how Python runs your code:\n\nPython Interpreter: Reads and executes your code line by line\nInteractive Mode: Type code directly in Python shell for immediate execution\nScript Mode: Write code in files and run the entire file\nJupyter Cells: Execute code in individual cells for interactive analysis",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#package-management-with-conda",
+    "href": "getting-started.html#package-management-with-conda",
+    "title": "Getting Started with Python",
+    "section": "Package Management with conda",
+    "text": "Package Management with conda\nConda is a package manager that comes with Anaconda. It helps you install and manage Python packages.\n# Create a new environment for this course\nconda create -n ind216 python=3.9\n\n# Activate the environment\nconda activate ind216\n\n# Install essential packages\nconda install numpy pandas matplotlib jupyter\n\n# List installed packages\nconda list\n\n# Deactivate environment when done\nconda deactivate",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#essential-packages-for-analytics",
+    "href": "getting-started.html#essential-packages-for-analytics",
+    "title": "Getting Started with Python",
+    "section": "Essential Packages for Analytics",
+    "text": "Essential Packages for Analytics\nHere are the key packages we’ll use throughout the course:\nimport numpy as np          # Numerical computing\nimport pandas as pd         # Data manipulation\nimport matplotlib.pyplot as plt  # Basic plotting\n\n# Check if packages are working\nprint(f\"NumPy version: {np.__version__}\")\nprint(f\"Pandas version: {pd.__version__}\")",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#working-with-files-and-directories",
+    "href": "getting-started.html#working-with-files-and-directories",
+    "title": "Getting Started with Python",
+    "section": "Working with Files and Directories",
+    "text": "Working with Files and Directories\nPython can interact with your file system:\nimport os\n\n# Get current working directory\ncurrent_dir = os.getcwd()\nprint(f\"Current directory: {current_dir}\")\n\n# List files in directory\nfiles = os.listdir('.')\nprint(f\"Files in current directory: {files}\")\n\n# Create a new directory\nos.makedirs('data', exist_ok=True)\nprint(\"Created 'data' directory\")",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#basic-python-syntax",
+    "href": "getting-started.html#basic-python-syntax",
+    "title": "Getting Started with Python",
+    "section": "Basic Python Syntax",
+    "text": "Basic Python Syntax\n\nVariables and Data Types\n# Numbers\nage = 25\nheight = 5.8\ntemperature = -2.5\n\n# Strings (text)\nname = \"Analytics Student\"\ncourse = 'IND216'\n\n# Boolean (True/False)\nis_enrolled = True\nhas_experience = False\n\n# Display variable information\nprint(f\"Name: {name}\")\nprint(f\"Age: {age}\")\nprint(f\"Enrolled: {is_enrolled}\")\n\n\nSimple Operations\n# Arithmetic\na = 10\nb = 3\n\nprint(f\"Addition: {a + b}\")\nprint(f\"Subtraction: {a - b}\")\nprint(f\"Multiplication: {a * b}\")\nprint(f\"Division: {a / b}\")\nprint(f\"Integer division: {a // b}\")\nprint(f\"Remainder: {a % b}\")\nprint(f\"Power: {a ** b}\")\n\n\nGetting Help\nPython has built-in help systems:\n# Get help on a function\nhelp(print)\n\n# In Jupyter, use ? for quick help\n?print\n\n# Use dir() to see available methods\ndir(str)  # Methods available for strings",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#exercise-setting-up-your-environment",
+    "href": "getting-started.html#exercise-setting-up-your-environment",
+    "title": "Getting Started with Python",
+    "section": "Exercise: Setting Up Your Environment",
+    "text": "Exercise: Setting Up Your Environment\n\nExercise 1: Environment Setup\n\nInstall Anaconda or Python on your computer\nCreate a new conda environment called “ind216”\nInstall numpy, pandas, and matplotlib\nStart Jupyter Lab\nCreate a new notebook and run the following code:\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\nprint(\"Environment setup successful!\")\nprint(f\"NumPy version: {np.__version__}\")\nprint(f\"Pandas version: {pd.__version__}\")\n\n# Create a simple plot to test matplotlib\nplt.plot([1, 2, 3, 4], [1, 4, 2, 3])\nplt.title(\"Test Plot\")\nplt.show()",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#common-beginner-mistakes",
+    "href": "getting-started.html#common-beginner-mistakes",
+    "title": "Getting Started with Python",
+    "section": "Common Beginner Mistakes",
+    "text": "Common Beginner Mistakes\n\nWatch Out For:\n\nCase sensitivity: Name and name are different variables\nIndentation: Python uses indentation to organize code blocks\nQuotation marks: Use matching quotes for strings (\"hello\" or 'hello')\nParentheses: Don’t forget closing parentheses in function calls\nVariable names: Cannot start with numbers or contain spaces",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#next-steps",
+    "href": "getting-started.html#next-steps",
+    "title": "Getting Started with Python",
+    "section": "Next Steps",
+    "text": "Next Steps\nNow that you have Python set up and understand the basics, you’re ready to dive deeper into Python objects and data types. Continue to Python Objects to learn about the fundamental building blocks of Python programming.",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "getting-started.html#quick-reference",
+    "href": "getting-started.html#quick-reference",
+    "title": "Getting Started with Python",
+    "section": "Quick Reference",
+    "text": "Quick Reference\n# Running Python code\npython script.py           # Run a Python file\npython -i script.py        # Run and enter interactive mode\njupyter lab                # Start Jupyter Lab\n\n# Package management\nconda install package      # Install a package\nconda list                 # List installed packages\npip install package        # Alternative package installer",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Installation & Setup"
+    ]
+  },
+  {
+    "objectID": "modules/module1-exercises.html",
+    "href": "modules/module1-exercises.html",
+    "title": "Module 1: Exercises",
+    "section": "",
+    "text": "These exercises will help you practice the concepts covered in Module 1.\n\n\nVerify that your Python environment is correctly set up:\n# Run this code to check your setup\nimport sys\nimport numpy as np\nimport pandas as pd\n\nprint(f\"Python version: {sys.version}\")\nprint(f\"NumPy version: {np.__version__}\")\nprint(f\"Pandas version: {pd.__version__}\")\nExpected output: You should see version numbers for Python (3.9+), NumPy, and Pandas.\n\n\n\nComplete the following tasks:\n# Task 1: Create variables of different types\n# Your code here\n\n# Task 2: Perform arithmetic operations\n# Calculate the area of a circle with radius 5\n# Your code here\n\n# Task 3: String manipulation\n# Create a greeting message using string formatting\nname = \"Your Name\"\n# Your code here\n\n# Task 4: Create a list of your favorite programming languages\n# Your code here\n\n\n\nPractice using Python interactively:\n\nOpen a Python shell or Jupyter notebook\nCalculate the following:\n\n2 raised to the power of 10\nThe square root of 144\nThe remainder when 17 is divided by 5\n\nImport the math module and use it to calculate:\n\nThe value of pi\nThe sine of 45 degrees (remember to convert to radians)\nThe natural logarithm of 10\n\n\n\n\n\nCreate a Python script called hello_analytics.py that:\n\nPrints a welcome message\nAsks for the user’s name\nAsks for their favorite number\nCalculates and displays the square of that number\nSays goodbye with their name\n\nSample interaction:\nWelcome to Python for Analytics!\nWhat's your name? Alice\nWhat's your favorite number? 7\nAlice, the square of 7 is 49\nGoodbye, Alice!\n\n\n\nCreate a Python script that:\n\nCreates a new text file called data.txt\nWrites the numbers 1 through 10 (each on a new line)\nCloses the file\nOpens the file again for reading\nReads and prints each line\nCalculates and prints the sum of all numbers\n\n\n\n\n\n\nWrite a program that converts temperatures between Celsius, Fahrenheit, and Kelvin:\ndef celsius_to_fahrenheit(c):\n    # Your code here\n    pass\n\ndef fahrenheit_to_celsius(f):\n    # Your code here\n    pass\n\ndef celsius_to_kelvin(c):\n    # Your code here\n    pass\n\n# Test your functions\nprint(celsius_to_fahrenheit(0))    # Should print 32.0\nprint(fahrenheit_to_celsius(98.6)) # Should print 37.0\nprint(celsius_to_kelvin(25))       # Should print 298.15\n\n\n\nCreate an interactive calculator that: - Offers operations: addition, subtraction, multiplication, division - Handles division by zero gracefully - Continues until the user chooses to quit\n\n\n\n\n\nCreate a new folder called module1_exercises\nSave all your Python scripts in this folder\nInclude comments explaining your code\nTest all your solutions before submission\n\n\n\n\nBefore moving to Module 2, ensure you can:\n\nRun Python code in multiple ways (script, interactive, Jupyter)\nCreate and manipulate variables\nPerform basic arithmetic operations\nWork with strings\nWrite and run Python scripts\nImport and use modules\nRead from and write to files\nUse basic input/output functions\n\n\n\n\nIf you finish early or want extra practice:\n\nExplore the Python documentation for the random module\nWrite a program that generates random numbers\nCreate a simple number guessing game\nExperiment with different string methods\nTry creating functions with multiple parameters\n\n\n\n\nRemember: - Check the error messages carefully - Use help() and dir() functions - Consult the course resources - Ask on the forum if stuck - Attend office hours for personalized help",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "modules/module1-exercises.html#getting-started-with-python---exercises",
+    "href": "modules/module1-exercises.html#getting-started-with-python---exercises",
+    "title": "Module 1: Exercises",
+    "section": "",
+    "text": "These exercises will help you practice the concepts covered in Module 1.\n\n\nVerify that your Python environment is correctly set up:\n# Run this code to check your setup\nimport sys\nimport numpy as np\nimport pandas as pd\n\nprint(f\"Python version: {sys.version}\")\nprint(f\"NumPy version: {np.__version__}\")\nprint(f\"Pandas version: {pd.__version__}\")\nExpected output: You should see version numbers for Python (3.9+), NumPy, and Pandas.\n\n\n\nComplete the following tasks:\n# Task 1: Create variables of different types\n# Your code here\n\n# Task 2: Perform arithmetic operations\n# Calculate the area of a circle with radius 5\n# Your code here\n\n# Task 3: String manipulation\n# Create a greeting message using string formatting\nname = \"Your Name\"\n# Your code here\n\n# Task 4: Create a list of your favorite programming languages\n# Your code here\n\n\n\nPractice using Python interactively:\n\nOpen a Python shell or Jupyter notebook\nCalculate the following:\n\n2 raised to the power of 10\nThe square root of 144\nThe remainder when 17 is divided by 5\n\nImport the math module and use it to calculate:\n\nThe value of pi\nThe sine of 45 degrees (remember to convert to radians)\nThe natural logarithm of 10\n\n\n\n\n\nCreate a Python script called hello_analytics.py that:\n\nPrints a welcome message\nAsks for the user’s name\nAsks for their favorite number\nCalculates and displays the square of that number\nSays goodbye with their name\n\nSample interaction:\nWelcome to Python for Analytics!\nWhat's your name? Alice\nWhat's your favorite number? 7\nAlice, the square of 7 is 49\nGoodbye, Alice!\n\n\n\nCreate a Python script that:\n\nCreates a new text file called data.txt\nWrites the numbers 1 through 10 (each on a new line)\nCloses the file\nOpens the file again for reading\nReads and prints each line\nCalculates and prints the sum of all numbers\n\n\n\n\n\n\nWrite a program that converts temperatures between Celsius, Fahrenheit, and Kelvin:\ndef celsius_to_fahrenheit(c):\n    # Your code here\n    pass\n\ndef fahrenheit_to_celsius(f):\n    # Your code here\n    pass\n\ndef celsius_to_kelvin(c):\n    # Your code here\n    pass\n\n# Test your functions\nprint(celsius_to_fahrenheit(0))    # Should print 32.0\nprint(fahrenheit_to_celsius(98.6)) # Should print 37.0\nprint(celsius_to_kelvin(25))       # Should print 298.15\n\n\n\nCreate an interactive calculator that: - Offers operations: addition, subtraction, multiplication, division - Handles division by zero gracefully - Continues until the user chooses to quit\n\n\n\n\n\nCreate a new folder called module1_exercises\nSave all your Python scripts in this folder\nInclude comments explaining your code\nTest all your solutions before submission\n\n\n\n\nBefore moving to Module 2, ensure you can:\n\nRun Python code in multiple ways (script, interactive, Jupyter)\nCreate and manipulate variables\nPerform basic arithmetic operations\nWork with strings\nWrite and run Python scripts\nImport and use modules\nRead from and write to files\nUse basic input/output functions\n\n\n\n\nIf you finish early or want extra practice:\n\nExplore the Python documentation for the random module\nWrite a program that generates random numbers\nCreate a simple number guessing game\nExperiment with different string methods\nTry creating functions with multiple parameters\n\n\n\n\nRemember: - Check the error messages carefully - Use help() and dir() functions - Consult the course resources - Ask on the forum if stuck - Attend office hours for personalized help",
+    "crumbs": [
+      "Module 1: Getting Started",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html",
+    "href": "pandas-data.html",
+    "title": "Data Management with Pandas",
+    "section": "",
+    "text": "Pandas is the cornerstone library for data analysis in Python. Built on top of NumPy, it provides high-level data structures and operations for manipulating structured data. This module covers the essential Pandas concepts for data wrangling, cleaning, and analysis that analytics professionals use daily.",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#introduction",
+    "href": "pandas-data.html#introduction",
+    "title": "Data Management with Pandas",
+    "section": "",
+    "text": "Pandas is the cornerstone library for data analysis in Python. Built on top of NumPy, it provides high-level data structures and operations for manipulating structured data. This module covers the essential Pandas concepts for data wrangling, cleaning, and analysis that analytics professionals use daily.",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#why-pandas",
+    "href": "pandas-data.html#why-pandas",
+    "title": "Data Management with Pandas",
+    "section": "Why Pandas?",
+    "text": "Why Pandas?\nPandas excels at handling real-world data challenges:\n\nLabeled data: Work with row and column labels instead of just numeric indices\nHeterogeneous data: Mix different data types (numbers, strings, dates) in one structure\nMissing data: Robust handling of missing or incomplete data\nData alignment: Automatic alignment of data based on labels\nFlexible I/O: Read/write many file formats (CSV, Excel, JSON, SQL, etc.)\nData cleaning: Built-in tools for common data preparation tasks\n\nimport pandas as pd\nimport numpy as np\n\n# Display all columns and more rows for better visibility\npd.set_option('display.max_columns', None)\npd.set_option('display.width', None)",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#core-data-structures",
+    "href": "pandas-data.html#core-data-structures",
+    "title": "Data Management with Pandas",
+    "section": "Core Data Structures",
+    "text": "Core Data Structures\n\nSeries: One-Dimensional Labeled Data\n# Creating Series\ngrades = pd.Series([85, 92, 78, 96, 88], \n                   index=['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'])\nprint(\"Student Grades:\")\nprint(grades)\nprint(f\"\\nData type: {type(grades)}\")\nprint(f\"Index: {grades.index.tolist()}\")\nprint(f\"Values: {grades.values}\")\n\n# Series from dictionary\nstudent_info = pd.Series({\n    'Alice': 22,\n    'Bob': 23,\n    'Charlie': 21,\n    'Diana': 22\n})\nprint(f\"\\nStudent Ages:\\n{student_info}\")\n\n\nDataFrame: Two-Dimensional Labeled Data\n# Creating DataFrame from dictionary\nstudent_data = {\n    'Name': ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'],\n    'Age': [22, 23, 21, 22, 24],\n    'Major': ['Analytics', 'Statistics', 'Economics', 'Analytics', 'Mathematics'],\n    'GPA': [3.8, 3.6, 3.9, 3.7, 3.5],\n    'Credits': [45, 52, 38, 48, 55]\n}\n\ndf = pd.DataFrame(student_data)\nprint(\"Student DataFrame:\")\nprint(df)\nprint(f\"\\nShape: {df.shape}\")\nprint(f\"Columns: {df.columns.tolist()}\")\nprint(f\"Index: {df.index.tolist()}\")",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#dataframe-inspection",
+    "href": "pandas-data.html#dataframe-inspection",
+    "title": "Data Management with Pandas",
+    "section": "DataFrame Inspection",
+    "text": "DataFrame Inspection\n# Basic information about the DataFrame\nprint(\"DataFrame Info:\")\nprint(df.info())\n\nprint(\"\\nFirst few rows:\")\nprint(df.head(3))\n\nprint(\"\\nLast few rows:\")\nprint(df.tail(2))\n\nprint(\"\\nDescriptive statistics:\")\nprint(df.describe())\n\nprint(\"\\nData types:\")\nprint(df.dtypes)\n\nprint(\"\\nShape and size:\")\nprint(f\"Shape: {df.shape}\")\nprint(f\"Size: {df.size}\")\nprint(f\"Number of dimensions: {df.ndim}\")",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#data-selection-and-indexing",
+    "href": "pandas-data.html#data-selection-and-indexing",
+    "title": "Data Management with Pandas",
+    "section": "Data Selection and Indexing",
+    "text": "Data Selection and Indexing\n\nSelecting Columns\n# Single column (returns Series)\nnames = df['Name']\nprint(\"Names (Series):\")\nprint(names)\nprint(f\"Type: {type(names)}\")\n\n# Single column (returns DataFrame)\nname_df = df[['Name']]\nprint(\"\\nNames (DataFrame):\")\nprint(name_df)\n\n# Multiple columns\nsubset = df[['Name', 'GPA', 'Major']]\nprint(\"\\nSelected columns:\")\nprint(subset)\n\n\nSelecting Rows\n# By position (iloc)\nprint(\"First student (by position):\")\nprint(df.iloc[0])\n\nprint(\"\\nFirst three students:\")\nprint(df.iloc[:3])\n\nprint(\"\\nSpecific rows:\")\nprint(df.iloc[[0, 2, 4]])\n\n# By label (loc) - first set a meaningful index\ndf_indexed = df.set_index('Name')\nprint(\"\\nDataFrame with Name as index:\")\nprint(df_indexed)\n\nprint(\"\\nAlice's data:\")\nprint(df_indexed.loc['Alice'])\n\nprint(\"\\nMultiple students:\")\nprint(df_indexed.loc[['Alice', 'Charlie']])\n\n\nBoolean Indexing\n# Students with high GPA\nhigh_gpa = df['GPA'] &gt; 3.7\nprint(\"High GPA mask:\")\nprint(high_gpa)\n\nprint(\"\\nStudents with GPA &gt; 3.7:\")\nprint(df[high_gpa])\n\n# Multiple conditions\nanalytics_majors = (df['Major'] == 'Analytics') & (df['GPA'] &gt; 3.6)\nprint(\"\\nAnalytics majors with GPA &gt; 3.6:\")\nprint(df[analytics_majors])\n\n# Using query method (more readable)\nresult = df.query('GPA &gt; 3.7 and Credits &gt;= 45')\nprint(\"\\nUsing query method:\")\nprint(result)",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#data-manipulation",
+    "href": "pandas-data.html#data-manipulation",
+    "title": "Data Management with Pandas",
+    "section": "Data Manipulation",
+    "text": "Data Manipulation\n\nAdding and Modifying Columns\n# Add new column\ndf['Year'] = 2024 - df['Age'] + 18  # Estimated starting year\nprint(\"Added Year column:\")\nprint(df)\n\n# Create column based on conditions\ndf['Status'] = df['GPA'].apply(lambda x: 'Dean\\'s List' if x &gt;= 3.7 else 'Good Standing')\nprint(\"\\nAdded Status column:\")\nprint(df[['Name', 'GPA', 'Status']])\n\n# Modify existing column\ndf['GPA_Rounded'] = df['GPA'].round(1)\nprint(\"\\nGPA rounded:\")\nprint(df[['Name', 'GPA', 'GPA_Rounded']])\n\n\nSorting Data\n# Sort by single column\ndf_sorted_gpa = df.sort_values('GPA', ascending=False)\nprint(\"Sorted by GPA (descending):\")\nprint(df_sorted_gpa[['Name', 'GPA']])\n\n# Sort by multiple columns\ndf_sorted_multi = df.sort_values(['Major', 'GPA'], ascending=[True, False])\nprint(\"\\nSorted by Major (asc) then GPA (desc):\")\nprint(df_sorted_multi[['Name', 'Major', 'GPA']])\n\n# Sort by index\ndf_sorted_index = df.sort_index()\nprint(\"\\nSorted by index:\")\nprint(df_sorted_index)",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#handling-missing-data",
+    "href": "pandas-data.html#handling-missing-data",
+    "title": "Data Management with Pandas",
+    "section": "Handling Missing Data",
+    "text": "Handling Missing Data\n# Create DataFrame with missing values\ndata_with_na = {\n    'Student': ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'],\n    'Math': [85, np.nan, 78, 92, 88],\n    'Science': [90, 88, np.nan, 95, 91],\n    'English': [92, 85, 89, np.nan, 94]\n}\n\ndf_na = pd.DataFrame(data_with_na)\nprint(\"DataFrame with missing values:\")\nprint(df_na)\n\n# Check for missing values\nprint(\"\\nMissing values per column:\")\nprint(df_na.isnull().sum())\n\nprint(\"\\nRows with any missing values:\")\nprint(df_na[df_na.isnull().any(axis=1)])\n\n# Handle missing values\n# Drop rows with any missing values\ndf_dropped = df_na.dropna()\nprint(\"\\nAfter dropping rows with missing values:\")\nprint(df_dropped)\n\n# Fill missing values\ndf_filled = df_na.fillna(df_na.mean(numeric_only=True))\nprint(\"\\nAfter filling with column means:\")\nprint(df_filled)\n\n# Forward fill\ndf_ffill = df_na.fillna(method='ffill')\nprint(\"\\nAfter forward fill:\")\nprint(df_ffill)",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#grouping-and-aggregation",
+    "href": "pandas-data.html#grouping-and-aggregation",
+    "title": "Data Management with Pandas",
+    "section": "Grouping and Aggregation",
+    "text": "Grouping and Aggregation\n# Create larger dataset for grouping examples\nnp.random.seed(42)\ncourses_data = {\n    'Student': ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'] * 3,\n    'Course': ['Math', 'Science', 'English'] * 5,\n    'Score': np.random.randint(70, 100, 15),\n    'Semester': ['Fall'] * 8 + ['Spring'] * 7\n}\n\ncourses_df = pd.DataFrame(courses_data)\nprint(\"Course scores data:\")\nprint(courses_df)\n\n# Group by single column\nby_course = courses_df.groupby('Course')['Score'].mean()\nprint(\"\\nAverage score by course:\")\nprint(by_course)\n\n# Group by multiple columns\nby_course_semester = courses_df.groupby(['Course', 'Semester'])['Score'].agg(['mean', 'std', 'count'])\nprint(\"\\nStatistics by course and semester:\")\nprint(by_course_semester)\n\n# Multiple aggregations\nstudent_stats = courses_df.groupby('Student').agg({\n    'Score': ['mean', 'min', 'max'],\n    'Course': 'count'\n})\nprint(\"\\nStudent statistics:\")\nprint(student_stats)",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#data-transformation",
+    "href": "pandas-data.html#data-transformation",
+    "title": "Data Management with Pandas",
+    "section": "Data Transformation",
+    "text": "Data Transformation\n\nReshaping Data\n# Create sample grade data\ngrades_data = {\n    'Student': ['Alice', 'Bob', 'Charlie'],\n    'Math': [85, 90, 78],\n    'Science': [92, 88, 82],\n    'English': [78, 95, 89]\n}\n\ngrades_wide = pd.DataFrame(grades_data)\nprint(\"Wide format:\")\nprint(grades_wide)\n\n# Convert to long format (melt)\ngrades_long = grades_wide.melt(\n    id_vars=['Student'], \n    var_name='Subject', \n    value_name='Grade'\n)\nprint(\"\\nLong format:\")\nprint(grades_long)\n\n# Convert back to wide format (pivot)\ngrades_wide_again = grades_long.pivot(\n    index='Student', \n    columns='Subject', \n    values='Grade'\n)\nprint(\"\\nBack to wide format:\")\nprint(grades_wide_again)\n\n\nMerging and Joining\n# Create related datasets\nstudent_info = pd.DataFrame({\n    'Student': ['Alice', 'Bob', 'Charlie', 'Diana'],\n    'Age': [22, 23, 21, 22],\n    'Major': ['Analytics', 'Statistics', 'Economics', 'Analytics']\n})\n\nstudent_grades = pd.DataFrame({\n    'Student': ['Alice', 'Bob', 'Charlie', 'Eve'],\n    'Final_Grade': [88, 92, 85, 91],\n    'Course': ['IND216', 'IND216', 'IND216', 'IND216']\n})\n\nprint(\"Student info:\")\nprint(student_info)\nprint(\"\\nStudent grades:\")\nprint(student_grades)\n\n# Inner join (only matching records)\ninner_merged = pd.merge(student_info, student_grades, on='Student', how='inner')\nprint(\"\\nInner join:\")\nprint(inner_merged)\n\n# Left join (all records from left DataFrame)\nleft_merged = pd.merge(student_info, student_grades, on='Student', how='left')\nprint(\"\\nLeft join:\")\nprint(left_merged)\n\n# Outer join (all records from both DataFrames)\nouter_merged = pd.merge(student_info, student_grades, on='Student', how='outer')\nprint(\"\\nOuter join:\")\nprint(outer_merged)",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#working-with-dates-and-times",
+    "href": "pandas-data.html#working-with-dates-and-times",
+    "title": "Data Management with Pandas",
+    "section": "Working with Dates and Times",
+    "text": "Working with Dates and Times\n# Create DataFrame with date information\ndate_data = {\n    'Date': ['2024-01-15', '2024-02-20', '2024-03-18', '2024-04-22'],\n    'Sales': [1200, 1500, 1300, 1600],\n    'Region': ['North', 'South', 'East', 'West']\n}\n\nsales_df = pd.DataFrame(date_data)\nprint(\"Sales data with string dates:\")\nprint(sales_df)\nprint(f\"Date column type: {sales_df['Date'].dtype}\")\n\n# Convert to datetime\nsales_df['Date'] = pd.to_datetime(sales_df['Date'])\nprint(f\"\\nAfter conversion: {sales_df['Date'].dtype}\")\n\n# Extract date components\nsales_df['Year'] = sales_df['Date'].dt.year\nsales_df['Month'] = sales_df['Date'].dt.month\nsales_df['Month_Name'] = sales_df['Date'].dt.month_name()\nsales_df['Weekday'] = sales_df['Date'].dt.day_name()\n\nprint(\"\\nWith extracted date components:\")\nprint(sales_df)\n\n# Date filtering\nq1_sales = sales_df[sales_df['Date'] &lt; '2024-04-01']\nprint(\"\\nQ1 sales:\")\nprint(q1_sales)",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#reading-and-writing-data",
+    "href": "pandas-data.html#reading-and-writing-data",
+    "title": "Data Management with Pandas",
+    "section": "Reading and Writing Data",
+    "text": "Reading and Writing Data\n\nCSV Files\n# Write DataFrame to CSV\ndf.to_csv('student_data.csv', index=False)\nprint(\"Data written to student_data.csv\")\n\n# Read CSV file\ndf_from_csv = pd.read_csv('student_data.csv')\nprint(\"Data read from CSV:\")\nprint(df_from_csv.head())\n\n# Reading with specific options\ndf_custom = pd.read_csv(\n    'student_data.csv',\n    usecols=['Name', 'GPA'],  # Only specific columns\n    nrows=3                   # Only first 3 rows\n)\nprint(\"\\nCustom read (specific columns, limited rows):\")\nprint(df_custom)\n\n\nExcel Files\n# Write to Excel (requires openpyxl: pip install openpyxl)\ntry:\n    df.to_excel('student_data.xlsx', sheet_name='Students', index=False)\n    print(\"Data written to Excel file\")\n    \n    # Read from Excel\n    df_from_excel = pd.read_excel('student_data.xlsx', sheet_name='Students')\n    print(\"Data read from Excel:\")\n    print(df_from_excel.head())\nexcept ImportError:\n    print(\"Excel functionality requires openpyxl package\")\n\n\nJSON Files\n# Write to JSON\ndf.to_json('student_data.json', orient='records', indent=2)\nprint(\"Data written to JSON file\")\n\n# Read from JSON\ndf_from_json = pd.read_json('student_data.json')\nprint(\"Data read from JSON:\")\nprint(df_from_json.head())",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#data-analysis-examples",
+    "href": "pandas-data.html#data-analysis-examples",
+    "title": "Data Management with Pandas",
+    "section": "Data Analysis Examples",
+    "text": "Data Analysis Examples\n\nDescriptive Analysis\n# Create larger dataset for analysis\nnp.random.seed(42)\nsales_data = pd.DataFrame({\n    'Date': pd.date_range('2024-01-01', periods=90, freq='D'),\n    'Region': np.random.choice(['North', 'South', 'East', 'West'], 90),\n    'Product': np.random.choice(['A', 'B', 'C'], 90),\n    'Sales': np.random.normal(1000, 200, 90),\n    'Units': np.random.poisson(50, 90)\n})\n\nprint(\"Sales dataset:\")\nprint(sales_data.head())\n\n# Summary statistics\nprint(\"\\nSummary statistics:\")\nprint(sales_data.describe())\n\n# Analysis by region\nprint(\"\\nSales by region:\")\nregional_analysis = sales_data.groupby('Region').agg({\n    'Sales': ['mean', 'sum', 'count'],\n    'Units': ['mean', 'sum']\n}).round(2)\nprint(regional_analysis)\n\n# Time series analysis\nsales_data['Month'] = sales_data['Date'].dt.month\nmonthly_sales = sales_data.groupby('Month')['Sales'].sum()\nprint(\"\\nMonthly sales totals:\")\nprint(monthly_sales)\n\n\nData Quality Assessment\n# Check data quality\nprint(\"Data quality assessment:\")\nprint(f\"Shape: {sales_data.shape}\")\nprint(f\"Missing values:\\n{sales_data.isnull().sum()}\")\nprint(f\"Duplicate rows: {sales_data.duplicated().sum()}\")\n\n# Check for outliers using IQR method\ndef find_outliers(data, column):\n    Q1 = data[column].quantile(0.25)\n    Q3 = data[column].quantile(0.75)\n    IQR = Q3 - Q1\n    lower_bound = Q1 - 1.5 * IQR\n    upper_bound = Q3 + 1.5 * IQR\n    outliers = data[(data[column] &lt; lower_bound) | (data[column] &gt; upper_bound)]\n    return outliers\n\nsales_outliers = find_outliers(sales_data, 'Sales')\nprint(f\"\\nSales outliers: {len(sales_outliers)} rows\")\nif len(sales_outliers) &gt; 0:\n    print(sales_outliers[['Date', 'Region', 'Sales']].head())",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#exercise-comprehensive-data-analysis",
+    "href": "pandas-data.html#exercise-comprehensive-data-analysis",
+    "title": "Data Management with Pandas",
+    "section": "Exercise: Comprehensive Data Analysis",
+    "text": "Exercise: Comprehensive Data Analysis\n\nExercise 1: Student Performance Dashboard\nCreate a comprehensive analysis of student performance:\n# Sample student data\nstudent_performance = pd.DataFrame({\n    'StudentID': range(1, 101),\n    'Name': [f'Student_{i}' for i in range(1, 101)],\n    'Major': np.random.choice(['Analytics', 'Statistics', 'Economics', 'Mathematics'], 100),\n    'Year': np.random.choice([1, 2, 3, 4], 100),\n    'Math_Score': np.random.normal(80, 10, 100),\n    'Science_Score': np.random.normal(75, 12, 100),\n    'English_Score': np.random.normal(82, 8, 100),\n    'Credits_Completed': np.random.randint(30, 120, 100)\n})\n\n# Tasks:\n# 1. Calculate overall GPA for each student (average of three scores)\n# 2. Find the top 10 students by overall GPA\n# 3. Analyze performance by major and year\n# 4. Identify students who may need academic support (GPA &lt; 70)\n# 5. Create a summary report showing:\n#    - Average scores by major\n#    - Distribution of students by year\n#    - Correlation between different subjects\n\n\nExercise 2: Sales Data Analysis\nAnalyze sales performance across different dimensions:\n# Sales dataset\nsales_analysis = pd.DataFrame({\n    'Date': pd.date_range('2023-01-01', '2023-12-31', freq='D'),\n    'Region': np.random.choice(['North', 'South', 'East', 'West'], 365),\n    'Product_Category': np.random.choice(['Electronics', 'Clothing', 'Books', 'Home'], 365),\n    'Sales_Amount': np.random.gamma(2, 500, 365),\n    'Units_Sold': np.random.poisson(25, 365),\n    'Customer_Satisfaction': np.random.normal(4.2, 0.5, 365)\n})\n\n# Tasks:\n# 1. Calculate monthly and quarterly sales totals\n# 2. Find the best and worst performing regions\n# 3. Analyze seasonal trends in sales\n# 4. Determine which product categories are most profitable\n# 5. Examine relationship between units sold and customer satisfaction\n# 6. Create a pivot table showing sales by region and product category",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#performance-tips-for-large-datasets",
+    "href": "pandas-data.html#performance-tips-for-large-datasets",
+    "title": "Data Management with Pandas",
+    "section": "Performance Tips for Large Datasets",
+    "text": "Performance Tips for Large Datasets\n\nMemory Optimization\n# Check memory usage\nprint(\"Memory usage:\")\nprint(df.memory_usage(deep=True))\n\n# Optimize data types\ndef optimize_dataframe(df):\n    \"\"\"Optimize DataFrame memory usage.\"\"\"\n    start_mem = df.memory_usage(deep=True).sum() / 1024**2\n    \n    for col in df.columns:\n        col_type = df[col].dtype\n        \n        if col_type != object:\n            c_min = df[col].min()\n            c_max = df[col].max()\n            \n            if str(col_type)[:3] == 'int':\n                if c_min &gt; np.iinfo(np.int8).min and c_max &lt; np.iinfo(np.int8).max:\n                    df[col] = df[col].astype(np.int8)\n                elif c_min &gt; np.iinfo(np.int16).min and c_max &lt; np.iinfo(np.int16).max:\n                    df[col] = df[col].astype(np.int16)\n                elif c_min &gt; np.iinfo(np.int32).min and c_max &lt; np.iinfo(np.int32).max:\n                    df[col] = df[col].astype(np.int32)\n            \n            else:\n                if c_min &gt; np.finfo(np.float32).min and c_max &lt; np.finfo(np.float32).max:\n                    df[col] = df[col].astype(np.float32)\n    \n    end_mem = df.memory_usage(deep=True).sum() / 1024**2\n    print(f'Memory usage decreased from {start_mem:.2f} MB to {end_mem:.2f} MB')\n    return df\n\n# Example usage (commented out as it modifies the DataFrame)\n# df_optimized = optimize_dataframe(df.copy())\n\n\nEfficient Operations\n# Use vectorized operations instead of loops\n# Inefficient\ndef calculate_grade_slow(df):\n    grades = []\n    for index, row in df.iterrows():\n        if row['GPA'] &gt;= 3.7:\n            grades.append('A')\n        elif row['GPA'] &gt;= 3.3:\n            grades.append('B')\n        else:\n            grades.append('C')\n    return grades\n\n# Efficient\ndef calculate_grade_fast(df):\n    return pd.cut(df['GPA'], \n                  bins=[0, 3.3, 3.7, 4.0], \n                  labels=['C', 'B', 'A'])\n\n# Use .loc for conditional assignments\ndf.loc[df['GPA'] &gt;= 3.7, 'Letter_Grade'] = 'A'\ndf.loc[(df['GPA'] &gt;= 3.3) & (df['GPA'] &lt; 3.7), 'Letter_Grade'] = 'B'\ndf.loc[df['GPA'] &lt; 3.3, 'Letter_Grade'] = 'C'\n\nprint(\"Efficient grade assignment:\")\nprint(df[['Name', 'GPA', 'Letter_Grade']])",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#next-steps",
+    "href": "pandas-data.html#next-steps",
+    "title": "Data Management with Pandas",
+    "section": "Next Steps",
+    "text": "Next Steps\nYou now have a solid foundation in data management with Pandas. These skills form the backbone of data analysis workflows in Python. The combination of Python objects, NumPy arrays, and Pandas DataFrames gives you powerful tools for:\n\nData loading and cleaning\nExploratory data analysis\nData transformation and aggregation\nStatistical analysis and reporting\n\nContinue practicing with real datasets to solidify these concepts and explore more advanced Pandas features as needed for your analytics projects.",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  },
+  {
+    "objectID": "pandas-data.html#quick-reference",
+    "href": "pandas-data.html#quick-reference",
+    "title": "Data Management with Pandas",
+    "section": "Quick Reference",
+    "text": "Quick Reference\n# DataFrame creation\npd.DataFrame(data)              # From dictionary, list, etc.\npd.read_csv('file.csv')         # From CSV file\npd.read_excel('file.xlsx')      # From Excel file\n\n# Data selection\ndf['column']                    # Select column\ndf[['col1', 'col2']]           # Select multiple columns\ndf.iloc[0:5]                   # Select by position\ndf.loc[df['col'] &gt; 5]          # Select by condition\n\n# Data manipulation\ndf.groupby('column').mean()     # Group and aggregate\ndf.merge(other, on='key')       # Merge DataFrames\ndf.pivot(index, columns, values) # Reshape data\ndf.sort_values('column')        # Sort data\n\n# Data cleaning\ndf.dropna()                     # Remove missing values\ndf.fillna(value)               # Fill missing values\ndf.drop_duplicates()           # Remove duplicates\n\n# File I/O\ndf.to_csv('file.csv')          # Write to CSV\ndf.to_excel('file.xlsx')       # Write to Excel\ndf.to_json('file.json')        # Write to JSON",
+    "crumbs": [
+      "Module 4: Pandas",
+      "DataFrames & Series"
+    ]
+  }
+]

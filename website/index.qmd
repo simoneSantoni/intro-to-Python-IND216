@@ -1,0 +1,46 @@
+---
+title: "Introduction to Python for Analytics"
+subtitle: "IND216 - MSc Analytics"
+---
+
+## Welcome to IND216
+
+This interactive website provides a comprehensive five-part introduction to Python programming specifically designed for MSc students in analytics. The course emphasizes practical data wrangling skills using Python's technical and scientific computing ecosystem.
+
+## Course Overview
+
+Rather than attempting an exhaustive coverage of Python's features, this course focuses on building a solid foundation in:
+
+- Core Python programming concepts
+- Data manipulation fundamentals  
+- Scientific computing with NumPy
+- Data analysis with Pandas
+
+## What You'll Learn
+
+Upon completion of this course, you will be able to:
+
+- Write Python scripts for data processing tasks
+- Manipulate and analyze data using NumPy arrays
+- Perform data wrangling operations with Pandas DataFrames
+- Develop reproducible data analysis workflows
+
+## Prerequisites
+
+No prior programming experience is required. The course is designed to take students from zero coding knowledge to practical data analysis skills.
+
+## Course Structure
+
+The course is organized into five main modules:
+
+1. **[Course Information](course-info.qmd)** - Course overview and learning approach
+2. **[Getting Started with Python](getting-started.qmd)** - Installation, environments, and running programs
+3. **[Python Objects](python-objects.qmd)** - Data types, control flow, and basic programming constructs
+4. **[Technical & Scientific Computation with NumPy](numpy-computation.qmd)** - Array operations and numerical computing
+5. **[Data Management with Pandas](pandas-data.qmd)** - DataFrames and data manipulation
+
+## Getting Started
+
+To begin your Python journey, start with the [Course Information](course-info.qmd) section to understand the learning approach, then proceed through each module sequentially.
+
+Each section includes interactive examples, code snippets, and hands-on exercises to reinforce your learning.

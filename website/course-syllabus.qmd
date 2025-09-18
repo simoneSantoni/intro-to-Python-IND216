@@ -1,0 +1,155 @@
+---
+title: "Course Syllabus"
+---
+
+## IND216 - Introduction to Python for Analytics
+
+### Course Description
+
+This comprehensive introductory course provides MSc Analytics students with a solid foundation in Python programming for data analysis. The course emphasizes practical skills in data wrangling, numerical computation, and analytical workflows using Python's scientific computing ecosystem.
+
+### Learning Objectives
+
+Upon successful completion of this course, students will be able to:
+
+1. **Set up and manage Python environments** for data analysis projects
+2. **Write clean, efficient Python code** using best practices and Pythonic idioms
+3. **Manipulate and analyze data** using NumPy arrays for numerical computing
+4. **Process and transform datasets** using Pandas DataFrames
+5. **Develop reproducible data analysis workflows** from raw data to insights
+6. **Debug and troubleshoot** common programming issues
+7. **Apply programming concepts** to real-world analytics problems
+
+### Prerequisites
+
+- No prior programming experience required
+- Basic computer literacy (file management, using applications)
+- Willingness to learn through trial and error
+- Access to a computer for hands-on practice
+
+### Course Structure
+
+The course is organized into five progressive modules:
+
+#### Module 1: Getting Started with Python
+- Python installation and setup
+- Development environments (Jupyter, VS Code)
+- Basic syntax and programming concepts
+- Writing and running Python scripts
+
+#### Module 2: Python Objects
+- Data types (numbers, strings, lists, dictionaries)
+- Control flow (if statements, loops)
+- Functions and modules
+- File handling and I/O operations
+
+#### Module 3: Technical & Scientific Computation with NumPy
+- Introduction to NumPy arrays
+- Array operations and broadcasting
+- Mathematical functions and linear algebra
+- Performance considerations for numerical computing
+
+#### Module 4: Data Management with Pandas
+- DataFrames and Series
+- Reading and writing data files
+- Data cleaning and transformation
+- Grouping, merging, and reshaping data
+
+#### Module 5: Applied Examples and Best Practices
+- Real-world case studies
+- Data analysis workflows
+- Code organization and documentation
+- Best practices for reproducible research
+
+### Assessment Methods
+
+#### Continuous Assessment (60%)
+- Weekly exercises and problem sets
+- Code submissions via GitHub
+- Peer code reviews
+
+#### Final Project (40%)
+- Comprehensive data analysis project
+- Written report with code documentation
+- Presentation of findings
+
+### Grading Scale
+
+| Grade | Percentage | Description |
+|-------|------------|-------------|
+| A     | 90-100%    | Outstanding performance |
+| B     | 80-89%     | Good performance |
+| C     | 70-79%     | Satisfactory performance |
+| D     | 60-69%     | Below average performance |
+| F     | Below 60%  | Fail |
+
+### Course Materials
+
+#### Required Software
+- Python 3.9+ (via Anaconda distribution)
+- Jupyter Lab/Notebook
+- Git for version control
+- Text editor or IDE (VS Code recommended)
+
+#### Recommended Textbooks
+- McKinney, W. (2022). *Python for Data Analysis* (3rd ed.). O'Reilly Media.
+- VanderPlas, J. (2016). *Python Data Science Handbook*. O'Reilly Media. [Free online](https://jakevdp.github.io/PythonDataScienceHandbook/)
+
+#### Online Resources
+- [Official Python Documentation](https://docs.python.org/)
+- [NumPy Documentation](https://numpy.org/doc/)
+- [Pandas Documentation](https://pandas.pydata.org/docs/)
+- Course GitHub repository with examples and exercises
+
+### Course Policies
+
+#### Attendance and Participation
+- Regular attendance is expected but not mandatory
+- Active participation in class discussions encouraged
+- Office hours available for additional support
+
+#### Assignment Submission
+- All assignments submitted via GitHub
+- Late submissions accepted with 10% penalty per day
+- Maximum 3 days late submission
+
+#### Academic Integrity
+- All submitted code must be your own work
+- Collaboration encouraged, but copying prohibited
+- Proper attribution required for external code
+- Violations will result in course failure
+
+#### Communication
+- Primary communication via course website
+- Email for urgent matters only
+- Response time: 24-48 hours on weekdays
+
+### Weekly Schedule
+
+| Week | Topic | Assignments |
+|------|-------|-------------|
+| 1 | Introduction & Setup | Environment setup |
+| 2 | Python Basics | Exercise Set 1 |
+| 3 | Data Types & Control Flow | Exercise Set 2 |
+| 4 | Functions & Modules | Exercise Set 3 |
+| 5 | NumPy Fundamentals | Exercise Set 4 |
+| 6 | Advanced NumPy | Exercise Set 5 |
+| 7 | Pandas Basics | Exercise Set 6 |
+| 8 | Data Wrangling with Pandas | Exercise Set 7 |
+| 9 | Case Studies | Project Proposal |
+| 10 | Best Practices | Final Project |
+
+### Support Resources
+
+- **Office Hours**: Tuesdays and Thursdays, 2-4 PM
+- **Email**: instructor@university.edu
+- **Course Forum**: Available on course website
+- **Peer Study Groups**: Self-organized, facilitated by instructor
+
+### Accommodations
+
+Students with documented disabilities who may need accommodations should make an appointment with the instructor as soon as possible. All discussions will remain confidential. Students should also contact the Office of Disability Services to verify their eligibility for reasonable accommodations.
+
+### Changes to Syllabus
+
+The instructor reserves the right to modify this syllabus as needed. Any changes will be announced in class and posted on the course website with adequate notice.

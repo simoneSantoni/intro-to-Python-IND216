@@ -1,0 +1,559 @@
+---
+title: "Python Objects"
+---
+
+## Introduction
+
+In Python, everything is an object. Understanding Python's built-in data types and how to manipulate them is fundamental to effective programming for analytics. This module covers the essential Python objects you'll use daily in data analysis work.
+
+## Numbers
+
+Python handles different types of numbers with ease:
+
+### Integers
+
+```python
+# Integers (whole numbers)
+student_count = 25
+year = 2024
+temperature = -5
+
+# Python integers can be arbitrarily large
+big_number = 123456789012345678901234567890
+print(f"Big number: {big_number}")
+```
+
+### Floating Point Numbers
+
+```python
+# Decimals
+height = 5.8
+price = 29.99
+scientific_notation = 1.5e6  # 1,500,000
+
+# Arithmetic with floats
+result = height * 2
+print(f"Double height: {result}")
+```
+
+### Mathematical Operations
+
+```python
+import math
+
+# Basic arithmetic
+a, b = 10, 3
+print(f"Addition: {a + b}")
+print(f"Subtraction: {a - b}")
+print(f"Multiplication: {a * b}")
+print(f"Division: {a / b}")
+print(f"Floor division: {a // b}")
+print(f"Modulus: {a % b}")
+print(f"Exponentiation: {a ** b}")
+
+# Using the math module
+print(f"Square root: {math.sqrt(16)}")
+print(f"Ceiling: {math.ceil(4.3)}")
+print(f"Floor: {math.floor(4.7)}")
+print(f"Pi: {math.pi}")
+```
+
+## Strings
+
+Strings are sequences of characters used to represent text data.
+
+### Creating Strings
+
+```python
+# Different ways to create strings
+name = "Data Analyst"
+course = 'IND216'
+description = """This is a multi-line string
+that can span several lines
+and is useful for longer text."""
+
+# String formatting
+student = "Alice"
+grade = 95.5
+message = f"Student {student} scored {grade:.1f}%"
+print(message)
+```
+
+### String Operations
+
+```python
+text = "Python for Analytics"
+
+# Basic operations
+print(f"Length: {len(text)}")
+print(f"Uppercase: {text.upper()}")
+print(f"Lowercase: {text.lower()}")
+print(f"Replace: {text.replace('Python', 'R')}")
+
+# String methods for data cleaning
+data = "  messy data  "
+print(f"Original: '{data}'")
+print(f"Stripped: '{data.strip()}'")
+print(f"Split: {text.split()}")
+
+# Checking string content
+email = "student@university.edu"
+print(f"Contains @: {'@' in email}")
+print(f"Ends with .edu: {email.endswith('.edu')}")
+print(f"Starts with student: {email.startswith('student')}")
+```
+
+### String Indexing and Slicing
+
+```python
+course_name = "Python Analytics"
+
+# Indexing (0-based)
+print(f"First character: {course_name[0]}")
+print(f"Last character: {course_name[-1]}")
+
+# Slicing [start:end:step]
+print(f"First 6 characters: {course_name[:6]}")
+print(f"Last 9 characters: {course_name[-9:]}")
+print(f"Every other character: {course_name[::2]}")
+```
+
+## Lists
+
+Lists are ordered collections that can hold different types of data.
+
+### Creating and Modifying Lists
+
+```python
+# Creating lists
+numbers = [1, 2, 3, 4, 5]
+mixed_data = ["Alice", 25, True, 3.14]
+empty_list = []
+
+# Adding elements
+numbers.append(6)           # Add to end
+numbers.insert(0, 0)        # Insert at position
+numbers.extend([7, 8, 9])   # Add multiple elements
+
+print(f"Modified numbers: {numbers}")
+
+# Removing elements
+numbers.remove(0)           # Remove first occurrence
+last_item = numbers.pop()   # Remove and return last item
+print(f"After removal: {numbers}")
+print(f"Removed item: {last_item}")
+```
+
+### List Operations
+
+```python
+grades = [85, 92, 78, 96, 88]
+
+# Basic operations
+print(f"Length: {len(grades)}")
+print(f"Maximum: {max(grades)}")
+print(f"Minimum: {min(grades)}")
+print(f"Sum: {sum(grades)}")
+print(f"Average: {sum(grades) / len(grades)}")
+
+# List methods
+grades.sort()                    # Sort in place
+print(f"Sorted: {grades}")
+grades.reverse()                 # Reverse in place
+print(f"Reversed: {grades}")
+
+# List comprehensions (advanced)
+squares = [x**2 for x in range(1, 6)]
+print(f"Squares: {squares}")
+
+# Filtering with comprehensions
+high_grades = [grade for grade in grades if grade >= 90]
+print(f"High grades: {high_grades}")
+```
+
+## Dictionaries
+
+Dictionaries store key-value pairs, perfect for structured data.
+
+### Creating and Using Dictionaries
+
+```python
+# Creating dictionaries
+student = {
+    "name": "Alice Johnson",
+    "age": 22,
+    "major": "Analytics",
+    "gpa": 3.8,
+    "courses": ["IND216", "STAT301", "MATH205"]
+}
+
+# Accessing values
+print(f"Name: {student['name']}")
+print(f"GPA: {student.get('gpa', 'N/A')}")  # Safe access with default
+
+# Modifying dictionaries
+student["age"] = 23                    # Update existing key
+student["graduation_year"] = 2024      # Add new key
+del student["courses"]                 # Remove key
+
+print(f"Updated student: {student}")
+```
+
+### Dictionary Operations
+
+```python
+course_enrollments = {
+    "IND216": 45,
+    "STAT301": 38,
+    "MATH205": 52,
+    "BUS400": 29
+}
+
+# Dictionary methods
+print(f"Courses: {list(course_enrollments.keys())}")
+print(f"Enrollments: {list(course_enrollments.values())}")
+print(f"Course-enrollment pairs: {list(course_enrollments.items())}")
+
+# Iterating through dictionaries
+print("Course enrollments:")
+for course, count in course_enrollments.items():
+    print(f"  {course}: {count} students")
+
+# Dictionary comprehensions
+large_courses = {course: count for course, count in course_enrollments.items() 
+                 if count > 40}
+print(f"Large courses: {large_courses}")
+```
+
+## Control Flow
+
+### Conditional Statements
+
+```python
+grade = 87
+
+# if-elif-else statements
+if grade >= 90:
+    letter_grade = "A"
+elif grade >= 80:
+    letter_grade = "B"
+elif grade >= 70:
+    letter_grade = "C"
+elif grade >= 60:
+    letter_grade = "D"
+else:
+    letter_grade = "F"
+
+print(f"Grade {grade} corresponds to letter grade {letter_grade}")
+
+# Compact conditional (ternary operator)
+status = "Pass" if grade >= 60 else "Fail"
+print(f"Status: {status}")
+```
+
+### Loops
+
+```python
+# For loops with lists
+scores = [85, 92, 78, 96, 88]
+
+print("Individual scores:")
+for score in scores:
+    print(f"  Score: {score}")
+
+# For loops with enumerate (get index and value)
+print("Scores with position:")
+for i, score in enumerate(scores, 1):
+    print(f"  Test {i}: {score}")
+
+# For loops with range
+print("Numbers 1-5:")
+for i in range(1, 6):
+    print(f"  {i}")
+
+# While loops
+count = 0
+while count < 3:
+    print(f"Count: {count}")
+    count += 1
+```
+
+### Loop Control
+
+```python
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Break: exit loop early
+print("Numbers until we hit 6:")
+for num in numbers:
+    if num == 6:
+        break
+    print(num)
+
+# Continue: skip to next iteration
+print("Odd numbers only:")
+for num in numbers:
+    if num % 2 == 0:  # Skip even numbers
+        continue
+    print(num)
+```
+
+## Functions
+
+Functions help organize code and avoid repetition.
+
+### Defining Functions
+
+```python
+def calculate_grade_average(grades):
+    """Calculate the average of a list of grades."""
+    if not grades:  # Handle empty list
+        return 0
+    return sum(grades) / len(grades)
+
+def grade_to_letter(numeric_grade):
+    """Convert numeric grade to letter grade."""
+    if numeric_grade >= 90:
+        return "A"
+    elif numeric_grade >= 80:
+        return "B"
+    elif numeric_grade >= 70:
+        return "C"
+    elif numeric_grade >= 60:
+        return "D"
+    else:
+        return "F"
+
+# Using functions
+student_grades = [85, 92, 78, 96, 88]
+average = calculate_grade_average(student_grades)
+letter = grade_to_letter(average)
+
+print(f"Average grade: {average:.1f}")
+print(f"Letter grade: {letter}")
+```
+
+### Function Parameters
+
+```python
+def analyze_dataset(data, metric="mean", decimals=2):
+    """Analyze a dataset with different metrics."""
+    if metric == "mean":
+        result = sum(data) / len(data)
+    elif metric == "median":
+        sorted_data = sorted(data)
+        n = len(sorted_data)
+        if n % 2 == 0:
+            result = (sorted_data[n//2-1] + sorted_data[n//2]) / 2
+        else:
+            result = sorted_data[n//2]
+    elif metric == "max":
+        result = max(data)
+    elif metric == "min":
+        result = min(data)
+    else:
+        return "Unknown metric"
+    
+    return round(result, decimals)
+
+# Function calls with different parameters
+data = [10, 15, 20, 25, 30, 35, 40]
+print(f"Mean: {analyze_dataset(data)}")
+print(f"Median: {analyze_dataset(data, metric='median')}")
+print(f"Max: {analyze_dataset(data, metric='max', decimals=0)}")
+```
+
+## File Handling
+
+Reading and writing files is essential for data analysis.
+
+### Reading Files
+
+```python
+# Reading text files
+try:
+    with open('data.txt', 'r') as file:
+        content = file.read()
+        print(content)
+except FileNotFoundError:
+    print("File not found!")
+
+# Reading line by line
+try:
+    with open('data.txt', 'r') as file:
+        for line_number, line in enumerate(file, 1):
+            print(f"Line {line_number}: {line.strip()}")
+except FileNotFoundError:
+    print("File not found!")
+```
+
+### Writing Files
+
+```python
+# Writing to files
+student_data = [
+    "Alice,85,92,78",
+    "Bob,90,88,95",
+    "Charlie,75,82,89"
+]
+
+with open('student_grades.csv', 'w') as file:
+    file.write("Name,Test1,Test2,Test3\n")  # Header
+    for student in student_data:
+        file.write(student + "\n")
+
+print("Data written to student_grades.csv")
+
+# Appending to files
+with open('student_grades.csv', 'a') as file:
+    file.write("Diana,88,94,91\n")
+
+print("Additional student data appended")
+```
+
+## Exercise: Working with Python Objects
+
+::: {.exercise-box}
+### Exercise 1: Student Grade Analyzer
+
+Create a program that analyzes student grade data:
+
+```python
+# Student data
+students = {
+    "Alice": [85, 92, 78, 96],
+    "Bob": [90, 88, 95, 87],
+    "Charlie": [75, 82, 89, 84],
+    "Diana": [88, 94, 91, 93]
+}
+
+# Tasks:
+# 1. Calculate each student's average grade
+# 2. Find the highest and lowest individual scores
+# 3. Determine which student has the highest average
+# 4. Count how many students have an average >= 85
+
+# Your solution here:
+```
+
+**Expected Output:**
+```
+Alice's average: 87.8
+Bob's average: 90.0
+Charlie's average: 82.5
+Diana's average: 91.5
+
+Highest individual score: 96 (Alice)
+Lowest individual score: 75 (Charlie)
+Top student: Diana (91.5)
+Students with average >= 85: 3
+```
+:::
+
+::: {.exercise-box}
+### Exercise 2: Text Analysis
+
+Write functions to analyze a text string:
+
+```python
+def word_count(text):
+    """Count the number of words in text."""
+    # Your code here
+    pass
+
+def character_frequency(text):
+    """Return a dictionary of character frequencies."""
+    # Your code here
+    pass
+
+def clean_text(text):
+    """Remove extra spaces and convert to lowercase."""
+    # Your code here
+    pass
+
+# Test your functions
+sample_text = "  Python is Great for Data Analysis  "
+```
+:::
+
+## Common Patterns in Analytics
+
+### Data Cleaning
+
+```python
+# Common data cleaning operations
+raw_data = ["  Alice  ", "BOB", "charlie", "", "DIANA "]
+
+# Clean the data
+cleaned_data = []
+for item in raw_data:
+    if item.strip():  # Skip empty strings
+        cleaned_data.append(item.strip().title())
+
+print(f"Original: {raw_data}")
+print(f"Cleaned: {cleaned_data}")
+
+# List comprehension version
+cleaned_data_v2 = [item.strip().title() for item in raw_data if item.strip()]
+print(f"Cleaned (v2): {cleaned_data_v2}")
+```
+
+### Data Aggregation
+
+```python
+# Sales data by month
+sales_data = {
+    "January": [1200, 1500, 1100, 1300],
+    "February": [1400, 1600, 1200, 1350],
+    "March": [1300, 1450, 1250, 1400]
+}
+
+# Calculate monthly totals
+monthly_totals = {}
+for month, daily_sales in sales_data.items():
+    monthly_totals[month] = sum(daily_sales)
+
+print("Monthly sales totals:")
+for month, total in monthly_totals.items():
+    print(f"  {month}: ${total:,}")
+
+# Find best performing month
+best_month = max(monthly_totals, key=monthly_totals.get)
+print(f"Best month: {best_month} (${monthly_totals[best_month]:,})")
+```
+
+## Next Steps
+
+You now understand Python's fundamental objects and control structures. These building blocks are essential for all data analysis work. Next, we'll explore how to use NumPy for efficient numerical computing in [Technical & Scientific Computation with NumPy](numpy-computation.qmd).
+
+## Quick Reference
+
+```python
+# String operations
+text.upper()            # Convert to uppercase
+text.lower()            # Convert to lowercase
+text.strip()            # Remove whitespace
+text.split()            # Split into list
+text.replace(old, new)  # Replace text
+
+# List operations
+list.append(item)       # Add item to end
+list.insert(i, item)    # Insert at position
+list.remove(item)       # Remove first occurrence
+list.pop()              # Remove and return last item
+list.sort()             # Sort in place
+
+# Dictionary operations
+dict[key]               # Access value
+dict.get(key, default)  # Safe access
+dict.keys()             # Get all keys
+dict.values()           # Get all values
+dict.items()            # Get key-value pairs
+
+# Control flow
+if condition:           # Conditional execution
+for item in sequence:   # Iterate over sequence
+while condition:        # Loop while condition is true
+break                   # Exit loop
+continue                # Skip to next iteration
+```

@@ -1,0 +1,149 @@
+# Lists
+
+::: {.callout-note}
+## What is a list?
+
+A Python [`list`](https://docs.python.org/3/tutorial/datastructures.html) is an *ordered*, *mutable* array of objects. A list is constructed by specifying the objects, separated by commas, between square brackets, `[]`.
+:::
+
+::: {.callout-note}
+## Why should I use lists?
+
+Lists are just places to collect other objects so you can treat them as groups.
+:::
+
+::: {.callout-note}
+## What type of objects can I include in a list?
+
+Lists can contain any sort of object: numbers, strings, and even other lists. See Snippet 4.10.
+:::
+
+```python
+# an empty list
+>>> L = []
+
+# a list with an integer, a float, and a string
+>>> L = [2, -3.56, "XyZ"]
+
+# a list with an integer and a list
+>>> L = [4, ["abc", 8.98]]
+```
+
+::: {.callout-note}
+## How can I fetch a list's elements?
+
+We can retrieve one or more list component objects via indexing. That is possible because list items are ordered by their position (similarly to strings). Since Python is a zero-based indexed programming language, to fetch the first item of a list, we have to call the index `0` (see Snippet 4.11, line 5). A list nested in another list can be fetched using multiple indices (line 13). The first index refers to the outer list, while any subsequent index refers to an inner list. In our case, we have two indices, one for each list; that is, `L` and its sub-list `["abc", 8.98]`.
+:::
+
+```python
+# the list
+>>> L = [4, ["abc", 8.98]]
+
+# get the first item of L
+>>> L[0]
+4
+
+# get the second element of L
+>>> L[1]
+["abc", 8.98]
+
+# get the first item of L's second item
+>>> L[1][0]
+"abc"
+```
+
+::: {.callout-note}
+## Can I edit a list's elements?
+
+Lists are mutable objects, which may be changed in place by assignment to offsets and slices, list method calls, deletion statements, and more. Snippet 4.12 illustrates some snippets to change a list's items. In the first part of the example, we change the items using indexing (line 5) and slicing (line 10). In the second half, we use Python's [`del`](https://docs.python.org/3/reference/simple_stmts.html) statement to delete the items using indexing (line 15) and slicing (line 20).
+:::
+
+```python
+# the list
+>>> L = ["Leonard", "Penny", "Sheldon"]
+
+# change the second item of L via indexing
+>>> L[1] = "Raj"
+>>> print(L)
+["Leonard", "Raj", "Sheldon"]
+
+# change multiple items of L via slicing
+>>> L[0:2] = ["Amy", "Howard"]
+>>> print(L)
+["Amy", "Howard", "Sheldon"]
+
+# delete the first item of L via indexing and using the 'del' statement
+>>> del L[0]
+>>> print(L)
+["Howard", "Sheldon"]
+
+# delete multiple items of L via slicing and using the 'del' statement
+>>> del L[0:2]
+>>> print(L)
+[]
+```
+
+::: {.callout-note}
+## What are the built-in methods to manipulate a list?
+
+Python offers many [methods to manipulate and test list objects](https://docs.python.org/3/tutorial/datastructures.html). Table 4.6 reports some of the most popular methods and synopses. The first three methods --- `.append()`, `.insert()`, and `.extend()` --- expand an existing list. The fourth method, `.index` test for the presence of an item in an existing list. Note this method raises a [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError) if there is no such item. The remaining methods produce in-place changes in an existing list's items.
+:::
+
+| Method | Synopsis |
+|--------|----------|
+| `L.append(X)` | Append an item to an existing list |
+| `L.insert(i, X)` | Append an item to an existing list in position i |
+| `L.extend([X0, X1, X2])` | Extend an existing list with the items from another list |
+| `L.index(X)` | Get the index of the first instance of the argument in an existing list |
+| `L.count(X)` | Get the cardinality of an item in an existing list |
+| `L.sort()` | Sort the items in an existing list |
+| `L.reverse()` | Reverse the order of the items in an existing list |
+| `L.copy()` | Get a copy of an existing list |
+| `L.pop(i)` | Remove the item at the given position in the list, and return it |
+| `L.remove(X)` | Remove the first instance of an item in an existing list |
+| `L.clear()` | Remove all items in an existing list |
+
+: Popular List Methods {#tbl-list-methods}
+
+::: {.callout-note}
+## How can I expand an existing list?
+
+Both the `.append()` and `.extend()` methods can be used to expand an existing list as per Snippet 4.13. However, they accomplish different goals and should not be confused: `.append()` adds a new item (of any type) to the end of the list (see line 6); `.extend()` extend the list by appending all the items from another iterable object (e.g., another list, see line 11).
+:::
+
+```python
+# create two lists
+>>> L1 = ["Leonard", "Penny", "Sheldon"]
+>>> L2 = ["Howard", "Raj", "Amy", "Bernadette"]
+
+# expand an existing list with .append()
+>>> L2.append("Priya")
+>>> print(L2)
+["Howard", "Raj", "Amy", "Bernadette", "Priya"]
+
+# concatenate L1 and L2 with .extend()
+>>> L1.extend(L2)
+>>> print(L1)
+["Leonard", "Penny", "Sheldon", "Howard", "Raj", "Amy", "Bernadette", "Priya"]
+```
+
+::: {.callout-note}
+## Can I change the order of a list's elements?
+
+One of the most common list manipulation tasks consists of changing the order of an item's list. As shown in Snippet 4.14, it is possible to use the `.reverse()` method to reverse the elements of the list in place (see line 5) while sorting an item's list can be carried out with the `.sort()` method.
+:::
+
+```python
+# create a list
+>>> L = ["Howard", "Raj", "Amy", "Bernadette", "Priya"]
+
+# reverse the list's item positions
+>>> L.reverse()
+>>> print(L)
+["Priya", "Bernadette", "Amy", "Raj", "Howard"]
+
+# sort the list's items
+>>> L.sort()
+>>> print(L)
+["Amy", "Bernadette", "Howard", "Priya", "Raj"]
+```

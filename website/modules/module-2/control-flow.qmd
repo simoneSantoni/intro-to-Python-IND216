@@ -1,0 +1,84 @@
+# Control Flow (or If-Then Statements)
+
+::: {.callout-note}
+## What is control flow in Python?
+
+Many Python statements we write are compound statements: there is one statement nested inside another. The outer statement is called the 'if' statement, and the inner statement is called the 'then' statement. The 'if' statement determines whether to execute the 'then' statement. Specifically, the 'then' statement is executed insofar as the 'if' statement evaluates to 'True.' Snippet 4.28 illustrates a control flow case, a simple rule-based product recommender that suggests products based on users' purchasing patterns. If product `x` belongs to a user's set of past purchases, then a certain item is recommended; otherwise, no recommendation is offered (see lines 7 and 8, containing the `else` statement).
+:::
+
+```python
+# a set with a customer's past purchases
+>>> S = set(["a", "x", "u"])
+
+# a rule-based product recommender
+>>> if "x" in S:
+...     print("Customers who bought x also bought Air Jordan 7 Retro Miro")
+... else:
+...     pass
+Customers who bought x also bought Air Jordan 7 Retro Miro
+```
+
+::: {.callout-note}
+## Does 'end of the line' mean 'end of the statement'?
+
+Any Python statements are contained in the same line --- the end of the line equates to the statement end. In the interest of redundancy, Python statements do not traverse multiple lines. In Snippet 4.28, the if statement is in line 5; the then statement is in line 6.
+:::
+
+::: {.callout-note}
+## How do I create a nested statement?
+
+The colon character is required to separate the if statement from the 'then' statement (see Snippet 4.28 line 5).
+:::
+
+::: {.callout-note}
+## Does indentation have substantive meaning in Python?
+
+Yes, it does. 'Then' statements are indented (with a tab or four consecutive spaces). Do not creatively use indents to embellish your code --- that is not consistent with Python's rules and design principles (see Snippet 4.28 line 6).
+:::
+
+::: {.callout-note}
+## Does 'end of indentation' mean 'end of nested statements'?
+
+'Then' statements are indented (with a tab or four consecutive spaces). In Snippet 4.28, the indentation in line 6 makes lines 5 and 6 to be evaluated together.
+:::
+
+::: {.callout-note}
+## How do I concatenate multiple 'then' statements?
+
+Example 4.29 shows how to use `elif` to concatenate multiple 'if-then' statements in the same control flow. Like in Snippet 4.28, the 'else' statement defines the residual behavior of the control flow; that is, what Python does when both the 'if' and 'elif' statements evaluate to 'False.'
+:::
+
+```python
+# a list with a customer's past purchases
+>>> S = set(["a", "w", "u"])
+
+# a rule-based product recommender
+>>> if "x" in S:
+...     print("Customers who bought x also bought Air Jordan 7 Retro Miro")
+... elif "w" in S:
+    print("How about Converse Chuck Taylor All Star?")
+... else:
+    print("Falling short of suggestions --- I'm a dull recommender!")
+How about Converse Chuck Taylor All Star?
+```
+
+::: {.callout-note}
+## How do I create nested if-then statements?
+
+In Python, it is possible to nest an if-then statement into another. In Snippet 4.30, the 'if' statements in lines 6 and 8 are nested inside the 'if' statement in line 5. It is worth noticing that lines 7 and 9 --- regarding 'then' statements --- are indented twice because they terminate distinct if-then statements nested in the broader if-then statement commencing on line 5.
+:::
+
+```python
+# a list with a customer's past purchases
+>>> S = set(["a", "x", "b"])
+
+# a rule-based product recommender
+>>> if "x" in S:
+...     if "a" in S:
+...         print("Customers who bought x & a also bought Air Force")
+...     elif "u" in S:
+...         print("Customers who bought x & u also bought Air Max 95")
+... else:
+...    print("Falling short of suggestions --- I'm a dull recommender!")
+Customers who bought x & a also bought Air Force
+```

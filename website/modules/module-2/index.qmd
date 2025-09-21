@@ -1,0 +1,76 @@
+---
+title: "Python Objects"
+---
+
+## Learning Objectives
+
+At the end of this module, you will be able to evaluate the various types of Python objects regarding:
+
+- Key features
+- Use cases/roles
+- Available methods
+
+## What is a Python object?
+
+In essence, Python objects are pieces of data. Mark Lutz, the author of the popular book [Learning Python](https://www.google.co.uk/books/edition/Learning_Python/4pgQfXQvekcC?hl=en&gbpv=0), points out:
+
+> "... in Python, we do things with stuff. 'Things' take the form of operations like addition and concatenation, and 'stuff' refers to the objects on which we perform those operations."
+
+## What are the main families of Python objects?
+
+In Python, there are two families of objects:
+
+1. **Built-in objects** - provided by the Python language itself
+2. **Ad-hoc objects** - called [classes](https://docs.python.org/3/tutorial/classes.html) - we can create to accomplish specific goals
+
+## Why do built-in Python objects matter?
+
+Typically, we do not need to create ad-hoc objects. Python provides us with diverse built-in objects that make our job easier:
+
+- **Built-in objects make coding efficient and easy** - For example, using the [string](https://docs.python.org/3/tutorial/introduction.html#strings) object, we can represent and manipulate a piece of text — e.g., a newspaper article — without loading any [module](https://docs.python.org/3/tutorial/modules.html)
+
+- **Built-in objects are flexible** - For example, we can deploy built-in objects to create a [class](https://docs.python.org/3/tutorial/classes.html)
+
+- **Built-in objects have been created and refined over time** - They have been created by a large community of expert developers. Hence, they are often more efficient than ad-hoc objects (unless the creator of the ad-hoc object knows her business!)
+
+## What are the core built-in Python objects?
+
+The following table illustrates the types of built-in Python objects:
+
+| Object type | Example literals/creation |
+|------------|---------------------------|
+| Numbers | `1234`, `3.1415`, `3+4j`, `0b111`, `Decimal()`, `Fraction()` |
+| Strings | `'spam'`, `"Bob's"`, `b'a\x01c'`, `u'sp\xc4m'` |
+| Lists | `[1, [2, 'three'], 4.5]`, `list(range(10))` |
+| Dictionaries | `{'food': 'spam', 'taste': 'yum'}`, `dict(hours=10)` |
+| Tuples | `(1, 'spam', 4, 'U')`, `tuple('spam')`, `namedtuple` |
+| Files | `open('eggs.txt')`, `open(r'C:\ham.bin', 'wb')` |
+| Sets | `set('abc')`, `{'a', 'b', 'c'}` |
+| Other core types | Booleans, types, None |
+| Program unit types | Functions, modules, classes |
+| Implementation types | Compiled code, stack tracebacks |
+
+For example, [Numbers](https://docs.python.org/3/tutorial/introduction.html#numbers) and [strings](https://docs.python.org/3/tutorial/introduction.html#strings) objects are used to represent numeric and textual data respectively. [Lists](https://docs.python.org/3/tutorial/introduction.html#lists) and [dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries) are — likely as not — the two most popular [data structures](https://docs.python.org/3/tutorial/datastructures.html) in Python.
+
+- **Lists** are ordered collections of other objects (any type!)
+- **Dictionaries** are pairs of keys (e.g., a product identifier) and objects (e.g., the product's price)
+
+::: {.callout-note}
+We will go through each built-in type in the following sections of this module. In the interest of logical coherence, the various built-in types will not be presented in the order adopted in the table above.
+:::
+
+## Module Contents
+
+This module covers the following topics:
+
+1. [Number Type Fundamentals](number-type-fundamentals.qmd)
+2. [String Type Fundamentals](string-type-fundamentals.qmd)
+3. [Lists and Dictionaries](lists-and-dictionaries.qmd)
+4. [Dictionaries](dictionaries.qmd)
+5. [Tuples](tuples.qmd)
+6. [Sets](sets.qmd)
+7. [Files](files.qmd)
+8. [Python Statements and Syntax](python-statements-and-syntax.qmd)
+9. [Control Flow (If-Then Statements)](control-flow.qmd)
+10. [While and For Loops](while-and-for-loops.qmd)
+11. [Iterations and Comprehensions](iterations-and-comprehensions.qmd)

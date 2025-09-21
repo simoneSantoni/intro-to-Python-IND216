@@ -1,0 +1,36 @@
+# Python Statements and Syntax
+
+::: {.callout-note}
+## What is a Python statement?
+
+In his popular book 'Learning Python,' Lutz provides a concise and effective description of what a Python statement is:
+
+> *In simple terms, statements are the things you write to tell Python what your programs should do. If, as suggested [omitted], programs "do things with stuff," then statements are the way you specify what sort of things a program does. Less informally, Python is a procedural, statement-based language; by combining statements, you specify a procedure Python performs to satisfy a program's goals.*
+:::
+
+::: {.callout-note}
+## What are the most common Python statements?
+
+Table 4.9 illustrates common Python statements, their role, and application examples. Some of these statements were used in the examples considered so far. Other statements --- the majority --- will be faced in the next sections of the current chapter and/or the subsequent chapters.
+:::
+
+| Statement | Role | Example |
+|-----------|------|---------|
+| `import` | Module access | `import math` |
+| `from` | Attribute access | `from math import sqrt` |
+| `class` | Building ad hoc objects | `class Subclass(Superclass): def method(self): pass` |
+| `del` | Deleting references | `del a` |
+| Assignment | Creating references | `a = "before b"` |
+| Calls and other expressions | Running functions | `file.write("Hello")` |
+| `print` | Printing objects | `print("Hello")` |
+| `if/elif/else` | Selecting actions | `if "abc" in text: print(text)` |
+| `for/else` | Iteration | `for x in mylist: print(x)` |
+| `while/else` | General loops | `while X > Y: print("Hello")` |
+| `pass` | Empty placeholder | `while True: pass` |
+| `break` | Loop exit | `while True: if exit test(): break` |
+| `continue` | Loop continue | `while True: if skiptest(): continue` |
+| `def` | Functions and methods | `def f(a, b, c=1, *d): print(a+b+c+d[0])` |
+| `return` | Functions results | `def f(a, b, c=1, *d): return a+b+c+d[0]` |
+| `yield` | Generator functions | `def gen(n): for i in n: yield i*2` |
+
+: Python Statements {#tbl-python-statements}

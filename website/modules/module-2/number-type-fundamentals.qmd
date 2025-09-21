@@ -1,0 +1,270 @@
+# Number Type Fundamentals
+
+::: {.callout-note}
+## What are the types of 'number' objects?
+
+Snippet 4.1, "Doing stuff with numbers," highlights the two most popular ['number'](https://docs.python.org/3/tutorial/introduction.html#numbers) instances in Python: integers and floating-point numbers. Integers are whole numbers such as 0, 4, or -12. Floating-point numbers represent real numbers such as 0.5, 3.1415, or -1.6e-19. However, floating points in Python do not have --- in general --- the same value as the real number they represent.[^1] It is worth noticing that any single number with a period '.' is considered a floating point in Python. Also, Snippet 4.1 shows that the multiplication of an integer by a floating point yields a floating point. That happens because Python first converts operands to the type of the most complicated operand.
+:::
+
+[^1]: Floating numbers are stored in binaries with an assigned level of precision typically equivalent to 15 or 16 decimals.
+
+```python
+# integer addition
+>>> 1 + 1
+2
+
+# floating-point multiplication
+>>> 10 * 0.5
+5.0
+
+# 3 to the power 100
+>>> 3 ** 100
+515377520732011331036461129765621272702107522001
+```
+
+::: {.callout-note}
+## Are there other number types besides integers and floating points?
+
+Besides integers and floating points numbers, Python includes fixed-precision, rational numbers, Booleans, and sets instances --- see Table 4.1.
+:::
+
+| Literal | Interpretation |
+|---------|----------------|
+| 1234, -24, 0, 99999999999999 | Integers (unlimited size) |
+| 1.23, 1., 3.14e-10, 4E210, 4.0e+210 | Floating-point numbers |
+| 0o177, 0x9ff, 0b101010 | Octal, hex, and binary literals in 3.X |
+| 0177, 0o177, 0x9ff, 0b101010 | Octal, octal, hex, and binary literals in 2.X |
+| 3+4j, 3.0+4.0j, 3J | Complex number literals |
+| set('spam'), {1, 2, 3, 4} | Sets: 2.X and 3.X construction forms |
+| Decimal('1.0'), Fraction(1, 3) | Decimal and fraction extension types |
+| bool(X), True, False | Boolean type and constants |
+
+: Number Type Objects in Python {#tbl-number-types}
+
+::: {.callout-note}
+## How do I carry out basic arithmetic operations in Python?
+
+Numbers in Python support the usual mathematical operations:
+
+- `+` → addition
+- `-` → subtraction
+- `*` → multiplication
+- `/` → floating point division
+- `//` → integer division
+- `%` → modulus (remainder)
+- `**` → exponentiation
+
+To use these operations, it is sufficient to launch a Python or IPython session without any modules loaded (see Snippet 4.1).
+:::
+
+::: {.callout-note}
+## How do I carry out advanced mathematical operations?
+
+Besides the mathematical operations shown above, there are many [modules shipped with Python](https://docs.python.org/3/library/numeric.html) that carry out advanced/specific numerical analysis. For example, the [`math`](https://docs.python.org/3/library/math.html) module provides access to the mathematical functions defined by the [C standard](https://en.wikipedia.org/wiki/C_standard_library).[^2] Table 4.2 reports a sample of these functions. To use them [`math`](https://docs.python.org/3/library/math.html), we have to import the module as shown in Snippet 4.2. Another popular module shipped with Python is [`random`](https://docs.python.org/3/library/random.html), implementing pseudo-random number generators for various distributions (see the lower section of Example 2).
+:::
+
+[^2]: As per the documentation of the Python programming language, [`math`](https://docs.python.org/3/library/math.html) cannot be used with complex numbers.
+
+| Function name | Expression |
+|---------------|------------|
+| `math.sqrt(x)` | √x |
+| `math.exp(x)` | e^x |
+| `math.log(x)` | ln(x) |
+| `math.log(x, b)` | log_b(x) |
+| `math.log10(x)` | log_10(x) |
+| `math.sin(x)` | sin(x) |
+| `math.cos(x)` | cos(x) |
+| `math.tan(x)` | tan(x) |
+| `math.asin(x)` | arcsin(x) |
+| `math.acos(x)` | arccos(x) |
+| `math.atan(x)` | arctan(x) |
+| `math.sinh(x)` | sinh(x) |
+| `math.cosh(x)` | cosh(x) |
+| `math.tanh(x)` | tanh(x) |
+| `math.asinh(x)` | arsinh(x) |
+| `math.acosh(x)` | arcosh(x) |
+| `math.atanh(x)` | artanh(x) |
+| `math.hypot(x, y)` | The Euclidean norm, √(x² + y²) |
+| `math.factorial(x)` | x! |
+| `math.erf(x)` | The error function at x |
+| `math.gamma(x)` | The gamma function at x, ω(x) |
+| `math.degrees(x)` | Converts x from radians to degrees |
+| `math.radians(x)` | Converts x from degrees to radians |
+
+: A Sample of Functions Provided by the [`math`](https://docs.python.org/3/library/math.html) Module {#tbl-math-functions}
+
+```python
+# import the math module
+>>> import math
+
+# base-y log of x
+>>> math.log(12, 8)
+1.1949875002403856
+
+# base-10 log of x
+>>> math.log10(12)
+1.0791812460476249
+
+# import the random module
+>>> import random
+
+# a draw from a normal distribution with mean = 0 and standard deviation = 1
+>>> random.normalvariate(0, 1)
+-0.136017752991189
+
+# trigonometric functions
+>>> math.cos(0)
+1.0
+
+>>> math.sin(0)
+0.0
+
+>>> math.tan(0)
+0.0
+
+# an expression containing a factorial product
+>>> math.factorial(4) - 4 * 3 * 2 * 1
+0
+```
+
+::: {.callout-note}
+## What is the precedence order among Python operators?
+
+As shown in Snippet 4.2, line 30, Python expressions can string together multiple operators. So, how does Python know which operation to perform first? The answer to this question lies in operator precedence. When you write an expression with more than one operator, Python groups its parts according to what is called precedence rules,[^3] and this grouping determines the order in which the expression's parts are computed. Table 4.3 reports the precedence hierarchy concerning the most common operators. Note that operators lower in the table have higher precedence. Parentheses can be used to create sub-expressions that override operator precedence rules.
+:::
+
+[^3]: The official Python documentation has an extensive section on operator precedence rules in the section dedicated to [syntax of expressions](https://docs.python.org/3/reference/expressions.html)
+
+| Operator | Description |
+|----------|-------------|
+| `x + y` | Addition, concatenation |
+| `x - y` | Subtraction, set difference |
+| `x * y` | Multiplication, repetition |
+| `x % y` | Remainder, format |
+| `x / y`, `x // y` | Division: true and floor |
+| `-x`, `+x` | Negation, identity |
+| `~x` | Bitwise NOT (inversion) |
+| `x ** y` | Power (exponentiation) |
+
+: Operator Precedence Hierarchy (Ascending Order) {#tbl-operator-precedence}
+
+::: {.callout-note}
+## How do I carry out technical and scientific computation with Python?
+
+Python is at the center of a rich ecosystem of modules for technical and scientific computation. In the following chapter, the attention will revolve around one of the most prominent modules, namely, [NumPy](https://numpy.org/). In a nutshell, [NumPy](https://numpy.org/) offers the infrastructure for efficiently manipulating data structures. [SciPy](https://scipy.org/) builds on [NumPy](https://numpy.org/) to implement many algorithms across the fields of statistics, linear algebra, optimization, calculus, signal processing, image processing, and others. Another core module in the technical and scientific domain is [SymPy](https://www.sympy.org/en/index.html), a library for symbolic mathematics. Note that none of these three modules are shipped with Python and should be installed with the package manager of your choice (e.g., `conda`).
+:::
+
+::: {.callout-note}
+## What is a Python variable?
+
+Variables are simply names --- created by you or Python --- that are used to keep track of information in your program. In Python:
+
+- Variables are created when they are first assigned values
+- Variables are replaced with their values when used in expressions
+- Variables must be assigned before they can be used in expressions
+- Variables refer to objects and are never declared ahead of time
+
+As Snippet 4.3 shows, the assignment of `x = 2` causes the variable `x` to come into existence 'automatically.' From that point, we can use the variables in the context of expressions such as the ones displayed in lines 8, 12, 16, and 20 or create new variables like in line 24.
+:::
+
+```python
+# let us assign the variables 'x' and 'y' to two number objects
+>>> x = 2
+
+>>> y = 4.0
+
+# subtracting an integer from variable 'x'
+>>> x - 1
+1
+
+# dividing the variable 'y' by an integer
+>>> y / 73
+0.0547945205479452
+
+# integer-dividing the variable 'y' by an integer
+>>> y // 73
+0.0
+
+# getting a linear combination of 'x' and 'y'
+>>> 3 * x - 5 * y
+-14.0
+
+# assigning the variable 'z' to the linear combination of 'x' and 'y'
+>>> z = 3 * x - 5 * y
+```
+
+::: {.callout-note}
+## How do I display number objects in a readable way?
+
+Snippet 4.3 includes some expressions whose result is not passed to a new variable (e.g., lines 8, 12, 16, 20). In those cases, the IPython session displays the expression's outcome as is (e.g., 0.0547945205479452). However, a number with more than three or four decimals may not suit the table or report we must prepare. Python has powerful [string formatting](https://docs.python.org/3/library/string.html) capabilities to display number objects in a readable and nice manner. Table 4.4 illustrates various number formatting options with concrete cases. Format strings contain 'replacement fields' surrounded by curly braces `{}`. Anything not contained in braces is considered literal text, copied unchanged to the output. Snippet 4.4 presents a fully-fledged number formatting case. First, we assign the variable `a` to a floating-point number (line 2). Then, we pass the formatting option `{:.2f}` over the variable `a` using the Python built-in function [`format`](https://docs.python.org/3/library/stdtypes.html#str.format).
+:::
+
+| Number | Format | Output | Description |
+|--------|--------|--------|-------------|
+| 3.1415926 | `{:.2f}` | 3.14 | Format float 2 decimal places |
+| 3.1415926 | `{:+.2f}` | +3.14 | Format float 2 decimal places with sign |
+| -1 | `{:+.2f}` | -1.00 | Format float 2 decimal places with sign |
+| 2.71828 | `{:.0f}` | 3 | Format float with no decimal places |
+| 5 | `{:0>2d}` | 05 | Pad number with zeros (left padding, width 2) |
+| 5 | `{:x<4d}` | 5xxx | Pad number with x's (right padding, width 4) |
+| 10 | `{:x<4d}` | 10xx | Pad number with x's (right padding, width 4) |
+| 1000000 | `{:,}` | 1,000,000 | Number format with comma separator |
+| 0.25 | `{:.2%}` | 25.00% | Format percentage |
+| 1000000000 | `{:.2e}` | 1.00e+09 | Exponent notation |
+| 13 | `{:10d}` | 13 | Right aligned (default, width 10) |
+| 13 | `{:<10d}` | 13 | Left aligned (width 10) |
+| 13 | `{:^10d}` | 13 | Center aligned (width 10) |
+
+: Number Formatting Options in Python {#tbl-number-formatting}
+
+```python
+# assign the variable 'a' to a floating-point number
+>>> a = 0.67544908755
+
+# displaying 'a' with the first two decimals only
+>>> "{:.2f}".format(a)
+"0.68"
+
+# displaying 'a' with the first three decimals only
+>>> "{:.3f}".format(a)
+"0.675"
+```
+
+::: {.callout-note}
+## How do I compare number objects?
+
+Comparisons are used frequently to create control [flows](https://docs.python.org/3/tutorial/controlflow.html), a topic we will discuss later in this chapter. Normal comparisons in Python regard two number objects and return a Boolean result. Chained comparisons concern three or more objects and, like normal comparisons, yield a Boolean result. Snippet 4.5 provides a sample of normal comparisons (between lines 1 and 15) and chained comparisons (between lines 21 and 30). As evident in the example, comparisons can regard both numbers and variables assigned to numbers. Chained comparisons can take the form of a range test (see line 21), a joined, 'AND' test of the truth of multiple expressions (see line 25), or a disjoined, 'OR' test of the truth of multiple expressions (see line 29).
+:::
+
+```python
+# less than
+>>> 3 < 2
+False
+
+# greater than or equal
+>>> 1 <= 2
+True
+
+# equal
+>>> 2 == 2
+True
+
+# not equal
+>>> 4 != 4
+False
+
+# range test
+>>> x = 3
+>>> y = 5
+>>> z = 4
+>>> x < y < z
+False
+
+# joined test
+>>> x < y and y > z
+True
+
+# disjoined test
+>>> x < y or y < z
+True
+```

@@ -1,0 +1,109 @@
+---
+title: "Managing Python Environments"
+---
+
+## What is a Python environment?
+
+A Python environment is a self-contained directory that contains a Python interpreter, a set of Python packages, and their dependencies.
+
+## Why should I use a Python environment?
+
+Mainly, there are two reasons:
+
+1. **We want our code to be reliable** → Suppose we install all the modules from our projects on the same Python installation. In that case, there is the risk that the package manager might bump modules to a release that is incompatible with other modules. When we share our code with our colleagues — or our future selves — there is no guarantee that the same global installation will allow the code to run.
+
+2. **We want to install smoothly** → Each project has specific requirements: some need a module to plot functions, some use a module to scrape webpages, and some to run econometric analyses. But do we want to install every Python module available for our use? It would be like taking all the books in the library home. Python modules must be mutually compatible with the Python installation. As the number of packages grows, the likelihood of incompatibilities also increases. Furthermore, some modules might require system libraries that may clash with other modules. As the number of modules increases, installing new packages will become more and more difficult.
+
+## Why Python environments work well for specific projects?
+
+Typically, we create a Python environment to carry out a specific project or a class of projects (e.g., Machine Learning projects). The advantage is twofold:
+
+- **Reliability** → the web of dependencies is relatively simple insofar as we install only a few modules that are required by the project or project class. Likely as not, we will not come across installation issues!
+- **Reproducibility** → documenting the details of a Python environment and sharing it with others increases the chance of getting the code to run.
+
+## How do I create a Python environment?
+
+The procedure to create a Python environment depends on the package manager you use (hence, the Python installation we have). Here, I focus on the case where conda is the adopted package manager.
+
+::: {.callout-note}
+`pip` users are warmly encouraged to read the [Virtual Environments and Packages](https://docs.python.org/3/tutorial/venv.html) section of the official Python Tutorial.
+:::
+
+## How do I use `conda` from the command line to create and populate a Python environment?
+
+To create a Python environment using `conda`, we can run the following command in the shell:
+
+```bash
+conda create --name myenv python=3.X
+```
+
+::: {.callout-tip}
+The [Conda Command reference](https://docs.conda.io/projects/conda/en/latest/commands.html) illustrates the various commands Conda provides for managing packages and environments.
+:::
+
+`myenv` is the name of the environment and `python=3.X` is the version of Python to use (e.g., 3.10).
+
+Once the environment is created, we can activate it using:
+
+```bash
+conda activate myenv
+```
+
+Once we have activated the environment, we can install packages using `conda install`:
+
+```bash
+conda install numpy pandas matplotlib
+```
+
+### Example: Creating and populating a Python environment
+
+Here's a concrete example of creating a new Python environment and populating it using `conda` from the command line:
+
+::: {.callout-example}
+**Step 1: Create a new environment**
+```bash
+conda create --name data_analysis python=3.10
+```
+
+**Step 2: Activate the environment**
+```bash
+conda activate data_analysis
+```
+
+**Step 3: Install required packages**
+```bash
+conda install numpy pandas matplotlib jupyter
+```
+:::
+
+## How do I use Anaconda Navigator to create and populate a Python environment?
+
+It is also possible to create a Python environment from within the Anaconda Navigator. The graphical interface provides an intuitive way to manage environments without using the command line.
+
+### Steps to create an environment in Anaconda Navigator:
+
+1. Open Anaconda Navigator
+2. Click on the "Environments" tab on the left sidebar
+3. Click the "Create" button at the bottom
+4. Enter a name for your environment
+5. Select the Python version you want to use
+6. Click "Create" to create the environment
+
+### Adding packages to your environment:
+
+1. Select your newly created environment from the list
+2. Change the dropdown from "Installed" to "Not installed" or "All"
+3. Search for the packages you want to install
+4. Check the boxes next to the packages
+5. Click "Apply" to install the selected packages
+
+::: {.callout-important}
+Remember to always activate your environment before working on your project to ensure you're using the correct Python installation and packages.
+:::
+
+## Best Practices
+
+- **One environment per project**: Create a dedicated environment for each project to avoid conflicts
+- **Document your environment**: Keep track of installed packages and their versions
+- **Export your environment**: Use `conda env export > environment.yml` to save your environment configuration
+- **Share environment files**: Include the `environment.yml` file when sharing your project with others

@@ -1,0 +1,59 @@
+# File Input and Output (IO) with Pandas
+
+## What type of data formats can I read/write with Pandas?
+
+::: {.callout-note}
+**Question:** What type of data formats can I read/write with Pandas?
+
+**Answer:** There are plenty of options, including proprietary statistical languages such as SAS, SPSS, and Stata, Python's pickles, tabular data in CSV or TSV format, and data formats widely adopted online data sources, such as HTML, XML, and JSON. The tables below illustrate some of the most popular IO utilities.^[For the complete list of Pandas IO routines, please refer to https://pandas.pydata.org/docs/reference/io.html.]
+:::
+
+## Pickle Files
+
+| **Routine** | **Synopsis** |
+|-------------|--------------|
+| `pd.read_pickle(filepath_or_buffer[, ...])` | Load pickled pandas object (or any object) from file |
+| `df.to_pickle(path[, compression, ...])` | Pickle (serialize) object to file |
+
+: Routines for Reading and Writing Data with Pandas: Pickles
+
+## Excel Spreadsheets
+
+| **Routine** | **Synopsis** |
+|-------------|--------------|
+| `pd.read_excel(io[, sheet_name, ...])` | Read an Excel file into a pandas DataFrame |
+| `df.to_excel(excel_writer[, sheet_name, ...])` | Write object to an Excel sheet |
+
+: Routines for Reading and Writing Data with Pandas: Excel Spreadsheets
+
+## CSV and Text Files
+
+| **Routine** | **Synopsis** |
+|-------------|--------------|
+| `pd.read_csv(filepath_or_buffer[, ...])` | Read a comma-separated values (csv) file into DataFrame |
+| `pd.read_table(filepath_or_buffer[, ...])` | Read general delimited file into DataFrame |
+| `df.to_csv([path_or_buf, sep, ...])` | Write object to a comma-separated values (csv) file |
+
+: Routines for Reading and Writing Data with Pandas: Flat Files
+
+## JSON Files
+
+| **Routine** | **Synopsis** |
+|-------------|--------------|
+| `pd.read_json(path_or_buf[, ...])` | Convert a JSON string to pandas object |
+| `df.to_json([path_or_buf, orient, ...])` | Convert the object to a JSON string |
+
+: Routines for Reading and Writing Data with Pandas: JSON
+
+## SQL Databases
+
+| **Routine** | **Synopsis** |
+|-------------|--------------|
+| `pd.read_sql(sql, con[, ...])` | Read SQL query or database table into a DataFrame |
+| `df.to_sql(name, con[, ...])` | Write records stored in a DataFrame to a SQL database |
+
+: Routines for Reading and Writing Data with Pandas: SQL
+
+*Notes: the statements included in the 'Routine' column assume Pandas is loaded with the `pd` alias and there is a DataFrame loaded with name `df`.*
+
+This section includes practical examples showing how to use these I/O functions with various parameters and options for reading and writing data in different formats.

@@ -1,0 +1,14 @@
+# Data Management with Pandas
+
+---
+
+At the end of the chapter, you will be able to:
+
+- Create a DataFrame
+- Manipulate the individual columns of a DataFrame
+- Arrange a DataFrame in the way that best fits your data analysis needs
+- Group, the cases of DataFrame, to perform aggregation and transformation tasks
+- Work with multiple DataFrames
+- Read and write data in a variety of formats
+
+---

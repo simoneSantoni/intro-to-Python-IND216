@@ -1,0 +1,416 @@
+---
+title: "Array Creation Routines"
+---
+
+::: {.callout-note}
+## Question
+Does NumPy offer recipes for creating arrays?
+:::
+
+::: {.callout-tip}
+## Answer
+Yes, it does. NumPy has seven families of array-creating routines:
+
+- From shape or value
+- From existing data
+- Creating record arrays (`np.rec`)
+- Numerical ranges
+- Building matrices
+- The Matrix class
+:::
+
+## Creating Arrays from Shape or Value
+
+::: {.callout-note}
+## Question
+Creating arrays from shape or value
+:::
+
+::: {.callout-tip}
+## Answer
+This family of routines creates arrays with a certain number of dimensions, shapes, values, and attributes. The code snippet below shows how to create:
+
+- an array with a certain shape and a constant scalar (see lines 5 --- [`.zeros`](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros), 12 --- [`.ones`](https://numpy.org/doc/stable/reference/generated/numpy.ones.html#numpy.ones), 19 --- [`full`](https://numpy.org/doc/stable/reference/generated/numpy.full.html#numpy.full)), and
+- an array containing an identity matrix (see lines 26 --- [`.eye`](https://numpy.org/doc/stable/reference/generated/numpy.eye.html#numpy.eye) --- and 33 --- [`.identity`](https://numpy.org/doc/stable/reference/generated/numpy.identity.html#numpy.identity))
+:::
+
+```python
+# import numpy with the socially accepted alias 'np'
+>>> import numpy as np
+
+# create an array with zeros only
+>>> np.zeros([4,4])
+array([[0., 0., 0., 0.],
+       [0., 0., 0., 0.],
+       [0., 0., 0., 0.],
+       [0., 0., 0., 0.]])
+
+# create an array with ones only
+>>> np.ones((4,4))
+array([[1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.]])
+
+# create a full matrix with a given scalar
+>>> np.full((4,4), -99)
+array([[-99, -99, -99, -99],
+       [-99, -99, -99, -99],
+       [-99, -99, -99, -99],
+       [-99, -99, -99, -99]])
+
+# create an identity array of a given shape with .eye
+>>> np.eye(4, 3)
+array([[1., 0., 0.],
+       [0., 1., 0.],
+       [0., 0., 1.],
+       [0., 0., 0.]])
+
+# create an identity array with .identity
+>>> np.identity(4)
+array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.]])
+```
+
+### Routines for Creating Arrays from Shape or Value
+
+| Routine | Synopsis |
+|---------|----------|
+| `np.empty(shape[, dtype, order, like])` | Return a new array of given shape and type, without initializing entries |
+| `np.empty_like(prototype[, dtype, order, subok, ...])` | Return a new array with the same shape and type as a given array |
+| `np.eye(N[, M, k, dtype, order, like])` | Return a 2-D array with ones on the diagonal and zeros elsewhere |
+| `np.identity(n[, dtype, like])` | Return the identity array |
+| `np.ones(shape[, dtype, order, like])` | Return a new array of given shape and type, filled with ones |
+| `np.ones_like(a[, dtype, order, subok, ...])` | Return an array of ones with the same shape and type as a given array |
+| `np.zeros(shape[, dtype, order, like])` | Return a new array of given shape and type, filled with zeros |
+| `np.full(shape, fill_value[, dtype, order, like])` | Return a new array of given shape and type, filled with fill value |
+| `full_like(a, fill_value[, dtype, order, ...])` | Return a full array with the same shape and type as a given array |
+
+*Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*
+
+## Creating Arrays from Existing Data
+
+::: {.callout-note}
+## Question
+Creating arrays from existing data
+:::
+
+::: {.callout-tip}
+## Answer
+We saw how to use [`array`](https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array) for passing data to a NumPy array. The code snippet below shows other routines to create NumPy arrays from existing data, including for example:
+
+- [`.fromfunction`](https://numpy.org/doc/stable/reference/generated/numpy.fromfunction.html#numpy.fromfunction), creating an array by executing a function over each coordinate (line 8)
+- [`.fromfile`](https://numpy.org/doc/stable/reference/generated/numpy.fromfile.html#numpy.fromfile), creating an array from data in a text or binary file (line 19)
+- [`.loadtxt`](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html#numpy.loadtxt), loading data from a text file (line 37). The example represents a real-world data set containing both numeric and text information. The first argument we pass [`.loadtxt`](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html#numpy.loadtxt) is a file object. To correctly parse the data, we also pass the following discretionary arguments to [`.loadtxt`](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html#numpy.loadtxt): i) `comments="#"` indicates that any lines in the file commencing with `#` must be considered a comment, not a piece of data; ii) `delimiter=","` indicates that two items separated by the character `,` belong to different fields (i.e., 'columns' to use a spreadsheet-alike vocabulary); iii) `quotechar='"'` indicates that strings are enclosed between double quotes.
+:::
+
+```python
+# import numpy with the socially accepted alias 'np'
+>>> import numpy as np
+
+# get data from a function
+# --+ create a function
+>>> my_function = lambda x, y: x - 0.5 * y ** 2
+# --+ create an array from my_function for given coordinates
+>>> np.fromfunction(my_function, (3, 3), dtype=float)
+array([[ 0. , -0.5, -2. ],
+       [ 1. ,  0.5, -1. ],
+       [ 2. ,  1.5,  0. ]])
+
+# get data from a binary file
+# --+ create an array from a list of numbers
+>>> D = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+# --+ save the raw data to a binary file
+>>> D.tofile("data.bin")
+# --+ read the data back
+>>> np.fromfile("data.bin", dtype=int)
+
+# get data from a text file
+# --+ create a string with the data and some qualitative comments on them
+>>> S = """
+# Below are some demographic data about Michael J. Jordan (basketball player)
+# from Wikipedia.
+#
+# Data labels are:
+#
+# NAME, BORN, NBA CHAMPIONSHIPS, AVERAGE POINT PER GAME
+"Jordan, Michael Jeffrey","17-02-1963",6,30.1
+"""
+# --+ write the data to a file
+>>> with open("my_data", "w") as pipe:
+...     pipe.write(S)
+>>> pipe.close()
+# --+ read the data and assign them to a NumPy array
+>>> np.loadtxt(
+...   open("my_data", "r"),
+...       dtype={
+...             "names": (
+...                      "NAME",
+...                      "BORN",
+...                      "NBA CHAMPIONSHIPS",
+...                      "AVERAGE POINT PER GAME"
+...                    ),
+...             "formats": ("S30", "S10", "i1", "f2"),
+...             },
+...       comments="#",
+...       delimiter=",",
+...       quotechar='"'
+...   )
+array((b'Jordan, Michael Jeffrey', b'17-02-1963', 6, 30.1),
+       dtype=[('NAME', 'S30'),('BORN', 'S10'),
+             ('NBA CHAMPIONSHIPS', 'i1'),
+             ('AVERAGE POINT PER GAME', '<f2')]
+)
+```
+
+### Routines for Creating Arrays from Existing Data
+
+| Routine | Synopsis |
+|---------|----------|
+| `np.array(object[,dtype, copy, subok, ...])` | Create an array |
+| `np.asarray(a[, dtype, order, like])` | Convert the input to an array |
+| `np.asanyarray(a[, dtype, order, like])` | Convert the input to an ndarray, but pass ndarray subclasses through |
+| `np.ascontiguousarray(a[, dtype, like])` | Return a contiguous array (ndim >= 1) in memory (C order) |
+| `np.asmatrix(data[, dtype])` | Interpret the input as a matrix |
+| `np.copy(a[, order, subok])` | Return an array copy of the given object |
+| `np.frombuffer(buffer[, dtype, count, offset, like])` | Interpret a buffer as a 1-dimensional array |
+| `np.fromfile(file[, dtype, count, sep, offset, like])` | Construct an array from data in a text or binary file |
+| `np.fromfunction(function, shape, *[, dtype, like])` | Construct an array by executing a function over each coordinate |
+| `np.fromiter(iter, dtype[, count, like])` | Create a new 1-dimensional array from an iterable object |
+| `np.fromstring(string[, dtype, count, like])` | A new 1-D array initialized from text data in a string |
+| `np.loadtxt(fname[, dtype, comments, delimiter, ...])` | Load data from a text file |
+
+*Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*
+
+## Record Arrays
+
+::: {.callout-note}
+## Question
+Record arrays
+:::
+
+::: {.callout-tip}
+## Answer
+NumPy arrays do not contain any information about the attributes of the data. For example, a NumPy array cannot accommodate any meta-data, such as the fields' names in the data. Here is where [`.rec`](https://numpy.org/doc/stable/reference/routines.array-creation.html) kick in (see the table below). For example, [.core.records.array](https://numpy.org/doc/stable/reference/generated/numpy.core.records.array.html#numpy.core.records.array) allows to flexibly specify a field's type and name (see the code snippet below, line 8). Once a 'recarray' is created, it is possible to fetch its data by field name (see the code snippet below, line 11).
+:::
+
+```python
+# import records array with an alias that does not conflict with
+# 'standard' NumPy arrays
+>>> from numpy.core.records import array as recarray
+
+# the data
+>>> LOCS = [("51.5072° N", "0.1276° W"), ("35.6762° N", "139.6503° E")]
+
+# create a recarray
+>>> D = recarray(LOCS, formats=["U12", "U12"], names=["Latitude", "Longitude"])
+
+# fetch the data by field name
+>>> D.Latitude
+array(['51.5072° N', '35.6762° N'], dtype='<U12')
+```
+
+### Routines for Creating Record Arrays
+
+| Routine | Synopsis |
+|---------|----------|
+| `np.core.records.array(obj[, dtype, shape, ...])` | Construct a record array from a wide variety of objects |
+| `np.core.records.fromarrays(arrayList[, dtype, ...])` | Create a record array from a (flat) list of arrays |
+| `np.core.records.fromrecords(recList[, dtype, ...])` | Create a recarray from a list of records in text form |
+| `np.core.records.fromstring(datastring[, dtype, ...])` | Create a record array from binary data |
+| `np.core.records.fromfile(fd[, dtype, shape, ...])` | Create an array from binary file data |
+
+*Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*
+
+## Creating Numerical Ranges
+
+::: {.callout-note}
+## Question
+Creating numerical ranges
+:::
+
+::: {.callout-tip}
+## Answer
+One may want to create a numerical range for different reasons, including running functional analysis or computer simulation. NumPy has a bunch of array-creating routines for numerical ranges (see the table below), some of which are quite popular in technical and scientific computation as well as data science. For example, [`np.arange`](https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange) and [`np.linspace`](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace) frequently appear in Python programs when it comes to create evenly spaced values in a certain interval and evenly spaced samples respectively (see the code snippet below). Another popular routine is [`.meshgrid`](https://numpy.org/doc/stable/reference/generated/numpy.meshgrid.html#numpy.meshgrid), returning coordinate matrices from coordinate vectors.
+:::
+
+```python
+# import numpy with the socially accepted alias 'np'
+>>> import numpy as np
+
+# two ranges of evenly spaced values
+# --+ evenly spaced values between 0 and 10
+>>> np.arange(0, 10, 1)
+array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+# --+ ... equivalent to
+>>> np.arange(10)
+array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+# --+ evenly spaced values between 0 and 10 divided by a 2-unit step
+>>> np.arange(0, 10, 2)
+array([0, 2, 4, 6, 8])
+
+# 50 evenly spaced values between 0 and 1
+>>> np.linspace(0, 1, 10)
+array([0.        , 0.11111111, 0.22222222, 0.33333333, 0.44444444,
+       0.55555556, 0.66666667, 0.77777778, 0.88888889, 1.        ])
+
+# get coordinate matrices from coordinate vectors
+# --+ the 'x-' and 'y-axis' vectors
+>>> X = np.linspace(0, 1, 10)
+>>> Y = np.linspace(0, 1, 5)
+# --+ get 'x-axis' ('y-axis') coordinates for any value of vector Y (X)
+>>> XX, YY = np.meshgrid(X, Y)
+>>> XX
+array([[0.        , 0.11111111, 0.22222222, 0.33333333, 0.44444444,
+        0.55555556, 0.66666667, 0.77777778, 0.88888889, 1.        ],
+       [0.        , 0.11111111, 0.22222222, 0.33333333, 0.44444444,
+        0.55555556, 0.66666667, 0.77777778, 0.88888889, 1.        ],
+       [0.        , 0.11111111, 0.22222222, 0.33333333, 0.44444444,
+        0.55555556, 0.66666667, 0.77777778, 0.88888889, 1.        ],
+       [0.        , 0.11111111, 0.22222222, 0.33333333, 0.44444444,
+        0.55555556, 0.66666667, 0.77777778, 0.88888889, 1.        ],
+       [0.        , 0.11111111, 0.22222222, 0.33333333, 0.44444444,
+        0.55555556, 0.66666667, 0.77777778, 0.88888889, 1.        ]])
+>>> YY
+array([[0.  , 0.  , 0.  , 0.  , 0.  , 0.  , 0.  , 0.  , 0.  , 0.  ],
+       [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25],
+       [0.5 , 0.5 , 0.5 , 0.5 , 0.5 , 0.5 , 0.5 , 0.5 , 0.5 , 0.5 ],
+       [0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75],
+       [1.  , 1.  , 1.  , 1.  , 1.  , 1.  , 1.  , 1.  , 1.  , 1.  ]])
+# --+ create a matrix from X and Y
+>>> ZZ = np.sqrt(XX**2 + YY**2)
+# --+ check the dimensions of the newly created objects
+>>> print(XX.shape, YY.shape, ZZ.shape)
+>>> ((101, 101), (101, 101), (101, 101))
+# --+ make a contour plot showing the associations among X, Y, and Z
+>>> fig = plt.figure()
+>>> ax = fig.add_subplot(111)
+>>> ax = plt.contourf(X, Y, ZZ)
+>>> plt.axis('scaled')
+>>> plt.colorbar()
+>>> plt.show()
+```
+
+### Routines for Numerical Ranges
+
+| Routine | Synopsis |
+|---------|----------|
+| `np.arange([start,] stop[, step,][, dtype, like])` | Return evenly spaced values within a given interval |
+| `np.linspace(start, stop[, num, endpoint, ...])` | Return evenly spaced numbers over a specified interval |
+| `np.logspace(start, stop[, num, endpoint, base, ...])` | Return numbers spaced evenly on a log scale |
+| `np.geomspace(start, stop[, num, endpoint, ...])` | Return numbers spaced evenly on a log scale (a geometric progression) |
+| `np.meshgrid(*xi[, copy, sparse, indexing])` | Return coordinate matrices from coordinate vectors |
+| `np.mgrid` | `nd_grid` instance which returns a dense multi-dimensional "meshgrid" |
+| `np.ogrid` | `nd_grid` instance which returns an open multi-dimensional "meshgrid" |
+
+*Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*
+
+## Building Matrices
+
+::: {.callout-note}
+## Question
+Building matrices
+:::
+
+::: {.callout-tip}
+## Answer
+NumPy has routines to create arrays from an existing matrix as well as build matrices with certain properties (see the table below). As the code snippet below shows, [`.diag`](https://numpy.org/doc/stable/reference/generated/numpy.diag.html#numpy.diag) creates an array by fetching a matrix's diagonal (see line 10), while [`.tri`](https://numpy.org/doc/stable/reference/generated/numpy.tri.html#numpy.tri) creates a triangular matrix (see line 17).
+:::
+
+```python
+# import numpy with the socially accepted alias 'np'
+>>> import numpy as np
+
+# create an array by fetching a matrix diagonal
+# --+ the matrix
+>>> M = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+>>> M.shape
+(3, 3)
+# --+ the new array
+>>> A = np.diag(M)
+>>> print(A)
+[1 5 9]
+>>> A.shape
+(3,)
+
+# create a triangular matrix
+>>> np.tri(10, 10)
+array([[1., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [1., 1., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [1., 1., 1., 0., 0., 0., 0., 0., 0., 0.],
+       [1., 1., 1., 1., 0., 0., 0., 0., 0., 0.],
+       [1., 1., 1., 1., 1., 0., 0., 0., 0., 0.],
+       [1., 1., 1., 1., 1., 1., 0., 0., 0., 0.],
+       [1., 1., 1., 1., 1., 1., 1., 0., 0., 0.],
+       [1., 1., 1., 1., 1., 1., 1., 1., 0., 0.],
+       [1., 1., 1., 1., 1., 1., 1., 1., 1., 0.],
+       [1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]])
+```
+
+### Routines for Building Matrices
+
+| Routine | Synopsis |
+|---------|----------|
+| `np.diag(v[, k])` | Extract a diagonal or construct a diagonal array |
+| `np.diagflat(v[, k])` | Create a two-dimensional array with the flattened input as a diagonal |
+| `np.tri(N[, M, k, dtype, like])` | An array with ones at and below the given diagonal and zeros elsewhere |
+| `np.tril(m[, k])` | Lower triangle of an array |
+| `np.triu(m[, k])` | Upper triangle of an array |
+| `np.vander(x[, N, increasing])` | Generate a Vandermonde matrix |
+
+*Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*
+
+## The Matrix Class
+
+::: {.callout-note}
+## Question
+The Matrix Class
+:::
+
+::: {.callout-tip}
+## Answer
+In the previous section, I claim to create a matrix. The outcome displayed is consistent with the concept of 'matrix' we have been taught in a typical linear algebra class: what a human being sees is a set of numbers arranged in rows and columns. However, in NumPy terms, the object displayed is an array with two dimensions. If we want to create a NumPy Matrix Class object (note that the documentation of NumPy 1.23 states that "It is no longer recommended to use this class, even for linear algebra. Instead, use regular arrays. The class may be removed in the future"), we have to call [`np.matrix`](https://numpy.org/doc/stable/reference/generated/numpy.matrix.html#numpy.matrix), a subclass of [`np.ndarray`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray). The table below illustrates the two matrix-creating routines of NumPy.
+:::
+
+::: {.callout-note}
+## Question
+What is the advantage of using a matrix class object?
+:::
+
+::: {.callout-tip}
+## Answer
+As we will see later on in this chapter, the advantage of using a matrix class object is that we can use the matrix class object to perform matrix operations with a simple and intuitive syntax. For example, we can use the matrix class object to perform matrix manipulation multiplication, addition, and subtraction. In the lower section of the code snippet below, we use [`.linalg.inv`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html) to compute the inverse of a matrix.
+:::
+
+```python
+# import numpy with the socially accepted alias 'np'
+>>> import numpy as np
+
+# create a matrix class object
+# --+ the arrays to populate a matrix class object
+>>> A = np.array([0, 1, 2])
+>>> B = np.array([-99, 203, 1009])
+>>> C = np.array([-1000, -1001, -1002])
+# --+ the matrix class object
+>>> M = np.matrix([A, B, C])
+matrix([[    0,     1,     2],
+        [  -99,   203,  1009],
+        [-1000, -1001, -1002]])
+
+# get the inverse of M
+>>> np.linalg.inv(M)
+matrix([[-1.60040278e+00,  1.98412698e-03, -1.19642857e-03],
+        [ 2.19880556e+00, -3.96825397e-03,  3.92857143e-04],
+        [-5.99402778e-01,  1.98412698e-03, -1.96428571e-04]])
+```
+
+### Routines for the Matrix Class
+
+| Routine | Synopsis |
+|---------|----------|
+| `np.mat(data[, dtype])` | Interpret the input as a matrix |
+| `bmat(obj[, ldict, gdict])` | Build a matrix object from a string, nested sequence, or array |
+
+*Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*

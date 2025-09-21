@@ -1,0 +1,49 @@
+# Shaping and Reshaping DataFrames
+
+## What is 'panel data'?
+
+::: {.callout-note}
+**Question:** What is 'panel data'?
+
+**Answer:** Often, we work with panel data, wherein the same statistical unit (e.g., an employer, a company, an administrative city) is observed multiple times. An example is a security's price taken at different times of the day.
+:::
+
+## What are the alternative ways for representing panel data?
+
+::: {.callout-note}
+**Question:** What are the alternative ways for representing panel data?
+
+**Answer:** Mainly, there are two approaches to representing a panel dataset:
+
+- The *wide* data structure consists of creating one row per unit and as many columns as measurement occasions. The table below provides a pictorial representation of the wide data structure
+- The *long* data structure consists of creating pairs of measurement occasions and values nested within the same unit. In other words, the same unit is repeated across as many rows as measurement occasions. A similar table structure can represent the long data structure
+
+| **Case** | **p₀** | **p₁** | ... | **pᵢ** | ... | **pₖ** |
+|----------|--------|--------|-----|--------|-----|--------|
+| **1**    | p₁,₀   | p₁,₁   | ... | p₁,ᵢ   | ... | p₁,ₖ   |
+| **2**    | p₂,₀   | p₂,₁   | ... | p₂,ᵢ   | ... | p₂,ₖ   |
+|          |        |        |     |        |     |        |
+| **j**    | pⱼ,₀   | pⱼ,₁   | ... | pⱼ,ᵢ   | ... | pⱼ,ₖ   |
+|          |        |        |     |        |     |        |
+| **n**    | pₙ,₁   | pₙ,₂   | ... | pₙ,ⱼ   | ... | pₙ,ₖ   |
+
+: A stylized representation of a 'wide' data structure
+:::
+
+## What are the pros and cons of a wide data structure?
+
+::: {.callout-note}
+**Question:** What are the pros and cons of a wide data structure?
+
+**Answer:**
+
+**Pros:**
+- easier to work with for people coming from a spreadsheet environment
+- going through a row, one can make sense of the trend of a particular unit
+
+**Cons:**
+- the larger the number of measurement of occasions, the less readable the file, the larger the number of columns (→ the more difficult to work with the data)
+- data manipulation activities must carry out column-by-column
+:::
+
+This section continues with detailed examples of converting between wide and long formats using Pandas methods like `.melt()` and `.pivot()`, which are essential for data restructuring tasks.

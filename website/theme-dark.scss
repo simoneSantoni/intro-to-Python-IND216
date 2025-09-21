@@ -17,13 +17,13 @@ $link-color: #5dade2;
 $link-hover-color: #85c1f5;
 
 // Code
-$code-bg: #2c3e50;
-$code-color: #f39c12;
+$code-bg: #0d1117; // Much darker background for better contrast
+$code-color: #e6edf3; // Lighter text for better readability
 
 // Navigation
 $navbar-bg: #0d0d0d;
 $navbar-fg: #e0e0e0;
-$sidebar-bg: #cb3c33;
+$sidebar-bg: #3776ab; //#4063d8;
 $sidebar-fg: #ffffff;
 $sidebar-hl: #ffe6e6;
 
@@ -42,10 +42,10 @@ $sidebar-hl: #ffe6e6;
   border-left-color: #5dade2;
 }
 
-.code-example {
-  background-color: #2c3e50;
-  border-color: #34495e;
-}
+//.code-example {
+//  background-color: #2c3e50;
+//  border-color: #34495e;
+//}
 
 .week-card {
   background-color: #2c3e50;
@@ -113,5 +113,192 @@ $sidebar-hl: #ffe6e6;
     &:hover {
       background-color: #a53028;
     }
+  }
+}
+
+// Code cells and syntax highlighting
+.cell-code {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+}
+
+.sourceCode {
+  background-color: #0d1117 !important;
+  color: #e6edf3;
+
+  pre {
+    background-color: #0d1117 !important;
+    color: #e6edf3;
+  }
+
+  code {
+    background-color: #0d1117 !important;
+    color: #e6edf3;
+  }
+}
+
+// Inline code
+code:not(.sourceCode) {
+  background-color: #161b22;
+  color: #79c0ff;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+// Code blocks
+pre {
+  background-color: #0d1117 !important;
+  color: #e6edf3 !important;
+  border: 1px solid #30363d;
+
+  code {
+    background-color: transparent !important;
+    color: #e6edf3 !important;
+  }
+}
+
+// Code copy button
+.code-copy-button {
+  background-color: #21262d;
+  color: #8b949e;
+  border: 1px solid #30363d;
+
+  &:hover {
+    background-color: #30363d;
+    color: #c9d1d9;
+  }
+}
+
+// Theme-specific logo handling
+body.quarto-dark {
+  .sidebar-logo {
+    content: url("imgs/python-module-icon-dark.svg");
+  }
+}
+
+// Center sidebar tools
+.sidebar-tools-main {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+// Syntax highlighting colors for better visibility
+.sourceCode {
+  // Keywords (def, if, for, etc.)
+  .kw {
+    color: #ff7b72;
+  }
+
+  // Strings
+  .st {
+    color: #a5d6ff;
+  }
+
+  // Comments
+  .co {
+    color: #8b949e;
+  }
+
+  // Numbers
+  .dv,
+  .fl {
+    color: #79c0ff;
+  }
+
+  // Built-in functions
+  .bu {
+    color: #d2a8ff;
+  }
+
+  // Operators
+  .op {
+    color: #ff7b72;
+  }
+
+  // Variables and function names
+  .va {
+    color: #ffa657;
+  }
+
+  // Decorators
+  .at {
+    color: #d2a8ff;
+  }
+
+  // Imports
+  .im {
+    color: #ff7b72;
+  }
+}
+
+// Custom boxes for exercises and warnings - Dark theme
+.exercise-box {
+  background-color: #1a2332;
+  border: 2px solid #5dade2;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+
+  h3 {
+    color: #5dade2;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  code:not(.sourceCode) {
+    background-color: #161b22;
+    color: #79c0ff;
+  }
+}
+
+.warning-box {
+  background-color: #2d2416;
+  border: 2px solid #f39c12;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+
+  h3 {
+    color: #f39c12;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  ol, ul {
+    margin-bottom: 0;
+  }
+
+  strong {
+    color: #f5b041;
+  }
+}
+
+// Figure styling - Dark theme
+.figure {
+  margin: 2rem auto;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+
+  figcaption, p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #8b949e;
+    font-style: italic;
   }
 }

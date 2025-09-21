@@ -1,0 +1,74 @@
+---
+title: "Mathematical Functions"
+---
+
+::: {.callout-note}
+## Question
+What are the mathematical functions available in NumPy?
+:::
+
+::: {.callout-tip}
+## Answer
+There are many [mathematical functions available in NumPy](https://numpy.org/doc/stable/reference/routines.math.html), some of which are implemented as universal functions (for a complete list of universal functions, see the NumPy documentation). The available routines can be grouped into:
+
+- Trigonometric functions
+- Hyperbolic functions
+- Rounding functions
+- Sums, products, and differences
+- Exponential and logarithmic functions
+- Extrema finding
+:::
+
+::: {.callout-note}
+## Question
+How do I use mathematical functions in NumPy?
+:::
+
+::: {.callout-tip}
+## Answer
+Similar to the case of array-manipulating routines, a detailed discussion of every NumPy mathematical function exceeds the scope of these notes. However, every function can be accessed using the same procedure; we need a set of values to pass to the function's argument- that is it! The code snippet below shows the procedure to use a NumPy mathematical functions by means of two trigonometric functions, namely, [`.sin`](https://numpy.org/doc/stable/reference/generated/numpy.sin.html#numpy.sin) and [`.cos`](https://numpy.org/doc/stable/reference/generated/numpy.cos.html#numpy.cos). In line 9, we create a range of values to assign to the variable `X`; then, in line 11, we create two further arrays assigned to the outcome of [`.sin`](https://numpy.org/doc/stable/reference/generated/numpy.sin.html#numpy.sin) and [`.cos`](https://numpy.org/doc/stable/reference/generated/numpy.cos.html#numpy.cos) respectively; finally, we use the Matplotlib module to visualize the two functions (if you do not get the Matplotlib code logic, do not worry at all --- you will familiarize yourself with it in the Fall Term module 'SMM635, Data Visualization.')
+:::
+
+```python
+# import numpy with the socially accepted alias 'np'
+>>> import numpy as np
+
+# import a data viz module
+>>> import matplotlib.pyplot as plt
+
+# trigonometric functions
+# --+ x-values
+>>> X = np.arange(0, 2 * np.pi, 0.1)
+# --+ y-values
+>>> SI, CS = np.sin(X), np.cos(X)
+
+# plot the functions
+# --+ plot SI
+>>> fig = plt.figure(figsize=(2.5, 2.5))
+>>> ax = fig.add_subplot(111)
+>>> ax.axhline(y=0, color="k", linewidth=0.5)
+>>> ax.set_xticks([0, 0.5 * np.pi, np.pi, 1.5 * np.pi, 2 * np.pi])
+>>> ax.set_xticklabels(
+...     ["0", r"$\frac{1}{2} \pi$", r"$\pi$", r"$\frac{3}{2} \pi$", r"$2 \pi$"]
+... )
+>>> plt.xlabel("$X$")
+>>> plt.ylabel("$sine(X)$")
+>>> ax.grid(True)
+>>> ax.plot(X, SI, color="Blue")
+>>> plt.title("A")
+>>> plt.show()
+# --+ plot CS
+>>> fig = plt.figure(figsize=(2.5, 2.5))
+>>> ax = fig.add_subplot(111)
+>>> ax.axhline(y=0, color="k", linewidth=0.5)
+>>> ax.set_xticks([0, 0.5 * np.pi, np.pi, 1.5 * np.pi, 2 * np.pi])
+>>> ax.set_xticklabels(
+...     ["0", r"$\frac{1}{2} \pi$", r"$\pi$", r"$\frac{3}{2} \pi$", r"$2 \pi$"]
+... )
+>>> plt.xlabel("$X$")
+>>> plt.ylabel("$cosine(X)$")
+>>> ax.grid(True)
+>>> ax.plot(X, CS, color="Blue")
+>>> plt.title("B")
+>>> plt.show()
+```

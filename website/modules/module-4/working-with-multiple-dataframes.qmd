@@ -1,0 +1,40 @@
+# Working with Multiple DataFrames
+
+## My data cut across data tables: how can I combine multiple them into a single DataFrame?
+
+::: {.callout-note}
+**Question:** My data cut across data tables: how can I combine multiple them into a single DataFrame?
+
+**Answer:** Often, the information we want to analyze is spread across different data tables. In this case, we must combine multiple DataFrame objects. Mainly, there are two approaches to data combination:
+
+- Concatenate consists of stacking two or more data frames (either on the first axis or on the second axis)
+- Merge consists of joining two or more data frames on a common set of keys
+:::
+
+## How do I concatenate two DataFrame objects in Pandas?
+
+::: {.callout-note}
+**Question:** How do I concatenate two DataFrame objects in Pandas?
+
+**Answer:** The [`.concat()`](https://pandas.pydata.org/docs/reference/api/pandas.concat.html?highlight=concat#pandas.concat) method is used to concatenate two or more data frames. The method takes an array of DataFrames as input and returns a new data frame with the rows or columns from all the input data frames.
+
+In the code examples of this section, we carry out the following:
+
+- We concatenate two DataFrame objects along the first axis (column-wise)
+- We concatenate two DataFrame objects along the second axis (row-wise)
+
+The examples demonstrate concatenating two data frames where the first data frame contains sales data for the year's first quarter and the second data frame includes the information for the second quarter.
+
+```python
+# import pandas with the socially accepted alias pd
+>>> import pandas as pd
+
+# Example of concatenating DataFrames
+# This section would include practical examples of using pd.concat()
+# with different parameters like axis, ignore_index, etc.
+```
+
+This section includes detailed examples showing different concatenation scenarios and merge operations using methods like `.merge()`, `.join()`, and various types of joins (inner, outer, left, right).
+:::
+
+The section covers essential data combination techniques that are crucial for working with real-world datasets that are often split across multiple sources or files.

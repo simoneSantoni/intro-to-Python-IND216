@@ -1,0 +1,104 @@
+# Querying DataFrames
+
+## What is data querying?
+
+::: {.callout-note}
+**Question:** What is data querying?
+
+**Answer:** Data queries can take two non-mutually exclusive forms. One may want to:
+
+- Select a subset of cases
+- Select a subset of columns
+:::
+
+## How do I query data in Pandas?
+
+::: {.callout-note}
+**Question:** How do I query data in Pandas?
+
+**Answer:** Pandas DataFrame objects have a property called [`.loc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc) that allows accessing a group of rows and columns by label(s) or a boolean array. To use [`.loc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc), one has to pass two inputs among brackets:
+
+- The set of cases to select (the left-hand side element among brackets)
+- The set of columns to select (the right-hand side element among brackets)
+
+The code snippet below shows a couple of use cases for the [`.loc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc) property:
+
+- Line 33 selects the first two cases of the DataFrame
+- Line 39 selects the column "price" first two rows of the DataFrame
+- Line 46 selects the columns "price" and "color" for all cases included in the DataFrame
+- Line 52 selects the cases for which the column "price" is less than or equal to 8.00
+- Line 59 selects the cases for which the column "price" is less than 9.00 **and** the column "color" is equal to "green"
+- Line 65 expands on line 59 by selecting the column "price" when "price" is less than 9.00 **and** "color" is equal to "green"
+
+Please refer to the sections on statements and syntax and control flow to consolidate your knowledge on the Python syntax of statements and control flow.
+:::
+
+```python
+# import pandas with the socially accepted alias 'pd'
+>>> import pandas as pd
+
+# create a DataFrame from a dictionary
+>>> df = pd.DataFrame.from_dict(
+        {
+            "product": ["a", "b", "c"],
+            "price": [9.87, 8.63, 6.45],
+            "color": ["green", "green", "blue"],
+        }
+    )
+
+# data preview
+>>> df
+  product  price  color
+0       a   9.87  green
+1       b   8.63  green
+2       c   6.45   blue
+
+# info
+>>> df.info()
+RangeIndex: 3 entries, 0 to 2
+Data columns (total 3 columns):
+     Column   Non-Null Count  Dtype
+---  ------   --------------  -----
+ 0   product  3 non-null      object
+ 1   price    3 non-null      float64
+ 2   color   3 non-null      object
+dtypes: float64(1), object(2)
+memory usage: 200.0+ bytes
+
+# select the first the two cases using a range of indices
+>>> df.loc[0:2]
+      product  price  color
+    0       a   9.87  green
+    1       b   8.63  green
+
+# select the column "price" for the first two cases using a boolean array
+>>> df.loc[0:2, "price"]
+0    9.87
+1    8.63
+2    6.45
+Name: price, dtype: float64
+
+# select the columns "price" and "color" for all cases
+>>> df.loc[:, ["price", "color"]]
+   price  color
+0   9.87  green
+1   8.63  green
+
+# select all cases for which the column "price" is greater than or equal to 8.00
+>>> df.loc[df["price"] >= 8.00, ]
+  product  price  color
+0       a   9.87  green
+1       b   8.63  green
+
+# select all cases for which the column "price" is less than 9.00 and
+# "color" is equal to "green"
+>>> df.loc[(df["price"] < 9.00) & (df["color"] == "green" ), ]
+  product  price  color
+1       b   8.63  green
+
+# select all cases for which the column "price" is less than to 9.00 and
+# "color" is equal to "green"; also, keep the column "price" only
+>>> df.loc[(df["price"] < 9.00) & (df["color"] == "green" ), "price"]
+1    8.63
+Name: price, dtype: float64
+```

@@ -1,0 +1,152 @@
+# The Pandas DataFrame
+
+## What is a Pandas DataFrame?
+
+::: {.callout-note}
+**Question:** What is a Pandas DataFrame?
+
+**Answer:** Per the [Pandas API](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html), a DataFrame is a:
+
+> *"two-dimensional, size-mutable, potentially heterogeneous tabular data"*
+
+Put simply (i.e., from a user standpoint), a DataFrame is a tabular data structure with rows and columns. Typically, the rows are the cases (e.g., individuals, groups, firms, countries, etc.), and the columns are the so-called fields, variables, or features (e.g., wage, job satisfaction, stock-market value, etc.).^[In field of information systems and computer science, columns are often called fields; statisticians, economists, and analysts in general use the term variable to refer to a column; the term feature is common in the Machine Learning field.] The table below shows a stylized representation of a case-by-variable data structure, very common in Pandas.
+:::
+
+| **Case** | **Var a** | **Var b** | ... | **Var i** | ... | **Var k** |
+|----------|-----------|-----------|-----|-----------|-----|-----------|
+| **1**    | a₁        | b₁        | ... | i₁        | ... | k₁        |
+| **2**    | a₂        | b₂        | ... | i₂        | ... | k₂        |
+|          |           |           |     |           |     |           |
+| **j**    | aⱼ        | bⱼ        | ... | iⱼ        | ... | kⱼ        |
+|          |           |           |     |           |     |           |
+| **n**    | aₙ        | bₙ        | ... | iₙ        | ... | kₙ        |
+
+: A stylized representation of a case-by-variable data structure
+
+## How do I create a DataFrame?
+
+::: {.callout-note}
+**Question:** How do I create a DataFrame?
+
+**Answer:** Mainly, there are two alternatives:
+
+- Option 1: passing tables loaded onto the current Python session^[throughout the book, I refer to Python sessions without loss of generality. The points I make are valid also for IPython or Jupyter sessions.] to the [`.DataFrame`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) class
+- Option 2: sourcing external data, available in a local file or on a server
+:::
+
+## How do I pass an iterable to the DataFrame class?
+
+::: {.callout-note}
+**Question:** How do I pass an iterable to the DataFrame class?
+
+**Answer:** The table below shows three functions that can be used to create a DataFrame from existing iterables, namely:
+
+- [`.DataFrame.from_dict`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.from_dict.html), which creates a DataFrame from a dictionary
+- [`.DataFrame.from_records`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.from_records.html), which creates a DataFrame from a list of tuples
+- [`.DataFrame.sparse.from_spmatrix`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sparse.from_spmatrix.html), which creates a DataFrame from a SciPy sparse matrix (a convenient option when it comes to manipulate network data, which, oftentimes, exhibit sharp sparseness)
+:::
+
+| **Routine** | **Synopsis** |
+|-------------|--------------|
+| `pd.DataFrame.from_dict` | Construct DataFrame from dict of array-like or dicts |
+| `pd.DataFrame.from_records` | Convert structured or record ndarray to DataFrame |
+| `pd.DataFrame.sparse.from_spmatrix` | Create a new DataFrame from a SciPy sparse matrix (helpful for network data) |
+
+: Creating a DataFrame from Data Loaded in the Python Session
+
+*Notes: the statements included in the 'Routine' column assume Pandas is loaded with the `pd` alias.*
+
+## Can you show me .DataFrame.from_dict in action?
+
+::: {.callout-note}
+**Question:** Can you show me `.DataFrame.from_dict` in action?
+
+**Answer:** The code snippet below shows how to create a DataFrame from one or more iterables loaded in the current Python session. In line 5, we create a dictionary whose keys are associated with variables — i.e., the columns of the DataFrame. In line 10, we assign the variable `df` to the output of `.from_dict` with the dictionary `my_data` as input. In line 11, `df` is printed to the screen. You may have noticed that the mathematical progression reported on the left-right of the tabular data is the so-called Pandas 'index,' a concept we will see in the next section.
+
+By default, `.from_dict` parses the values of the input dictionary as columns. However, it is also possible to parse a dictionary's values as cases. We achieve that in line 30, where we populate the discretionary parameter `orient` with the value `index`, meaning Python must consider the dictionary keys as cases rather than columns. In line 38, we make a further adjustment by passing a list with the column names to the discretionary parameter `columns`. It is not necessary to do that, but it helps to interpret the columns — which, when we set `orient="index"`, are named with a mathematical progression by default.
+:::
+
+```python
+# import pandas with the socially accepted alias 'pd'
+>>> import pandas as pd
+
+# create a dictionary of arrays
+>>> my_data = {
+        "var_1": [1, 2, 3, 4, 5],
+        "var_2": ["ABC", "Hello world", "Bazinga!", "cheers", "ciao"],
+    }
+# get a DataFrame from the dictionary and display it
+>>> df = pd.DataFrame.from_dict(my_data)
+>>> df
+   var_1        var_2
+0      1          ABC
+1      2  Hello world
+2      3      Bazinga
+3      4       cheers
+4      5         ciao
+
+# create a dictionary whose keys are cases
+>>> my_data = {"case_1": ["Pluto", "dog"], "case_2": ["Goofy", "dog"]}
+
+
+# get a DataFrame from the dictionary and display it
+>>> df = pd.DataFrame.from_dict(my_data)
+>>> df
+   case_1   case_2
+0   Pluto    Goofy
+1     dog      dog
+
+# ... something wrong here - let us adjust the optional param 'orient'
+>>> df = pd.DataFrame.from_dict(my_data, orient="index")
+>>> df
+            0       1
+case_1  Pluto     dog
+case_2  Goofy     dog
+
+# ... still something wrong here - where are the column names?
+>>> df = pd.DataFrame.from_dict(
+	my_data, orient="index",
+	columns=["name", "species"]
+	)
+>>> df
+         name  species
+case_1  Pluto      dog
+case_2  Goofy      dog
+```
+
+## How do I create a DataFrame from 'external' data?
+
+::: {.callout-note}
+**Question:** How do I create a DataFrame from 'external' data?
+
+**Answer:** As we will see in the file I/O section, there are plenty of Pandas IO utilities that target alternative file formats/extensions (e.g., `.json`, `.csv`, `.xlsx`). In this section, I focus on one specific case: creating a DataFrame from a CSV file. In the first part of the snippet, up until line 27, create fake data and write them to a local .csv file. Creating a DataFrame from a CSV file is a simple matter of passing the name of the file (or a file path) to the [`.read_csv`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html?highlight=read_csv#pandas.read_csv). Such a function has a substantial number of discretionary parameters — I warmly encourage you to go through the documentation and familiarize with the various options.
+:::
+
+```python
+# import pandas with the socially accepted alias 'pd'
+>>> import pandas as pd
+
+# create fake data and write them to a .csv
+# --+ column names
+>>> columns = ["x", "y"]
+# --+ column values
+>>> x = [0, 1, 2]
+>>> y = ["A", "B", "C"]
+# --+ write the data to a file
+>>> with open("my_data.csv", "w") as f:
+        # write the column names first
+        f.write(",".join(columns) + "\n")
+        # then, write the data case-by-case
+        for i, j in zip(x, y):
+            f.write("{},{}".format(i, j) + "\n")
+# --+ close the pipe
+f.close()
+
+# create a DataFrame from the .csv file and display it
+>>> df = pd.read_csv("my_data.csv")
+>>> df
+   x  y
+0  0  A
+1  1  B
+2  2  C
+```

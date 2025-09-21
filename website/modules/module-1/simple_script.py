@@ -1,0 +1,5 @@
+# Print a string object
+print("Bazinga")
+
+# Print the result of an algebraic operation
+print(2 + 4)

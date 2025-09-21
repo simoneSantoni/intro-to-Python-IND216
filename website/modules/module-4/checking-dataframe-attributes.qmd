@@ -1,0 +1,64 @@
+# Checking a DataFrame's Attributes
+
+## What are the key attributes of a DataFrame?
+
+::: {.callout-note}
+**Question:** What are the key attributes of a DataFrame?
+
+**Answer:** Pandas DataFrame can be characterized along several attributes, such as:
+
+- Shape
+- Size
+- Number of dimensions
+- Set of column names
+- Set of case indices
+
+A convenient way to access multiple DataFrame's attributes in a row is by using the [`.info`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.info.html) method. Per the code snippet below (see lines 18-26), we know that `df` has three entries and as many indices, two columns (an object, `country`, and a float `gdp_pc`), and occupies circa 176 bytes in memory.
+
+The bottom section of the code snippet shows how to access the individual attributes of a DataFrame using [`.shape`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.shape.html), [`.size`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.size.html), [`.ndim`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.ndim.html), and [`.memory_usage`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.memory_usage.html).
+:::
+
+```python
+# import pandas with the socially accepted alias 'pd'
+>>> import pandas as pd
+
+# create a DataFrame from a dictionary
+>>> gdp_data = {
+	"country": ["Belgium", "France", "Germany"],
+	"gdp_pc": [51767.8, 43518.5, 50801.8]
+    }
+>>> df = pd.DataFrame.from_dict(gdp_data)
+>>> df
+   country   gdp_pc
+0  Belgium  51767.8
+1   France  43518.5
+2  Germany  50801.8
+
+# get DataFrame 'info'
+>>> df.info()
+RangeIndex: 3 entries, 0 to 2
+Data columns (total 2 columns):
+     Column   Non-Null Count  Dtype
+---  ------   --------------  -----
+ 0   country  3 non-null      object
+ 1   gdp_pc   3 non-null      float64
+dtypes: float64(1), object(1)
+memory usage: 176.0+ bytes
+
+# let us get df's attributes one-by-one
+# --+ shape (cases by columns)
+>>> df.shape
+(3, 2)
+# --+ size (cases X columns)
+>>> df.size
+6
+# --+ number of dimensions (columns)
+>>> df.ndim
+2
+# --+ check memory usage column-by-column
+>>> df.memory_usage()
+Index      128
+country     24
+gdp_pc      24
+dtype: int64
+```

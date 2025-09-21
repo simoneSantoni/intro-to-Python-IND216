@@ -1,0 +1,35 @@
+---
+title: "Universal Functions in NumPy"
+---
+
+::: {.callout-note}
+## Question
+What is a universal function?
+:::
+
+::: {.callout-tip}
+## Answer
+A universal function, or [`ufunc`](https://numpy.org/doc/stable/reference/ufuncs.html), is a function that performs element-wise operations on `ndarrays`. You can think of them as fast vectorized wrappers for simple functions that take one or more scalar values and produce one or more scalar results.
+
+Here is an interesting passage from the official [NumPy](https://numpy.org/doc/stable/glossary.html#term-vectorization) documentation: *NumPy hands off array processing to C, where looping and computation are much faster than in Python. To exploit this, programmers using NumPy eliminate Python loops in favor of array-to-array operations. vectorization can refer both to the C offloading and to structuring NumPy code to leverage it.*
+:::
+
+::: {.callout-note}
+## Question
+What is the rationale for using `ufuncs`?
+:::
+
+::: {.callout-tip}
+## Answer
+Per the previous point, using a [`ufunc`](https://numpy.org/doc/stable/reference/ufuncs.html) offer substantial performance advantages *vis a' vis* non-vectorized code --- i.e., code using built-in Python iterators.
+:::
+
+::: {.callout-note}
+## Question
+What are the `ufunc` options available in NumPy?
+:::
+
+::: {.callout-tip}
+## Answer
+There are circa sixty universal functions implemented in NumPy. For the sake of convenience, the full list of [`ufunc`](https://numpy.org/doc/stable/reference/ufuncs.html) options is available in the NumPy documentation. The following sections of the current chapter will illustrate how to use some of the popular central `ufuncs` in NumPy.
+:::

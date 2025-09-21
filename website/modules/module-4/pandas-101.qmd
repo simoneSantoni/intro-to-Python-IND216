@@ -1,0 +1,34 @@
+# Pandas 101
+
+## What is special about Pandas?
+
+::: {.callout-note}
+**Question:** What is special about Pandas?
+
+**Answer:** Pandas is the *de facto* standard when it comes to managing data (in general, not only in Python!). So, what is special about Pandas?
+
+- Compared to competing frameworks for data management^[The set of competing frameworks include Python's [PyTables](https://www.pytables.org) and [Dask](https://www.dask.org), as well as R's [data.tables](https://rdatatable.gitlab.io/data.table/) and Julia's [DataFrames](https://dataframes.juliadata.org/stable/).], Pandas offers a unique combination of features, including ease of use, flexibility, and performance
+- Pandas has an edge in the area of time series^[A time series is a set of points arranged in chronological order.] and panel data^[Panel data, widely adopted in economics and finance, are multidimensional datasets wherein the same statistical units are repeatedly observed over time.]— which is not surprising since Pandas was created for quantitative financial analysts, and it is still prevalent in the field of finance at large^[Students interested in the origins of Pandas may want to read article on/interview with Wes McKinney ["Meet the man behind the most important tool in data science."](https://qz.com/1126615/the-story-of-the-most-important-tool-in-data-science/)]
+- Pandas builds on NumPy. That means access to a large variety of vectorized functions; that is, users/developers do not have to write boring and inefficient loops to perform operations on data
+- The quality of the documentation covering Pandas is off-the-chart.^[Pandas' [API](https://pandas.pydata.org/docs/reference/index.html#api) is well-documented and well-tested. Also, the [user guide](https://pandas.pydata.org/docs/user_guide/index.html) has plenty of examples showing Panda's features in action.]
+:::
+
+## Is Pandas a must-have skill and why?
+
+::: {.callout-note}
+**Question:** Is Pandas a must-have skill and why?
+
+**Answer:** Yes, it is. The reason is straightforward: data are clean and easy to work with in an ideal world. In the real world, data are messy and difficult to work with. So, it is important to have a tool that can help you work with data. Also, junior analysts are — often — required to carry out a substantial amount of data management. So you may want to get prepared before you land in the industry...
+:::
+
+## What can I achieve with Pandas?
+
+::: {.callout-note}
+**Question:** Got it: Pandas is a must-have skill. But what can I achieve with it?
+
+**Answer:** Data scientists and quantitative analysts use Pandas to carry out tasks falling into the following families:
+
+- *Data preparation*, consisting of maximizing the quality of the data at hand; that is, getting information offering the most accurate representation of the business, economic, or financial process of interest. An example is cleaning the outcome of a web-crawling project targeting an online community of, say, beer enthusiasts
+- *Data augmentation*, consisting of expanding on the raw information to create the variables that best capture the process we want to analyze. An example is creating a measure of customer satisfaction based on the data acquired using web-crawling
+- *Data transformation*, consisting of arranging the data in the way that best supports a data visualization or analysis task. An example is converting a long data table, wherein observations are nested in one or multiple grouping variables, to a wide structure (hold your horses, we will see a concrete example later on in this chapter)
+:::

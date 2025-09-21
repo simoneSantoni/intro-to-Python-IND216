@@ -1,0 +1,153 @@
+# Files
+
+::: {.callout-note}
+## How do the files in my operating system relate with Python?
+
+Your Python program may involve input and/or output operations. In other words, you may want to read data from a file stored in your machine and/or write the outcome of your analysis to a file. The built-in function [`open`](https://docs.python.org/3/library/functions.html#open) creates a Python file object, which serves as a link to a file residing on your machine. As Lutz notes:
+
+> *"Compared to the types you've seen so far, file objects are somewhat unusual. They are considered a core type because a built-in function creates them, but they're not numbers, sequences, or mappings, and they don't respond to expression operators; they export only methods for common file-processing tasks" (page 282)*
+:::
+
+::: {.callout-note}
+## How do I open a file?
+
+You open a pipe to a file using the built-in function [`open`](https://docs.python.org/3/library/functions.html#open). The output of the function is a `file` object.
+:::
+
+::: {.callout-note}
+## How do I source the data stored in a file?
+
+You open a pipe to a file using the built-in function [`open`](https://docs.python.org/3/library/functions.html#open). The output of the function is a `file` object. Snippet 4.24 illustrates how to use [`open`](https://docs.python.org/3/library/functions.html#open) for data sourcing. In the first part of the snippet, we create a `file` object to read the data included in the existing file `my_file.txt`.[^1] At least, we have to pass one argument to [`open`](https://docs.python.org/3/library/functions.html#open): the path pointing to the file. A second optional argument is `mode`, which specifies the mode in which the file is opened to the source. It defaults to `r`, which means open for reading in text mode. Other common values are `w` for writing,[^2] `x` for exclusive creation, and `a` for appending.[^3] To read a file's contents, we use the [`.read()`](https://docs.python.org/3/tutorial/inputoutput.html#methods-of-file-objects) method (see line 9), returning a string object (see line 10).
+:::
+
+[^1]: For the sake of simplicity, we assume the target file is located in the same directory as the Python script.
+
+[^2]: By default, `w` truncates the file if it already exists
+
+[^3]: If encoding is not specified, the encoding used is platform-dependent. Specifically, `locale.getpreferredencoding(False)` is called to get the current locale encoding. Character encoding assigns numbers to graphical characters, especially the written characters of human language, allowing them to be stored, transmitted, and transformed using digital computers.
+
+```python
+# create a pipe to a file
+>>> file = open(file="my_file.txt", mode="r")
+
+# calling "file" yields the attributes of the file object
+>>> file
+<_io.TextIOWrapper name="my_file.txt" mode="r" encoding="UTF-8">
+
+# let us source the data
+>>> data = file.read()
+>>> print(data)
+Hi there
+
+# close the pipe
+>>> file.close()
+```
+
+::: {.callout-note}
+## How do I write the data in the current Python session to a file?
+
+Snippet 4.25 illustrates how to use [`open`](https://docs.python.org/3/library/functions.html#open) for data writing. In the first part of the snippet, we create three strings --- i.e., the information we are manipulating in the active Python session (see lines 2, 4, and 6). Then, we create a file object in 'writing' mode (see the value passed to `mode`, line 9). Finally, we manipulate the three strings (as a sample task, in line 12, we concatenate `FIRSTLAW`, `SECONDLAW`, `THIRDLAW`) and write the result to a file (line 16).
+:::
+
+```python
+# the strings (data) to save permanently to a file
+>>> FIRSTLAW = "A robot may not injure a human being or, through inaction, "\
+        "allow a human being to come to harm."
+>>> SECONDLAW = "A robot must obey the orders given it by human beings except "\
+        "where such orders would conflict with the First Law."
+>>> THIRDLAW = "A robot must protect its own existence as long as such "\
+        "protection does not conflict with the First or Second Law."
+
+# create a pipe to a file
+>>> file = open(file="my_file.txt", mode="w")
+
+# concatenate the strings
+>>> TO_WRITE = "\n".join([FIRSTLAW, SECONDLAW, THIRDLAW])
+
+# write the concatenated strings
+>>> file.write(TO_WRITE)
+
+# close the pipe
+>>> file.close()
+```
+
+::: {.callout-note}
+## How about reading a single line from a file?
+
+Hold on: what is a line? A string whose last character is `\n`. We can read a single line from a file using the [`.readline()`](https://docs.python.org/3/tutorial/inputoutput.html#methods-of-file-objects) method (see Snippet 4.26). Such a method starts by reading the first line included in the file (see line 11); then, it reads any subsequent lines included in the file (see line 15); when it reaches the end of the file (EOF), it returns the empty string `""` (see line 19).
+:::
+
+```python
+# the strings (data) to save permanently to a file
+>>> DATA = "The first line\nThe second line"
+
+# create a pipe to a file and write DATA
+>>> file = open(file="my_file.txt", mode="w")
+>>> file.write(DATA)
+>>> file.close()
+
+# read one line from the file
+>>> file = open(file="my_file.txt", mode="r")
+>>> file.readline()
+"The first line\n"
+
+# calling file.readline() again reds the subsequent line
+>>> file.readline()
+"The second line"
+
+# ... and so on until the end of the file is reached
+>>> file.readline()
+""
+```
+
+::: {.callout-note}
+## How about reading multiple lines at a time?
+
+The `.readlines()` method reads the lines from a file and returns them as a list (see Snippet 4.27).
+:::
+
+```python
+# the strings (data) to save permanently to a file
+>>> DATA = "A\nB\nC\nD"
+
+# create a pipe to a file and write DATA
+>>> file = open(file="my_file.txt", mode="w")
+>>> file.write(DATA)
+>>> file.close()
+
+# read multiple lines
+>>> file = open(file="my_file.txt", mode="r")
+>>> file.readlines()
+['A\n', 'B\n', 'C\n', 'D']
+```
+
+::: {.callout-note}
+## What are the most common file methods?
+
+Table 4.8 illustrates some key file methods' names and their corresponding synopsis.
+:::
+
+| Method | Description |
+|--------|-------------|
+| `file.close()` | Closes the file |
+| `file.detach()` | Returns the separated raw stream from the buffer |
+| `file.fileno()` | Returns a number that represents the stream as per the OS' perspective |
+| `file.flush()` | Flushes the internal buffer |
+| `file.isatty()` | Returns whether the file stream is interactive or not |
+| `file.read()` | Returns the file content |
+| `file.readable()` | Returns whether the file stream can be read or not |
+| `file.readline()` | Returns one line from the file |
+| `file.readlines()` | Returns a list of lines from the file |
+| `file.seek()` | Change the file position |
+| `file.seekable()` | Returns whether the file allows us to change the file position |
+| `file.tell()` | Returns the current file position |
+| `file.truncate()` | Resizes the file to a specified size |
+| `file.writable()` | Returns whether the file can be written to or not |
+| `file.write()` | Writes the specified string to the file |
+| `file.writelines()` | Writes a list of strings to the file |
+
+: Popular File Methods {#tbl-file-methods}
+
+::: {.callout-tip}
+**Notes:** `file` is a fictionary object used to illustrate the usage of the file methods.
+:::

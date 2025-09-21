@@ -1,0 +1,150 @@
+---
+title: "Statistics"
+---
+
+::: {.callout-note}
+## Question
+What are the statistical functions available in NumPy?
+:::
+
+::: {.callout-tip}
+## Answer
+NumPy offers essential statistical functions sufficient to implement an Exploratory Data Analysis/descriptive statistics. Specifically, there are four families of statistical routines:
+
+- Order statistics (e.g., quantiles)
+- Average and variances
+- Correlations
+- Histograms
+:::
+
+::: {.callout-note}
+## Question
+Can I run multivariate statistical analysis with NumPy
+:::
+
+::: {.callout-tip}
+## Answer
+Short answer: no. There are dedicated Python modules to run multivariate analyses, though. For example [linearmodels](https://bashtage.github.io/linearmodels/index.html) and [statsmodels](https://www.statsmodels.org/stable/generated/statsmodels.sandbox.regression.gmm.IV2SLS.html?highlight=2sls#statsmodels.sandbox.regression.gmm.IV2SLS) are two popular modules to carry out econometric models in Python; [scikit-learn](https://scikit-learn.org/stable/) is the acclaimed module for machine learning in Python.
+:::
+
+## Order Statistics
+
+| Routine | Synopsis |
+|---------|----------|
+| `np.ptp(a[, axis, out, keepdims])` | Range of values (maximum-minimum) along an axis |
+| `np.percentile(a, q[, axis, out, ...])` | Compute the q-th percentile of the data along the specified axis |
+| `np.nanpercentile(a, q[, axis, out, ...])` | Compute the qth percentile of the data along the specified axis, while ignoring nan values |
+| `np.quantile(a, q[, axis, out, overwrite_input, ...])` | Compute the q-th quantile of the data along the specified axis |
+| `np.nanquantile(a, q[, axis, out, ...])` | Compute the qth quantile of the data along the specified axis, while ignoring nan values |
+
+*Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*
+
+## Average and Variances
+
+| Routine | Synopsis |
+|---------|----------|
+| `np.median(a[, axis, out, overwrite_input, keepdims])` | Compute the median along the specified axis |
+| `np.average(a[, axis, weights, returned, keepdims])` | Compute the weighted average along the specified axis |
+| `np.mean(a[, axis, dtype, out, keepdims, where])` | Compute the arithmetic mean along the specified axis |
+| `np.std(a[, axis, dtype, out, ddof, keepdims, where])` | Compute the standard deviation along the specified axis |
+| `np.var(a[, axis, dtype, out, ddof, keepdims, where])` | Compute the variance along the specified axis |
+| `np.nanmedian(a[, axis, out, overwrite_input, ...])` | Compute the median along the specified axis, while ignoring NaNs |
+| `np.nanmean(a[, axis, dtype, out, keepdims, where])` | Compute the arithmetic mean along the specified axis, ignoring NaNs |
+| `np.nanstd(a[, axis, dtype, out, ddof, ...])` | Compute the standard deviation along the specified axis, while ignoring NaNs |
+| `np.nanvar(a[, axis, dtype, out, ddof, ...])` | Compute the variance along the specified axis, while ignoring NaNs |
+
+*Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*
+
+## Correlating
+
+| Routine | Synopsis |
+|---------|----------|
+| `np.corrcoef(x[, y, rowvar, bias, ddof, dtype])` | Return Pearson product-moment correlation coefficients |
+| `np.correlate(a, v[, mode])` | Cross-correlation of two 1-dimensional sequences |
+| `np.cov(m[, y, rowvar, bias, ddof, fweights, ...])` | Estimate a covariance matrix, given data and weights |
+
+*Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*
+
+## Histograms
+
+| Routine | Synopsis |
+|---------|----------|
+| `np.histogram(a[, bins, range, normed, weights, ...])` | Compute the histogram of a dataset |
+| `np.histogram2d(x, y[, bins, range, normed, ...])` | Compute the bi-dimensional histogram of two data samples |
+| `np.histogramdd(sample[, bins, range, normed, ...])` | Compute the multidimensional histogram of some data |
+| `np.bincount(x, /[, weights, minlength])` | Count the number of occurrences of each value in an array of non-negative ints |
+| `np.histogram_bin_edges(a[, bins, range, weights])` | Function to calculate only the edges of the bins used by the histogram function |
+| `np.digitize(x, bins[, right])` | Return the indices of the bins to which each value in the input array belongs |
+
+*Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*
+
+::: {.callout-note}
+## Question
+So, how do I produce a set of summary stats in NumPy?
+:::
+
+::: {.callout-tip}
+## Answer
+The code snippet below shows how to create a typical set of summary stats, including an array's mean, standard deviation, minimum, maximum, and some percentiles of interest. Mainly, the snippet has three steps. First, we create an array (line 8). Second, we assign a couple of variables to NumPy statistical functions such as [`.mean`](https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean), [`.std`](https://numpy.org/doc/stable/reference/generated/numpy.std.html#numpy.std), [`.min`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.min.html), [`np.max`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.max.html), and [`.percentile`](https://numpy.org/doc/stable/reference/generated/numpy.percentile.html#numpy.percentile) (see lines 11-17). It is worth noting that `min` and `max` are keywords reserved for Python built-in functions. To avoid any name conflict and potential sources of confusion, in lines 13 and 14, we use the names `min_` and `max_`. Finally, we create a table displaying the variables created in the previous step (see lines 21, 23, and 27).
+:::
+
+```python
+# import numpy with the socially accepted alias 'np'
+>>> import numpy as np
+
+# import a module for arranging numbers in a tabular format
+>>> import tabulate
+
+# the array
+>>> X = np.array([0, 0, -3, 12, 7, 2, -4, 6, 9, -1, 5, 3, -1, 3, 10, 9])
+
+# get the descriptive stats
+>>> mean = np.mean(X)
+>>> std = np.std(X)
+>>> min_ = np.min(X)
+>>> max_ = np.max(X)
+>>> pp25 = np.percentile(X, 25)
+>>> pp50 = np.percentile(X, 50)
+>>> pp75 = np.percentile(X, 75)
+
+# arrange the stats in a tabular format
+# --+ create the table header
+>>> headers = [
+    "Mean", "St. Dev.", "Min", "Max", "25th pp", "50th pp", "75th pp"
+    ]
+# --+ format the floating point numbers to two decimal places and get a string
+>>> stats = [
+    str(np.round(i, 3)) for i in [mean, std, min_, max_, pp25, pp50, pp75]
+    ]
+# --+ print the table
+>>> print(tabulate([stats], headers=headers, tablefmt="grid"))
++--------+------------+-------+-------+-----------+-----------+-----------+
+|   Mean |   St. Dev. |   Min |   Max |   25th pp |   50th pp |   75th pp |
++========+============+=======+=======+===========+===========+===========+
+|  3.562 |      4.756 |    -4 |    12 |     -0.25 |         3 |       7.5 |
++--------+------------+-------+-------+-----------+-----------+-----------+
+```
+
+::: {.callout-note}
+## Question
+Can I calculate Pearson's correlation coefficients in NumPy?
+:::
+
+::: {.callout-tip}
+## Answer
+Yes, you can. The code snippet below shows how to do so by using [`.corrcoef`](https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html), one of the functions included in the correlating functions table above.
+:::
+
+```python
+# import numpy with the socially accepted alias 'np'
+>>> import numpy as np
+
+# the arrays
+X = np.array([0, 0, -3, 12, 7, 2, -4, 6, 9, -1, 5, 3, -1, 3, 10, 9])
+Y = np.array([12, 12, 4, 3, 9, 2, -6, 15, 0, -12, 15, -3, -1, 0, 0, 1])
+
+# get Pearson's correlation coefficients
+>>> np.corrcoef(X, Y)
+array([[1.        , 0.19763628],
+       [0.19763628, 1.        ]])
+```

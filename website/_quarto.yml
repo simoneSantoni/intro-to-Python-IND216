@@ -2,83 +2,15 @@ project:
   type: website
   output-dir: _site
   render:
-    - "*.qmd"
+    - "**/*.qmd"
 
 website:
   title: "IND216 - Introduction to Python"
-  description: "MSc Module on Python Programming for Analytics - Learn Python for data wrangling and scientific computing"
+  description: "MSc Module on Python Programming for Analytics - Learn Python for data wrangling and technical and scientific computing"
   site-url: https://simonesantoni.github.io/intro-to-Python-IND216
   repo-url: https://github.com/simoneSantoni/intro-to-Python-IND216
 
   page-navigation: true
-
-  #navbar:
-  #  background: primary
-  #  search: true
-  #  left:
-  #    - text: "IND216"
-  #      href: index.qmd
-  #    - text: "Schedule"
-  #      href: course-schedule.qmd
-  #    - text: "Syllabus"
-  #      href: course-syllabus.qmd
-  #    - text: "Support"
-  #      href: course-support.qmd
-  #  right:
-  #    - icon: github
-  #      href: https://github.com/simoneSantoni/intro-to-Python-IND216
-
-  sidebar:
-    style: docked
-    search: true
-    contents:
-      - section: "Course Information"
-        contents:
-          - text: "Overview"
-            href: index.qmd
-          - text: "Syllabus"
-            href: course-syllabus.qmd
-          - text: "Schedule"
-            href: course-schedule.qmd
-          - text: "Support"
-            href: course-support.qmd
-          - text: "Resources"
-            href: course-resources.qmd
-
-      - section: "Module 1: Getting Started"
-        contents:
-          - text: "Installation & Setup"
-            href: getting-started.qmd
-          - text: "Exercises"
-            href: modules/module1-exercises.qmd
-
-      - section: "Module 2: Python Objects"
-        contents:
-          - text: "Data Types & Control Flow"
-            href: python-objects.qmd
-          - text: "Exercises"
-            href: modules/module2-exercises.qmd
-
-      - section: "Module 3: NumPy"
-        contents:
-          - text: "Arrays & Operations"
-            href: numpy-computation.qmd
-          - text: "Exercises"
-            href: modules/module3-exercises.qmd
-
-      - section: "Module 4: Pandas"
-        contents:
-          - text: "DataFrames & Series"
-            href: pandas-data.qmd
-          - text: "Exercises"
-            href: modules/module4-exercises.qmd
-
-      - section: "Module 5: Applied Examples"
-        contents:
-          - text: "Case Studies"
-            href: modules/module5-cases.qmd
-          - text: "Best Practices"
-            href: modules/module5-practices.qmd
 
   page-footer:
     left: |
@@ -87,6 +19,129 @@ website:
       [IND216 - Introduction to Python](https://github.com/simoneSantoni/intro-to-Python-IND216)
     right: |
       Made with [Quarto](https://quarto.org/)
+
+  sidebar:
+    style: docked
+    search: true
+    logo: imgs/python-module-icon-light.svg
+    #title: "IND216"
+    tools:
+      - icon: github
+        href: https://github.com/simoneSantoni/intro-to-Python-IND216
+        text: "Repository"
+      - icon: pencil-square
+        href: https://github.com/simoneSantoni/intro-to-Python-IND216/edit/master/{{< meta quarto:source >}}
+        text: "Edit this page"
+      - icon: bug
+        href: https://github.com/simoneSantoni/intro-to-Python-IND216/issues/new
+        text: "Report an issue"
+    contents:
+      - section: "Course Information"
+        contents:
+          - text: "Overview"
+            href: course/info.qmd
+          - text: "Syllabus"
+            href: course/syllabus.qmd
+          - text: "Schedule"
+            href: course/schedule.qmd
+          - text: "Support"
+            href: course/support.qmd
+          - text: "Teaching team"
+            href: course/team.qmd
+
+      - section: "Module 1: Getting Started"
+        contents:
+          - text: "Installing Python"
+            href: modules/module-1/installing-python.qmd
+          - text: "How Python runs programs"
+            href: modules/module-1/how-python-runs-programs.qmd
+          - text: "How we run Python programs"
+            href: modules/module-1/how-we-run-python-programs.qmd
+          - text: "Managing Python environments"
+            href: modules/module-1/managing-python-environments.qmd
+
+      - section: "Module 2: Python Objects"
+        contents:
+          - text: "Overview"
+            href: modules/module-2/index.qmd
+          - text: "Number Type Fundamentals"
+            href: modules/module-2/number-type-fundamentals.qmd
+          - text: "String Type Fundamentals"
+            href: modules/module-2/string-type-fundamentals.qmd
+          - text: "Lists"
+            href: modules/module-2/lists-and-dictionaries.qmd
+          - text: "Dictionaries"
+            href: modules/module-2/dictionaries.qmd
+          - text: "Tuples"
+            href: modules/module-2/tuples.qmd
+          - text: "Sets"
+            href: modules/module-2/sets.qmd
+          - text: "Files"
+            href: modules/module-2/files.qmd
+          - text: "Python Statements and Syntax"
+            href: modules/module-2/python-statements-and-syntax.qmd
+          - text: "Control Flow"
+            href: modules/module-2/control-flow.qmd
+          - text: "While and For Loops"
+            href: modules/module-2/while-and-for-loops.qmd
+          - text: "Iterations and Comprehensions"
+            href: modules/module-2/iterations-and-comprehensions.qmd
+
+      - section: "Module 3: NumPy"
+        contents:
+          - text: "Overview"
+            href: modules/module-3/index.qmd
+          - text: "Installing NumPy"
+            href: modules/module-3/installing-numpy.qmd
+          - text: "NumPy ndarray"
+            href: modules/module-3/numpy-ndarray.qmd
+          - text: "Array Creation Routines"
+            href: modules/module-3/array-creation-routines.qmd
+          - text: "Array Manipulation Routines"
+            href: modules/module-3/array-manipulation-routines.qmd
+          - text: "Universal Functions"
+            href: modules/module-3/universal-functions.qmd
+          - text: "Mathematical Functions"
+            href: modules/module-3/mathematical-functions.qmd
+          - text: "Statistics"
+            href: modules/module-3/statistics.qmd
+          - text: "Linear Algebra"
+            href: modules/module-3/linear-algebra.qmd
+          - text: "Pseudorandom Number Generation"
+            href: modules/module-3/pseudorandom-number-generation.qmd
+          - text: "File I/O with ndarrays"
+            href: modules/module-3/file-io-with-ndarrays.qmd
+
+      - section: "Module 4: Pandas"
+        contents:
+          - text: "Overview"
+            href: modules/module-4/index.qmd
+          - text: "Pandas 101"
+            href: modules/module-4/pandas-101.qmd
+          - text: "The Pandas DataFrame"
+            href: modules/module-4/pandas-dataframe.qmd
+          - text: "Checking DataFrame Attributes"
+            href: modules/module-4/checking-dataframe-attributes.qmd
+          - text: "The Anatomy of a DataFrame"
+            href: modules/module-4/anatomy-of-dataframe.qmd
+          - text: "Querying DataFrames"
+            href: modules/module-4/querying-dataframes.qmd
+          - text: "Manipulating DataFrame Columns"
+            href: modules/module-4/manipulating-dataframe-columns.qmd
+          - text: "Data Types and Pandas"
+            href: modules/module-4/data-types-and-pandas.qmd
+          - text: "Handling Time Data"
+            href: modules/module-4/handling-time-data.qmd
+          - text: "Shaping and Reshaping DataFrames"
+            href: modules/module-4/shaping-and-reshaping-dataframes.qmd
+          - text: "Group By: Data Aggregation"
+            href: modules/module-4/group-by-data-aggregation.qmd
+          - text: "Group By: Data Transformation"
+            href: modules/module-4/group-by-data-transformation.qmd
+          - text: "Working with Multiple DataFrames"
+            href: modules/module-4/working-with-multiple-dataframes.qmd
+          - text: "File I/O with Pandas"
+            href: modules/module-4/file-io-with-pandas.qmd
 
 format:
   html:
@@ -105,9 +160,16 @@ format:
     callout-icon: false
     citations-hover: true
     footnotes-hover: true
+    include-after-body: theme-switcher.js
 
 execute:
   freeze: auto
   echo: true
   warning: false
   message: false
+
+jupyter:
+  kernelspec:
+    name: "python3"
+    language: "python"
+    display_name: "Python 3 (ind216)"

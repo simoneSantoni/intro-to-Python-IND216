@@ -1,0 +1,191 @@
+# Handling 'Time' Data in Pandas
+
+## How good is Pandas at handling 'time' data?
+
+::: {.callout-note}
+**Question:** How good is Pandas at handling 'time' data?
+
+**Answer:** Pandas excels at handling time data, a key component of time series and panels.
+:::
+
+## How many types of 'time' data are supported in Pandas?
+
+::: {.callout-note}
+**Question:** How many types of 'time' data are supported in Pandas?
+
+**Answer:** Pandas has three kinds of objects that can be used to store and represent information on time-related quantities:
+
+- [`.Timestamp`](https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html), the Pandas replacement for [Python's `Datetime`](https://docs.python.org/3/library/datetime.html) object, represent a specific point in time
+- [`.Timedelta`](https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html) represents two dates or time
+- [`.Period`](https://pandas.pydata.org/docs/reference/api/pandas.Period.html) represents a period of time
+:::
+
+## Can you give me an example of .Timestamp and .Timedelta objects?
+
+::: {.callout-note}
+**Question:** Can you give me an example of `.Timestamp` and `.Timedelta` objects?
+
+**Answer:** The code snippet below illustrates how to initialize and use [`.Timestamp`](https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html) and [`.Timedelta`](https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html) objects. The output of line 30 shows that the column `timestamp` has been parsed as a string. At this point, we cannot perform any operation on it (e.g., getting the time elapsed since an event). Hence, in line 43 we pass the values under the column `timestamp` to [`.Timestamp`](https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html). To apply the transformation column-wise, we draw on the [`.apply()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html) method, which takes a function as an argument. Specifically, we build our function using a [`lambda expression`](https://docs.python.org/3/tutorial/controlflow.html) getting the [`.Timestamp`](https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html) of an element `s` (that is, the individual values included in `timestamp`). The output of line 45 indicates that, after the transformation, the column `timestamp` contains [time quantities](https://docs.python.org/3/library/datetime.html).
+
+The remainder of the snippet illustrates how to extract the individual attributes of a [`.Timestamp`](https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html) object (see lines 58 - 68) and create a [`.Timedelta`](https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html) object (see line 88).
+:::
+
+```python
+# import pandas with the socially accepted alias 'pd'
+>>> import pandas as pd
+
+# fake product review data
+>>> df = pd.DataFrame.from_dict(
+        {
+            "timestamp": [
+                "2017-10-08 12:03:05",
+                "2020-09-07 08:09:45",
+                "2021-04-11 10:12:13",
+            ],
+            "product": [
+		"Darth Vader plush",
+		"Obi-Wan Kenobi lightsaber",
+		"Yoda pijamas"
+       ],
+            "reviewer": ["Sheldon", "Sheldon", "Leonard"],
+            "rating": [1, 2, 5],
+        }
+    )
+
+# data view
+>>> df.head()
+             timestamp                    product reviewer  rating
+0  2017-10-08 12:03:05          Darth Vader plush  Sheldon       1
+1  2020-09-07 08:09:45  Obi-Wan Kenobi lightsaber  Sheldon       2
+2  2021-04-11 10:12:13               Yoda pajamas  Leonard       5
+
+# get basic info
+>>> df.info()
+RangeIndex: 3 entries, 0 to 2
+Data columns (total 4 columns):
+     Column     Non-Null Count  Dtype
+---  ------     --------------  -----
+ 0   timestamp  3 non-null      object
+ 1   product    3 non-null      object
+ 2   reviewer   3 non-null      object
+ 3   rating     3 non-null      int64
+dtypes: int64(1), object(3)
+memory usage: 224.0+ bytes
+
+# convert 'timestamp' from string to Timestamp type
+>>> df.loc[:, "timestamp"] = df["timestamp"].apply(lambda s: pd.Timestamp(s))
+# info shows that timestamp has datetime dtype
+>>> df.info()
+Data columns (total 4 columns):
+     Column     Non-Null Count  Dtype
+---  ------     --------------  -----
+ 0   timestamp  3 non-null      datetime64[ns]
+ 1   product    3 non-null      object
+ 2   reviewer   3 non-null      object
+ 3   rating     3 non-null      int64
+dtypes: datetime64[ns](1), int64(1), object(2)
+memory usage: 224.0+ bytes
+
+# extract the timestamp components and assign them to new columns
+# --+ year
+>>> df.loc[:, "year"] = df["timestamp"].dt.year
+# --+ month
+>>> df.loc[:, "month"] = df["timestamp"].dt.month
+# --+ day
+>>> df.loc[:, "day"] = df["timestamp"].dt.day
+# --+ hour
+>>> df.loc[:, "hour"] = df["timestamp"].dt.hour
+# --+ hour
+>>> df.loc[:, "minute"] = df["timestamp"].dt.minute
+# --+ second
+>>> df.loc[:, "second"] = df["timestamp"].dt.second
+# --+ data view
+            timestamp                    product reviewer  rating  year  \
+0 2017-10-08 12:03:05          Darth Vader plush  Sheldon       1  2017
+1 2020-09-07 08:09:45  Obi-Wan Kenobi lightsaber  Sheldon       2  2020
+2 2021-04-11 10:12:13               Yoda pijamas  Leonard       5  2021
+
+   month  day  hour  minute  second
+0     10    8    12       3       5
+1      9    7     8       9      45
+2      4   11    10      12      13
+
+# calculate the time elapsed since the product launch and the review
+# --+ fake product launch timestamps
+>>> df.loc[:, "launch"] = pd.to_datetime(
+	["2011-11-01 08:45:19", "2012-02-07 13:07:07", "2011-05-10 13:04:05"]
+	)
+# --+ get launch as a Timestamp object
+>>> df.loc[:, "launch"] = df["launch"].apply(lambda s: pd.Timestamp(s))
+# --+ here is a Timedelta object
+>>> df.loc[:, "deltat"] = df["timestamp"] - df["launch"]
+# --+ data view
+            timestamp                    product reviewer  rating  year  \
+0 2017-10-08 12:03:05          Darth Vader plush  Sheldon       1  2017
+1 2020-09-07 08:09:45  Obi-Wan Kenobi lightsaber  Sheldon       2  2020
+2 2021-04-11 10:12:13               Yoda pijamas  Leonard       5  2021
+
+   month  day  hour  minute  second              launch             deltat
+0     10    8    12       3       5 2011-11-01 08:45:19 2168 days 03:17:46
+1      9    7     8       9      45 2012-02-07 13:07:07 3134 days 19:02:38
+2      4   11    10      12      13 2011-05-10 13:04:05 3623 days 21:08:08
+# --+ data info
+>>> df.info()
+Data columns (total 12 columns):
+     Column     Non-Null Count  Dtype
+---  ------     --------------  -----
+ 0   timestamp  3 non-null      datetime64[ns]
+ 1   product    3 non-null      object
+ 2   reviewer   3 non-null      object
+ 3   rating     3 non-null      int64
+ 4   year       3 non-null      int64
+ 5   month      3 non-null      int64
+ 6   day        3 non-null      int64
+ 7   hour       3 non-null      int64
+ 8   minute     3 non-null      int64
+ 9   second     3 non-null      int64
+ 10  launch     3 non-null      datetime64[ns]
+ 11  deltat     3 non-null      timedelta64[ns]
+dtypes: datetime64[ns](2), int64(7), object(2), timedelta64[ns](1)
+memory usage: 416.0+ bytes
+```
+
+## Can you give me an example of a .Period object?
+
+::: {.callout-note}
+**Question:** Can you give me an example of a `.Period` object?
+
+**Answer:** [`.Period`](https://pandas.pydata.org/docs/reference/api/pandas.Period.html) takes a string as input and returns an object of class `Period`, which has many attributes to establish the unit of time a timestamp falls on. For example, it is possible to assess a period's associated 'day' (see the code snippet below, line 12), 'day of the week' (line 16), 'month' (line 20), 'quarter' (line 24), or 'week of the year' (line 28).
+:::
+
+```python
+# import pandas with the socially acceptable alias pd
+>>> import pandas as pd
+
+# a timestamp as a string
+>>> s = "2011-11-01 23:17:01"
+
+# get a period object
+>>> p = pd.Period(s, freq="s")
+
+# extract sample information from p
+# --+ calendar day
+>>> p.day
+1
+
+# --+ day of the week (Monday is 0)
+>>> p.dayofweek
+1
+
+# --+ month
+>>> p.month
+11
+
+# --+ quarter
+>>> p.quarter
+4
+
+# --+ week of the year (ranging from 0 to 59)
+>>> p.weekofyear
+4
+```

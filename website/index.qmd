@@ -50,6 +50,7 @@ You'll be laughing (or crying) in recognition!
 ### The Universal Python Learning Timeline
 
 This function documents real phenomena you'll encounter:
+
 - **Days 1-10**: The honeymoon phase where everything seems logical until it
   isn't
 - **Days 10-100**: The valley of despair where you discover Python's "quirks"

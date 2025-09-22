@@ -22,40 +22,40 @@ For an overview of NumPy's linear algebra routines, see the tables below.
 
 ## Matrix and Vector Products
 
-| Routine | Synopsis |
-|---------|----------|
-| `np.dot(a, b[, out])` | Dot product of two arrays |
-| `np.linalg.multi_dot(arrays, *[, out])` | Compute the dot product of two or more arrays in a single function call, while automatically selecting the fastest evaluation order |
-| `np.vdot(a, b, /)` | Return the dot product of two vectors |
-| `np.inner(a, b, /)` | Inner product of two arrays |
-| `np.outer(a, b[, out])` | Compute the outer product of two vectors |
-| `np.matmul(x1, x2, /[, out, casting, order, ...])` | Matrix product of two arrays |
-| `np.tensordot(a, b[, axes])` | Compute tensor dot product along specified axes |
-| `np.einsum(subscripts, *operands[, out, dtype, ...])` | Evaluates the Einstein summation convention on the operands |
-| `np.einsum_path(subscripts, *operands[, optimize])` | Evaluates the lowest cost contraction order for an einsum expression by considering the creation of intermediate arrays |
-| `np.linalg.matrix_power(a, n)` | Raise a square matrix to the (integer) to the power n |
-| `np.kron(a, b)` | Kronecker product of two arrays |
+| Routine                                               | Synopsis                                                                                                                                     |
+| ---------                                             | ----------                                                                                                                                   |
+| `np.dot(a, b[, out])`                                 | Dot product of two arrays                                                                                                                    |
+| `np.linalg.multi_dot(arrays, *[, out])`               | Compute the dot product of two or more arrays in a single function call, while automatically selecting the fastest evaluation order |
+| `np.vdot(a, b, /)`                                    | Return the dot product of two vectors                                                                                                        |
+| `np.inner(a, b, /)`                                   | Inner product of two arrays                                                                                                                  |
+| `np.outer(a, b[, out])`                               | Compute the outer product of two vectors                                                                                                     |
+| `np.matmul(x1, x2, /[, out, casting, order, ...])`    | Matrix product of two arrays                                                                                                                 |
+| `np.tensordot(a, b[, axes])`                          | Compute tensor dot product along specified axes                                                                                              |
+| `np.einsum(subscripts, *operands[, out, dtype, ...])` | Evaluates the Einstein summation convention on the operands                                                                                  |
+| `np.einsum_path(subscripts, *operands[, optimize])`   | Evaluates the lowest cost contraction order for an einsum expression by considering the creation of intermediate arrays                      |
+| `np.linalg.matrix_power(a, n)`                        | Raise a square matrix to the (integer) to the power n                                                                                        |
+| `np.kron(a, b)`                                       | Kronecker product of two arrays                                                                                                              |
 
 *Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*
 
 ## Decompositions
 
-| Routine | Synopsis |
-|---------|----------|
-| `np.linalg.cholesky(a)` | Cholesky decomposition |
-| `np.linalg.qr(a[, mode])` | Compute the qr factorization of a matrix |
-| `np.linalg.svd(a[, full_matrices, compute_uv, ...])` | Singular Value Decomposition |
+| Routine                                              | Synopsis                                 |
+| ---------                                            | ----------                               |
+| `np.linalg.cholesky(a)`                              | Cholesky decomposition                   |
+| `np.linalg.qr(a[, mode])`                            | Compute the qr factorization of a matrix |
+| `np.linalg.svd(a[, full_matrices, compute_uv, ...])` | Singular Value Decomposition             |
 
 *Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*
 
 ## Matrix Eigenvalues
 
-| Routine | Synopsis |
-|---------|----------|
-| `np.linalg.eig(a)` | Compute the eigenvalues and right eigenvectors of a square array |
-| `np.linalg.eigh(a[, UPLO])` | Return the eigenvalues and eigenvectors of a complex Hermitian (conjugate symmetric) or a real symmetric matrix |
-| `np.linalg.eigvals(a)` | Compute the eigenvalues of a general matrix |
-| `np.linalg.eigvalsh(a[, UPLO])` | Compute the eigenvalues of a complex Hermitian or real symmetric matrix |
+| Routine                         | Synopsis                                                                                                        |
+| ---------                       | ----------                                                                                                      |
+| `np.linalg.eig(a)`              | Compute the eigenvalues and right eigenvectors of a square array                                                |
+| `np.linalg.eigh(a[, UPLO])`     | Return the eigenvalues and eigenvectors of a complex Hermitian (conjugate symmetric) or a real symmetric matrix |
+| `np.linalg.eigvals(a)`          | Compute the eigenvalues of a general matrix                                                                     |
+| `np.linalg.eigvalsh(a[, UPLO])` | Compute the eigenvalues of a complex Hermitian or real symmetric matrix                                         |
 
 *Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*
 

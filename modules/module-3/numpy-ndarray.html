@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NumPy ndarray – IND216 - Introduction to Python</title>
+<title>NumPy ndarray – IND219 - Introduction to Python</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -73,14 +79,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-175ac23ff9617b3c6f02b6b88bf67eec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-951f10bc480951396db0efebfd2f02f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-175ac23ff9617b3c6f02b6b88bf67eec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-f18305aec767f3e61481d23c5ecc5da5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-39ce561d5916039b7243f5be1805a965.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-f18305aec767f3e61481d23c5ecc5da5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -298,12 +304,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216" title="Repository" class="quarto-navigation-tool px-1" aria-label="Repository"><i class="bi bi-github"></i></a>
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216/edit/master/{{< meta quarto:source >}}" title="Edit this page" class="quarto-navigation-tool px-1" aria-label="Edit this page"><i class="bi bi-pencil-square"></i></a>
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216/issues/new" title="Report an issue" class="quarto-navigation-tool px-1" aria-label="Report an issue"><i class="bi bi-bug"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219" title="Repository" class="quarto-navigation-tool px-1" aria-label="Repository"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219/edit/master/{{< meta quarto:source >}}" title="Edit this page" class="quarto-navigation-tool px-1" aria-label="Edit this page"><i class="bi bi-pencil-square"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219/issues/new" title="Report an issue" class="quarto-navigation-tool px-1" aria-label="Report an issue"><i class="bi bi-bug"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div>
@@ -676,7 +683,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -689,7 +696,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -702,7 +709,7 @@ Answer
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -715,7 +722,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -728,7 +735,7 @@ Answer
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -741,14 +748,14 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>As shown in the code snippet below, we pass an object to <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array"><code>numpy.array</code></a>. If the object we pass is a scalar, a 0-dimensional array containing object is returned (line 5). Passing a list to <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array"><code>numpy.array</code></a> produces a one-dimensional array (line 9); passing a list of lists produces a two-dimensional array (line 13); finally, passing a list of lists of lists produces a three-dimensional array (line 18).</p>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a 0-D array</span></span>
@@ -770,14 +777,14 @@ Answer
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">3</span>, <span class="dv">4</span>]],</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>       [[<span class="dv">5</span>, <span class="dv">6</span>],</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">7</span>, <span class="dv">8</span>]]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        [<span class="dv">7</span>, <span class="dv">8</span>]]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -790,14 +797,14 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p><code>ndarrays</code> have been designed — and tuned over time — with flexibility and efficiency in mind. For example, <a href="https://numpy.org/doc/stable/reference/arrays.ndarray.html"><code>ndarrays</code></a> allows to carry out computations on arrays with a syntax similar to scalar values. As shown in the code snippet below, we can multiply an array by a scalar (line 10) and add two vectors (14). That is not possible if we use pure Python code. Multiplying a list by a scalar N replicates the ordered collection of items N times (see line 23). Adding two lists yields concatenation (see line 30). At the same time, <a href="https://numpy.org/doc/stable/reference/arrays.ndarray.html"><code>ndarrays</code></a> support the analysis of large volumes of data. The Internet has many blog posts showing the performance of NumPy in linear algebra tasks is comparable to compiled languages, such as C.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># generate some random</span></span>
@@ -830,14 +837,14 @@ Answer
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>[</span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="op">-</span><span class="fl">0.4414402896845323</span>, <span class="op">-</span><span class="fl">0.4445109735283278</span>, <span class="fl">0.31997294069261617</span>,</span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="op">-</span><span class="fl">0.4414402896845323</span>, <span class="op">-</span><span class="fl">0.4445109735283278</span>, <span class="fl">0.31997294069261617</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -850,7 +857,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -863,7 +870,7 @@ Answer
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -876,14 +883,14 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>The lower section of the code snippet below shows how to access <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.shape.html#numpy.ndarray.shape"><code>.shape</code></a>, the <a href="https://numpy.org/doc/stable/reference/arrays.ndarray.html"><code>ndarrays</code></a>’s attribute concerning the shape. In the example, each dimension of the <code>DATA</code> has size 2.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the data</span></span>
@@ -898,14 +905,14 @@ Answer
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># get the shape</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> DATA.shape</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span>, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -918,7 +925,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -982,7 +989,7 @@ Answer
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -995,7 +1002,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1067,14 +1074,14 @@ Answer
 <td>Python object type; a value can be any Python object</td>
 </tr>
 <tr class="odd">
-<td>string_</td>
+<td>bytes_ (was <code>string_</code>)</td>
 <td>S</td>
 <td>Fixed-length ASCII string type (1 byte per character); for example, to create a string dtype with length 10, use ‘S10’</td>
 </tr>
 <tr class="even">
-<td>unicode_</td>
+<td>str_ (was <code>unicode_</code>)</td>
 <td>U</td>
-<td>Fixed-length Unicode type (number of bytes platform specific); same specification semantics as string_ (e.g., ‘U10’)</td>
+<td>Fixed-length Unicode type (number of bytes platform specific); same specification semantics as bytes_ (e.g., ‘U10’)</td>
 </tr>
 </tbody>
 </table>
@@ -1084,7 +1091,7 @@ Answer
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1097,14 +1104,14 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>As the code snippet below shows, <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html"><code>dtype</code></a> is an optional argument of <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html"><code>ndarray</code></a>. It is also possible to change <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html"><code>dtype</code></a> using the method <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.astype.html"><code>.astype()</code></a>.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># accept the default type</span></span>
@@ -1119,13 +1126,13 @@ Answer
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># check the type</span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> A.dtype</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="st">'int32'</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>dtype(<span class="st">'int32'</span>)</span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># type change</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S <span class="op">=</span> np.array([<span class="st">'1.25'</span>, <span class="st">'-9.6'</span>, <span class="st">'42'</span>], dtype<span class="op">=</span>np.string_)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S <span class="op">=</span> np.array([<span class="st">'1.25'</span>, <span class="st">'-9.6'</span>, <span class="st">'42'</span>], dtype<span class="op">=</span><span class="st">"S"</span>)</span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S <span class="op">=</span> S.astype(<span class="bu">float</span>)</span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S.dtype</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>dtype(<span class="st">'float64'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>dtype(<span class="st">'float64'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 
@@ -1239,13 +1246,14 @@ document.addEventListener('DOMContentLoaded', function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1260,7 +1268,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/simonesantoni\.github\.io\/intro-to-Python-IND216");
+        var filterRegex = new RegExp("https:\/\/simonesantoni\.github\.io\/intro-to-Python-IND219");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1606,7 +1614,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>© 2025 Simone Santoni</p>
 </div>   
     <div class="nav-footer-center">
-<p><a href="https://github.com/simoneSantoni/intro-to-Python-IND216">IND216 - Introduction to Python</a></p>
+<p><a href="https://github.com/simoneSantoni/intro-to-Python-IND219">IND219 - Introduction to Python</a></p>
 </div>
     <div class="nav-footer-right">
 <p>Made with <a href="https://quarto.org/">Quarto</a></p>

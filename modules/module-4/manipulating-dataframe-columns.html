@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>manipulating-dataframe-columns – IND216 - Introduction to Python</title>
+<title>manipulating-dataframe-columns – IND219 - Introduction to Python</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -73,14 +79,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-175ac23ff9617b3c6f02b6b88bf67eec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-951f10bc480951396db0efebfd2f02f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-175ac23ff9617b3c6f02b6b88bf67eec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-f18305aec767f3e61481d23c5ecc5da5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-39ce561d5916039b7243f5be1805a965.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-f18305aec767f3e61481d23c5ecc5da5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -298,12 +304,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216" title="Repository" class="quarto-navigation-tool px-1" aria-label="Repository"><i class="bi bi-github"></i></a>
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216/edit/master/{{< meta quarto:source >}}" title="Edit this page" class="quarto-navigation-tool px-1" aria-label="Edit this page"><i class="bi bi-pencil-square"></i></a>
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216/issues/new" title="Report an issue" class="quarto-navigation-tool px-1" aria-label="Report an issue"><i class="bi bi-bug"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219" title="Repository" class="quarto-navigation-tool px-1" aria-label="Repository"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219/edit/master/{{< meta quarto:source >}}" title="Edit this page" class="quarto-navigation-tool px-1" aria-label="Edit this page"><i class="bi bi-pencil-square"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219/issues/new" title="Report an issue" class="quarto-navigation-tool px-1" aria-label="Report an issue"><i class="bi bi-bug"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div>
@@ -705,7 +712,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas with the socially accepted alias 'pd'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas with the socially accepted alias 'pd'</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the df</span></span>
@@ -731,12 +738,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">4</span> columns):</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>     Column  Non<span class="op">-</span>Null Count  Dtype</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>  <span class="op">--------------</span>  <span class="op">-----</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   laptop  <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   ram     <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   os      <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   chip    <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>dtypes: <span class="bu">object</span>(<span class="dv">4</span>)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">224.0</span><span class="op">+</span> <span class="bu">bytes</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   laptop  <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   ram     <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   os      <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   chip    <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>dtypes: <span class="bu">str</span>(<span class="dv">4</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">228.0</span> <span class="bu">bytes</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># rename the column "ram" to "memory"</span></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.rename(columns<span class="op">=</span>{<span class="st">"ram"</span>: <span class="st">"memory"</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -760,7 +767,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>               laptop memory              os</span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>  MacBook Pro <span class="dv">13</span><span class="er">inch</span>  <span class="dv">16</span> GB  macOS Monterey</span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>        Thinkpad T14  <span class="dv">48</span> GB       Debian <span class="dv">11</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>         Dell XPS <span class="dv">13</span>   <span class="dv">8</span> GB      Windows <span class="dv">11</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>         Dell XPS <span class="dv">13</span>   <span class="dv">8</span> GB      Windows <span class="dv">11</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="how-do-i-create-a-new-column-or-amend-an-existing-pandas-column" class="level2">
 <h2 class="anchored" data-anchor-id="how-do-i-create-a-new-column-or-amend-an-existing-pandas-column">How do I create a new column or amend an existing Pandas column?</h2>
@@ -772,12 +779,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container">
 <p><strong>Question:</strong> How do I create a new column or amend an existing Pandas column?</p>
 <p><strong>Answer:</strong> The <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc"><code>.loc</code></a> method is the most appropriate way to create a new column or alter an existing column’s values. The code snippet below illustrates a couple of common tasks. In line 15, we assign a list of string objects to a new column called <code>manufacturer</code> for all cases included in <code>df</code>.</p>
-<p>In lines 24/26, 41, and 58 we amend the value of an existing column. First, we manipulate the strings included under RAM to replace the substring <code>" GB"</code> with an empty string (lines 24/26). Second, we change the type of the column from <code>string</code> to <code>integer</code> using the Pandas’ <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html?highlight=astype#pandas.DataFrame.astype"><code>.astype()</code></a> method (line 41). Then, we take the log of <code>ram</code> and assign it to the new column <code>log_ram</code> (line 58).</p>
-<p>In line 85, we use <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc"><code>.loc</code></a> to create a new variable for a subset of cases only. Specifically, we populate the column <code>gpu</code> provided the value of <code>laptop</code> is “Thinkpad T14.”</p>
+<p>In lines 26/28, 46, and 63 we amend the value of an existing column. First, we manipulate the strings included under RAM to replace the substring <code>" GB"</code> with an empty string (lines 26/28). Second, we change the type of the column from <code>string</code> to <code>integer</code> using the Pandas’ <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html?highlight=astype#pandas.DataFrame.astype"><code>.astype()</code></a> method (line 46). Then, we take the log of <code>ram</code> and assign it to the new column <code>log_ram</code> (line 63).</p>
+<p>In line 90, we use <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc"><code>.loc</code></a> to create a new variable for a subset of cases only. Specifically, we populate the column <code>gpu</code> provided the value of <code>laptop</code> is “Thinkpad T14.”</p>
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas with the socially accepted alias 'pd'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas with the socially accepted alias 'pd'</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the df</span></span>
@@ -793,101 +800,145 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new column, e.g., the name of the manufacturer</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"manufacturer"</span>] <span class="op">=</span> [<span class="st">"Apple"</span>, <span class="st">"Lenovo"</span>, <span class="st">"Dell"</span>]</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>               laptop ram              os           chip manufacturer</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>  MacBook Pro <span class="dv">13</span><span class="er">inch</span>  <span class="dv">16</span>  macOS Monterey             M1        Apple</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>        Thinkpad T14  <span class="dv">48</span>       Debian <span class="dv">11</span>          Ryzen       Lenovo</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>         Dell XPS <span class="dv">13</span>   <span class="dv">8</span>      Windows <span class="dv">11</span>  Intel Core i7         Dell</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>               laptop    ram              os           chip manufacturer</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>  MacBook Pro <span class="dv">13</span><span class="er">inch</span>  <span class="dv">16</span> GB  macOS Monterey             M1        Apple</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>        Thinkpad T14  <span class="dv">48</span> GB       Debian <span class="dv">11</span>          Ryzen       Lenovo</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>         Dell XPS <span class="dv">13</span>   <span class="dv">8</span> GB      Windows <span class="dv">11</span>  Intel Core i7         Dell</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># transform the column "ram" from string to number type</span></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ step 1: get rid of non-number characters using a regular expression</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"ram"</span>] <span class="op">=</span> df.loc[:, <span class="st">"ram"</span>].<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="pp">[^0-9]</span><span class="vs">"</span>, <span class="st">""</span>)</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ alternative way to carry out step 1: using Pandas string methods</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"ram"</span>] <span class="op">=</span> df[<span class="st">"ram"</span>].<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="dv">\s</span><span class="vs">GB"</span>, <span class="st">""</span>)</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ step 2: convert the string to number type</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># ----+ check the type of "ram"</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">5</span> columns):</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>     Column        Non<span class="op">-</span>Null Count  Dtype</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>        <span class="op">--------------</span>  <span class="op">-----</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   laptop        <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   ram           <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   os            <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   chip          <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>   manufacturer  <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>dtypes: <span class="bu">object</span>(<span class="dv">5</span>)</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co"># ----+ surprise-surprise: we have not a number type yet</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co"># let us change dtype with Pandas astype method</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"ram"</span>] <span class="op">=</span> df.loc[:, <span class="st">"ram"</span>].astype(<span class="bu">int</span>)</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co"># ----+ check the data type again</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">5</span> columns):</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>     Column        Non<span class="op">-</span>Null Count  Dtype</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>        <span class="op">--------------</span>  <span class="op">-----</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   laptop        <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   ram           <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   os            <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   chip          <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>   manufacturer  <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>dtypes: int64(<span class="dv">1</span>), <span class="bu">object</span>(<span class="dv">4</span>)</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">248.0</span><span class="op">+</span> <span class="bu">bytes</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">248.0</span><span class="op">+</span> <span class="bu">bytes</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="co"># transform an existing column and assign the output to a new column</span></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ import numpy to access the log function</span></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df[<span class="st">"log_ram"</span>] <span class="op">=</span> np.log(df[<span class="st">"ram"</span>])</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ preview</span></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>               laptop  ram              os           chip manufacturer  <span class="op">\</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>  MacBook Pro <span class="dv">13</span><span class="er">inch</span>   <span class="dv">16</span>  macOS Monterey             M1        Apple</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>        Thinkpad T14   <span class="dv">48</span>       Debian <span class="dv">11</span>          Ryzen       Lenovo</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>         Dell XPS <span class="dv">13</span>    <span class="dv">8</span>      Windows <span class="dv">11</span>  Intel Core i7         Dell</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>    log_ram</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>  <span class="fl">2.772589</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>  <span class="fl">3.871201</span></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>  <span class="fl">2.079442</span></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ info</span></span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">6</span> columns):</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>     Column        Non<span class="op">-</span>Null Count  Dtype</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>        <span class="op">--------------</span>  <span class="op">-----</span></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   laptop        <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   ram           <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   os            <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   chip          <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>   manufacturer  <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span>   log_ram       <span class="dv">3</span> non<span class="op">-</span>null      float64</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>dtypes: float64(<span class="dv">1</span>), int64(<span class="dv">1</span>), <span class="bu">object</span>(<span class="dv">4</span>)</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">272.0</span><span class="op">+</span> <span class="bu">bytes</span></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new column conditional on another column's value</span></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[df[<span class="st">"laptop"</span>] <span class="op">==</span> <span class="st">"Thinkpad T14"</span>, <span class="st">"gpu"</span>] <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ info</span></span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">7</span> columns):</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>     Column        Non<span class="op">-</span>Null Count  Dtype</span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>        <span class="op">--------------</span>  <span class="op">-----</span></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   laptop        <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   ram           <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   os            <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   chip          <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>   manufacturer  <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span>   log_ram       <span class="dv">3</span> non<span class="op">-</span>null      float64</span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a> <span class="dv">6</span>   gpu           <span class="dv">1</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>dtypes: float64(<span class="dv">1</span>), int64(<span class="dv">1</span>), <span class="bu">object</span>(<span class="dv">5</span>)</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">296.0</span><span class="op">+</span> <span class="bu">bytes</span></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ preview</span></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df</span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>               laptop  ram              os           chip manufacturer  <span class="op">\</span></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>  MacBook Pro <span class="dv">13</span><span class="er">inch</span>   <span class="dv">16</span>  macOS Monterey             M1        Apple</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>        Thinkpad T14   <span class="dv">48</span>       Debian <span class="dv">11</span>          Ryzen       Lenovo</span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>         Dell XPS <span class="dv">13</span>    <span class="dv">8</span>      Windows <span class="dv">11</span>  Intel Core i7         Dell</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>    log_ram   gpu</span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>  <span class="fl">2.772589</span>   NaN</span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>  <span class="fl">3.871201</span>  <span class="va">True</span></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>  <span class="fl">2.079442</span>   NaN</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span><span class="al">NOTE</span><span class="co"> two things here: plain [] assignment, not .loc (see below), and</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#     regex=True, which since Pandas 2.0 you must ask for explicitly</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df[<span class="st">"ram"</span>] <span class="op">=</span> df[<span class="st">"ram"</span>].<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="pp">[^0-9]</span><span class="vs">"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ alternative way to carry out step 1: using Pandas string methods</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df[<span class="st">"ram"</span>] <span class="op">=</span> df[<span class="st">"ram"</span>].<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="dv">\s</span><span class="vs">GB"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ step 2: convert the string to number type</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># ----+ check the type of "ram"</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">5</span> columns):</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>     Column        Non<span class="op">-</span>Null Count  Dtype</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>        <span class="op">--------------</span>  <span class="op">-----</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   laptop        <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   ram           <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   os            <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   chip          <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>   manufacturer  <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>dtypes: <span class="bu">str</span>(<span class="dv">5</span>)</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co"># ----+ surprise-surprise: we have not a number type yet</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co"># let us change dtype with Pandas astype method</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co">#     again [] and not .loc --- .loc writes INTO the existing text column,</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co">#     and on Pandas 3 that is a TypeError:</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co">#     "Invalid value '[16 48  8]' for dtype 'str'"</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df[<span class="st">"ram"</span>] <span class="op">=</span> df[<span class="st">"ram"</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co"># ----+ check the data type again</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">5</span> columns):</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>     Column        Non<span class="op">-</span>Null Count  Dtype</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>        <span class="op">--------------</span>  <span class="op">-----</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   laptop        <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   ram           <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   os            <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   chip          <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>   manufacturer  <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>dtypes: int64(<span class="dv">1</span>), <span class="bu">str</span>(<span class="dv">4</span>)</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">252.0</span> <span class="bu">bytes</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="co"># transform an existing column and assign the output to a new column</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ import numpy to access the log function</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df[<span class="st">"log_ram"</span>] <span class="op">=</span> np.log(df[<span class="st">"ram"</span>])</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ preview</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>               laptop  ram              os           chip manufacturer  <span class="op">\</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>  MacBook Pro <span class="dv">13</span><span class="er">inch</span>   <span class="dv">16</span>  macOS Monterey             M1        Apple</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>        Thinkpad T14   <span class="dv">48</span>       Debian <span class="dv">11</span>          Ryzen       Lenovo</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>         Dell XPS <span class="dv">13</span>    <span class="dv">8</span>      Windows <span class="dv">11</span>  Intel Core i7         Dell</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    log_ram</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>  <span class="fl">2.772589</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>  <span class="fl">3.871201</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>  <span class="fl">2.079442</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ info</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">6</span> columns):</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>     Column        Non<span class="op">-</span>Null Count  Dtype</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>        <span class="op">--------------</span>  <span class="op">-----</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   laptop        <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   ram           <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   os            <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   chip          <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>   manufacturer  <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span>   log_ram       <span class="dv">3</span> non<span class="op">-</span>null      float64</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>dtypes: float64(<span class="dv">1</span>), int64(<span class="dv">1</span>), <span class="bu">str</span>(<span class="dv">4</span>)</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">276.0</span> <span class="bu">bytes</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new column conditional on another column's value</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[df[<span class="st">"laptop"</span>] <span class="op">==</span> <span class="st">"Thinkpad T14"</span>, <span class="st">"gpu"</span>] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ info</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">7</span> columns):</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>     Column        Non<span class="op">-</span>Null Count  Dtype</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>        <span class="op">--------------</span>  <span class="op">-----</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   laptop        <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   ram           <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   os            <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   chip          <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>   manufacturer  <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span>   log_ram       <span class="dv">3</span> non<span class="op">-</span>null      float64</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a> <span class="dv">6</span>   gpu           <span class="dv">1</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>dtypes: float64(<span class="dv">1</span>), int64(<span class="dv">1</span>), <span class="bu">object</span>(<span class="dv">1</span>), <span class="bu">str</span>(<span class="dv">4</span>)</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">300.0</span><span class="op">+</span> <span class="bu">bytes</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ preview</span></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>               laptop  ram              os           chip manufacturer  <span class="op">\</span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>  MacBook Pro <span class="dv">13</span><span class="er">inch</span>   <span class="dv">16</span>  macOS Monterey             M1        Apple</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>        Thinkpad T14   <span class="dv">48</span>       Debian <span class="dv">11</span>          Ryzen       Lenovo</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>         Dell XPS <span class="dv">13</span>    <span class="dv">8</span>      Windows <span class="dv">11</span>  Intel Core i7         Dell</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>    log_ram   gpu</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>  <span class="fl">2.772589</span>   NaN</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>  <span class="fl">3.871201</span>  <span class="va">True</span></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>  <span class="fl">2.079442</span>   NaN</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Two traps when you change an existing column
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both of these bite silently, and both changed with the Pandas version.</p>
+<p><strong><code>.loc</code> writes <em>into</em> a column; <code>[]</code> <em>replaces</em> it.</strong> That distinction does not matter when you create a column, which is why line 15 above is fine. It matters a great deal when you change one, because writing into a column has to respect the dtype that column already has. Here is what</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.loc[:, <span class="st">"ram"</span>] <span class="op">=</span> df.loc[:, <span class="st">"ram"</span>].astype(<span class="bu">int</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>does to that text column, by version:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Pandas</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.x</td>
+<td>the column is replaced, the cast works</td>
+</tr>
+<tr class="even">
+<td>2.x</td>
+<td>the cast is <strong>silently discarded</strong> — <code>ram</code> stays text</td>
+</tr>
+<tr class="odd">
+<td>3.0</td>
+<td>raises <code>TypeError: Invalid value '[16 48  8]' for dtype 'str'</code></td>
+</tr>
+</tbody>
+</table>
+<p>Pandas 3.0 turning this into an error is an improvement: the wrong answer 2.x gave you quietly is now loud. Use <code>df["ram"] = df["ram"].astype(int)</code>, which is correct on all three.</p>
+<p><strong><code>.str.replace()</code> no longer assumes a regular expression.</strong> Pandas 1.x defaulted to <code>regex=True</code>; since 2.0 the default is <code>False</code>. So <code>df["ram"].str.replace(r"\sGB", "")</code> does <em>nothing at all</em> — no error, no warning — and the <code>.astype(int)</code> that follows then fails with a confusing message about <code>'16 GB'</code>. Pass <code>regex=True</code> whenever the pattern is a regular expression.</p>
+</div>
+</div>
 </section>
 <section id="what-is-a-missing-value" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-missing-value">What is a missing value?</h2>
@@ -917,7 +968,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container">
 <p><strong>Question:</strong> How does Pandas represent missing values?</p>
-<p><strong>Answer:</strong> Pandas denote missing values using NumPy’s floating representation <a href="https://numpy.org/doc/stable/reference/constants.html?highlight=nan#numpy.NaN"><code>numpy.NaN</code></a></p>
+<p><strong>Answer:</strong> Pandas denote missing values using NumPy’s floating representation <a href="https://numpy.org/doc/stable/reference/constants.html#numpy.nan"><code>numpy.nan</code></a>. Note the spelling: NumPy 2.0 removed the old <code>numpy.NaN</code> alias, and lowercase <code>numpy.nan</code> is the only one that still works</p>
 </div>
 </div>
 </div>
@@ -942,62 +993,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias "np"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas with the socially acceptable alias "pd"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># the dataframe</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df <span class="op">=</span> pd.DataFrame(</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"item"</span>: [<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>],</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"price"</span>: [<span class="fl">16.32</span>, <span class="fl">16.78</span>, np.nan, np.nan, <span class="fl">16.41</span>],</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># data view</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  item  price</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>    a  <span class="fl">16.32</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>    b  <span class="fl">16.78</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>    c    NaN</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>    d    NaN</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>    e  <span class="fl">16.41</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># info</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">2</span> columns):</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>     Column  Non<span class="op">-</span>Null Count  Dtype</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>  <span class="op">--------------</span>  <span class="op">-----</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   item    <span class="dv">5</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   price   <span class="dv">3</span> non<span class="op">-</span>null      float64</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>dtypes: float64(<span class="dv">1</span>), <span class="bu">object</span>(<span class="dv">1</span>)</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">208.0</span><span class="op">+</span> <span class="bu">bytes</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co"># approach 1 --- delete all cases where a missing value is present</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.dropna()</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  item  price</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>    a  <span class="fl">16.32</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>    b  <span class="fl">16.78</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>    e  <span class="fl">16.41</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co"># approach 2 --- replace missing values with a fixed value</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.fillna(value<span class="op">=</span><span class="fl">16.99</span>, inplace<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  item  price</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>    a  <span class="fl">16.32</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>    b  <span class="fl">16.78</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>    c  <span class="fl">16.99</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>    d  <span class="fl">16.99</span></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>    e  <span class="fl">16.41</span></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="co"># approach 3 --- replace missing values with the mean of the columns</span></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.fillna(value<span class="op">=</span>np.mean(df[<span class="st">"price"</span>]), inplace<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>  item      price</span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>    a  <span class="fl">16.320000</span></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>    b  <span class="fl">16.780000</span></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>    c  <span class="fl">16.503333</span></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>    d  <span class="fl">16.503333</span></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>    e  <span class="fl">16.410000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias "np"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas with the socially acceptable alias "pd"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># the dataframe</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"item"</span>: [<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>],</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"price"</span>: [<span class="fl">16.32</span>, <span class="fl">16.78</span>, np.nan, np.nan, <span class="fl">16.41</span>],</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># data view</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  item  price</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>    a  <span class="fl">16.32</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>    b  <span class="fl">16.78</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>    c    NaN</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>    d    NaN</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>    e  <span class="fl">16.41</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># info</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">2</span> columns):</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>     Column  Non<span class="op">-</span>Null Count  Dtype</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>  <span class="op">--------------</span>  <span class="op">-----</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   item    <span class="dv">5</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   price   <span class="dv">3</span> non<span class="op">-</span>null      float64</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>dtypes: float64(<span class="dv">1</span>), <span class="bu">str</span>(<span class="dv">1</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">212.0</span> <span class="bu">bytes</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co"># approach 1 --- delete all cases where a missing value is present</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.dropna()</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  item  price</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>    a  <span class="fl">16.32</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>    b  <span class="fl">16.78</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>    e  <span class="fl">16.41</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="co"># approach 2 --- replace missing values with a fixed value</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.fillna(value<span class="op">=</span><span class="fl">16.99</span>, inplace<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  item  price</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>    a  <span class="fl">16.32</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>    b  <span class="fl">16.78</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>    c  <span class="fl">16.99</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>    d  <span class="fl">16.99</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>    e  <span class="fl">16.41</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="co"># approach 3 --- replace missing values with the mean of the columns</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.fillna(value<span class="op">=</span>np.mean(df[<span class="st">"price"</span>]), inplace<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>  item      price</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>    a  <span class="fl">16.320000</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>    b  <span class="fl">16.780000</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>    c  <span class="fl">16.503333</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>    d  <span class="fl">16.503333</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>    e  <span class="fl">16.410000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -1113,13 +1164,14 @@ document.addEventListener('DOMContentLoaded', function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1134,7 +1186,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/simonesantoni\.github\.io\/intro-to-Python-IND216");
+        var filterRegex = new RegExp("https:\/\/simonesantoni\.github\.io\/intro-to-Python-IND219");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1480,7 +1532,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>© 2025 Simone Santoni</p>
 </div>   
     <div class="nav-footer-center">
-<p><a href="https://github.com/simoneSantoni/intro-to-Python-IND216">IND216 - Introduction to Python</a></p>
+<p><a href="https://github.com/simoneSantoni/intro-to-Python-IND219">IND219 - Introduction to Python</a></p>
 </div>
     <div class="nav-footer-right">
 <p>Made with <a href="https://quarto.org/">Quarto</a></p>

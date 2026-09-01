@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>control-flow – IND216 - Introduction to Python</title>
+<title>control-flow – IND219 - Introduction to Python</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -73,14 +79,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-175ac23ff9617b3c6f02b6b88bf67eec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-951f10bc480951396db0efebfd2f02f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-175ac23ff9617b3c6f02b6b88bf67eec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-f18305aec767f3e61481d23c5ecc5da5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-39ce561d5916039b7243f5be1805a965.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-f18305aec767f3e61481d23c5ecc5da5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -298,12 +304,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216" title="Repository" class="quarto-navigation-tool px-1" aria-label="Repository"><i class="bi bi-github"></i></a>
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216/edit/master/{{< meta quarto:source >}}" title="Edit this page" class="quarto-navigation-tool px-1" aria-label="Edit this page"><i class="bi bi-pencil-square"></i></a>
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216/issues/new" title="Report an issue" class="quarto-navigation-tool px-1" aria-label="Report an issue"><i class="bi bi-bug"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219" title="Repository" class="quarto-navigation-tool px-1" aria-label="Repository"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219/edit/master/{{< meta quarto:source >}}" title="Edit this page" class="quarto-navigation-tool px-1" aria-label="Edit this page"><i class="bi bi-pencil-square"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219/issues/new" title="Report an issue" class="quarto-navigation-tool px-1" aria-label="Report an issue"><i class="bi bi-bug"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div>
@@ -668,14 +675,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What is control flow in Python?
+<span class="screen-reader-only">Note</span>What is control flow in Python?
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Many Python statements we write are compound statements: there is one statement nested inside another. The outer statement is called the ‘if’ statement, and the inner statement is called the ‘then’ statement. The ‘if’ statement determines whether to execute the ‘then’ statement. Specifically, the ‘then’ statement is executed insofar as the ‘if’ statement evaluates to ‘True.’ Snippet 4.28 illustrates a control flow case, a simple rule-based product recommender that suggests products based on users’ purchasing patterns. If product <code>x</code> belongs to a user’s set of past purchases, then a certain item is recommended; otherwise, no recommendation is offered (see lines 7 and 8, containing the <code>else</code> statement).</p>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a set with a customer's past purchases</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a set with a customer's past purchases</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S <span class="op">=</span> <span class="bu">set</span>([<span class="st">"a"</span>, <span class="st">"x"</span>, <span class="st">"u"</span>])</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a rule-based product recommender</span></span>
@@ -683,14 +690,14 @@ What is control flow in Python?
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>...     <span class="bu">print</span>(<span class="st">"Customers who bought x also bought Air Jordan 7 Retro Miro"</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>... <span class="cf">else</span>:</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>...     <span class="cf">pass</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Customers who bought x also bought Air Jordan <span class="dv">7</span> Retro Miro</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Customers who bought x also bought Air Jordan <span class="dv">7</span> Retro Miro</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Does ‘end of the line’ mean ‘end of the statement’?
+<span class="screen-reader-only">Note</span>Does ‘end of the line’ mean ‘end of the statement’?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -703,7 +710,7 @@ Does ‘end of the line’ mean ‘end of the statement’?
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How do I create a nested statement?
+<span class="screen-reader-only">Note</span>How do I create a nested statement?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -716,7 +723,7 @@ How do I create a nested statement?
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Does indentation have substantive meaning in Python?
+<span class="screen-reader-only">Note</span>Does indentation have substantive meaning in Python?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -729,7 +736,7 @@ Does indentation have substantive meaning in Python?
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Does ‘end of indentation’ mean ‘end of nested statements’?
+<span class="screen-reader-only">Note</span>Does ‘end of indentation’ mean ‘end of nested statements’?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -742,38 +749,38 @@ Does ‘end of indentation’ mean ‘end of nested statements’?
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How do I concatenate multiple ‘then’ statements?
+<span class="screen-reader-only">Note</span>How do I concatenate multiple ‘then’ statements?
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Example 4.29 shows how to use <code>elif</code> to concatenate multiple ‘if-then’ statements in the same control flow. Like in Snippet 4.28, the ‘else’ statement defines the residual behavior of the control flow; that is, what Python does when both the ‘if’ and ‘elif’ statements evaluate to ‘False.’</p>
 </div>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a list with a customer's past purchases</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a list with a customer's past purchases</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S <span class="op">=</span> <span class="bu">set</span>([<span class="st">"a"</span>, <span class="st">"w"</span>, <span class="st">"u"</span>])</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a rule-based product recommender</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> <span class="st">"x"</span> <span class="kw">in</span> S:</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>...     <span class="bu">print</span>(<span class="st">"Customers who bought x also bought Air Jordan 7 Retro Miro"</span>)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>... <span class="cf">elif</span> <span class="st">"w"</span> <span class="kw">in</span> S:</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"How about Converse Chuck Taylor All Star?"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>...     <span class="bu">print</span>(<span class="st">"How about Converse Chuck Taylor All Star?"</span>)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>... <span class="cf">else</span>:</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Falling short of suggestions --- I'm a dull recommender!"</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>How about Converse Chuck Taylor All Star?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>...     <span class="bu">print</span>(<span class="st">"Falling short of suggestions --- I'm a dull recommender!"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>How about Converse Chuck Taylor All Star?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How do I create nested if-then statements?
+<span class="screen-reader-only">Note</span>How do I create nested if-then statements?
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>In Python, it is possible to nest an if-then statement into another. In Snippet 4.30, the ‘if’ statements in lines 6 and 8 are nested inside the ‘if’ statement in line 5. It is worth noticing that lines 7 and 9 — regarding ‘then’ statements — are indented twice because they terminate distinct if-then statements nested in the broader if-then statement commencing on line 5.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a list with a customer's past purchases</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a list with a customer's past purchases</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S <span class="op">=</span> <span class="bu">set</span>([<span class="st">"a"</span>, <span class="st">"x"</span>, <span class="st">"b"</span>])</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a rule-based product recommender</span></span>
@@ -784,7 +791,7 @@ How do I create nested if-then statements?
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>...         <span class="bu">print</span>(<span class="st">"Customers who bought x &amp; u also bought Air Max 95"</span>)</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>... <span class="cf">else</span>:</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>...    <span class="bu">print</span>(<span class="st">"Falling short of suggestions --- I'm a dull recommender!"</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>Customers who bought x <span class="op">&amp;</span> a also bought Air Force</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>Customers who bought x <span class="op">&amp;</span> a also bought Air Force</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -899,13 +906,14 @@ document.addEventListener('DOMContentLoaded', function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -920,7 +928,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/simonesantoni\.github\.io\/intro-to-Python-IND216");
+        var filterRegex = new RegExp("https:\/\/simonesantoni\.github\.io\/intro-to-Python-IND219");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1266,7 +1274,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>© 2025 Simone Santoni</p>
 </div>   
     <div class="nav-footer-center">
-<p><a href="https://github.com/simoneSantoni/intro-to-Python-IND216">IND216 - Introduction to Python</a></p>
+<p><a href="https://github.com/simoneSantoni/intro-to-Python-IND219">IND219 - Introduction to Python</a></p>
 </div>
     <div class="nav-footer-right">
 <p>Made with <a href="https://quarto.org/">Quarto</a></p>

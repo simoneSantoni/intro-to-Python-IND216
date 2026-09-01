@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Array Creation Routines – IND216 - Introduction to Python</title>
+<title>Array Creation Routines – IND219 - Introduction to Python</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -73,14 +79,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-175ac23ff9617b3c6f02b6b88bf67eec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-951f10bc480951396db0efebfd2f02f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-175ac23ff9617b3c6f02b6b88bf67eec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-f18305aec767f3e61481d23c5ecc5da5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-39ce561d5916039b7243f5be1805a965.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-f18305aec767f3e61481d23c5ecc5da5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -298,12 +304,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216" title="Repository" class="quarto-navigation-tool px-1" aria-label="Repository"><i class="bi bi-github"></i></a>
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216/edit/master/{{< meta quarto:source >}}" title="Edit this page" class="quarto-navigation-tool px-1" aria-label="Edit this page"><i class="bi bi-pencil-square"></i></a>
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216/issues/new" title="Report an issue" class="quarto-navigation-tool px-1" aria-label="Report an issue"><i class="bi bi-bug"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219" title="Repository" class="quarto-navigation-tool px-1" aria-label="Repository"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219/edit/master/{{< meta quarto:source >}}" title="Edit this page" class="quarto-navigation-tool px-1" aria-label="Edit this page"><i class="bi bi-pencil-square"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219/issues/new" title="Report an issue" class="quarto-navigation-tool px-1" aria-label="Report an issue"><i class="bi bi-bug"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div>
@@ -705,7 +712,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -718,7 +725,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -741,7 +748,7 @@ Answer
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -754,7 +761,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -765,7 +772,7 @@ Answer
 </ul>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create an array with zeros only</span></span>
@@ -801,7 +808,7 @@ Answer
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>array([[<span class="fl">1.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>],</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.</span>, <span class="fl">1.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>],</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">1.</span>, <span class="fl">0.</span>],</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">1.</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">1.</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="routines-for-creating-arrays-from-shape-or-value" class="level3">
 <h3 class="anchored" data-anchor-id="routines-for-creating-arrays-from-shape-or-value">Routines for Creating Arrays from Shape or Value</h3>
 <table class="caption-top table">
@@ -865,7 +872,7 @@ Answer
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -878,7 +885,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -890,7 +897,7 @@ Answer
 </ul>
 </div>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># get data from a function</span></span>
@@ -945,7 +952,7 @@ Answer
 <span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>       dtype<span class="op">=</span>[(<span class="st">'NAME'</span>, <span class="st">'S30'</span>),(<span class="st">'BORN'</span>, <span class="st">'S10'</span>),</span>
 <span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>             (<span class="st">'NBA CHAMPIONSHIPS'</span>, <span class="st">'i1'</span>),</span>
 <span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>             (<span class="st">'AVERAGE POINT PER GAME'</span>, <span class="st">'&lt;f2'</span>)]</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="routines-for-creating-arrays-from-existing-data" class="level3">
 <h3 class="anchored" data-anchor-id="routines-for-creating-arrays-from-existing-data">Routines for Creating Arrays from Existing Data</h3>
 <table class="caption-top table">
@@ -1021,7 +1028,7 @@ Answer
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1034,16 +1041,16 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>NumPy arrays do not contain any information about the attributes of the data. For example, a NumPy array cannot accommodate any meta-data, such as the fields’ names in the data. Here is where <a href="https://numpy.org/doc/stable/reference/routines.array-creation.html"><code>.rec</code></a> kick in (see the table below). For example, <a href="https://numpy.org/doc/stable/reference/generated/numpy.core.records.array.html#numpy.core.records.array">.core.records.array</a> allows to flexibly specify a field’s type and name (see the code snippet below, line 8). Once a ‘recarray’ is created, it is possible to fetch its data by field name (see the code snippet below, line 11).</p>
+<p>NumPy arrays do not contain any information about the attributes of the data. For example, a NumPy array cannot accommodate any meta-data, such as the fields’ names in the data. Here is where <a href="https://numpy.org/doc/stable/reference/routines.array-creation.html"><code>.rec</code></a> kick in (see the table below). For example, <a href="https://numpy.org/doc/stable/reference/generated/numpy.rec.array.html#numpy.rec.array"><code>np.rec.array</code></a> allows to flexibly specify a field’s type and name (see the code snippet below, line 8). Once a ‘recarray’ is created, it is possible to fetch its data by field name (see the code snippet below, line 11).</p>
 </div>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import records array with an alias that does not conflict with</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import records array with an alias that does not conflict with</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 'standard' NumPy arrays</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> numpy.core.records <span class="im">import</span> array <span class="im">as</span> recarray</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> numpy.rec <span class="im">import</span> array <span class="im">as</span> recarray</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the data</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> LOCS <span class="op">=</span> [(<span class="st">"51.5072° N"</span>, <span class="st">"0.1276° W"</span>), (<span class="st">"35.6762° N"</span>, <span class="st">"139.6503° E"</span>)]</span>
@@ -1053,7 +1060,7 @@ Answer
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># fetch the data by field name</span></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> D.Latitude</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>array([<span class="st">'51.5072° N'</span>, <span class="st">'35.6762° N'</span>], dtype<span class="op">=</span><span class="st">'&lt;U12'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>array([<span class="st">'51.5072° N'</span>, <span class="st">'35.6762° N'</span>], dtype<span class="op">=</span><span class="st">'&lt;U12'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="routines-for-creating-record-arrays" class="level3">
 <h3 class="anchored" data-anchor-id="routines-for-creating-record-arrays">Routines for Creating Record Arrays</h3>
 <table class="caption-top table">
@@ -1069,23 +1076,23 @@ Answer
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>np.core.records.array(obj[, dtype, shape, ...])</code></td>
+<td><code>np.rec.array(obj[, dtype, shape, ...])</code></td>
 <td>Construct a record array from a wide variety of objects</td>
 </tr>
 <tr class="even">
-<td><code>np.core.records.fromarrays(arrayList[, dtype, ...])</code></td>
+<td><code>np.rec.fromarrays(arrayList[, dtype, ...])</code></td>
 <td>Create a record array from a (flat) list of arrays</td>
 </tr>
 <tr class="odd">
-<td><code>np.core.records.fromrecords(recList[, dtype, ...])</code></td>
+<td><code>np.rec.fromrecords(recList[, dtype, ...])</code></td>
 <td>Create a recarray from a list of records in text form</td>
 </tr>
 <tr class="even">
-<td><code>np.core.records.fromstring(datastring[, dtype, ...])</code></td>
+<td><code>np.rec.fromstring(datastring[, dtype, ...])</code></td>
 <td>Create a record array from binary data</td>
 </tr>
 <tr class="odd">
-<td><code>np.core.records.fromfile(fd[, dtype, shape, ...])</code></td>
+<td><code>np.rec.fromfile(fd[, dtype, shape, ...])</code></td>
 <td>Create an array from binary file data</td>
 </tr>
 </tbody>
@@ -1101,7 +1108,7 @@ Answer
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1114,14 +1121,14 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>One may want to create a numerical range for different reasons, including running functional analysis or computer simulation. NumPy has a bunch of array-creating routines for numerical ranges (see the table below), some of which are quite popular in technical and scientific computation as well as data science. For example, <a href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange"><code>np.arange</code></a> and <a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace"><code>np.linspace</code></a> frequently appear in Python programs when it comes to create evenly spaced values in a certain interval and evenly spaced samples respectively (see the code snippet below). Another popular routine is <a href="https://numpy.org/doc/stable/reference/generated/numpy.meshgrid.html#numpy.meshgrid"><code>.meshgrid</code></a>, returning coordinate matrices from coordinate vectors.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># two ranges of evenly spaced values</span></span>
@@ -1135,7 +1142,7 @@ Answer
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> np.arange(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>)</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>array([<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>])</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 50 evenly spaced values between 0 and 1</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 evenly spaced values between 0 and 1</span></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">10</span>)</span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>array([<span class="fl">0.</span>        , <span class="fl">0.11111111</span>, <span class="fl">0.22222222</span>, <span class="fl">0.33333333</span>, <span class="fl">0.44444444</span>,</span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.55555556</span>, <span class="fl">0.66666667</span>, <span class="fl">0.77777778</span>, <span class="fl">0.88888889</span>, <span class="fl">1.</span>        ])</span>
@@ -1167,14 +1174,14 @@ Answer
 <span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> ZZ <span class="op">=</span> np.sqrt(XX<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> YY<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ check the dimensions of the newly created objects</span></span>
 <span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(XX.shape, YY.shape, ZZ.shape)</span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> ((<span class="dv">101</span>, <span class="dv">101</span>), (<span class="dv">101</span>, <span class="dv">101</span>), (<span class="dv">101</span>, <span class="dv">101</span>))</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>(<span class="dv">5</span>, <span class="dv">10</span>) (<span class="dv">5</span>, <span class="dv">10</span>) (<span class="dv">5</span>, <span class="dv">10</span>)</span>
 <span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ make a contour plot showing the associations among X, Y, and Z</span></span>
 <span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> fig <span class="op">=</span> plt.figure()</span>
 <span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>)</span>
 <span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> ax <span class="op">=</span> plt.contourf(X, Y, ZZ)</span>
 <span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> plt.axis(<span class="st">'scaled'</span>)</span>
 <span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> plt.colorbar()</span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="routines-for-numerical-ranges" class="level3">
 <h3 class="anchored" data-anchor-id="routines-for-numerical-ranges">Routines for Numerical Ranges</h3>
 <table class="caption-top table">
@@ -1230,7 +1237,7 @@ Answer
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1243,14 +1250,14 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>NumPy has routines to create arrays from an existing matrix as well as build matrices with certain properties (see the table below). As the code snippet below shows, <a href="https://numpy.org/doc/stable/reference/generated/numpy.diag.html#numpy.diag"><code>.diag</code></a> creates an array by fetching a matrix’s diagonal (see line 10), while <a href="https://numpy.org/doc/stable/reference/generated/numpy.tri.html#numpy.tri"><code>.tri</code></a> creates a triangular matrix (see line 17).</p>
 </div>
 </div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create an array by fetching a matrix diagonal</span></span>
@@ -1276,7 +1283,7 @@ Answer
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>],</span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>],</span>
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">0.</span>],</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>, <span class="fl">1.</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="routines-for-building-matrices" class="level3">
 <h3 class="anchored" data-anchor-id="routines-for-building-matrices">Routines for Building Matrices</h3>
 <table class="caption-top table">
@@ -1328,7 +1335,7 @@ Answer
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1341,7 +1348,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1354,7 +1361,7 @@ Answer
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Note</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1367,14 +1374,14 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Tip</span>Answer
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>As we will see later on in this chapter, the advantage of using a matrix class object is that we can use the matrix class object to perform matrix operations with a simple and intuitive syntax. For example, we can use the matrix class object to perform matrix manipulation multiplication, addition, and subtraction. In the lower section of the code snippet below, we use <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html"><code>.linalg.inv</code></a> to compute the inverse of a matrix.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy with the socially accepted alias 'np'</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a matrix class object</span></span>
@@ -1392,7 +1399,7 @@ Answer
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> np.linalg.inv(M)</span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>matrix([[<span class="op">-</span><span class="fl">1.60040278e+00</span>,  <span class="fl">1.98412698e-03</span>, <span class="op">-</span><span class="fl">1.19642857e-03</span>],</span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        [ <span class="fl">2.19880556e+00</span>, <span class="op">-</span><span class="fl">3.96825397e-03</span>,  <span class="fl">3.92857143e-04</span>],</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        [<span class="op">-</span><span class="fl">5.99402778e-01</span>,  <span class="fl">1.98412698e-03</span>, <span class="op">-</span><span class="fl">1.96428571e-04</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        [<span class="op">-</span><span class="fl">5.99402778e-01</span>,  <span class="fl">1.98412698e-03</span>, <span class="op">-</span><span class="fl">1.96428571e-04</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="routines-for-the-matrix-class" class="level3">
 <h3 class="anchored" data-anchor-id="routines-for-the-matrix-class">Routines for the Matrix Class</h3>
 <table class="caption-top table">
@@ -1533,13 +1540,14 @@ document.addEventListener('DOMContentLoaded', function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1554,7 +1562,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/simonesantoni\.github\.io\/intro-to-Python-IND216");
+        var filterRegex = new RegExp("https:\/\/simonesantoni\.github\.io\/intro-to-Python-IND219");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1900,7 +1908,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>© 2025 Simone Santoni</p>
 </div>   
     <div class="nav-footer-center">
-<p><a href="https://github.com/simoneSantoni/intro-to-Python-IND216">IND216 - Introduction to Python</a></p>
+<p><a href="https://github.com/simoneSantoni/intro-to-Python-IND219">IND219 - Introduction to Python</a></p>
 </div>
     <div class="nav-footer-right">
 <p>Made with <a href="https://quarto.org/">Quarto</a></p>

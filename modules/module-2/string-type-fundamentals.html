@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>string-type-fundamentals – IND216 - Introduction to Python</title>
+<title>string-type-fundamentals – IND219 - Introduction to Python</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -73,14 +79,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-175ac23ff9617b3c6f02b6b88bf67eec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-951f10bc480951396db0efebfd2f02f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-175ac23ff9617b3c6f02b6b88bf67eec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-f18305aec767f3e61481d23c5ecc5da5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-39ce561d5916039b7243f5be1805a965.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-f18305aec767f3e61481d23c5ecc5da5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -298,12 +304,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216" title="Repository" class="quarto-navigation-tool px-1" aria-label="Repository"><i class="bi bi-github"></i></a>
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216/edit/master/{{< meta quarto:source >}}" title="Edit this page" class="quarto-navigation-tool px-1" aria-label="Edit this page"><i class="bi bi-pencil-square"></i></a>
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216/issues/new" title="Report an issue" class="quarto-navigation-tool px-1" aria-label="Report an issue"><i class="bi bi-bug"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219" title="Repository" class="quarto-navigation-tool px-1" aria-label="Repository"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219/edit/master/{{< meta quarto:source >}}" title="Edit this page" class="quarto-navigation-tool px-1" aria-label="Edit this page"><i class="bi bi-pencil-square"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219/issues/new" title="Report an issue" class="quarto-navigation-tool px-1" aria-label="Report an issue"><i class="bi bi-bug"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div>
@@ -668,7 +675,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What is a string?
+<span class="screen-reader-only">Note</span>What is a string?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -681,7 +688,7 @@ What is a string?
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How do I use strings?
+<span class="screen-reader-only">Note</span>How do I use strings?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -694,7 +701,7 @@ How do I use strings?
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Is <code>abc</code> a Python string?
+<span class="screen-reader-only">Note</span>Is <code>abc</code> a Python string?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -707,22 +714,22 @@ Is <code>abc</code> a Python string?
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How do I manipulate string objects?
+<span class="screen-reader-only">Note</span>How do I manipulate string objects?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The fact that strings are immutable sequences affects how we manipulate textual data in Python. In Snippet 4.6, we fetch the individual elements of <code>S</code>, a variable assigned to “<code>Python 3.X</code>.” As per the built-in function <a href="https://docs.python.org/3/tutorial/introduction.html#strings"><code>len</code></a>, <code>S</code> contains six unitary strings. That means that each element in <code>S</code> is associated with a position in the numerical progression {0, 1, 2, 3, 4, 5}.</p>
+<p>The fact that strings are immutable sequences affects how we manipulate textual data in Python. In Snippet 4.6, we fetch the individual elements of <code>S</code>, a variable assigned to “<code>Python 3.X</code>.” As per the built-in function <a href="https://docs.python.org/3/tutorial/introduction.html#strings"><code>len</code></a>, <code>S</code> contains ten unitary strings. That means that each element in <code>S</code> is associated with a position in the numerical progression {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}.</p>
 <p>Now, you may be surprised that the list’s first element is 0 instead of 1. The reason is that Python is a zero-based indexed programming language: the first element of a series has an index of 0, while the last part has an index <code>len(obj)</code> - 1.</p>
 <p>Fetching the individual elements of a string, such as <code>S</code>, requires passing the desired index between brackets, as shown in line 9 (where we get the first unitary string, namely, “<code>P</code>”.), line 13 (where we get the last unitary string, namely, “<code>X</code>”), and line 21 (where we get the unitary string with index 3, i.e., the fourth unitary string appearing in <code>S</code>, “<code>h</code>”). Note that line 17 is an alternative indexing strategy to the one presented in line 13: it is possible to retrieve the last unitary string by counting ‘backward’; that is, getting the first element starting from the right-hand side of the string, which equates to index <code>-1</code>.</p>
 <p>In lines 26 and 31, we exploit the indices of <code>S</code> to retrieve multiple unitary strings in a row. What we pass among brackets is not a single index. Instead, we specify a range of indices <code>i:j</code>. It is worth noticing that, in Python, the element associated with the lower bound index <code>i</code> is returned. In contrast, the element associated with the upper bound index <code>j</code> is not. In line 26, we fetch the unitary strings between index <code>2</code> — equating to third unitary string of <code>S</code> — and index <code>5</code> excluded — namely, the fifth unitary string of <code>S</code>. In line 30, we adopt the ‘backward’ approach to retrieve the unitary string with index <code>-3</code> — the third string counting from the right-hand side of <code>S</code> — as well as any other unitary strings following index <code>-3</code>. To do that, we leave the upper bound index blank.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let us assign the string "Python 3.X" to the variable S</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let us assign the string "Python 3.X" to the variable S</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S <span class="op">=</span> <span class="st">"Python 3.X"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># check the length of S</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">len</span>(S)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># access the first unitary string in the sequence behind S</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S[<span class="dv">0</span>]</span>
@@ -748,14 +755,14 @@ How do I manipulate string objects?
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># access the unitary strings following the i-th position in the sequence</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># behind S</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S[<span class="op">-</span><span class="dv">3</span>:]</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">"3.X"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">"3.X"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What are the most common string literals and operators?
+<span class="screen-reader-only">Note</span>What are the most common string literals and operators?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -878,14 +885,14 @@ Table&nbsp;1: Sample of String Literals and Operators
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Can you share some concrete examples of string manipulation tasks?
+<span class="screen-reader-only">Note</span>Can you share some concrete examples of string manipulation tasks?
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Snippet 4.7 presents a sample of ‘common’ miscellaneous string manipulation tasks. In lines 6 and 9, we check the length of the variables <code>S1</code> and <code>S2</code>. In line 13, we display five repetitions of <code>S1</code>. In line 17, we use the algebraic operator “+” to concatenate <code>S1</code> and <code>S2</code>. In line 21, we expand on the previous input by separating <code>S1</code> and <code>S2</code> by a white-space. In line 25, we carry out the same task as line 17 — however, we rely on the built-in <a href="https://docs.python.org/3/library/stdtypes.html#str.join"><code>join</code></a> function to join <code>S1</code> and <code>S2</code> with whitespace. The argument taken by <a href="https://docs.python.org/3/library/stdtypes.html#str.join"><code>join</code></a> is a Python <code>list</code>, the subject of paragraph 5.3. In line 29, <code>S1</code> and <code>S2</code> are joined with a custom string object, namely, <code>" Vs. "</code>. Finally, in line 33, we use the built-in <a href="https://docs.python.org/3/library/stdtypes.html#str.format"><code>format</code></a> function (see also Snippet 4.4) to display a string object including <code>S1</code> and <code>S2</code>.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let us assign S1 and S2 to two strings</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let us assign S1 and S2 to two strings</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S1 <span class="op">=</span> <span class="st">"Python 3.X"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S2 <span class="op">=</span> <span class="st">"Julia"</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -918,52 +925,60 @@ Can you share some concrete examples of string manipulation tasks?
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># string formatting</span></span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="st">"Both </span><span class="sc">{}</span><span class="st"> and </span><span class="sc">{}</span><span class="st"> have outstanding ML modules"</span>.<span class="bu">format</span>(S1, S2)</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">"Both Python 3.X and Julia have outstanding ML modules"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">"Both Python 3.X and Julia have outstanding ML modules"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Can you share some concrete examples of string editing tasks?
+<span class="screen-reader-only">Note</span>Can you share some concrete examples of string editing tasks?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Snippet 4.8 illustrates some string editing tasks. In line 5, we use <code>lstrip</code> — a variation of the built-in function <code>strip</code> — that returns a copy of the string with leading characters removed. In line 9, we use the built-in <code>replace</code> to return a copy of the string with all occurrences of substring <code>old</code> (first argument taken by the function) replaced by <code>new</code> (second argument taken by the function). Finally, in line 17, we use the built-in function <code>lower</code> to return a copy of the string with all the cased characters converted to lowercase.</p>
+<p>Snippet 4.8 illustrates some string editing tasks. In line 5, we use <code>lstrip</code> — a variation of the built-in function <code>strip</code> — that returns a copy of the string with leading characters removed. Take care here: <code>lstrip</code> takes a <em>set of characters</em>, not a prefix. It removes any leading character that appears in the argument, so <code>"Both "</code> means the set {<code>B</code>, <code>o</code>, <code>t</code>, <code>h</code>, space}. It gives the expected answer below by luck; <code>"tooth".lstrip("Both ")</code> returns the empty string, because every one of its characters is in that set. When you mean ‘remove this prefix’, use <a href="https://docs.python.org/3/library/stdtypes.html#str.removeprefix"><code>removeprefix</code></a> instead. In line 9, we use the built-in <code>replace</code> to return a copy of the string with all occurrences of substring <code>old</code> (first argument taken by the function) replaced by <code>new</code> (second argument taken by the function). Finally, in line 17, we use the built-in function <code>lower</code> to return a copy of the string with all the cased characters converted to lowercase.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let us assign S to a string object</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let us assign S to a string object</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S <span class="op">=</span> <span class="st">"Both Python 3.X and Julia have outstanding ML modules"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># strip target leading characters</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S.lstrip(<span class="st">"Both "</span>)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">"Python 3.X and Julia have outstanding ML modules"</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># replace target characters</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S.replace(<span class="st">"Python 3.X"</span>, <span class="st">"R"</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">"Both R and Julia have outstanding ML modules"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># careful: lstrip takes a SET of characters, not a prefix</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="st">"tooth"</span>.lstrip(<span class="st">"Both "</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">""</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># split string on target characters</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S.split(<span class="st">" and "</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>[<span class="st">"Both Python 3.X"</span>, <span class="st">"Julia have outstanding ML modules"</span>]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># to remove a prefix, say so</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S.removeprefix(<span class="st">"Both "</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">"Python 3.X and Julia have outstanding ML modules"</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># make the string lower case</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S.lower()</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">"both python 3.x and julia have outstanding ml modules"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># replace target characters</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S.replace(<span class="st">"Python 3.X"</span>, <span class="st">"R"</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">"Both R and Julia have outstanding ML modules"</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># split string on target characters</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S.split(<span class="st">" and "</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>[<span class="st">"Both Python 3.X"</span>, <span class="st">"Julia have outstanding ML modules"</span>]</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># make the string lower case</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S.lower()</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co">"both python 3.x and julia have outstanding ml modules"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How do I test or search string attributes?
+<span class="screen-reader-only">Note</span>How do I test or search string attributes?
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Snippet 4.9 presents a series of string test and search tasks. The built-in function <code>find</code> (see lines 5 and 9) returns the lowest index in the string where substring sub is found within the slice <code>S[start:end]</code> or -1 if substring is not found. The built-in function <code>isdigit</code> return <code>True</code> if all characters in the string are digits and there is at least one character, <code>False</code> otherwise. Finally, the built-in function <code>endswith</code> returns <code>True</code> if the string ends with the specified suffix, otherwise returns <code>False</code>.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let us assign S to a string object</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let us assign S to a string object</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S <span class="op">=</span> <span class="st">"The first version of Python was released in 1991"</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># search for "Python" in S</span></span>
@@ -985,31 +1000,23 @@ How do I test or search string attributes?
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> SS.isdigit()</span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="va">True</span></span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># test if all characters in SS are digits</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> SS.isdigit()</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="va">True</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co"># test if all characters in SS are digits</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> SS.isdigit()</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="va">True</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co"># test if S ends with "1991" / SS</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S.endswith(SS)</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># test if S ends with "1991" / SS</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> S.endswith(SS)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="va">True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Can I display ‘complex’ string objects?
+<span class="screen-reader-only">Note</span>Can I display ‘complex’ string objects?
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>We just came across the built-in function <a href="https://docs.python.org/3/library/functions.html#print"><code>print</code></a>. Such a function can print both number- and string-type objects. Sometimes, what we want to print fits into a single line. In other circumstances, we are interested in visualizing rich data which can span multiple lines. Snippet 4.9 how to print objects across multiple lines with the triple-quoted block string (see line ). As evident from the Python code in lines 8-13, any line between triple quotes is considered part of the same string object.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># single-line print</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># single-line print</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="st">"Hello world!"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Hello world<span class="op">!</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1030,7 +1037,7 @@ Can I display ‘complex’ string objects?
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="op">-------------------------------------------------------</span></span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>Sheldon     <span class="op">|</span> Cooper     <span class="op">|</span> ...        <span class="op">|</span> bazinga.com</span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="op">-------------------------------------------------------</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>NOTES: this table has fake data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>NOTES: this table has fake data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -1145,13 +1152,14 @@ document.addEventListener('DOMContentLoaded', function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1166,7 +1174,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/simonesantoni\.github\.io\/intro-to-Python-IND216");
+        var filterRegex = new RegExp("https:\/\/simonesantoni\.github\.io\/intro-to-Python-IND219");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1512,7 +1520,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>© 2025 Simone Santoni</p>
 </div>   
     <div class="nav-footer-center">
-<p><a href="https://github.com/simoneSantoni/intro-to-Python-IND216">IND216 - Introduction to Python</a></p>
+<p><a href="https://github.com/simoneSantoni/intro-to-Python-IND219">IND219 - Introduction to Python</a></p>
 </div>
     <div class="nav-footer-right">
 <p>Made with <a href="https://quarto.org/">Quarto</a></p>

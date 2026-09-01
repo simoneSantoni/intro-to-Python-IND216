@@ -81,7 +81,7 @@ By default, `.from_dict` parses the values of the input dictionary as columns. H
    var_1        var_2
 0      1          ABC
 1      2  Hello world
-2      3      Bazinga
+2      3     Bazinga!
 3      4       cheers
 4      5         ciao
 

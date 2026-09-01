@@ -57,7 +57,7 @@ The remainder of the snippet illustrates how to extract the individual attribute
              timestamp                    product reviewer  rating
 0  2017-10-08 12:03:05          Darth Vader plush  Sheldon       1
 1  2020-09-07 08:09:45  Obi-Wan Kenobi lightsaber  Sheldon       2
-2  2021-04-11 10:12:13               Yoda pajamas  Leonard       5
+2  2021-04-11 10:12:13               Yoda pijamas  Leonard       5
 
 # get basic info
 >>> df.info()
@@ -65,26 +65,29 @@ RangeIndex: 3 entries, 0 to 2
 Data columns (total 4 columns):
      Column     Non-Null Count  Dtype
 ---  ------     --------------  -----
- 0   timestamp  3 non-null      object
- 1   product    3 non-null      object
- 2   reviewer   3 non-null      object
+ 0   timestamp  3 non-null      str
+ 1   product    3 non-null      str
+ 2   reviewer   3 non-null      str
  3   rating     3 non-null      int64
-dtypes: int64(1), object(3)
-memory usage: 224.0+ bytes
+dtypes: int64(1), str(3)
+memory usage: 228.0 bytes
 
 # convert 'timestamp' from string to Timestamp type
->>> df.loc[:, "timestamp"] = df["timestamp"].apply(lambda s: pd.Timestamp(s))
+# NOTE plain [] and not .loc: .loc would write INTO the existing text
+# column, and on Pandas 3 that raises
+# TypeError: Invalid value '<DatetimeArray>...' for dtype 'str'
+>>> df["timestamp"] = df["timestamp"].apply(lambda s: pd.Timestamp(s))
 # info shows that timestamp has datetime dtype
 >>> df.info()
 Data columns (total 4 columns):
      Column     Non-Null Count  Dtype
 ---  ------     --------------  -----
- 0   timestamp  3 non-null      datetime64[ns]
- 1   product    3 non-null      object
- 2   reviewer   3 non-null      object
+ 0   timestamp  3 non-null      datetime64[us]
+ 1   product    3 non-null      str
+ 2   reviewer   3 non-null      str
  3   rating     3 non-null      int64
-dtypes: datetime64[ns](1), int64(1), object(2)
-memory usage: 224.0+ bytes
+dtypes: datetime64[us](1), int64(1), str(2)
+memory usage: 228.0 bytes
 
 # extract the timestamp components and assign them to new columns
 # --+ year
@@ -134,20 +137,20 @@ memory usage: 224.0+ bytes
 Data columns (total 12 columns):
      Column     Non-Null Count  Dtype
 ---  ------     --------------  -----
- 0   timestamp  3 non-null      datetime64[ns]
- 1   product    3 non-null      object
- 2   reviewer   3 non-null      object
+ 0   timestamp  3 non-null      datetime64[us]
+ 1   product    3 non-null      str
+ 2   reviewer   3 non-null      str
  3   rating     3 non-null      int64
- 4   year       3 non-null      int64
- 5   month      3 non-null      int64
- 6   day        3 non-null      int64
- 7   hour       3 non-null      int64
- 8   minute     3 non-null      int64
- 9   second     3 non-null      int64
- 10  launch     3 non-null      datetime64[ns]
- 11  deltat     3 non-null      timedelta64[ns]
-dtypes: datetime64[ns](2), int64(7), object(2), timedelta64[ns](1)
-memory usage: 416.0+ bytes
+ 4   year       3 non-null      int32
+ 5   month      3 non-null      int32
+ 6   day        3 non-null      int32
+ 7   hour       3 non-null      int32
+ 8   minute     3 non-null      int32
+ 9   second     3 non-null      int32
+ 10  launch     3 non-null      datetime64[us]
+ 11  deltat     3 non-null      timedelta64[us]
+dtypes: datetime64[us](2), int32(6), int64(1), str(2), timedelta64[us](1)
+memory usage: 348.0 bytes
 ```
 
 ## Can you give me an example of a .Period object?
@@ -185,7 +188,7 @@ memory usage: 416.0+ bytes
 >>> p.quarter
 4
 
-# --+ week of the year (ranging from 0 to 59)
+# --+ week of the year (ISO week, 1 to 53)
 >>> p.weekofyear
-4
+44
 ```

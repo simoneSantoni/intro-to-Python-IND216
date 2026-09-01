@@ -82,17 +82,17 @@ We've provided an `env.yml` file in the repository that includes all necessary p
 conda env create -f env.yml
 
 # Activate the environment
-conda activate ind216
+conda activate ind219
 ```
 
 Alternatively, you can create the environment manually:
 
 ```bash
 # Create a new environment for this course
-conda create -n ind216 python=3.13
+conda create -n ind219 python=3.13
 
 # Activate the environment
-conda activate ind216
+conda activate ind219
 
 # Install essential packages
 conda install -c conda-forge numpy pandas matplotlib jupyter

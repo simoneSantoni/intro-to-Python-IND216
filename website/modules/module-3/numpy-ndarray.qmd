@@ -190,8 +190,8 @@ The table below reports the NumPy data types. Python beginners are not supposed 
 | complex64, complex128, complex256 | c8, c16, c32 | Complex numbers represented by two 32, 64, or 128 floats, respectively |
 | bool | ? | Boolean type storing True and False values |
 | object | O | Python object type; a value can be any Python object |
-| string_ | S | Fixed-length ASCII string type (1 byte per character); for example, to create a string dtype with length 10, use 'S10' |
-| unicode_ | U | Fixed-length Unicode type (number of bytes platform specific); same specification semantics as string_ (e.g., 'U10') |
+| bytes_ (was `string_`) | S | Fixed-length ASCII string type (1 byte per character); for example, to create a string dtype with length 10, use 'S10' |
+| str_ (was `unicode_`) | U | Fixed-length Unicode type (number of bytes platform specific); same specification semantics as bytes_ (e.g., 'U10') |
 
 ::: {.callout-note}
 ## Question
@@ -219,10 +219,10 @@ dtype('int64')
 
 # check the type
 >>> A.dtype
-type('int32')
+dtype('int32')
 
 # type change
->>> S = np.array(['1.25', '-9.6', '42'], dtype=np.string_)
+>>> S = np.array(['1.25', '-9.6', '42'], dtype="S")
 >>> S = S.astype(float)
 >>> S.dtype
 dtype('float64')

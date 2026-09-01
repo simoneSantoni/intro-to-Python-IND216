@@ -56,9 +56,9 @@ Example 4.29 shows how to use `elif` to concatenate multiple 'if-then' statement
 >>> if "x" in S:
 ...     print("Customers who bought x also bought Air Jordan 7 Retro Miro")
 ... elif "w" in S:
-    print("How about Converse Chuck Taylor All Star?")
+...     print("How about Converse Chuck Taylor All Star?")
 ... else:
-    print("Falling short of suggestions --- I'm a dull recommender!")
+...     print("Falling short of suggestions --- I'm a dull recommender!")
 How about Converse Chuck Taylor All Star?
 ```
 

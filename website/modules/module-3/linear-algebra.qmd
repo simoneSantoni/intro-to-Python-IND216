@@ -222,7 +222,7 @@ Thus, in line 28, we fetch the first element of the returned array, i.e., the re
 
 # the arrays
 >>> x = np.arange(0, 15, 1)
->>> y = [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29]
+>>> y = [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31]
 
 # data preparation / adding a constant to the model
 >>> A = np.vstack([x, np.ones(len(x))]).T
@@ -247,5 +247,5 @@ array([[ 0.,  1.],
 # the linear model
 >>> b = np.linalg.lstsq(A, y)[0]
 >>> b
-array([2.15714286, 2.23333333])
+array([2., 3.])
 ```

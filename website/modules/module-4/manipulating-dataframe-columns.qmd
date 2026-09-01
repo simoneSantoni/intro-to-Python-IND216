@@ -52,12 +52,12 @@ RangeIndex: 3 entries, 0 to 2
 Data columns (total 4 columns):
      Column  Non-Null Count  Dtype
 ---  ------  --------------  -----
- 0   laptop  3 non-null      object
- 1   ram     3 non-null      object
- 2   os      3 non-null      object
- 3   chip    3 non-null      object
-dtypes: object(4)
-memory usage: 224.0+ bytes
+ 0   laptop  3 non-null      str
+ 1   ram     3 non-null      str
+ 2   os      3 non-null      str
+ 3   chip    3 non-null      str
+dtypes: str(4)
+memory usage: 228.0 bytes
 
 # rename the column "ram" to "memory"
 >>> df.rename(columns={"ram": "memory"}, inplace=True)
@@ -91,9 +91,9 @@ memory usage: 224.0+ bytes
 
 **Answer:** The [`.loc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc) method is the most appropriate way to create a new column or alter an existing column's values. The code snippet below illustrates a couple of common tasks. In line 15, we assign a list of string objects to a new column called `manufacturer` for all cases included in `df`.
 
-In lines 24/26, 41, and 58 we amend the value of an existing column. First, we manipulate the strings included under RAM to replace the substring `" GB"` with an empty string (lines 24/26). Second, we change the type of the column from `string` to `integer` using the Pandas' [`.astype()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html?highlight=astype#pandas.DataFrame.astype) method (line 41). Then, we take the log of `ram` and assign it to the new column `log_ram` (line 58).
+In lines 26/28, 46, and 63 we amend the value of an existing column. First, we manipulate the strings included under RAM to replace the substring `" GB"` with an empty string (lines 26/28). Second, we change the type of the column from `string` to `integer` using the Pandas' [`.astype()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html?highlight=astype#pandas.DataFrame.astype) method (line 46). Then, we take the log of `ram` and assign it to the new column `log_ram` (line 63).
 
-In line 85, we use [`.loc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc) to create a new variable for a subset of cases only. Specifically, we populate the column `gpu` provided the value of `laptop` is "Thinkpad T14."
+In line 90, we use [`.loc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc) to create a new variable for a subset of cases only. Specifically, we populate the column `gpu` provided the value of `laptop` is "Thinkpad T14."
 :::
 
 ```python
@@ -113,44 +113,48 @@ In line 85, we use [`.loc`](https://pandas.pydata.org/docs/reference/api/pandas.
 # create a new column, e.g., the name of the manufacturer
 >>> df.loc[:, "manufacturer"] = ["Apple", "Lenovo", "Dell"]
 >>> df
-               laptop ram              os           chip manufacturer
-0  MacBook Pro 13inch  16  macOS Monterey             M1        Apple
-1        Thinkpad T14  48       Debian 11          Ryzen       Lenovo
-2         Dell XPS 13   8      Windows 11  Intel Core i7         Dell
+               laptop    ram              os           chip manufacturer
+0  MacBook Pro 13inch  16 GB  macOS Monterey             M1        Apple
+1        Thinkpad T14  48 GB       Debian 11          Ryzen       Lenovo
+2         Dell XPS 13   8 GB      Windows 11  Intel Core i7         Dell
 
 # transform the column "ram" from string to number type
 # --+ step 1: get rid of non-number characters using a regular expression
->>> df.loc[:, "ram"] = df.loc[:, "ram"].str.replace(r"[^0-9]", "")
+#     NOTE two things here: plain [] assignment, not .loc (see below), and
+#     regex=True, which since Pandas 2.0 you must ask for explicitly
+>>> df["ram"] = df["ram"].str.replace(r"[^0-9]", "", regex=True)
 # --+ alternative way to carry out step 1: using Pandas string methods
->>> df.loc[:, "ram"] = df["ram"].str.replace(r"\sGB", "")
+>>> df["ram"] = df["ram"].str.replace(r"\sGB", "", regex=True)
 # --+ step 2: convert the string to number type
 # ----+ check the type of "ram"
 >>> df.info()
 Data columns (total 5 columns):
      Column        Non-Null Count  Dtype
 ---  ------        --------------  -----
- 0   laptop        3 non-null      object
- 1   ram           3 non-null      object
- 2   os            3 non-null      object
- 3   chip          3 non-null      object
- 4   manufacturer  3 non-null      object
-dtypes: object(5)
+ 0   laptop        3 non-null      str
+ 1   ram           3 non-null      str
+ 2   os            3 non-null      str
+ 3   chip          3 non-null      str
+ 4   manufacturer  3 non-null      str
+dtypes: str(5)
 # ----+ surprise-surprise: we have not a number type yet
 # let us change dtype with Pandas astype method
->>> df.loc[:, "ram"] = df.loc[:, "ram"].astype(int)
+#     again [] and not .loc --- .loc writes INTO the existing text column,
+#     and on Pandas 3 that is a TypeError:
+#     "Invalid value '[16 48  8]' for dtype 'str'"
+>>> df["ram"] = df["ram"].astype(int)
 # ----+ check the data type again
 >>> df.info()
 Data columns (total 5 columns):
      Column        Non-Null Count  Dtype
 ---  ------        --------------  -----
- 0   laptop        3 non-null      object
+ 0   laptop        3 non-null      str
  1   ram           3 non-null      int64
- 2   os            3 non-null      object
- 3   chip          3 non-null      object
- 4   manufacturer  3 non-null      object
-dtypes: int64(1), object(4)
-memory usage: 248.0+ bytes
-memory usage: 248.0+ bytes
+ 2   os            3 non-null      str
+ 3   chip          3 non-null      str
+ 4   manufacturer  3 non-null      str
+dtypes: int64(1), str(4)
+memory usage: 252.0 bytes
 
 # transform an existing column and assign the output to a new column
 # --+ import numpy to access the log function
@@ -172,14 +176,14 @@ memory usage: 248.0+ bytes
 Data columns (total 6 columns):
      Column        Non-Null Count  Dtype
 ---  ------        --------------  -----
- 0   laptop        3 non-null      object
+ 0   laptop        3 non-null      str
  1   ram           3 non-null      int64
- 2   os            3 non-null      object
- 3   chip          3 non-null      object
- 4   manufacturer  3 non-null      object
+ 2   os            3 non-null      str
+ 3   chip          3 non-null      str
+ 4   manufacturer  3 non-null      str
  5   log_ram       3 non-null      float64
-dtypes: float64(1), int64(1), object(4)
-memory usage: 272.0+ bytes
+dtypes: float64(1), int64(1), str(4)
+memory usage: 276.0 bytes
 
 # create a new column conditional on another column's value
 >>> df.loc[df["laptop"] == "Thinkpad T14", "gpu"] = True
@@ -188,15 +192,15 @@ memory usage: 272.0+ bytes
 Data columns (total 7 columns):
      Column        Non-Null Count  Dtype
 ---  ------        --------------  -----
- 0   laptop        3 non-null      object
+ 0   laptop        3 non-null      str
  1   ram           3 non-null      int64
- 2   os            3 non-null      object
- 3   chip          3 non-null      object
- 4   manufacturer  3 non-null      object
+ 2   os            3 non-null      str
+ 3   chip          3 non-null      str
+ 4   manufacturer  3 non-null      str
  5   log_ram       3 non-null      float64
  6   gpu           1 non-null      object
-dtypes: float64(1), int64(1), object(5)
-memory usage: 296.0+ bytes
+dtypes: float64(1), int64(1), object(1), str(4)
+memory usage: 300.0+ bytes
 # --+ preview
 >>> df
                laptop  ram              os           chip manufacturer  \
@@ -209,6 +213,40 @@ memory usage: 296.0+ bytes
 1  3.871201  True
 2  2.079442   NaN
 ```
+
+::: {.callout-warning}
+## Two traps when you change an existing column
+
+Both of these bite silently, and both changed with the Pandas version.
+
+**`.loc` writes *into* a column; `[]` *replaces* it.** That distinction does not
+matter when you create a column, which is why line 15 above is fine. It matters
+a great deal when you change one, because writing into a column has to respect
+the dtype that column already has. Here is what
+
+``` python
+df.loc[:, "ram"] = df.loc[:, "ram"].astype(int)
+```
+
+does to that text column, by version:
+
+| Pandas | What happens |
+|---|---|
+| 1.x | the column is replaced, the cast works |
+| 2.x | the cast is **silently discarded** --- `ram` stays text |
+| 3.0 | raises `TypeError: Invalid value '[16 48  8]' for dtype 'str'` |
+
+Pandas 3.0 turning this into an error is an improvement: the wrong answer 2.x
+gave you quietly is now loud. Use `df["ram"] = df["ram"].astype(int)`, which is
+correct on all three.
+
+**`.str.replace()` no longer assumes a regular expression.** Pandas 1.x
+defaulted to `regex=True`; since 2.0 the default is `False`. So
+`df["ram"].str.replace(r"\sGB", "")` does *nothing at all* --- no error, no
+warning --- and the `.astype(int)` that follows then fails with a confusing
+message about `'16 GB'`. Pass `regex=True` whenever the pattern is a regular
+expression.
+:::
 
 ## What is a missing value?
 
@@ -227,7 +265,7 @@ memory usage: 296.0+ bytes
 ::: {.callout-note}
 **Question:** How does Pandas represent missing values?
 
-**Answer:** Pandas denote missing values using NumPy's floating representation [`numpy.NaN`](https://numpy.org/doc/stable/reference/constants.html?highlight=nan#numpy.NaN)
+**Answer:** Pandas denote missing values using NumPy's floating representation [`numpy.nan`](https://numpy.org/doc/stable/reference/constants.html#numpy.nan). Note the spelling: NumPy 2.0 removed the old `numpy.NaN` alias, and lowercase `numpy.nan` is the only one that still works
 :::
 
 ## How do I handle missing values in Pandas?
@@ -273,10 +311,10 @@ The latter approach is the most sophisticated one and falls beyond the remit of 
 Data columns (total 2 columns):
      Column  Non-Null Count  Dtype
 ---  ------  --------------  -----
- 0   item    5 non-null      object
+ 0   item    5 non-null      str
  1   price   3 non-null      float64
-dtypes: float64(1), object(1)
-memory usage: 208.0+ bytes
+dtypes: float64(1), str(1)
+memory usage: 212.0 bytes
 
 # approach 1 --- delete all cases where a missing value is present
 >>> df.dropna()

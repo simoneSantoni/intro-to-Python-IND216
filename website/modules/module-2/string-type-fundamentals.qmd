@@ -21,7 +21,7 @@ Nope. Python strings are enclosed in single quotes ('...') *or* double quotes ("
 ::: {.callout-note}
 ## How do I manipulate string objects?
 
-The fact that strings are immutable sequences affects how we manipulate textual data in Python. In Snippet 4.6, we fetch the individual elements of `S`, a variable assigned to "`Python 3.X`." As per the built-in function [`len`](https://docs.python.org/3/tutorial/introduction.html#strings), `S` contains six unitary strings. That means that each element in `S` is associated with a position in the numerical progression {0, 1, 2, 3, 4, 5}.
+The fact that strings are immutable sequences affects how we manipulate textual data in Python. In Snippet 4.6, we fetch the individual elements of `S`, a variable assigned to "`Python 3.X`." As per the built-in function [`len`](https://docs.python.org/3/tutorial/introduction.html#strings), `S` contains ten unitary strings. That means that each element in `S` is associated with a position in the numerical progression {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}.
 
 Now, you may be surprised that the list's first element is 0 instead of 1. The reason is that Python is a zero-based indexed programming language: the first element of a series has an index of 0, while the last part has an index `len(obj)` - 1.
 
@@ -36,7 +36,7 @@ In lines 26 and 31, we exploit the indices of `S` to retrieve multiple unitary s
 
 # check the length of S
 >>> len(S)
-6
+10
 
 # access the first unitary string in the sequence behind S
 >>> S[0]
@@ -149,7 +149,7 @@ Snippet 4.7 presents a sample of 'common' miscellaneous string manipulation task
 ::: {.callout-note}
 ## Can you share some concrete examples of string editing tasks?
 
-Snippet 4.8 illustrates some string editing tasks. In line 5, we use `lstrip` --- a variation of the built-in function `strip` --- that returns a copy of the string with leading characters removed. In line 9, we use the built-in `replace` to return a copy of the string with all occurrences of substring `old` (first argument taken by the function) replaced by `new` (second argument taken by the function). Finally, in line 17, we use the built-in function `lower` to return a copy of the string with all the cased characters converted to lowercase.
+Snippet 4.8 illustrates some string editing tasks. In line 5, we use `lstrip` --- a variation of the built-in function `strip` --- that returns a copy of the string with leading characters removed. Take care here: `lstrip` takes a *set of characters*, not a prefix. It removes any leading character that appears in the argument, so `"Both "` means the set {`B`, `o`, `t`, `h`, space}. It gives the expected answer below by luck; `"tooth".lstrip("Both ")` returns the empty string, because every one of its characters is in that set. When you mean 'remove this prefix', use [`removeprefix`](https://docs.python.org/3/library/stdtypes.html#str.removeprefix) instead. In line 9, we use the built-in `replace` to return a copy of the string with all occurrences of substring `old` (first argument taken by the function) replaced by `new` (second argument taken by the function). Finally, in line 17, we use the built-in function `lower` to return a copy of the string with all the cased characters converted to lowercase.
 :::
 
 ```python
@@ -158,6 +158,14 @@ Snippet 4.8 illustrates some string editing tasks. In line 5, we use `lstrip` --
 
 # strip target leading characters
 >>> S.lstrip("Both ")
+"Python 3.X and Julia have outstanding ML modules"
+
+# careful: lstrip takes a SET of characters, not a prefix
+>>> "tooth".lstrip("Both ")
+""
+
+# to remove a prefix, say so
+>>> S.removeprefix("Both ")
 "Python 3.X and Julia have outstanding ML modules"
 
 # replace target characters
@@ -197,14 +205,6 @@ Snippet 4.9 presents a series of string test and search tasks. The built-in func
 # display SS
 >>> SS
 "1991"
-
-# test if all characters in SS are digits
->>> SS.isdigit()
-True
-
-# test if all characters in SS are digits
->>> SS.isdigit()
-True
 
 # test if all characters in SS are digits
 >>> SS.isdigit()

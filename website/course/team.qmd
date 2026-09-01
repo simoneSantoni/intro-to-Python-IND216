@@ -7,14 +7,15 @@ title: "Teaching team"
 :::: {.columns}
 
 ::: {.column width="50%"}
-![](../imgs/sl.jpeg){width="300px"}
+![](../imgs/yl.jpg){width="300px"}
 
-### Sangseok (Joseph) Lee
+### Yuanheng Li
 **Instructor**
 
-Ph.D. student in strategy at the Bayes Business School
+Visiting lecturer at the Bayes Business School. Graduated from the Bayes MSc in
+Business Analytics in 2023, and now a data analyst at EY.
 
-📬 [Sangseok.Lee@bayes.ac.uk](Sangseok.Lee@bayes.ac.uk)
+📬 [Yuanheng.Li.2@city.ac.uk](mailto:Yuanheng.Li.2@city.ac.uk)
 :::
 
 ::: {.column width="50%"}

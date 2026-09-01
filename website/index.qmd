@@ -1,9 +1,9 @@
 ---
-title: "Introduction to Python—IND216"
+title: "Introduction to Python—IND219"
 subtitle: "A curated set of Python materials for analytics students"
 ---
 
-## Welcome to IND216
+## Welcome to IND219
 
 This interactive website provides a comprehensive four-module introduction to
 Python programming specifically designed for students in analytics curricula.

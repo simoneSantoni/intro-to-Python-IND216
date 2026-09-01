@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an educational repository for "Introduction to Python - IND216/SMM692" course. The repository contains LaTeX-based course notes and supporting materials for teaching Python programming.
+This is an educational repository for "Introduction to Python - IND219" course. The repository contains LaTeX-based course notes and supporting materials for teaching Python programming.
 
 ## Project Structure
 

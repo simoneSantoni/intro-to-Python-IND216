@@ -2,14 +2,14 @@
 title: "Course Schedule"
 ---
 
-| Module                       | Date                               | Topics                                                                               |
-| --                           | --                                 | --                                                                                   |
-| Getting started with Python  | 09-22 (stream A), 09-23 (stream B) | Installing Python - how to run Python programs - managing Python environments        |
-| Python language fundamentals | 09-24 (stream A), 09-24 (stream B) | Object types - list - dictionaries - tuples - sets - files                           |
-| ...                          | 09-25 (stream A), 09-29 (stream B) | Statements - control flows - while and for loops - iterations and comprhensions      |
-| Computing with NumPy         | 10-1 (stream A), 10-2 (stream B)   | Array creation - manipulation - functions - statistics - linear algebra - generators |
-| Pandas for data analysis     | 10-2 (stream A), 10-6 (stream B)   | Dataframes - querying - manipulation - 'time' data                                   |
-| ...                          | 10-8 (stream A), 10-8 (stream B)   | Grouping - working with multiple dataframes - IO                                     |
+| Module                       | Date                           | Topics                                                                               |
+| --                           | --                             | --                                                                                   |
+| Getting started with Python  | TBD (stream A), TBD (stream B) | Installing Python - how to run Python programs - managing Python environments        |
+| Python language fundamentals | TBD (stream A), TBD (stream B) | Object types - list - dictionaries - tuples - sets - files                           |
+| ...                          | TBD (stream A), TBD (stream B) | Statements - control flows - while and for loops - iterations and comprehensions     |
+| Computing with NumPy         | TBD (stream A), TBD (stream B) | Array creation - manipulation - functions - statistics - linear algebra - generators |
+| Pandas for data analysis     | TBD (stream A), TBD (stream B) | Dataframes - querying - manipulation - 'time' data                                   |
+| ...                          | TBD (stream A), TBD (stream B) | Grouping - working with multiple dataframes - IO                                     |
 
 ::: {.callout-note}
 ## Adjustments and Updates

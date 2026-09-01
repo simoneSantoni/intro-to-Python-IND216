@@ -35,6 +35,7 @@
 0      xyz
 1   -17.64
 2        0
+dtype: object
 
 # proof that Series preserves the type of the individual object
 # --+ fetch the second item of the list and carry out a mathematical operation

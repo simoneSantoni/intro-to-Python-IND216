@@ -193,13 +193,13 @@ Record arrays
 
 ::: {.callout-tip}
 ## Answer
-NumPy arrays do not contain any information about the attributes of the data. For example, a NumPy array cannot accommodate any meta-data, such as the fields' names in the data. Here is where [`.rec`](https://numpy.org/doc/stable/reference/routines.array-creation.html) kick in (see the table below). For example, [.core.records.array](https://numpy.org/doc/stable/reference/generated/numpy.core.records.array.html#numpy.core.records.array) allows to flexibly specify a field's type and name (see the code snippet below, line 8). Once a 'recarray' is created, it is possible to fetch its data by field name (see the code snippet below, line 11).
+NumPy arrays do not contain any information about the attributes of the data. For example, a NumPy array cannot accommodate any meta-data, such as the fields' names in the data. Here is where [`.rec`](https://numpy.org/doc/stable/reference/routines.array-creation.html) kick in (see the table below). For example, [`np.rec.array`](https://numpy.org/doc/stable/reference/generated/numpy.rec.array.html#numpy.rec.array) allows to flexibly specify a field's type and name (see the code snippet below, line 8). Once a 'recarray' is created, it is possible to fetch its data by field name (see the code snippet below, line 11).
 :::
 
 ```python
 # import records array with an alias that does not conflict with
 # 'standard' NumPy arrays
->>> from numpy.core.records import array as recarray
+>>> from numpy.rec import array as recarray
 
 # the data
 >>> LOCS = [("51.5072° N", "0.1276° W"), ("35.6762° N", "139.6503° E")]
@@ -216,11 +216,11 @@ array(['51.5072° N', '35.6762° N'], dtype='<U12')
 
 | Routine | Synopsis |
 |---------|----------|
-| `np.core.records.array(obj[, dtype, shape, ...])` | Construct a record array from a wide variety of objects |
-| `np.core.records.fromarrays(arrayList[, dtype, ...])` | Create a record array from a (flat) list of arrays |
-| `np.core.records.fromrecords(recList[, dtype, ...])` | Create a recarray from a list of records in text form |
-| `np.core.records.fromstring(datastring[, dtype, ...])` | Create a record array from binary data |
-| `np.core.records.fromfile(fd[, dtype, shape, ...])` | Create an array from binary file data |
+| `np.rec.array(obj[, dtype, shape, ...])` | Construct a record array from a wide variety of objects |
+| `np.rec.fromarrays(arrayList[, dtype, ...])` | Create a record array from a (flat) list of arrays |
+| `np.rec.fromrecords(recList[, dtype, ...])` | Create a recarray from a list of records in text form |
+| `np.rec.fromstring(datastring[, dtype, ...])` | Create a record array from binary data |
+| `np.rec.fromfile(fd[, dtype, shape, ...])` | Create an array from binary file data |
 
 *Note: the statements included in the 'Routine' column assume NumPy is loaded with the `np` alias.*
 
@@ -251,7 +251,7 @@ array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 >>> np.arange(0, 10, 2)
 array([0, 2, 4, 6, 8])
 
-# 50 evenly spaced values between 0 and 1
+# 10 evenly spaced values between 0 and 1
 >>> np.linspace(0, 1, 10)
 array([0.        , 0.11111111, 0.22222222, 0.33333333, 0.44444444,
        0.55555556, 0.66666667, 0.77777778, 0.88888889, 1.        ])
@@ -283,7 +283,7 @@ array([[0.  , 0.  , 0.  , 0.  , 0.  , 0.  , 0.  , 0.  , 0.  , 0.  ],
 >>> ZZ = np.sqrt(XX**2 + YY**2)
 # --+ check the dimensions of the newly created objects
 >>> print(XX.shape, YY.shape, ZZ.shape)
->>> ((101, 101), (101, 101), (101, 101))
+(5, 10) (5, 10) (5, 10)
 # --+ make a contour plot showing the associations among X, Y, and Z
 >>> fig = plt.figure()
 >>> ax = fig.add_subplot(111)

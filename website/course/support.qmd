@@ -4,7 +4,7 @@ title: "Course Support"
 
 Learning to program can be challenging, but you don't have to do it alone.
 This page provides information about all the support resources available to
-help you succeed in IND216.
+help you succeed in IND219.
 
 ::: {.callout-tip}
 **Where to get help**:
@@ -20,7 +20,7 @@ help you succeed in IND216.
 
 ### Course Forum
 
-Access the course forum through module IND216's Moodle website for:
+Access the course forum through module IND219's Moodle website for:
 
 - Asking questions (conceptual or technical)
 - Sharing helpful resources
@@ -37,7 +37,7 @@ Access the course forum through module IND216's Moodle website for:
 
 ### Email Support
 
-**Instructor email**: [Sangseok.Lee@bayes.ac.uk](sangseok.lee@bayes.ac.uk)
+**Instructor email**: [Yuanheng.Li.2@city.ac.uk](mailto:Yuanheng.Li.2@city.ac.uk)
 
 **When to email**:
 
@@ -50,7 +50,7 @@ Access the course forum through module IND216's Moodle website for:
 
 **Email tips**:
 
-- Use clear subject line: "IND216: [Topic]"
+- Use clear subject line: "IND219: [Topic]"
 - Include your student ID
 - Be specific about your issue
 - Attach relevant files if needed

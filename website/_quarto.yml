@@ -5,10 +5,10 @@ project:
     - "**/*.qmd"
 
 website:
-  title: "IND216 - Introduction to Python"
+  title: "IND219 - Introduction to Python"
   description: "MSc Module on Python Programming for Analytics - Learn Python for data wrangling and technical and scientific computing"
-  site-url: https://simonesantoni.github.io/intro-to-Python-IND216
-  repo-url: https://github.com/simoneSantoni/intro-to-Python-IND216
+  site-url: https://simonesantoni.github.io/intro-to-Python-IND219
+  repo-url: https://github.com/simoneSantoni/intro-to-Python-IND219
 
   page-navigation: true
 
@@ -16,7 +16,7 @@ website:
     left: |
       &copy; 2025 Simone Santoni
     center: |
-      [IND216 - Introduction to Python](https://github.com/simoneSantoni/intro-to-Python-IND216)
+      [IND219 - Introduction to Python](https://github.com/simoneSantoni/intro-to-Python-IND219)
     right: |
       Made with [Quarto](https://quarto.org/)
 
@@ -24,16 +24,16 @@ website:
     style: docked
     search: true
     logo: imgs/python-module-icon-light.svg
-    #title: "IND216"
+    #title: "IND219"
     tools:
       - icon: github
-        href: https://github.com/simoneSantoni/intro-to-Python-IND216
+        href: https://github.com/simoneSantoni/intro-to-Python-IND219
         text: "Repository"
       - icon: pencil-square
-        href: https://github.com/simoneSantoni/intro-to-Python-IND216/edit/master/{{< meta quarto:source >}}
+        href: https://github.com/simoneSantoni/intro-to-Python-IND219/edit/master/{{< meta quarto:source >}}
         text: "Edit this page"
       - icon: bug
-        href: https://github.com/simoneSantoni/intro-to-Python-IND216/issues/new
+        href: https://github.com/simoneSantoni/intro-to-Python-IND219/issues/new
         text: "Report an issue"
     contents:
       - section: "Course Information"
@@ -170,4 +170,4 @@ jupyter:
   kernelspec:
     name: "python3"
     language: "python"
-    display_name: "Python 3 (ind216)"
+    display_name: "Python 3 (ind219)"

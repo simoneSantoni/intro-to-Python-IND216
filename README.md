@@ -1,9 +1,9 @@
-# Introduction to Python—IND216
+# Introduction to Python—IND219
 
 ## Overview
 
 This repository contains comprehensive educational materials for an
-introductory Python course (IND216) designed for analytics students. The
+introductory Python course (IND219) designed for analytics students. The
 course emphasizes practical data wrangling skills using Python's technical and scientific
 computing ecosystem, making it ideal for students with minimal or no
 programming background.
@@ -52,10 +52,10 @@ students from zero coding knowledge to practical data analysis skills.
 ## Getting Started
 
 1. **Clone the repository**: `bash git clone
-https://github.com/simoneSantoni/intro-to-Python-IND216.git `
+https://github.com/simoneSantoni/intro-to-Python-IND219.git `
 
-2. **Set up Python environment** (recommended): `bash conda create -n ind216
-python=3.9 conda activate ind216 conda install numpy pandas matplotlib
+2. **Set up Python environment** (recommended): `bash conda create -n ind219
+python=3.14 conda activate ind219 conda install numpy pandas matplotlib
 jupyter `
 
 3. **Access course materials**:
@@ -64,7 +64,7 @@ jupyter `
 
 ## Course Modules
 
-1. **Organization of the Notes and IND216** - Course overview and learning
+1. **Organization of the Notes and IND219** - Course overview and learning
    approach
 2. **Getting Started with Python** - Installation, environments, and running
    programs

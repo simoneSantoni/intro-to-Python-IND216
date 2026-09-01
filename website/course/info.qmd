@@ -4,7 +4,7 @@ title: "Course Information"
 
 ## Course Overview
 
-IND216 - Introduction to Python for Analytics is designed specifically for MSc students in analytics who want to develop practical programming skills for data analysis. This course provides a foundation in Python programming with a focus on the tools and techniques most relevant to data science and analytics work.
+IND219 - Introduction to Python for Analytics is designed specifically for MSc students in analytics who want to develop practical programming skills for data analysis. This course provides a foundation in Python programming with a focus on the tools and techniques most relevant to data science and analytics work.
 
 ## Learning Philosophy
 

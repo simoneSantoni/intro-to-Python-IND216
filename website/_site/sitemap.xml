@@ -1,195 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/working-with-multiple-dataframes.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/working-with-multiple-dataframes.html</loc>
+    <lastmod>2026-09-01T21:33:27.589Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/querying-dataframes.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/querying-dataframes.html</loc>
+    <lastmod>2026-09-01T22:21:26.423Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/pandas-data.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/pandas-data.html</loc>
+    <lastmod>2026-09-01T21:33:27.589Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/manipulating-dataframe-columns.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/manipulating-dataframe-columns.html</loc>
+    <lastmod>2026-09-01T22:35:16.340Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/handling-time-data.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/handling-time-data.html</loc>
+    <lastmod>2026-09-01T22:22:47.847Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/group-by-data-aggregation.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/group-by-data-aggregation.html</loc>
+    <lastmod>2026-09-01T21:33:27.588Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/data-types-and-pandas.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/data-types-and-pandas.html</loc>
+    <lastmod>2026-09-01T22:23:12.979Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/anatomy-of-dataframe.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/anatomy-of-dataframe.html</loc>
+    <lastmod>2026-09-01T21:33:27.588Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-3/statistics.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-3/statistics.html</loc>
+    <lastmod>2026-09-01T22:18:08.151Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-3/numpy-ndarray.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-3/numpy-ndarray.html</loc>
+    <lastmod>2026-09-01T22:17:10.568Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-3/linear-algebra.html</loc>
-    <lastmod>2025-09-22T17:19:07.179Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-3/linear-algebra.html</loc>
+    <lastmod>2026-09-01T22:18:08.151Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-3/index.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-3/index.html</loc>
+    <lastmod>2026-09-01T21:33:27.587Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-3/array-manipulation-routines.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-3/array-manipulation-routines.html</loc>
+    <lastmod>2026-09-01T21:33:27.587Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-2/while-and-for-loops.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-2/while-and-for-loops.html</loc>
+    <lastmod>2026-09-01T22:16:17.646Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-2/string-type-fundamentals.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-2/string-type-fundamentals.html</loc>
+    <lastmod>2026-09-01T22:15:44.916Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-2/python-statements-and-syntax.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-2/python-statements-and-syntax.html</loc>
+    <lastmod>2026-09-01T21:33:27.586Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-2/lists-and-dictionaries.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-2/lists-and-dictionaries.html</loc>
+    <lastmod>2026-09-01T21:33:27.586Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-2/index.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-2/index.html</loc>
+    <lastmod>2026-09-01T21:33:27.586Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-2/dictionaries.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-2/dictionaries.html</loc>
+    <lastmod>2026-09-01T21:33:27.586Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-1/managing-python-environments.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-1/managing-python-environments.html</loc>
+    <lastmod>2026-09-01T21:33:27.585Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-1/how-we-run-python-programs.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-1/how-we-run-python-programs.html</loc>
+    <lastmod>2026-09-01T21:33:27.585Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/index.html</loc>
-    <lastmod>2025-09-22T17:16:28.959Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/index.html</loc>
+    <lastmod>2026-09-01T21:35:40.586Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/course/syllabus.html</loc>
-    <lastmod>2025-09-22T17:14:27.181Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/course/syllabus.html</loc>
+    <lastmod>2026-09-01T22:29:18.192Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/course/schedule.html</loc>
-    <lastmod>2025-09-22T17:14:27.181Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/course/schedule.html</loc>
+    <lastmod>2026-09-01T22:24:21.966Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/course/info.html</loc>
-    <lastmod>2025-09-22T17:14:27.181Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/course/info.html</loc>
+    <lastmod>2026-09-01T21:35:40.587Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/course/support.html</loc>
-    <lastmod>2025-09-22T17:14:27.181Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/course/support.html</loc>
+    <lastmod>2026-09-01T22:23:44.000Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/course/team.html</loc>
-    <lastmod>2025-09-22T17:14:27.181Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/course/team.html</loc>
+    <lastmod>2026-09-01T22:33:29.129Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-1/how-python-runs-programs.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-1/how-python-runs-programs.html</loc>
+    <lastmod>2026-09-01T21:33:27.585Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-1/installing-python.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-1/installing-python.html</loc>
+    <lastmod>2026-09-01T21:35:40.636Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-2/control-flow.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-2/control-flow.html</loc>
+    <lastmod>2026-09-01T22:16:17.647Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-2/files.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-2/files.html</loc>
+    <lastmod>2026-09-01T21:33:27.586Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-2/iterations-and-comprehensions.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-2/iterations-and-comprehensions.html</loc>
+    <lastmod>2026-09-01T22:16:17.647Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-2/number-type-fundamentals.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-2/number-type-fundamentals.html</loc>
+    <lastmod>2026-09-01T21:33:27.586Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-2/sets.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-2/sets.html</loc>
+    <lastmod>2026-09-01T21:33:27.586Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-2/tuples.html</loc>
-    <lastmod>2025-09-22T17:14:27.229Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-2/tuples.html</loc>
+    <lastmod>2026-09-01T21:33:27.586Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-3/array-creation-routines.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-3/array-creation-routines.html</loc>
+    <lastmod>2026-09-01T22:17:10.570Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-3/file-io-with-ndarrays.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-3/file-io-with-ndarrays.html</loc>
+    <lastmod>2026-09-01T21:33:27.587Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-3/installing-numpy.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-3/installing-numpy.html</loc>
+    <lastmod>2026-09-01T21:33:27.587Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-3/mathematical-functions.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-3/mathematical-functions.html</loc>
+    <lastmod>2026-09-01T21:33:27.587Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-3/pseudorandom-number-generation.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-3/pseudorandom-number-generation.html</loc>
+    <lastmod>2026-09-01T22:18:08.150Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-3/universal-functions.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-3/universal-functions.html</loc>
+    <lastmod>2026-09-01T21:33:27.588Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/checking-dataframe-attributes.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/checking-dataframe-attributes.html</loc>
+    <lastmod>2026-09-01T22:22:47.848Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/file-io-with-pandas.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/file-io-with-pandas.html</loc>
+    <lastmod>2026-09-01T21:33:27.588Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/group-by-data-transformation.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/group-by-data-transformation.html</loc>
+    <lastmod>2026-09-01T21:33:27.588Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/index.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/index.html</loc>
+    <lastmod>2026-09-01T21:33:27.589Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/pandas-101.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/pandas-101.html</loc>
+    <lastmod>2026-09-01T21:33:27.589Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/pandas-dataframe.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/pandas-dataframe.html</loc>
+    <lastmod>2026-09-01T22:22:15.449Z</lastmod>
   </url>
   <url>
-    <loc>https://simonesantoni.github.io/intro-to-Python-IND216/modules/module-4/shaping-and-reshaping-dataframes.html</loc>
-    <lastmod>2025-09-22T17:14:27.230Z</lastmod>
+    <loc>https://simonesantoni.github.io/intro-to-Python-IND219/modules/module-4/shaping-and-reshaping-dataframes.html</loc>
+    <lastmod>2026-09-01T21:33:27.589Z</lastmod>
   </url>
 </urlset>

@@ -72,7 +72,7 @@ Yes, we can. To do that, the `for` clause must consider two iterables simultaneo
 
 # implementing a nested for loop with a list comprehension
 >>> LETTER2COLOR = ["{} <-> {}".format(i, j) for i, j in zip(LETTERS, COLORS)]
-['1 <-> blue', '2 <-> green', '3 <-> red']
+['x <-> blue', 'y <-> green', 'z <-> red']
 ```
 
 ::: {.callout-note}

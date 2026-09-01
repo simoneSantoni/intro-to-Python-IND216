@@ -40,10 +40,10 @@ RangeIndex: 3 entries, 0 to 2
 Data columns (total 2 columns):
      Column   Non-Null Count  Dtype
 ---  ------   --------------  -----
- 0   country  3 non-null      object
+ 0   country  3 non-null      str
  1   gdp_pc   3 non-null      float64
-dtypes: float64(1), object(1)
-memory usage: 176.0+ bytes
+dtypes: float64(1), str(1)
+memory usage: 180.0 bytes
 
 # let us get df's attributes one-by-one
 # --+ shape (cases by columns)
@@ -57,7 +57,7 @@ memory usage: 176.0+ bytes
 2
 # --+ check memory usage column-by-column
 >>> df.memory_usage()
-Index      128
+Index      132
 country     24
 gdp_pc      24
 dtype: int64

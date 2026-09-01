@@ -141,7 +141,7 @@ allcolors=tri_2,
 % title
 \title{%
         \begin{tcolorbox}[before skip = \baselineskip, after skip =-\baselineskip]
-            \centering\LARGE\sffamily IND216\\ Introduction to Programming in Python
+            \centering\LARGE\sffamily IND219\\ Introduction to Programming in Python
 	    \footnote{These notes were type-setted in \LaTeX using the Cornell Notes Template} 
         \end{tcolorbox}
 
@@ -158,8 +158,8 @@ allcolors=tri_2,
 	\vspace{5em}
 
 	\normalsize
-	\textcolor{blue}{Version 1.0}\\ 
-	(last edit, August 21$^{st}$ 2025)
+	\textcolor{blue}{Version 1.1}\\ 
+	(last edit, August 30$^{th}$ 2026)
 
 }
 
@@ -171,6 +171,42 @@ allcolors=tri_2,
 \parindent=0pt
 
 % ========================== Document contents ============================= 
+
+%% ========================== Running heads ===============================
+% paracol (1.37) assembles each page with its own output routine and does
+% not carry TeX's marks through it. The book class's `headings' style reads
+% \leftmark / \rightmark, so on any page built from a paracol block the head
+% shows whatever was marked last outside one -- in practice "NOTES", set by
+% \theendnotes at the end of the preceding chapter, or "LIST OF TABLES" in
+% Chapter 1. Older paracol did propagate marks, which is why the 2022 build
+% of these notes looks right and a current rebuild does not.
+%
+% Fix: drive the head from two macros we set ourselves. \gdef survives
+% paracol's output routine, where TeX's marks do not. These \renewcommands
+% must come AFTER \pagestyle{fancy}, which installs its own versions.
+\usepackage{fancyhdr}
+\usepackage{emptypage}   % a verso cleared for a new chapter stays truly blank
+\pagestyle{fancy}
+\newcommand{\headchap}{}
+\newcommand{\headsec}{}
+\makeatletter
+% \protected@xdef, not \gdef: \@chapapp and \thechapter must be frozen at
+% the moment the mark is set. Left unexpanded they are read when the page is
+% shipped, by which point \end{appendices} has restored \@chapapp and the
+% last appendix's head comes out as "CHAPTER 6".
+\renewcommand{\chaptermark}[1]{%
+  \protected@xdef\headchap{\noexpand\MakeUppercase{\@chapapp\ \thechapter.\ #1}}%
+  \gdef\headsec{}}
+\renewcommand{\sectionmark}[1]{%
+  \protected@xdef\headsec{\noexpand\MakeUppercase{\thesection.\ #1}}}
+\makeatother
+\fancyhf{}
+\fancyhead[LE]{\thepage\qquad\slshape\headchap}
+\fancyhead[RO]{\slshape\headsec\qquad\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}}
+
 \begin{document}
 
 \frontmatter
@@ -258,7 +294,7 @@ align=right,
 black!75
 ]
 {
-{\fontsize{25}{30} \selectfont \bf IND216 \\[10pt] NOTES}
+{\fontsize{25}{30} \selectfont \bf IND219 \\[10pt] NOTES}
 } 
 node[
 midway,
@@ -267,7 +303,7 @@ text width=6cm,
 align=left,
 base_c]
 {
-{\fontsize{72}{86.4} \selectfont 2025}
+{\fontsize{72}{86.4} \selectfont 2026}
 };
 
 % Title
@@ -298,7 +334,7 @@ Do not share or distribute without permission
 
 \textbf{Version}
 
-Current version is 1.0 --- last edited on August 21$^{st}$ 2025
+Current version is 1.1 --- last edited on August 30$^{th}$ 2026
 \clearpage
 
 \tableofcontents
@@ -312,7 +348,7 @@ Current version is 1.0 --- last edited on August 21$^{st}$ 2025
 \mainmatter
 \chapter*{Preface}
 
-\raggedright These notes were prepared for the Summer Module `IND216 --- Introduction to Programming in Python.' The materials I present condense more than ten years of experience I developed using Python for industrial applications and research. At the same time, the materials incorporate the feedback from four different cohorts of Bayes MSc students who took IND216 and other modules for which Python is a prerequisite, such as `SMM638 --- Network Analytics,' `SMM635 --- Data Visualization,' and `SMM694 --- Natural Language Processing.' 
+\raggedright These notes were prepared for the Summer Module `IND219 --- Introduction to Programming in Python.' The materials I present condense more than ten years of experience I developed using Python for industrial applications and research. At the same time, the materials incorporate the feedback from four different cohorts of Bayes MSc students who took IND219 and other modules for which Python is a prerequisite, such as `SMM638 --- Network Analytics,' `SMM635 --- Data Visualization,' and `SMM694 --- Natural Language Processing.' 
 
 \quad I prepared these notes with two design principles in mind. First, the notes should have mimicked a conversation between a person interested in learning Python and a knowledge recipient (a robot or a human being, it does not matter!).  The \href{https://en.wikipedia.org/wiki/Cornell_Notes}{Cornell Notes Template} helped me emphasize the notes' conversational structure: the left-hand side of the page is reserved for questions, reported as blue boxes; answers are displayed on the right-hand side of the page.
 
@@ -328,7 +364,7 @@ Current version is 1.0 --- last edited on August 21$^{st}$ 2025
 
 \addcontentsline{toc}{chapter}{Preface}
 
-\chapter{Organization of the Notes and IND216}
+\chapter{Organization of the Notes and IND219}
 \label{ch:organization}
 \par\noindent\rule{\textwidth}{0.4pt}
 
@@ -337,7 +373,7 @@ In this chapter, the reader is supposed to appreciate:
 \begin{itemize}
 	\item The justification for an introductory module on Python for Business Analytics students
 	\item The scope of the teaching materials included in these notes 
-	\item The learning and teaching activities that form `IND216 --- Introduction to Programming in Python
+	\item The learning and teaching activities that form `IND219 --- Introduction to Programming in Python
 \end{itemize}
 
 \par\noindent\rule{\textwidth}{0.4pt}
@@ -365,7 +401,7 @@ In this chapter, the reader is supposed to appreciate:
         		\begin{axis}[
         			title = Interest Over Time (Worldwide),
         			xtick={0, 47, 95, 143},
-        			xticklabels={2010, 2014, 2018, 2025},
+        			xticklabels={2010, 2014, 2018, 2022},
         			xlabel = Time,
         			ylabel = Google Trends Index,
         			legend pos=north west
@@ -391,7 +427,7 @@ In this chapter, the reader is supposed to appreciate:
 \begin{paracol}{2}
 	\question{\raggedright Why do I need to take a pre-course module on Python?}
         \note{
-	There are at least three arguments for taking a module such as IND216:
+	There are at least three arguments for taking a module such as IND219:
 	\begin{itemize}
 		\item Modern quantitative curricula increasingly depart from a spreadsheet-based approach to teaching and learning
 		\item For example, the Bayes Business Analytics MSc builds heavily on the Python programming language
@@ -407,8 +443,8 @@ In this chapter, the reader is supposed to appreciate:
 \section{Scope of the Notes}
 
 \begin{paracol}{2}
-	\question{\raggedright What is the scope of IND216?}
-	\note{The scope of IND216 has been tailored to the learning needs of the Bayes MSc students. Specifically, these notes were created based on the feedback comments provided by four cohorts of students. Hence, I warmly invite you to focus on these notes instead of learning Python using the many books and resources available on the web --- otherwise, you may miss core notions and tools or learn irrelevant ones!
+	\question{\raggedright What is the scope of IND219?}
+	\note{The scope of IND219 has been tailored to the learning needs of the Bayes MSc students. Specifically, these notes were created based on the feedback comments provided by four cohorts of students. Hence, I warmly invite you to focus on these notes instead of learning Python using the many books and resources available on the web --- otherwise, you may miss core notions and tools or learn irrelevant ones!
 	}
 \end{paracol}
 \clearpage
@@ -437,7 +473,7 @@ In this chapter, the reader is supposed to appreciate:
 
 \begin{paracol}{2}
 	\question{\raggedright Which technical and scientific modules will I learn in these notes?}
-	\note{Two foundational modules support statistical analysis, Viz, ML, and DL: NumPy and Pandas. These two modules are the focus of IND216's second part.
+	\note{Two foundational modules support statistical analysis, Viz, ML, and DL: NumPy and Pandas. These two modules are the focus of IND219's second part.
 	}
 \end{paracol}
 
@@ -2078,17 +2114,22 @@ False
 
 \begin{paracol}{2}
 \question{\raggedright How do I source the data stored in a file?}
-\note{You open a pipe to a file using the built-in function \href{https://docs.python.org/3/library/functions.html\#open}{\texttt{open}}. The output of the function is a \texttt{file} object. Snippet 4.24 illustrates how to use \href{https://docs.python.org/3/library/functions.html\#open}{\texttt{open}} for data sourcing. In the first part of the snippet, we create a \texttt{file} object to read the data included in the existing file \texttt{my\_file.txt}.\footnote{For the sake of simplicity, we assume the target file is located in the same directory as the Python script.} At least, we have to pass one argument to \href{https://docs.python.org/3/library/functions.html\#open}{\texttt{open}}: the path pointing to the file. A second optional argument is \texttt{mode}, which specifies the mode in which the file is opened to the source. It defaults to \texttt{r}, which means open for reading in text mode. Other common values are \texttt{w} for writing,\footnote{By default, \texttt{w} truncates the file if it already exists} \texttt{x} for exclusive creation, and \texttt{a} for appending. \footnote{If encoding is not specified, the encoding used is platform-dependent. Specifically, \texttt{locale.getpreferredencoding(False)} is called to get the current locale encoding. Character encoding assigns numbers to graphical characters, especially the written characters of human language, allowing them to be stored, transmitted, and transformed using digital computers.} To read a file's contents, we use the \href{https://docs.python.org/3/tutorial/inputoutput.html\#methods-of-file-objects}{\texttt{.read()}} method (see line 9), returning a string object (see line 10). }
+\note{You open a pipe to a file using the built-in function \href{https://docs.python.org/3/library/functions.html\#open}{\texttt{open}}. The output of the function is a \texttt{file} object. Snippet 4.24 illustrates how to use \href{https://docs.python.org/3/library/functions.html\#open}{\texttt{open}} for data sourcing. In the first part of the snippet, we create a \texttt{file} object to read the data included in the existing file \texttt{my\_file.txt}.\footnote{For the sake of simplicity, we assume the target file is located in the same directory as the Python script.} At least, we have to pass one argument to \href{https://docs.python.org/3/library/functions.html\#open}{\texttt{open}}: the path pointing to the file. A second optional argument is \texttt{mode}, which specifies the mode in which the file is opened to the source. It defaults to \texttt{r}, which means open for reading in text mode. Other common values are \texttt{w} for writing,\footnote{By default, \texttt{w} truncates the file if it already exists} \texttt{x} for exclusive creation, and \texttt{a} for appending. \footnote{If encoding is not specified, the encoding used is platform-dependent. Specifically, \texttt{locale.getpreferredencoding(False)} is called to get the current locale encoding. Character encoding assigns numbers to graphical characters, especially the written characters of human language, allowing them to be stored, transmitted, and transformed using digital computers.} To read a file's contents, we use the \href{https://docs.python.org/3/tutorial/inputoutput.html\#methods-of-file-objects}{\texttt{.read()}} method (see line 14), returning a string object (see line 15). }
 \end{paracol}
 \clearpage
 
 \begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 4.24 --- data input with \texttt{open}}
+# a file to read. NOTE Snippet 4.25 is what normally creates it; these two
+# lines are here so this snippet stands on its own
+>>> with open("my_file.txt", "w") as pipe:
+...     pipe.write("Hi there\n")
+
 # create a pipe to a file
 >>> file = open(file="my_file.txt", mode="r")
 
 # calling "file" yields the attributes of the file object
 >>> file
-<_io.TextIOWrapper name="my_file.txt" mode="r" encoding="UTF-8">
+<_io.TextIOWrapper name='my_file.txt' mode='r' encoding='UTF-8'>
 
 # let us source the data
 >>> data = file.read()
@@ -2175,7 +2216,7 @@ Hi there
 >>> file.readlines()
 ['A\n', 'B\n', 'C\n', 'D']
 
-\end{pythoncode}	
+\end{pythoncode}
 
 \begin{paracol}{2}
 	\question{\raggedright What are the most common file methods?}
@@ -2312,9 +2353,9 @@ Customers who bought x also bought Air Jordan 7 Retro Miro
 >>> if "x" in S:
 ...     print("Customers who bought x also bought Air Jordan 7 Retro Miro")
 ... elif "w" in S:
-	print("How about Converse Chuck Taylor All Star?")
+...     print("How about Converse Chuck Taylor All Star?")
 ... else:
-	print("Falling short of suggestions --- I'm a dull recommender!")
+...     print("Falling short of suggestions --- I'm a dull recommender!")
 How about Converse Chuck Taylor All Star?
 \end{pythoncode}
 
@@ -2420,7 +2461,7 @@ s
 	
 \begin{paracol}{2}
 	\question{\raggedright How do I use\texttt{for} loops with dictionaries?}
-	\note{Like lists, dictionaries are iterable objects. In the upper section of Snippet 4.33, we create a dictionary and iterate over its items printing a simple predicate. As we know from section \ref{sec:dictionaries}, we access a dictionary's values by keys. Hence, in line 5, we retrieve the keys of \texttt{D}. Then, in line 12, we fetch the value of the temporary object \texttt{k}, namely, \texttt{D[k]}. Particularly, we print the temporary object \texttt{k}, the string object \texttt{IS}, and the value associated with \texttt{k}; that is, \texttt{D[k]}. In Snippet 34, we accomplish the same task of Snippet 33. However, the loop regards a dictionary's items --- i.e., key-value pairs --- instead of keys (that is self-evident from the comparison of Snippet 33's line 55 and Snippet 34's line 5). }
+	\note{Like lists, dictionaries are iterable objects. In the upper section of Snippet 4.33, we create a dictionary and iterate over its items printing a simple predicate. As we know from section \ref{sec:dictionaries}, we access a dictionary's values by keys. Hence, in line 5, we retrieve the keys of \texttt{D}. Then, in line 12, we fetch the value of the temporary object \texttt{k}, namely, \texttt{D[k]}. Particularly, we print the temporary object \texttt{k}, the string object \texttt{IS}, and the value associated with \texttt{k}; that is, \texttt{D[k]}. In Snippet 34, we accomplish the same task of Snippet 33. However, the loop regards a dictionary's items --- i.e., key-value pairs --- instead of keys (that is self-evident from the comparison of Snippet 4.33's line 12 and Snippet 4.34's line 8). }
 \end{paracol}
 
 \begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 4.33 --- looping on dictionary keys}
@@ -2477,7 +2518,7 @@ Wanda Maximoff IS human
 
 \begin{paracol}{2}
 	\question{\raggedright What is a nested \texttt{for} loop?}
-    \note{A Python statement that contains multiple \textt{for} loops is a nested \texttt{for} loop. Mainly, a
+    \note{A Python statement that contains multiple \texttt{for} loops is a nested \texttt{for} loop. Mainly, a
     \texttt{for} loop allows to jointly carry out a task over the elements of two iterables. The outer loop considers the individual items of the first iterable (see Snippet 4.26, line 6); the inner loop (indented) considers the individual items of the second list (see line 7). Once we have created a pair of temporary objects, we can do something with it (see line 8).}
 \end{paracol}
 
@@ -2542,7 +2583,7 @@ z  <->  red
 \begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 4.38 --- for loop Vs. list comprehension}
 # the for loop way
 # --+ create an empty list
-L = []
+>>> L = []
 # --+ create a for loop appending the square of some items
 >>> for i in range(3):
 ...    L.append(i ** 2)
@@ -2593,24 +2634,24 @@ L = []
 
 # implementing a nested for loop with a list comprehension
 >>> LETTER2COLOR = ["{} <-> {}".format(i, j) for i, j in zip(LETTERS, COLORS)]
-['1 <-> blue', '2 <-> green', '3 <-> red']
+['x <-> blue', 'y <-> green', 'z <-> red']
 \end{pythoncode}
 
 \begin{paracol}{2}
 	\question{\raggedright Can I embed control flow in a list comprehension?}
-	\note{Yes, we can. To do that, the \texttt{for} clause must be preceded by an \texttt{if} statement and, at least, an \texttt{else} statement (see for example Snippet 4.40's line 22). }
+	\note{Yes, we can. To do that, the \texttt{for} clause must be preceded by an \texttt{if} statement and, at least, an \texttt{else} statement (see for example Snippet 4.41's line 22). }
 \end{paracol}
 
 \begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 4.41 --- control flow in list comprehensions}
 # import the function log from math 
-from math import log
+>>> from math import log
 
 # the object to manipulate
 >>> L1 = [0, 1, 2]
 
 # the for loop way
 # --+ the empty list 
-L2 = []
+>>> L2 = []
 # --+ the for loop appending the log of some items
 >>> for i in L1:
 ...     if i > 0:
@@ -2720,7 +2761,7 @@ array([[[1, 2],
 
 \begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.2 --- NumPy allows to manipulate vectors with an expressive syntax}
 # import numpy with the socially accepted alias 'np'
-import numpy as np
+>>> import numpy as np
 
 # generate some random
 >>> DATA = np.random.randn(3)
@@ -2824,15 +2865,15 @@ import numpy as np
 
 \begin{paracol}{2}
 	\question{\raggedright I know that a NumPy array must contain homogenous data --- but which object types are allowed?}
-	\note{Table \ref{tab:array_data_types} reports the NumPy data types. Python beginners are not supposed to appreciate the distinctive attributes of each type. Instead, they may want to get a clear understanding of the high-level types, namely, floating points, complex, integer, boolean, string, or general Python objects. When working on sophisticated projects requiring more control over the storage types, it is highly suggested to get a thorough knowledge of the types in Table \ref{tab:array_data_types}. It is worth noticing that \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html}{\texxttt{dtypes}} are a source of NumPy's flexibility for interacting with data coming from other systems. In most cases, they map directly onto an underlying disk or memory representation, making it easy to read and write binary data streams to disk and connect to code written in a low-level language like C or Fortran. The numerical \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html}{\texttt{dtypes}} are named the same way: a type name, like \texttt{float} or \texttt{int}, followed by a number indicating the number of bits per element. A standard double-precision floating-point value takes up 8 bytes or 64 bits. Thus, this type is known in NumPy as \texttt{float64}.}
+	\note{Table \ref{tab:array_data_types} reports the NumPy data types. Python beginners are not supposed to appreciate the distinctive attributes of each type. Instead, they may want to get a clear understanding of the high-level types, namely, floating points, complex, integer, boolean, string, or general Python objects. When working on sophisticated projects requiring more control over the storage types, it is highly suggested to get a thorough knowledge of the types in Table \ref{tab:array_data_types}. It is worth noticing that \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html}{\texttt{dtypes}} are a source of NumPy's flexibility for interacting with data coming from other systems. In most cases, they map directly onto an underlying disk or memory representation, making it easy to read and write binary data streams to disk and connect to code written in a low-level language like C or Fortran. The numerical \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html}{\texttt{dtypes}} are named the same way: a type name, like \texttt{float} or \texttt{int}, followed by a number indicating the number of bits per element. A standard double-precision floating-point value takes up 8 bytes or 64 bits. Thus, this type is known in NumPy as \texttt{float64}.}
 \end{paracol}
 
 \begin{paracol}{2}
 	\question{\raggedright How do I specify the data type of an \texttt{array}?}
-	\note{As Snippet 5.4 shows, \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html}{\textttt{dtype}} is an optional argument of \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html}{\texttt{ndarray}}. It is also possible to change \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html}{\texttt{dtype}} using the method \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.astype.html}{\texttt{.astype()}}.}
+	\note{As Snippet 5.4 shows, \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html}{\texttt{dtype}} is an optional argument of \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html}{\texttt{ndarray}}. It is also possible to change \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html}{\texttt{dtype}} using the method \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.astype.html}{\texttt{.astype()}}.}
 \end{paracol}
 
-\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.4 --- specifying a nd changing \texttt{dtype}}
+\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.4 --- specifying and changing \texttt{dtype}}
 # import numpy with the socially accepted alias 'np'
 >>> import numpy as np
 
@@ -2848,14 +2889,17 @@ dtype('int64')
 
 # check the type
 >>> A.dtype
-type('int32')
+dtype('int32')
 
-# type change 
->>> S = np.array(['1.25', '-9.6', '42'], dtype=np.string_)
+# type change
+# --+ NOTE np.bytes_, not np.string_: the np.string_ alias was removed in
+#     NumPy 2.0
+>>> S = np.array(['1.25', '-9.6', '42'], dtype=np.bytes_)
+>>> S
+array([b'1.25', b'-9.6', b'42'], dtype='|S4')
 >>> S = S.astype(float)
 >>> S.dtype
 dtype('float64')
-
 \end{pythoncode}
 
 \clearpage
@@ -2980,7 +3024,7 @@ array([[1., 0., 0., 0.],
 	\begin{itemize}
 		\item \href{https://numpy.org/doc/stable/reference/generated/numpy.fromfunction.html\#numpy.fromfunction}{\texttt{.fromfunction}}, creating an array by executing a function over each coordinate (line 8)
 		\item \href{https://numpy.org/doc/stable/reference/generated/numpy.fromfile.html\#numpy.fromfile}{\texttt{.fromfile}}, creating an array from data in a text or binary file (line 19)
-		\item \href{https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html\#numpy.loadtxt}{\texttt{.loadtxt}}, loading data from a text file (line 37). The example represents a real-world data set containing both numeric and text information. The first argument we pass \href{https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html\#numpy.loadtxt}{\texttt{.loadtxt}} is a file object. To correctly parse the data, we also pass the following discretionary arguments to \href{https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html\#numpy.loadtxt}{\texttt{.loadtxt}}: i) \texttt{comments="\#"} indicates that any lines in the file commencing with \texttt{\#} must be considered a comment, not a piece of data; ii) \texttt{delimiter=","} indicates that two items separated by the character \texttt{,} belong to different fields (i.e., `columns' to use a spreadsheet-alike vocabulary); iii) texttt{quotechar='"'} indicates that strings are enclosed between double quotes\footnote{This feature was introduced with NumPy 1.23.}.  
+		\item \href{https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html\#numpy.loadtxt}{\texttt{.loadtxt}}, loading data from a text file (line 40). The example represents a real-world data set containing both numeric and text information. The first argument we pass \href{https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html\#numpy.loadtxt}{\texttt{.loadtxt}} is a file object. To correctly parse the data, we also pass the following discretionary arguments to \href{https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html\#numpy.loadtxt}{\texttt{.loadtxt}}: i) \texttt{comments="\#"} indicates that any lines in the file commencing with \texttt{\#} must be considered a comment, not a piece of data; ii) \texttt{delimiter=","} indicates that two items separated by the character \texttt{,} belong to different fields (i.e., `columns' to use a spreadsheet-alike vocabulary); iii) texttt{quotechar='"'} indicates that strings are enclosed between double quotes\footnote{This feature was introduced with NumPy 1.23.}.  
 	\end{itemize}
 	}
 \end{paracol}
@@ -2992,7 +3036,7 @@ array([[1., 0., 0., 0.],
 # get data from a function
 # --+ create a function
 >>> my_function = lambda x, y: x - 0.5 * y ** 2
-# --+ create an array from my\fuction for given coordinates
+# --+ create an array from my_function for given coordinates
 >>> np.fromfunction(my_function, (3, 3), dtype=float)
 array([[ 0. , -0.5, -2. ],
        [ 1. ,  0.5, -1. ],
@@ -3000,48 +3044,49 @@ array([[ 0. , -0.5, -2. ],
 
 # get data from a binary file
 # --+ create an array from a list of numbers
->>> D = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])))
+>>> D = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
 # --+ save the raw data to a binary file
 >>> D.tofile("data.bin")
-# --+ read the data back 
+# --+ read the data back
 >>> np.fromfile("data.bin", dtype=int)
+array([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 # get data from a text file
 # --+ create a string with the data and some qualitative comments on them
 >>> S = """
-# Below are some demographic data about Michael J. Jordan (basketball player)
-# from Wikipedia.
-# 
-# Data labels are:
-# 
-# NAME, BORN, NBA CHAMPIONSHIPS, AVERAGE POINT PER GAME
-"Jordan, Michael Jeffrey","17-02-1963",6,30.1
-"""
-# --+ write the data to a file 
+... # Below are some demographic data about Michael J. Jordan (basketball
+... # player) from Wikipedia.
+... #
+... # Data labels are:
+... #
+... # NAME, BORN, NBA CHAMPIONSHIPS, AVERAGE POINT PER GAME
+... "Jordan, Michael Jeffrey","17-02-1963",6,30.1
+... """
+# --+ write the data to a file. The `with' block closes the file for you --
+#     there is no need to call .close() afterwards
 >>> with open("my_data", "w") as pipe:
 ...     pipe.write(S)
->>> pipe.close()
-# --+ read the data and assign them to a NumPy array
->>> np.loadtxt(
-...   open("my_data", "r"),
+# --+ read the data and assign them to a NumPy array. The `with' block
+#     still hands .loadtxt a FILE OBJECT, and closes it afterwards
+>>> with open("my_data", "r") as pipe:
+...     A = np.loadtxt(
+...       pipe,
 ...       dtype={
 ...             "names": (
 ...                      "NAME",
 ...                      "BORN",
 ...                      "NBA CHAMPIONSHIPS",
 ...                      "AVERAGE POINT PER GAME"
-...	                   ),
+...                    ),
 ...             "formats": ("S30", "S10", "i1", "f2"),
 ...             },
 ...       comments="#",
 ...       delimiter=",",
 ...       quotechar='"'
-...   )
+...     )
+>>> A
 array((b'Jordan, Michael Jeffrey', b'17-02-1963', 6, 30.1),
-       dtype=[('NAME', 'S30'),('BORN', 'S10'),
-             ('NBA CHAMPIONSHIPS', 'i1'),
-             ('AVERAGE POINT PER GAME', '<f2')]
-)
+      dtype=[('NAME', 'S30'), ('BORN', 'S10'), ('NBA CHAMPIONSHIPS', 'i1'), ('AVERAGE POINT PER GAME', '<f2')])
 \end{pythoncode}
 
 \begin{sidewaystable}[!htbp]
@@ -3086,13 +3131,16 @@ array((b'Jordan, Michael Jeffrey', b'17-02-1963', 6, 30.1),
 
 \begin{paracol}{2}
 	\question{\raggedright Record arrays}
-	\note{NumPy arrays do not contain any information about the attributes of the data. For example, a NumPy array cannot accommodate any meta-data, such as the fields' names in the data. Here is where \href{https://numpy.org/doc/stable/reference/routines.array-creation.html}{\texttt{.rec}} kick in (see Table \ref{tab:array_for_record_arrays}). For example, \href{https://numpy.org/doc/stable/reference/generated/numpy.core.records.array.html\#numpy.core.records.array}{.core.records.array} allows to flexibly specify a field's type and name (see Snippet 5.7, line 8). Once a `recarray' is created, it is possible to fetch its data by field name (see Snippet 5.7, line 11).}
+	\note{NumPy arrays do not contain any information about the attributes of the data. For example, a NumPy array cannot accommodate any meta-data, such as the fields' names in the data. Here is where \href{https://numpy.org/doc/stable/reference/routines.array-creation.html}{\texttt{.rec}} kick in (see Table \ref{tab:array_for_record_arrays}). For example, \href{https://numpy.org/doc/stable/reference/generated/numpy.core.records.array.html\#numpy.core.records.array}{.core.records.array} allows to flexibly specify a field's type and name (see Snippet 5.7, line 11). Once a `recarray' is created, it is possible to fetch its data by field name (see Snippet 5.7, line 14).}
 \end{paracol}
 
 \begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.7 --- creating record arrays}
-# import records array with an alias that does not conflict with
-# `standard' NumPy arrays
->>> from numpy.core.records import array as recarray
+# import the record-array constructor with an alias that does not conflict
+# with `standard' NumPy arrays. NOTE np.rec: the numpy.core path used to
+# work but became private (numpy._core) in NumPy 2.0, and importing it now
+# raises a DeprecationWarning
+>>> import numpy as np
+>>> from numpy.rec import array as recarray
 
 # the data
 >>> LOCS = [("51.5072° N", "0.1276° W"), ("35.6762° N", "139.6503° E")]
@@ -3137,6 +3185,10 @@ array(['51.5072° N', '35.6762° N'], dtype='<U12')
 \begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.8 --- creating numerical ranges}
 # import numpy with the socially accepted alias 'np'
 >>> import numpy as np
+
+# import a data viz module -- the last section of this snippet plots a
+# contour of the coordinate matrices
+>>> import matplotlib.pyplot as plt
 
 # two ranges of evenly spaced values
 # --+ evenly spaced values between 0 and 10
@@ -3291,7 +3343,7 @@ array([[1., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
 
 \begin{paracol}{2}
 	\question{\raggedright The Matrix Class} 
-	\note{In Snippet 5.9, line 17, I claim to create a matrix. The outcome displayed in line 18 is consistent with the concept of `matrix' we have been taught in a typical linear algebra class: what a human being sees is a set of numbers arranged in rows and columns. However, in NumPy terms, the object displayed in line 18 is an array with two dimensions. If we want to create a NumPy Matrix Class object\footnote{The documentation of NumPy 1.23 states that \textit{It is no longer recommended to use this class, even for linear algebra. Instead, use regular arrays. The class may be removed in the future}.}, we have to call \href{https://numpy.org/doc/stable/reference/generated/numpy.matrix.html\#numpy.matrix}{\texttt{np.matrix}}, a subclass of \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html\#numpy.ndarray}{\texttt{np.ndarray}}. Table \ref{tab:array_for_matrix_class} illustrates the two matrix-creating routines of NumPy.}
+	\note{In Snippet 5.9, line 19, I claim to create a matrix. The outcome displayed in line 20 is consistent with the concept of `matrix' we have been taught in a typical linear algebra class: what a human being sees is a set of numbers arranged in rows and columns. However, in NumPy terms, the object displayed in line 20 is an array with two dimensions. If we want to create a NumPy Matrix Class object\footnote{The documentation of NumPy 1.23 states that \textit{It is no longer recommended to use this class, even for linear algebra. Instead, use regular arrays. The class may be removed in the future}.}, we have to call \href{https://numpy.org/doc/stable/reference/generated/numpy.matrix.html\#numpy.matrix}{\texttt{np.matrix}}, a subclass of \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html\#numpy.ndarray}{\texttt{np.ndarray}}. Table \ref{tab:array_for_matrix_class} illustrates the two matrix-creating routines of NumPy.}
 \end{paracol}
 
 \begin{paracol}{2}
@@ -3303,7 +3355,9 @@ array([[1., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
 # import numpy with the socially accepted alias 'np'
 >>> import numpy as np
 
-# create a matrix class object
+# create a matrix class object. NOTE np.matrix now raises a
+# PendingDeprecationWarning on construction: NumPy's own advice is to use a
+# 2-D array and the @ operator for matrix multiplication instead
 # --+ the arrays to populate a matrix class object
 >>> A = np.array([0, 1, 2])
 >>> B = np.array([-99, 203, 1009])
@@ -3417,7 +3471,7 @@ array([[0, 1, 2, 6],
 \label{sec:universal_functions}
 
 \begin{paracol}{2}
-	\question{\rggedright What is a universal function?}
+	\question{\raggedright What is a universal function?}
 	\note{A universal function, or \href{https://numpy.org/doc/stable/reference/ufuncs.html}{\texttt{ufunc}}, is a function that performs element-wise operations on \texttt{ndarrays}. You can think of them as fast vectorized wrappers for simple functions that take one or more scalar values and produce one or more scalar results\footnote{Here is an interesting passage from the official \href{https://numpy.org/doc/stable/glossary.html\#term-vectorization}{NumPy} documentation: \textit{NumPy hands off array processing to C, where looping and computation are much faster than in Python. To exploit this, programmers using NumPy eliminate Python loops in favor of array-to-array operations. vectorization can refer both to the C offloading and to structuring NumPy code to leverage it.}}.}
 \end{paracol}
 
@@ -3462,38 +3516,52 @@ Similar to the case of array-manipulating routines, a detailed discussion of eve
 
 # trigonometric functions
 # --+ x-values
->>> X = np.arange(0, 2 * np.pi, 0.# --+ plot SI 
+>>> X = np.arange(0, 2 * np.pi, 0.1)
 # --+ y-values
 >>> SI, CS = np.sin(X), np.cos(X)
 
 # plot the functions
-# --+ plot SI 
+# --+ plot SI
 >>> fig = plt.figure(figsize=(2.5, 2.5))
 >>> ax = fig.add_subplot(111)
 >>> ax.axhline(y=0, color="k", linewidth=0.5)
+<matplotlib.lines.Line2D object at 0x10c7338c0>
 >>> ax.set_xticks([0, 0.5 * np.pi, np.pi, 1.5 * np.pi, 2 * np.pi])
+[<matplotlib.axis.XTick object at 0x10c733620>, <matplotlib.axis.XTick object at 0x10c65bed0>, <matplotlib.axis.XTick object at 0x10c78f610>, <matplotlib.axis.XTick object at 0x10c78f9d0>, <matplotlib.axis.XTick object at 0x10c78fd90>]
 >>> ax.set_xticklabels(
 ...     ["0", r"$\frac{1}{2} \pi$", r"$\pi$", r"$\frac{3}{2} \pi$", r"$2 \pi$"]
 ... )
+[Text(0.0, 0, '0'), Text(1.5707963267948966, 0, '$\\frac{1}{2} \\pi$'), Text(3.141592653589793, 0, '$\\pi$'), Text(4.71238898038469, 0, '$\\frac{3}{2} \\pi$'), Text(6.283185307179586, 0, '$2 \\pi$')]
 >>> plt.xlabel("$X$")
+Text(0.5, 0, '$X$')
 >>> plt.ylabel("$sine(X)$")
+Text(0, 0.5, '$sine(X)$')
 >>> ax.grid(True)
 >>> ax.plot(X, SI, color="Blue")
+[<matplotlib.lines.Line2D object at 0x10c7a1e80>]
 >>> plt.title("A")
->>> plt.show() 
-# --+ plot CS 
+Text(0.5, 1.0, 'A')
+>>> plt.show()
+# --+ plot CS
 >>> fig = plt.figure(figsize=(2.5, 2.5))
 >>> ax = fig.add_subplot(111)
 >>> ax.axhline(y=0, color="k", linewidth=0.5)
+<matplotlib.lines.Line2D object at 0x10c7a2cf0>
 >>> ax.set_xticks([0, 0.5 * np.pi, np.pi, 1.5 * np.pi, 2 * np.pi])
+[<matplotlib.axis.XTick object at 0x10c7d2710>, <matplotlib.axis.XTick object at 0x10c7d1e50>, <matplotlib.axis.XTick object at 0x10c7d3ed0>, <matplotlib.axis.XTick object at 0x10c8142d0>, <matplotlib.axis.XTick object at 0x10c814690>]
 >>> ax.set_xticklabels(
 ...     ["0", r"$\frac{1}{2} \pi$", r"$\pi$", r"$\frac{3}{2} \pi$", r"$2 \pi$"]
 ... )
+[Text(0.0, 0, '0'), Text(1.5707963267948966, 0, '$\\frac{1}{2} \\pi$'), Text(3.141592653589793, 0, '$\\pi$'), Text(4.71238898038469, 0, '$\\frac{3}{2} \\pi$'), Text(6.283185307179586, 0, '$2 \\pi$')]
 >>> plt.xlabel("$X$")
+Text(0.5, 0, '$X$')
 >>> plt.ylabel("$cosine(X)$")
+Text(0, 0.5, '$cosine(X)$')
 >>> ax.grid(True)
 >>> ax.plot(X, CS, color="Blue")
+[<matplotlib.lines.Line2D object at 0x10c9181a0>]
 >>> plt.title("B")
+Text(0.5, 1.0, 'B')
 >>> plt.show()
 \end{pythoncode}
 
@@ -3521,7 +3589,7 @@ Similar to the case of array-manipulating routines, a detailed discussion of eve
 
 \begin{paracol}{2}
 	\question{\raggedright Can I run multivariate statistical analysis with NumPy}
-	\note{Short answer: no. There are dedicated Python modules to run multivariate analyses, though. For example \href{https://bashtage.github.io/linearmodels/index.html}{linearmodels} and \href{https://www.statsmodels.org/stable/generated/statsmodels.sandbox.regression.gmm.IV2SLS.html?highlight=2sls#statsmodels.sandbox.regression.gmm.IV2SLS}{statsmodels} are two popular modules to carry out econometric models in Python; \href{https://scikit-learn.org/stable/}{scikit-learn} is the acclaimed module for machine learning in Python.}
+	\note{Short answer: no. There are dedicated Python modules to run multivariate analyses, though. For example \href{https://bashtage.github.io/linearmodels/index.html}{linearmodels} and \href{https://www.statsmodels.org/stable/generated/statsmodels.sandbox.regression.gmm.IV2SLS.html?highlight=2sls\#statsmodels.sandbox.regression.gmm.IV2SLS}{statsmodels} are two popular modules to carry out econometric models in Python; \href{https://scikit-learn.org/stable/}{scikit-learn} is the acclaimed module for machine learning in Python.}
 \end{paracol}
 \clearpage
 
@@ -3626,17 +3694,21 @@ Similar to the case of array-manipulating routines, a detailed discussion of eve
 \clearpage
 \begin{paracol}{2}
 	\question{\raggedright So, how do I produce a set of summary stats in NumPy?}
-	\note{Snippet 5.13 shows how to create a typical set of summary stats, including an array's mean, standard deviation, minimum, maximum, and some percentiles of interest. Mainly, the snippet has three steps. First, we create an array (line 8). Second, we assign a couple of variables to NumPy statistical functions such as \href{https://numpy.org/doc/stable/reference/generated/numpy.mean.html\#numpy.mean}{\texttt{.mean}}, \href{https://numpy.org/doc/stable/reference/generated/numpy.std.html\#numpy.std}{\texttt{.std}}, \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.min.html}{\texttt{.min}}, \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.max.html}{\texttt{np.max}}, and \href{https://numpy.org/doc/stable/reference/generated/numpy.percentile. html\#numpy.percentile}{\texttt{.percentile}} (see lines 11-17). It is worth noting that \texttt{min} and \texttt{max} are keywords reserved for Python built-in functions. To avoid any name conflict and potential sources of confusion, in lines 13 and 14, we use the names \texttt{min\_} and \texttt{max\_}. Finally, we create a table displaying the variables created in the previous step (see lines 21, 23, and 27).} 
+	\note{Snippet 5.13 shows how to create a typical set of summary stats, including an array's mean, standard deviation, minimum, maximum, and some percentiles of interest. Mainly, the snippet has three steps. First, we create an array (line 12). Second, we assign a couple of variables to NumPy statistical functions such as \href{https://numpy.org/doc/stable/reference/generated/numpy.mean.html\#numpy.mean}{\texttt{.mean}}, \href{https://numpy.org/doc/stable/reference/generated/numpy.std.html\#numpy.std}{\texttt{.std}}, \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.min.html}{\texttt{.min}}, \href{https://numpy.org/doc/stable/reference/generated/numpy.ndarray.max.html}{\texttt{np.max}}, and \href{https://numpy.org/doc/stable/reference/generated/numpy.percentile. html\#numpy.percentile}{\texttt{.percentile}} (see lines 15-21). It is worth noting that \texttt{min} and \texttt{max} are keywords reserved for Python built-in functions. To avoid any name conflict and potential sources of confusion, in lines 17 and 18, we use the names \texttt{min\_} and \texttt{max\_}. Finally, we create a table displaying the variables created in the previous step (see lines 25, 29, and 33).} 
 \end{paracol}
 
-\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.12 --- NumPy trigonometric functions in action}
+\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.13 --- a set of summary statistics}
 # import numpy with the socially accepted alias 'np'
 >>> import numpy as np
 
-# import a module for arranging numbers in a tabular format
->>> import tabulate
+# import a module for arranging numbers in a tabular format. NOTE the form
+# of the import: `import tabulate' brings in the MODULE, and calling a
+# module raises TypeError -- it is the FUNCTION inside it that we want.
+# tabulate is not part of the course environment; install it with
+# `conda install tabulate' (or pip) if you want to run this snippet
+>>> from tabulate import tabulate
 
-# the array 
+# the array
 >>> X = np.array([0, 0, -3, 12, 7, 2, -4, 6, 9, -1, 5, 3, -1, 3, 10, 9])
 
 # get the descriptive stats
@@ -3651,12 +3723,12 @@ Similar to the case of array-manipulating routines, a detailed discussion of eve
 # arrange the stats in a tabular format
 # --+ create the table header
 >>> headers = [
-	"Mean", "St. Dev.", "Min", "Max", "25th pp", "50th pp", "75th pp"
-	]
-# --+ format the floating point numbers to two decimal places and get a string 
+...     "Mean", "St. Dev.", "Min", "Max", "25th pp", "50th pp", "75th pp"
+...     ]
+# --+ round the numbers to three decimal places and get a string
 >>> stats = [
-	str(np.round(i, 3)) for i in [mean, std, min_, max_, pp25, pp50, pp75]
-	]
+...     str(np.round(i, 3)) for i in [mean, std, min_, max_, pp25, pp50, pp75]
+...     ]
 # --+ print the table
 >>> print(tabulate([stats], headers=headers, tablefmt="grid"))
 +--------+------------+-------+-------+-----------+-----------+-----------+
@@ -3667,17 +3739,17 @@ Similar to the case of array-manipulating routines, a detailed discussion of eve
 \end{pythoncode}
 
 \begin{paracol}{2}
-	\question{\rggedright Can I calculate Pearson's correlation coefficients in NumPy?}
-	\note{Yes, you can. Snippet 5.13 shows how to do so by using \href{https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html}{\texttt{.corrcoef}}, one of the functions included in Table \ref{tab:correlating}.}
+	\question{\raggedright Can I calculate Pearson's correlation coefficients in NumPy?}
+	\note{Yes, you can. Snippet 5.14 shows how to do so by using \href{https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html}{\texttt{.corrcoef}}, one of the functions included in Table \ref{tab:correlating}.}
 \end{paracol}
 
-\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.13 --- a matrix with Pearson's correlation coefficients}
+\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.14 --- a matrix with Pearson's correlation coefficients}
 # import numpy with the socially accepted alias 'np'
 >>> import numpy as np
 
 # the arrays
-X = np.array([0, 0, -3, 12, 7, 2, -4, 6, 9, -1, 5, 3, -1, 3, 10, 9])
-Y = np.array([12, 12, 4, 3, 9, 2, -6, 15, 0, -12, 15, -3, -1, 0, 0, 1])
+>>> X = np.array([0, 0, -3, 12, 7, 2, -4, 6, 9, -1, 5, 3, -1, 3, 10, 9])
+>>> Y = np.array([12, 12, 4, 3, 9, 2, -6, 15, 0, -12, 15, -3, -1, 0, 0, 1])
 
 # get Pearson's correlation coefficients
 >>> np.corrcoef(X, Y)
@@ -3831,7 +3903,7 @@ For an overview of numPy's linear algebra routines, see Tables \ref{tab:matrix_a
 
 \begin{paracol}{2}
     \question{\raggedright Matrix and vector products}
-    \note{Snippet 5.14 shows how to use NumPy to get dot, inner, and outer products --- whose definitions are reported in equations \ref{eq:dot}, \ref{eq:inner}, and \ref{eq:outer} respectively:
+    \note{Snippet 5.15 shows how to use NumPy to get dot, inner, and outer products --- whose definitions are reported in equations \ref{eq:dot}, \ref{eq:inner}, and \ref{eq:outer} respectively:
     
     \begin{equation}
 	\label{eq:dot}
@@ -3856,7 +3928,7 @@ For an overview of numPy's linear algebra routines, see Tables \ref{tab:matrix_a
     }
 \end{paracol}
 
-\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.14 --- matrix and vector products}
+\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.15 --- matrix and vector products}
 # import numpy with the socially accepted alias 'np'
 >>> import numpy as np
 
@@ -3906,7 +3978,7 @@ array([[ 0,  0,  0,  0],
 
 \begin{paracol}{2}
 \question{Solving a system of equations}
-\note{Snippet 5.15 shows how to solve the following system of equations:
+\note{Snippet 5.16 shows how to solve the following system of equations:
 $$ \left\{
 \begin{array}{lr}
 4x + 2y = 2000\\
@@ -3916,7 +3988,7 @@ $$ \left\{
 }
 \end{paracol}
 
-\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.15 --- solving a system of equations such as}
+\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.16 --- solving a system of equations such as}
 # import numpy with the socially accepted alias 'np'
 >>> import numpy as np
 
@@ -3934,7 +4006,7 @@ array([526.31578947, -52.63157895])
 \clearpage
 
 \begin{paracol}{2}
-\question{\raggedrigt How do I carry out a least-square estimation in NumPy?}
+\question{\raggedright How do I carry out a least-square estimation in NumPy?}
 \note{The least-square estimator is a popular choice for estimating the relationship between two variables, one of the most common tasks in statistics and econometrics.\footnote{Students who want to familiarize with the field of econometrics are warmly encouraged to read Angrist, Joshua D., and Jörn-Steffen Pischke. \href{https://www.mostlyharmlesseconometrics.com/}{Mostly harmless econometrics: An empiricist's companion}. Princeton university press, 2009.} Specifically, the least-square estimator is defined as follows:
 
 \begin{equation}
@@ -3943,14 +4015,14 @@ array([526.31578947, -52.63157895])
 
 Where $\hat{\beta}$ is the estimate of the regression coefficients, $X$ is the matrix of regressors, $y$ is the outcome vector, and $X^T X$.
 
-\quad In Snippet 5.16, we create two arrays, \texttt{x} --- playing the role of the regressor --- and \texttt{y} --- which we pretend to be the outcome variable. Then, we arrange the data in an array containing \texttt{x}  and a vector of ones. In this way, we add an intercept to the model, namely a scalar that does not change across the observations in the data (see line 11). Finally, we estimate the two regression coefficients of interest:
+\quad In Snippet 5.17, we create two arrays, \texttt{x} --- playing the role of the regressor --- and \texttt{y} --- which we pretend to be the outcome variable. Then, we arrange the data in an array containing \texttt{x}  and a vector of ones. In this way, we add an intercept to the model, namely a scalar that does not change across the observations in the data (see line 12). Finally, we estimate the two regression coefficients of interest:
 
 \begin{itemize}
 	\item The regression coefficient for \texttt{x}, capturing the expected change in \texttt{y} for a unitary increase in \texttt{x}
 	\item The regression coefficient for the intercept, namely, the exepected value of \texttt{y} when the association between \texttt{x} and \texttt{y} is partialled-out
 \end{itemize}
 
-\quad Let me stress that \href{https://numpy.org/doc/stable/reference/generated/numpy.linalg.lstsq.html#numpy.linalg.lstsq}{\texttt{.linalg.lstsq}} returns four pieces of information:
+\quad Let me stress that \href{https://numpy.org/doc/stable/reference/generated/numpy.linalg.lstsq.html\#numpy.linalg.lstsq}{\texttt{.linalg.lstsq}} returns four pieces of information:
 
 \begin{itemize}
 	\item An array with the estimated regression coefficients
@@ -3959,7 +4031,7 @@ Where $\hat{\beta}$ is the estimate of the regression coefficients, $X$ is the m
 	\item The singular values of the matrix containing the regressors
 \end{itemize}
 
-\quad Thus, in line 28, we fetch the first element of the returned array, i.e., the regression coefficients.
+\quad Thus, in line 30, we fetch the first element of the returned array, i.e., the regression coefficients.
 
 \quad Figure \ref{fig:ols} provides a visual representation of the least-square estimator.
 
@@ -3967,16 +4039,17 @@ Where $\hat{\beta}$ is the estimate of the regression coefficients, $X$ is the m
 \end{paracol}
 \clearpage
 
-\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.16 --- computing the least-square solutions to a linear matrix equation}
+\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.17 --- computing the least-square solutions to a linear matrix equation}
 # import numpy with the socially accepted alias 'np'
 >>> import numpy as np
 
-# the arrays
+# the arrays. NOTE they must have the SAME length -- lstsq matches the rows
+# of A against the entries of y
 >>> x = np.arange(0, 15, 1)
->>> y = [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29]
-and use the least-square estimator to e
-# data preparation / adding a constant to the model 
->>> A = np.vstack([x, np.ones(len(X))]).T
+>>> y = [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31]
+
+# data preparation / adding a constant to the model
+>>> A = np.vstack([x, np.ones(len(x))]).T
 >>> A
 array([[ 0.,  1.],
        [ 1.,  1.],
@@ -3994,17 +4067,20 @@ array([[ 0.,  1.],
        [13.,  1.],
        [14.,  1.]])
 
-# estimate the regression coefficients (a.k.a., the regression slopes) of 
-# the linear model
->>> b = np.linalg.lstsq(A, y)[0]
+# estimate the regression coefficients (a.k.a., the regression slopes) of
+# the linear model. NOTE rcond=None: leaving it out used to warn, and the
+# silent default changed in NumPy, so it is worth being explicit
+>>> b = np.linalg.lstsq(A, y, rcond=None)[0]
+# these data sit exactly on the line y = 2x + 3, so the estimator recovers
+# the generating slope and intercept with no residual
 >>> b
-array([2.15714286, 2.23333333])
+array([2., 3.])
 \end{pythoncode}
 
 \begin{figure}[!htbp]
 	\centering
 	\input{ols.pgf}
-	\caption{A visual illustration of the least-square estimation carried out in Snippet 5.16}
+	\caption{A visual illustration of the least-square estimation carried out in Snippet 5.17}
 	\label{fig:ols}
 \end{figure}
 \section{Pseudorandom Number Generation}
@@ -4166,10 +4242,10 @@ array([2.15714286, 2.23333333])
 
 \begin{paracol}{2}
 	\question{\raggedright Permutation in NumPy}
-	\note{Permuting means changing the order of the elements in an array. Array permutations can be done `in-place' (see Snippet 5.17, line 13), so the original array is modified, or a copy is created (see line 17). Note the outcome of the \texttt{np.random} functions are not reproducible. Simply, running the same NumPy generator $n$ times might return $n$ different outcomes. To ensure the reproducibility of NumPy code, we must initialize a random generator instance, as shown in the lower section of Snippet 5.17. Specifically, in line 23, we assign the object \texttt{rgn} to the outcome of \href{https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.Generator}{\texttt{.default\_rng}}. The parameter passed to the generator, known as `seed,' is an arbitrary number object. If you reproduce lines 23-25, you will get the outcome I got, displayed in line 26.}
+	\note{Permuting means changing the order of the elements in an array. Array permutations can be done `in-place' (see Snippet 5.17, line 13), so the original array is modified, or a copy is created (see line 17). Note the outcome of the \texttt{np.random} functions are not reproducible. Simply, running the same NumPy generator $n$ times might return $n$ different outcomes. To ensure the reproducibility of NumPy code, we must initialize a random generator instance, as shown in the lower section of Snippet 5.17. Specifically, in line 23, we assign the object \texttt{rgn} to the outcome of \href{https://numpy.org/doc/stable/reference/random/generator.html\#numpy.random.Generator}{\texttt{.default\_rng}}. The parameter passed to the generator, known as `seed,' is an arbitrary number object. If you reproduce lines 23-25, you will get the outcome I got, displayed in line 26.}
 \end{paracol}
 
-\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.17 --- \texttt{.shuffle} Vs. \texttt{.permutation}}
+\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.18 --- \texttt{.shuffle} Vs. \texttt{.permutation}}
 # import numpy with the socially accepted alias 'np'
 >>> import numpy as np
 
@@ -4208,70 +4284,106 @@ array([6, 9, 3, 8, 7, 2, 4, 1, 0, 5])
 		\item to sample from a theoretical distribution
 	\end{itemize}
 	
-	\quad Lines 9 and 12 included in Snippet 5.18 show how to sample a given number of elements (see parameter \texttt{size}) from an existing array. The code in line 12 differs from the code in line 9 because of the optional parameter \texttt{replace} that is set to \texttt{False} (default is \texttt{True}). In so doing, an element can be sampled once and once only.
+	\quad Lines 19 and 22 included in Snippet 5.19 show how to sample a given number of elements (see parameter \texttt{size}) from an existing array. The code in line 22 differs from the code in line 19 because of the optional parameter \texttt{replace} that is set to \texttt{False} (default is \texttt{True}). In so doing, an element can be sampled once and once only.
 	
-	\quad In lines 22 and 27, we create two arrays of shape \texttt{(10000,)} from the random normal (see \href{https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html}{\texttt{.random.normal}}) and Poisson (see \href{https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.poisson.html}{\texttt{.random.poisson}}) distribution respectively. In the interesting of redundancy, \href{https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html}{\texttt{.random.normal}} takes three mandatory arguments: the mean of the distribution (\texttt{loc}), the standard deviation of the distribution (\texttt{scale}), and the size of the array (\texttt{size}); (see \href{https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.poisson.html}{\texttt{.random.poisson}}) takes two mandatory arguments: the expected value/variance of the distribution (\texttt{lam}) and the size of the distribution (\texttt{size}). In lines 32 - 50, we use Matplotlib to visualize the distribution of the two arrays (see Figure \ref{fig:normal_and_poisson_distros}) 
+	\quad In lines 32 and 37, we create two arrays of shape \texttt{(10000,)} from the random normal (see \href{https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html}{\texttt{.random.normal}}) and Poisson (see \href{https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.poisson.html}{\texttt{.random.poisson}}) distribution respectively. In the interesting of redundancy, \href{https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html}{\texttt{.random.normal}} takes three mandatory arguments: the mean of the distribution (\texttt{loc}), the standard deviation of the distribution (\texttt{scale}), and the size of the array (\texttt{size}); (see \href{https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.poisson.html}{\texttt{.random.poisson}}) takes two mandatory arguments: the expected value/variance of the distribution (\texttt{lam}) and the size of the distribution (\texttt{size}). In lines 42 - 60, we use Matplotlib to visualize the distribution of the two arrays (see Figure \ref{fig:normal_and_poisson_distros}) 
 	}
 \end{paracol}
 
-\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.18 --- \texttt{.integers} Vs. \texttt{.random} Vs. \texttt{.choice}}
+\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.19 --- \texttt{.integers} Vs. \texttt{.random} Vs. \texttt{.choice}}
 # import numpy with the socially accepted alias 'np'
 >>> import numpy as np
+
+# import a data viz module
+>>> import matplotlib.pyplot as plt
+
+# NumPy's modern random API is a Generator object, created with
+# .default_rng. Seeding it makes the draws below reproducible: run this
+# snippet yourself and you will get exactly these numbers. The older
+# np.random.seed / np.random.randint interface still works, but it drives
+# one global state that any library in the session can disturb
+>>> rng = np.random.default_rng(42)
 
 # the array
 >>> A = np.arange(10)
 
 # random sampling from an existing array
 # --+ sampling with replacement (items can be drawn multiple times)
->>> np.random.choice(A, size=7)
-array([3, 5, 7, 3, 1, 5, 2])
+>>> rng.choice(A, size=7)
+array([0, 7, 6, 4, 4, 8, 0])
 # --+ sampling without replacement (items can be drawn only once)
->>> np.random.choice(A, size=7, replace=False)
-array([4, 2, 6, 3, 1, 0, 5])
+>>> rng.choice(A, size=7, replace=False)
+array([1, 3, 9, 2, 0, 7, 6])
 
 # sampling from a range
->>> np.random.integer(0, 10, size=4)
-array([4, 3, 2, 3])
+>>> rng.integers(0, 10, size=4)
+array([5, 3, 1, 9])
 
 # sampling from a theoretical distribution
-# --+ 10,000 items from a normal distribution with a mean of 10 and 
+# --+ 10,000 items from a normal distribution with a mean of 10 and
 # standard deviation of 10
->>> N = np.random.norm(loc=10, scale=10, size=10000)
+>>> N = rng.normal(loc=10, scale=10, size=10000)
 >>> N
-array([-1.80532765,  1.43318889,  1.14774224, ...,  0.38328412,
-        1.37732456,  0.76801253])
+array([10.66030698, 21.27241207, 14.67509342, ..., 17.69686517,
+       18.65807215,  8.06749993], shape=(10000,))
 # --+ 10,000 items from the Poisson distribution with lambda=10
->>> P = np.random.poisson(lam=10, size=10000)
+>>> P = rng.poisson(lam=10, size=10000)
 >>> P
-array([11,  7,  7, ...,  9,  6,  7])
-# --+ visualize the two arrays
-# ----+ Normal distribution
-fig = plt.figure(figsize=(3, 3))
-ax = fig.add_subplot(111)
-ax.hist(N, color='blue', bins=50)
-ax.set_ylabel('Count')
-ax.set_xlabel('Value')
-plt.title('Normal distribution data')
-plt.grid(True,  ls="--")
-plt.show()
-# ----+ Poisson distribution
-from collections import Counter
-P_FR = Counter(P)
-fig = plt.figure(figsize=(3, 3))
-ax = fig.add_subplot(111)
-ax.scatter(P_FR.keys(), P_FR.values(), color='blue')
-ax.set_ylabel('Count')
-ax.set_xlabel('Value')
-plt.title('Poisson distribution data')
-plt.grid(True, ls="--")
-plt.show()
+array([15, 12, 15, ..., 10, 10, 14], shape=(10000,))
+
+# visualize the two arrays
+# --+ Normal distribution
+>>> fig = plt.figure(figsize=(3, 3))
+>>> ax = fig.add_subplot(111)
+>>> ax.hist(N, color='blue', bins=50)
+(array([  1.,   0.,   0.,   0.,   1.,   2.,   1.,   9.,   8.,  23.,  25.,
+        32.,  47.,  67.,  98., 161., 192., 247., 289., 387., 394., 486.,
+       553., 603., 671., 701., 666., 633., 648., 579., 493., 409., 360.,
+       293., 255., 186., 152., 104.,  78.,  42.,  38.,  23.,  18.,   8.,
+         9.,   5.,   2.,   0.,   0.,   1.]), array([-33.89114585, -32.20815812, -30.5251704 , -28.84218267,
+       -27.15919495, -25.47620722, -23.7932195 , -22.11023177,
+       -20.42724404, -18.74425632, -17.06126859, -15.37828087,
+       -13.69529314, -12.01230542, -10.32931769,  -8.64632997,
+        -6.96334224,  -5.28035451,  -3.59736679,  -1.91437906,
+        -0.23139134,   1.45159639,   3.13458411,   4.81757184,
+         6.50055956,   8.18354729,   9.86653501,  11.54952274,
+        13.23251047,  14.91549819,  16.59848592,  18.28147364,
+        19.96446137,  21.64744909,  23.33043682,  25.01342454,
+        26.69641227,  28.3794    ,  30.06238772,  31.74537545,
+        33.42836317,  35.1113509 ,  36.79433862,  38.47732635,
+        40.16031407,  41.8433018 ,  43.52628953,  45.20927725,
+        46.89226498,  48.5752527 ,  50.25824043]), <BarContainer object of 50 artists>)
+>>> ax.set_ylabel('Count')
+Text(0, 0.5, 'Count')
+>>> ax.set_xlabel('Value')
+Text(0.5, 0, 'Value')
+>>> plt.title('Normal distribution data')
+Text(0.5, 1.0, 'Normal distribution data')
+>>> plt.grid(True, ls="--")
+>>> plt.show()
+# --+ Poisson distribution. NOTE list(...) around the dictionary views:
+#     Matplotlib needs a sequence it can index, not a view object
+>>> from collections import Counter
+>>> P_FR = Counter(P)
+>>> fig = plt.figure(figsize=(3, 3))
+>>> ax = fig.add_subplot(111)
+>>> ax.scatter(list(P_FR.keys()), list(P_FR.values()), color='blue')
+<matplotlib.collections.PathCollection object at 0x10b0c1be0>
+>>> ax.set_ylabel('Count')
+Text(0, 0.5, 'Count')
+>>> ax.set_xlabel('Value')
+Text(0.5, 0, 'Value')
+>>> plt.title('Poisson distribution data')
+Text(0.5, 1.0, 'Poisson distribution data')
+>>> plt.grid(True, ls="--")
+>>> plt.show()
 \end{pythoncode}
 
 \begin{figure}[!htbp]
 	\centering
 	\input{norm.pgf}
 	\input{poisson.pgf}
-	\caption{A visual illustration of the Normal and Poisson data generated in Snippet 5.18}
+	\caption{A visual illustration of the Normal and Poisson data generated in Snippet 5.19}
 	\label{fig:normal_and_poisson_distros}
 \end{figure}
 
@@ -4301,7 +4413,7 @@ plt.show()
 
 \begin{paracol}{2}
 	\question{\raggedright Can you show me some IO examples?}
-	\note{Of course! Snippet 5.19 deals with the following cases:
+	\note{Of course! Snippet 5.20 deals with the following cases:
 	
 	\begin{itemize}
 		\item Single array case: lines 18 and 20 illustrate how to write and read an \texttt{.npy} file (accepting one and one array only!)
@@ -4330,7 +4442,7 @@ plt.show()
 \end{sidewaystable}
 \clearpage
 
-\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.19 --- IO with the \texttt{.npy} (\texttt{.npz}) format}
+\begin{pythoncode}[linenos=true,]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 5.20 --- IO with the \texttt{.npy} (\texttt{.npz}) format}
 # import numpy with the socially accepted alias 'np'
 >>> import numpy as np
 
@@ -4478,12 +4590,12 @@ At the end of the chapter, you will be able to:
 	\begin{tabular}{|c|c|c|c|c|c|c|}
 		\hline
 		\textbf{Case} & \textbf{Var a} & \textbf{Var b} & \ldots & \textbf{Var i} & \ldots & \textbf{Var k} \\\hline
-		\textbf{1}    & a_{1} & b_{1} & \ldots & i_{1} & \ldots & k_{1} \\
-		\textbf{2}    & a_{2} & b_{2} & \ldots & i_{2} & \ldots & k_{2} \\
+		\textbf{1}    & $a_{1}$ & $b_{1}$ & \ldots & $i_{1}$ & \ldots & $k_{1}$ \\
+		\textbf{2}    & $a_{2}$ & $b_{2}$ & \ldots & $i_{2}$ & \ldots & $k_{2}$ \\
                 \multicolumn{7}{c}{}\\
-		\textbf{j}    & a_{j} & b_{j} & \ldots & i_{j} & \ldots & k_{j} \\
+		\textbf{j}    & $a_{j}$ & $b_{j}$ & \ldots & $i_{j}$ & \ldots & $k_{j}$ \\
                 \multicolumn{7}{c}{}\\
-		\textbf{n}    & a_{n} & b_{n} & \ldots & i_{n} & \ldots & k_{n} \\
+		\textbf{n}    & $a_{n}$ & $b_{n}$ & \ldots & $i_{n}$ & \ldots & $k_{n}$ \\
 		\hline 
 	\end{tabular}
 	\caption{A stylized representation of a case-by-variable data structure}
@@ -4495,7 +4607,7 @@ At the end of the chapter, you will be able to:
 	\note{Mainly, there are two alternatives:
 	
 	\begin{itemize}
-	\item Option 1: passing tables loaded onto the current Python session\footnote{throughout the book, I refer to Python sessions without loss of generality. The points I make are valid also for IPython or Jupyter sessions.} to the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html}{\textttt{.DataFrame}} class
+	\item Option 1: passing tables loaded onto the current Python session\footnote{throughout the book, I refer to Python sessions without loss of generality. The points I make are valid also for IPython or Jupyter sessions.} to the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html}{\texttt{.DataFrame}} class
 	\item Option 2: sourcing external data, available in a local file or on a server,  
 	\end{itemize}
 	}
@@ -4545,56 +4657,55 @@ At the end of the chapter, you will be able to:
 
 # create a dictionary of arrays
 >>> my_data = {
-        "var_1": [1, 2, 3, 4, 5],
-        "var_2": ["ABC", "Hello world", "Bazinga!", "cheers", "ciao"],
-    }
+...         "var_1": [1, 2, 3, 4, 5],
+...         "var_2": ["ABC", "Hello world", "Bazinga!", "cheers", "ciao"],
+...     }
 # get a DataFrame from the dictionary and display it
 >>> df = pd.DataFrame.from_dict(my_data)
 >>> df
    var_1        var_2
 0      1          ABC
 1      2  Hello world
-2      3      Bazinga
+2      3     Bazinga!
 3      4       cheers
 4      5         ciao
 
-# create a dictionary whose keys are cases 
+# create a dictionary whose keys are cases
 >>> my_data = {"case_1": ["Pluto", "dog"], "case_2": ["Goofy", "dog"]}
 
 
 # get a DataFrame from the dictionary and display it
 >>> df = pd.DataFrame.from_dict(my_data)
 >>> df
-   case_1   case_2
-0   Pluto    Goofy
-1     dog      dog
+  case_1 case_2
+0  Pluto  Goofy
+1    dog    dog
 
 # ... something wrong here - let us adjust the optional param 'orient'
 >>> df = pd.DataFrame.from_dict(my_data, orient="index")
 >>> df
-            0       1
-case_1  Pluto     dog
-case_2  Goofy     dog
+            0    1
+case_1  Pluto  dog
+case_2  Goofy  dog
 
 # ... still something wrong here - where are the column names?
 >>> df = pd.DataFrame.from_dict(
-	my_data, orient="index",
-	columns=["name", "species"]
-	)
+... 	my_data, orient="index",
+... 	columns=["name", "species"]
+... 	)
 >>> df
-         name  species
-case_1  Pluto      dog
-case_2  Goofy      dog
-
+         name species
+case_1  Pluto     dog
+case_2  Goofy     dog
 \end{pythoncode}
 
 \begin{paracol}{2}
 	\question{\raggedright How do I create a DataFrame from `external' data?}
-	\note{As we will see in Section \ref{sec:pandas_io}, there are plenty of Pandas IO utilities that target alternative file formats/extensions (e.g., \texttt{.json, .csv, .xlsx}). In this section, I focus on one specific case: creating a DataFrame from a CSV file. In the first part of the snippet, up until line 27, create fake data and write them to a local .csv file. Creating a DataFrame from a CSV file is a simple matter of passing the name of the file (or a file path) to the \href{https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html?highlight=read_csv#pandas.read_csv}{\texttt{.read\_csv}}. Such a function has a substantial number of discretionary parameters --- I warmly encourage you to go through the documentation and familiarize with the various options.}
+	\note{As we will see in Section \ref{sec:pandas_io}, there are plenty of Pandas IO utilities that target alternative file formats/extensions (e.g., \texttt{.json, .csv, .xlsx}). In this section, I focus on one specific case: creating a DataFrame from a CSV file. In the first part of the snippet, up until line 17, we create fake data and write them to a local .csv file. Creating a DataFrame from a CSV file is a simple matter of passing the name of the file (or a file path) to the \href{https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html?highlight=read_csv\#pandas.read_csv}{\texttt{.read\_csv}}. Such a function has a substantial number of discretionary parameters --- I warmly encourage you to go through the documentation and familiarize with the various options.}
 \end{paracol}
 
 \begin{pythoncode}[linenos=True]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 6.2 --- creating a DataFrame from a CSV file}
-# impoort pandas with the socially accepted alias 'pd'
+# import pandas with the socially accepted alias 'pd'
 >>> import pandas as pd
 
 # create fake data and write them to a .csv
@@ -4603,15 +4714,14 @@ case_2  Goofy      dog
 # --+ column values
 >>> x = [0, 1, 2]
 >>> y = ["A", "B", "C"]
-# --+ write the data to a file
+# --+ write the data to a file. The `with' block closes the file on the way
+#     out, so there is no f.close() to remember
 >>> with open("my_data.csv", "w") as f:
-        # write the column names first
-        f.write(",".join(columns) + "\n")
-        # then, write the data case-by-case
-        for i, j in zip(x, y):
-            f.write("{},{}".format(i, j) + "\n")
-# --+ close the pipe
-f.close()
+...     # write the column names first
+...     f.write(",".join(columns) + "\n")
+...     # then, write the data case-by-case
+...     for i, j in zip(x, y):
+...         f.write("{},{}".format(i, j) + "\n")
 
 # create a DataFrame from the .csv file and display it
 >>> df = pd.read_csv("my_data.csv")
@@ -4635,10 +4745,9 @@ f.close()
 		\item Set of case indices 
 	\end{itemize}
 
-	\quad A convenient way to access multiple DataFrame's attributes in a row is by using the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.info.html}{\texttt{.info}} method. Per Snippet 6.3 (see lines 18-26), we know that \texttt{df} has three entries and as many indices, two columns (an object, \texttt{country}, and a float \texttt{gdp\_pc}), and occupies circa 176 bytes in memory.
+	\quad A convenient way to access multiple DataFrame's attributes in a row is by using the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.info.html}{\texttt{.info}} method. Per Snippet 6.3 (see lines 19-27), we know that \texttt{df} has three entries and as many indices, two columns (an object, \texttt{country}, and a float \texttt{gdp\_pc}), and occupies circa 176 bytes in memory.
 
-	\quad The bottom section of Snippet 6.3 shows how to access the individual attributes of a DataFrame using \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.shape.html}{\texttt{.shape}}, \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.size.html}{\texttt{.size}}, \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.ndim.html}{\texttt{.ndim}}, and \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.memory_usage.html}{\texttt{.memony\_usage}}.}
-	}
+	\quad The bottom section of Snippet 6.3 shows how to access the individual attributes of a DataFrame using \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.shape.html}{\texttt{.shape}}, \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.size.html}{\texttt{.size}}, \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.ndim.html}{\texttt{.ndim}}, and \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.memory_usage.html}{\texttt{.memory\_usage}}.}
 \end{paracol}
 
 \begin{pythoncode}[linenos=true]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 6.3 --- accessing a DataFrame's attributes with \texttt{.info}}
@@ -4647,9 +4756,9 @@ f.close()
 
 # create a DataFrame from a dictionary
 >>> gdp_data = {
-	"country": ["Belgium", "France", "Germany"],
-	"gdp_pc": [51767.8, 43518.5, 50801.8]
-    }
+... 	"country": ["Belgium", "France", "Germany"],
+... 	"gdp_pc": [51767.8, 43518.5, 50801.8]
+...     }
 >>> df = pd.DataFrame.from_dict(gdp_data)
 >>> df
    country   gdp_pc
@@ -4659,14 +4768,15 @@ f.close()
 
 # get DataFrame 'info'
 >>> df.info()
+<class 'pandas.DataFrame'>
 RangeIndex: 3 entries, 0 to 2
 Data columns (total 2 columns):
-     Column   Non-Null Count  Dtype  
+ #   Column   Non-Null Count  Dtype  
 ---  ------   --------------  -----  
- 0   country  3 non-null      object 
+ 0   country  3 non-null      str    
  1   gdp_pc   3 non-null      float64
-dtypes: float64(1), object(1)
-memory usage: 176.0+ bytes
+dtypes: float64(1), str(1)
+memory usage: 180.0 bytes
 
 # let us get df's attributes one-by-one
 # --+ shape (cases by columns)
@@ -4680,11 +4790,10 @@ memory usage: 176.0+ bytes
 2
 # --+ check memory usage column-by-column
 >>> df.memory_usage()
-Index      128
+Index      132
 country     24
 gdp_pc      24
 dtype: int64
-
 \end{pythoncode}
 
 \section{The Anatomy of a DataFrame}
@@ -4738,7 +4847,7 @@ dtype: int64
 1  s2   8
 2  s3   0
 
-# access the index 
+# access the index
 >>> df.index
 RangeIndex(start=0, stop=3, step=1)
 
@@ -4756,7 +4865,6 @@ RangeIndex(start=0, stop=3, step=1)
 case_1  s1 -99
 case_2  s2   8
 case_3  s3   0
-
 \end{pythoncode}
 \clearpage
 
@@ -4772,22 +4880,23 @@ case_3  s3   0
 
 \begin{paracol}{2}
 	\question{\raggedright How do I access a Series included in DataFrame?}
-	\note{A Series object can be accessed as a DataFrame attribute (see Snippet 6.5, line 13). It is self-evident that a Series borrows the index of its parent DataFrame (see lines 16 and 24).}
+	\note{A Series object can be accessed as a DataFrame attribute (see Snippet 6.5, line 14). It is self-evident that a Series borrows the index of its parent DataFrame (see lines 17 and 26).}
 \end{paracol}
 
 \begin{pythoncode}[linenos=True]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 6.5 --- accessing a Series included in a DataFrame}
 # import pandas with the socially accepted alias 'pd'
 >>> import pandas as pd
 
-# create a series 
+# create a series
 >>> S = pd.Series(['s1', 's2', 's3'])
 >>> print(S)
 0    s1
 1    s2
 2    s3
+dtype: str
 
 # accessing a DataFrame column as a Series
-# --+ the data 
+# --+ the data
 >>> df = pd.DataFrame.from_dict({"S":["s1", "s2", "s3"], "X":[-99, 8, 0]})
 # --+ assign S to the fetched column and print S
 >>> S = df.S
@@ -4795,6 +4904,7 @@ case_3  s3   0
 0    s1
 1    s2
 2    s3
+Name: S, dtype: str
 # --+ amend the index
 >>> df.index = ["case_1", "case_2", "case_3"]
 # --+ assign S to the fetched column and print S
@@ -4802,7 +4912,8 @@ case_3  s3   0
 >>> print(S)
 case_1    s1
 case_2    s2
-case_2    s3
+case_3    s3
+Name: S, dtype: str
 \end{pythoncode}
 \clearpage
 
@@ -4822,22 +4933,22 @@ case_2    s3
 
 \begin{paracol}{2}
 	\question{\raggedright How do I query data in Pandas?}
-	\note{Pandas DataFrame objects have a property called \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc}{\texttt{.loc}} that allows accessing a group of rows and columns by label(s) or a boolean array. To use \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc}{\texttt{.loc}}, one has to pass two inputs among brackets:
+	\note{Pandas DataFrame objects have a property called \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc\#pandas.DataFrame.loc}{\texttt{.loc}} that allows accessing a group of rows and columns by label(s) or a boolean array. To use \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc\#pandas.DataFrame.loc}{\texttt{.loc}}, one has to pass two inputs among brackets:
 	
 	\begin{itemize}
 		\item The set of cases to select (the left-hand side element among brackets)
 		\item The set of columns to select (the right-hand side element among brackets)
 	\end{itemize}
 
-	\quad Snippet 6.6 shows a couple of use cases for the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc}{\texttt{.loc}} property:
+	\quad Snippet 6.6 shows a couple of use cases for the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc\#pandas.DataFrame.loc}{\texttt{.loc}} property:
 
 	\begin{itemize}
-		\item Line 33 selects the first two cases of the DataFrame
-		\item Line 39 selects the column ``price'' first two rows of the DataFrame
-		\item Line 46 selects  the columns ``price'' and ``color'' for all cases included in the DataFrame
-		\item Line 52 selects the cases for which the column ``price'' is less than or equal to 8.00
-		\item Line 59 selects the cases for which the column ``price'' is less than 9.00 \textbf{and} the column ``color'' is equal to ``green''
-		\item Line 65 expands on line 59 by selecting the column "price" when "price" is less than 9.00 \textbf{and} ``color'' is equal to ``green''
+		\item Line 34 selects the first two cases of the DataFrame
+		\item Line 41 selects the column ``price'' first two rows of the DataFrame
+		\item Line 48 selects  the columns ``price'' and ``color'' for all cases included in the DataFrame
+		\item Line 55 selects the cases for which the column ``price'' is less than or equal to 8.00
+		\item Line 62 selects the cases for which the column ``price'' is less than 9.00 \textbf{and} the column ``color'' is equal to ``green''
+		\item Line 68 expands on line 62 by selecting the column "price" when "price" is less than 9.00 \textbf{and} ``color'' is equal to ``green''
 	\end{itemize}
 
 	\quad Please refer to sections \ref{sec:statements_syntax} and \ref{sec§:control_flow} to consolidate your knowledge on the Python syntax of statements and control flow.
@@ -4850,12 +4961,12 @@ case_2    s3
 
 # create a DataFrame from a dictionary
 >>> df = pd.DataFrame.from_dict(
-        {
-            "product": ["a", "b", "c"],
-            "price": [9.87, 8.63, 6.45],
-            "color": ["green", "green", "blue"],
-        }
-    )
+...         {
+...             "product": ["a", "b", "c"],
+...             "price": [9.87, 8.63, 6.45],
+...             "color": ["green", "green", "blue"],
+...         }
+...     )
 
 # data preview
 >>> df
@@ -4864,23 +4975,25 @@ case_2    s3
 1       b   8.63  green
 2       c   6.45   blue
 
-# info 
+# info
 >>> df.info()
+<class 'pandas.DataFrame'>
 RangeIndex: 3 entries, 0 to 2
 Data columns (total 3 columns):
-     Column   Non-Null Count  Dtype  
+ #   Column   Non-Null Count  Dtype  
 ---  ------   --------------  -----  
- 0   product  3 non-null      object 
+ 0   product  3 non-null      str    
  1   price    3 non-null      float64
- 2   color   3 non-null      object 
-dtypes: float64(1), object(2)
-memory usage: 200.0+ bytes
+ 2   color    3 non-null      str    
+dtypes: float64(1), str(2)
+memory usage: 204.0 bytes
 
 # select the first the two cases using a range of indices
 >>> df.loc[0:2]
-      product  price  color
-    0       a   9.87  green
-    1       b   8.63  green
+  product  price  color
+0       a   9.87  green
+1       b   8.63  green
+2       c   6.45   blue
 
 # select the column "price" for the first two cases using a boolean array
 >>> df.loc[0:2, "price"]
@@ -4894,6 +5007,7 @@ Name: price, dtype: float64
    price  color
 0   9.87  green
 1   8.63  green
+2   6.45   blue
 
 # select all cases for which the column "price" is greater than or equal to 8.00
 >>> df.loc[df["price"] >= 8.00, ]
@@ -4901,13 +5015,13 @@ Name: price, dtype: float64
 0       a   9.87  green
 1       b   8.63  green
 
-# select all cases for which the column "price" is less than 9.00 and 
+# select all cases for which the column "price" is less than 9.00 and
 # "color" is equal to "green"
 >>> df.loc[(df["price"] < 9.00) & (df["color"] == "green" ), ]
   product  price  color
 1       b   8.63  green
 
-# select all cases for which the column "price" is less than to 9.00 and 
+# select all cases for which the column "price" is less than to 9.00 and
 # "color" is equal to "green"; also, keep the column "price" only
 >>> df.loc[(df["price"] < 9.00) & (df["color"] == "green" ), "price"]
 1    8.63
@@ -4931,11 +5045,11 @@ Name: price, dtype: float64
 
 \begin{paracol}{2}
 	\question{\raggedright How do I rename or drop a column in Pandas?}
-	\note{As shown in Snippet 6.7, Pandas has two methods, \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rename.html?highlight=rename#pandas.DataFrame.rename}{\texttt{.rename()}} and \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html?highlight=drop#pandas.DataFrame.drop}{\texttt{.drop()}}, to rename and drop columns respectively.
+	\note{As shown in Snippet 6.7, Pandas has two methods, \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rename.html?highlight=rename\#pandas.DataFrame.rename}{\texttt{.rename()}} and \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html?highlight=drop\#pandas.DataFrame.drop}{\texttt{.drop()}}, to rename and drop columns respectively.
 
-	\quad Line 35 shows how to rename a column. A first argument is a dictionary mapping the new name onto the old name (the dictionary's key). The second argument is a boolean flag that indicates whether to make the change effective (if ``True'') or not (if ``False'').
+	\quad Line 36 shows how to rename a column. A first argument is a dictionary mapping the new name onto the old name (the dictionary's key). The second argument is a boolean flag that indicates whether to make the change effective (if ``True'') or not (if ``False'').
 
-	\quad Lines 45 and 51 show how to drop a column. The first argument is an array with the name(s) of the column(s) to delete. The second argument is a boolean flag that indicates whether to make the change effective (if ``True'') or not (if ``False'').
+	\quad Lines 46 and 52 show how to drop a column. The first argument is an array with the name(s) of the column(s) to delete. The second argument is a boolean flag that indicates whether to make the change effective (if ``True'') or not (if ``False'').
 	}	
 \end{paracol}
 
@@ -4943,35 +5057,36 @@ Name: price, dtype: float64
 # import pandas with the socially accepted alias 'pd'
 >>> import pandas as pd
 
-# the df 
+# the df
 >>> df = pd.DataFrame(
-	{
-	    "laptop": ["MacBook Pro 13inch", "Thinkpad T14", "Dell XPS 13"],
-	    "ram": ["16 GB", "48 GB", "8 GB"],
-	    "os": ["macOS Monterey", "Debian 11", "Windows 11"],
-	    "chip": ["M1", "Ryzen", "Intel Core i7"]
-	}
-    )
+... 	{
+... 	    "laptop": ["MacBook Pro 13inch", "Thinkpad T14", "Dell XPS 13"],
+... 	    "ram": ["16 GB", "48 GB", "8 GB"],
+... 	    "os": ["macOS Monterey", "Debian 11", "Windows 11"],
+... 	    "chip": ["M1", "Ryzen", "Intel Core i7"]
+... 	}
+...     )
 
 # data view
 >>> df
                laptop    ram              os           chip
 0  MacBook Pro 13inch  16 GB  macOS Monterey             M1
 1        Thinkpad T14  48 GB       Debian 11          Ryzen
-2         Dell XPS 13   8 GB      Windows 11  Intel Core i7 
+2         Dell XPS 13   8 GB      Windows 11  Intel Core i7
 
 # info
 >>> df.info()
+<class 'pandas.DataFrame'>
 RangeIndex: 3 entries, 0 to 2
 Data columns (total 4 columns):
-     Column  Non-Null Count  Dtype 
----  ------  --------------  ----- 
- 0   laptop  3 non-null      object
- 1   ram     3 non-null      object
- 2   os      3 non-null      object
- 3   chip    3 non-null      object
-dtypes: object(4)
-memory usage: 224.0+ bytes
+ #   Column  Non-Null Count  Dtype
+---  ------  --------------  -----
+ 0   laptop  3 non-null      str  
+ 1   ram     3 non-null      str  
+ 2   os      3 non-null      str  
+ 3   chip    3 non-null      str  
+dtypes: str(4)
+memory usage: 228.0 bytes
 
 # rename the column "ram" to "memory"
 >>> df.rename(columns={"ram": "memory"}, inplace=True)
@@ -4982,7 +5097,7 @@ memory usage: 224.0+ bytes
 2         Dell XPS 13   8 GB      Windows 11  Intel Core i7
 
 # drop the column "chip"
-# --+ when inplace is set to False, the outcom of .drop is sent to the 
+# --+ when inplace is set to False, the outcom of .drop is sent to the
 # interactive sessions, but the data in memory are not affected
 >>> df.drop(columns=["chip"], inplace=False)
                laptop memory              os
@@ -4996,131 +5111,121 @@ memory usage: 224.0+ bytes
 0  MacBook Pro 13inch  16 GB  macOS Monterey
 1        Thinkpad T14  48 GB       Debian 11
 2         Dell XPS 13   8 GB      Windows 11
-
 \end{pythoncode}
 \clearpage
 
 \begin{paracol}{2}
 	\question{\raggedright How do I create a new column or amend an existing Pandas column?}
-	\note{The \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc}{\texttt{.loc}} method is the most appropriate way to create a new column or alter an existing column's values. Snippet 6.8 illustrates a couple of common tasks. In line 15, we assign a list of string objects to a new column called \texttt{manufacturer} for all cases included in \texttt{df}. 
+	\note{The \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc\#pandas.DataFrame.loc}{\texttt{.loc}} method is the most appropriate way to create a new column or alter an existing column's values. Snippet 6.8 illustrates a couple of common tasks. In line 16, we assign a list of string objects to a new column called \texttt{manufacturer} for all cases included in \texttt{df}. 
 	
-	\quad In lines 24/26, 41, and 58 we amend the value of an existing column. First, we manipulate the strings included under RAM to replace the substring \texttt{"$\backslash$sGB"} with an empty string (lines 24/26). Second, we change the type of the column from \texttt{string} to \texttt{integer} using the Pandas' \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html?highlight=astype#pandas.DataFrame.astype}{\texttt{.astype()}} method (line 41). Then, we take the log of \texttt{ram} and assign it to the new column \texttt{log\_ram} (line 58). 
+	\quad In lines 27, 47, and 63 we amend the value of an existing column. First, we manipulate the strings included under RAM to drop every character that is not a digit, turning ``16 GB'' into ``16'' (line 27). Note the \texttt{regex=True} there: since Pandas 2.0, \texttt{.str.replace} treats its first argument as a literal string unless told otherwise, so a pattern passed without it silently matches nothing. Second, we change the type of the column from \texttt{string} to \texttt{integer} using the Pandas' \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html?highlight=astype\#pandas.DataFrame.astype}{\texttt{.astype()}} method (line 47). Then, we take the log of \texttt{ram} and assign it to the new column \texttt{log\_ram} (line 63). 
 	
-	\quad In line 85, we use \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc#pandas.DataFrame.loc}{\texttt{.loc}} to create a new variable for a subset of cases only. Specifically, we populate the column \texttt{gpu} provided the value of \texttt{laptop} is ``Thinkpad T14.''
+	\quad In line 80, we use \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html?highlight=loc\#pandas.DataFrame.loc}{\texttt{.loc}} to create a new variable for a subset of cases only. Specifically, we populate the column \texttt{gpu} provided the value of \texttt{laptop} is ``Thinkpad T14.''
 	}
 \end{paracol}
 
 \begin{pythoncode}[linenos=True]{colback=base_c!5, colframe=base_c, title=\sffamily Snippet 6.8 --- creating and amending DataFrame columns}
-# import pandas with the socially accepted alias 'pd'
+# import pandas and numpy with the socially accepted aliases
+>>> import numpy as np
 >>> import pandas as pd
 
-# the df
+# the data
 >>> df = pd.DataFrame(
-        {
-            "laptop": ["MacBook Pro 13inch", "Thinkpad T14", "Dell XPS 13"],
-            "ram": ["16 GB", "48 GB", "8 GB"],
-            "os": ["macOS Monterey", "Debian 11", "Windows 11"],
-            "chip": ["M1", "Ryzen", "Intel Core i7"],
-        }
-)
+...         {
+...             "laptop": ["MacBook Pro 13inch", "Thinkpad T14", "Dell XPS 13"],
+...             "ram": ["16 GB", "48 GB", "8 GB"],
+...             "os": ["macOS Monterey", "Debian 11", "Windows 11"],
+...             "chip": ["M1", "Ryzen", "Intel Core i7"],
+...         }
+... )
 
-# create a new column, e.g., the name of the manufacturer
+# create a new column from a list
 >>> df.loc[:, "manufacturer"] = ["Apple", "Lenovo", "Dell"]
 >>> df
-               laptop ram              os           chip manufacturer
-0  MacBook Pro 13inch  16  macOS Monterey             M1        Apple
-1        Thinkpad T14  48       Debian 11          Ryzen       Lenovo
-2         Dell XPS 13   8      Windows 11  Intel Core i7         Dell
+               laptop    ram              os           chip manufacturer
+0  MacBook Pro 13inch  16 GB  macOS Monterey             M1        Apple
+1        Thinkpad T14  48 GB       Debian 11          Ryzen       Lenovo
+2         Dell XPS 13   8 GB      Windows 11  Intel Core i7         Dell
 
-# transform the column "ram" from string to number type 
-# --+ step 1: get rid of non-number characters using a regular expression 
->>> df.loc[:, "ram"] = df.loc[:, "ram"].str.replace(r"[^0-9]", "")
-# --+ alternative way to carry out step 1: using Pandas string methods 
->>> df.loc[:, "ram"] = df["ram"].str.replace(r"\sGB", "")
-# --+ step 2: convert the string to number type
-# ----+ check the type of "ram"
+# clean an existing column
+# --+ drop every character that is not a digit. NOTE the regex=True: since
+#     Pandas 2.0 .str.replace treats its argument as a LITERAL string by
+#     default, so a pattern without regex=True silently does nothing
+>>> df.loc[:, "ram"] = df["ram"].str.replace(r"[^0-9]", "", regex=True)
 >>> df.info()
+<class 'pandas.DataFrame'>
+RangeIndex: 3 entries, 0 to 2
 Data columns (total 5 columns):
-     Column        Non-Null Count  Dtype 
----  ------        --------------  ----- 
- 0   laptop        3 non-null      object
- 1   ram           3 non-null      object
- 2   os            3 non-null      object
- 3   chip          3 non-null      object
- 4   manufacturer  3 non-null      object
-dtypes: object(5)
-# ----+ surprise-surprise: we have not a number type yet
-# let us change dtype with Pandas astype method
->>> df.loc[:, "ram"] = df.loc[:, "ram"].astype(int)
-# ----+ check the data type again
->>> df.info()
-Data columns (total 5 columns):
-     Column        Non-Null Count  Dtype 
----  ------        --------------  ----- 
- 0   laptop        3 non-null      object
- 1   ram           3 non-null      int64 
- 2   os            3 non-null      object
- 3   chip          3 non-null      object
- 4   manufacturer  3 non-null      object
-dtypes: int64(1), object(4)
-memory usage: 248.0+ bytes
-memory usage: 248.0+ bytes
+ #   Column        Non-Null Count  Dtype
+---  ------        --------------  -----
+ 0   laptop        3 non-null      str  
+ 1   ram           3 non-null      str  
+ 2   os            3 non-null      str  
+ 3   chip          3 non-null      str  
+ 4   manufacturer  3 non-null      str  
+dtypes: str(5)
+memory usage: 252.0 bytes
 
-# transform an existing column and assign the output to a new column 
-# --+ import numpy to access the log function 
+# change a column's data type
+# --+ NOTE the plain [] assignment. .loc writes INTO the existing column, so
+#     it must respect that column's dtype -- and on Pandas 3 writing integers
+#     into a str column raises TypeError. Plain [] REPLACES the column, which
+#     is what a cast needs, and works on every Pandas version
+>>> df["ram"] = df["ram"].astype(int)
+>>> df.info()
+<class 'pandas.DataFrame'>
+RangeIndex: 3 entries, 0 to 2
+Data columns (total 5 columns):
+ #   Column        Non-Null Count  Dtype
+---  ------        --------------  -----
+ 0   laptop        3 non-null      str  
+ 1   ram           3 non-null      int64
+ 2   os            3 non-null      str  
+ 3   chip          3 non-null      str  
+ 4   manufacturer  3 non-null      str  
+dtypes: int64(1), str(4)
+memory usage: 252.0 bytes
+
+# create a new column out of an existing one
 >>> df["log_ram"] = np.log(df["ram"])
-# --+ preview
 >>> df.info()
-               laptop  ram              os           chip manufacturer  \
-0  MacBook Pro 13inch   16  macOS Monterey             M1        Apple   
-1        Thinkpad T14   48       Debian 11          Ryzen       Lenovo   
-2         Dell XPS 13    8      Windows 11  Intel Core i7         Dell   
-
-    log_ram  
-0  2.772589  
-1  3.871201  
-2  2.079442  
-# --+ info
->>> df.info()
+<class 'pandas.DataFrame'>
+RangeIndex: 3 entries, 0 to 2
 Data columns (total 6 columns):
-     Column        Non-Null Count  Dtype  
+ #   Column        Non-Null Count  Dtype  
 ---  ------        --------------  -----  
- 0   laptop        3 non-null      object 
+ 0   laptop        3 non-null      str    
  1   ram           3 non-null      int64  
- 2   os            3 non-null      object 
- 3   chip          3 non-null      object 
- 4   manufacturer  3 non-null      object 
+ 2   os            3 non-null      str    
+ 3   chip          3 non-null      str    
+ 4   manufacturer  3 non-null      str    
  5   log_ram       3 non-null      float64
-dtypes: float64(1), int64(1), object(4)
-memory usage: 272.0+ bytes
+dtypes: float64(1), int64(1), str(4)
+memory usage: 276.0 bytes
 
 # create a new column conditional on another column's value
 >>> df.loc[df["laptop"] == "Thinkpad T14", "gpu"] = True
-# --+ info
 >>> df.info()
+<class 'pandas.DataFrame'>
+RangeIndex: 3 entries, 0 to 2
 Data columns (total 7 columns):
-     Column        Non-Null Count  Dtype  
+ #   Column        Non-Null Count  Dtype  
 ---  ------        --------------  -----  
- 0   laptop        3 non-null      object 
+ 0   laptop        3 non-null      str    
  1   ram           3 non-null      int64  
- 2   os            3 non-null      object 
- 3   chip          3 non-null      object 
- 4   manufacturer  3 non-null      object 
+ 2   os            3 non-null      str    
+ 3   chip          3 non-null      str    
+ 4   manufacturer  3 non-null      str    
  5   log_ram       3 non-null      float64
  6   gpu           1 non-null      object 
-dtypes: float64(1), int64(1), object(5)
-memory usage: 296.0+ bytes
+dtypes: float64(1), int64(1), object(1), str(4)
+memory usage: 300.0+ bytes
 # --+ preview
 >>> df
-               laptop  ram              os           chip manufacturer  \
-0  MacBook Pro 13inch   16  macOS Monterey             M1        Apple   
-1        Thinkpad T14   48       Debian 11          Ryzen       Lenovo   
-2         Dell XPS 13    8      Windows 11  Intel Core i7         Dell   
-
-    log_ram   gpu  
-0  2.772589   NaN  
-1  3.871201  True  
-2  2.079442   NaN  
+               laptop  ram              os           chip manufacturer   log_ram   gpu
+0  MacBook Pro 13inch   16  macOS Monterey             M1        Apple  2.772589   NaN
+1        Thinkpad T14   48       Debian 11          Ryzen       Lenovo  3.871201  True
+2         Dell XPS 13    8      Windows 11  Intel Core i7         Dell  2.079442   NaN
 \end{pythoncode}
 
 \begin{paracol}{2}
@@ -5137,7 +5242,7 @@ memory usage: 296.0+ bytes
 
 \begin{paracol}{2}
 	\question{\raggedright How does Pandas represent missing values?}
-	\note{Pandas denote missing values using NumPy's floating representation \href{https://numpy.org/doc/stable/reference/constants.html?highlight=nan#numpy.NaN}{\texttt{numpy.NaN}}
+	\note{Pandas denote missing values using NumPy's floating representation \href{https://numpy.org/doc/stable/reference/constants.html?highlight=nan\#numpy.NaN}{\texttt{numpy.NaN}}
 	}
 \end{paracol}
 \clearpage
@@ -5152,7 +5257,7 @@ memory usage: 296.0+ bytes
 		\item replacing missing values with the estimate of a statical model
 	\end{itemize}
 	
-	\quad The latter approach is the most sophisticated one and falls beyond the remit of these notes. In Snippet 6.9, I show how to implement the first three approaches in Pandas. Line 34 uses the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html?highlight=dropna}{\texttt{.dropna()}} method to delete all cases presenting at least one missing value. Line 41 draws on the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html?highlight=fillna#pandas.DataFrame.fillna}{\texttt{.fillna()}} method to replace the missing values with a fixed value (e.g., a value that the analyst considers `plausible' based on her/his contextual knowledge). Like line 41, line 50 relies the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html?highlight=fillna#pandas.DataFrame.fillna}{\texttt{.fillna()}} method. However, it does not replace the missing values with a fixed value. Instead, it uses the mean value of \texttt{price}.
+	\quad The latter approach is the most sophisticated one and falls beyond the remit of these notes. In Snippet 6.9, I show how to implement the first three approaches in Pandas. Line 36 uses the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html?highlight=dropna}{\texttt{.dropna()}} method to delete all cases presenting at least one missing value. Line 43 draws on the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html?highlight=fillna\#pandas.DataFrame.fillna}{\texttt{.fillna()}} method to replace the missing values with a fixed value (e.g., a value that the analyst considers `plausible' based on her/his contextual knowledge). Like line 43, line 52 relies the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html?highlight=fillna\#pandas.DataFrame.fillna}{\texttt{.fillna()}} method. However, it does not replace the missing values with a fixed value. Instead, it uses the mean value of \texttt{price}.
 	} 
 \end{paracol}
 
@@ -5160,17 +5265,17 @@ memory usage: 296.0+ bytes
 # import numpy with the socially accepted alias "np"
 >>> import numpy as np
 # import pandas with the socially acceptable alias "pd"
->>> import pandas as pd 
+>>> import pandas as pd
 
 # the dataframe
 >>> df = pd.DataFrame(
-	{
-	    "item": ["a", "b", "c", "d", "e"],
-	    "price": [16.32, 16.78, np.nan, np.nan, 16.41],
-	}
-)
+... 	{
+... 	    "item": ["a", "b", "c", "d", "e"],
+... 	    "price": [16.32, 16.78, np.nan, np.nan, 16.41],
+... 	}
+... )
 
-# data view 
+# data view
 >>> df
   item  price
 0    a  16.32
@@ -5179,15 +5284,17 @@ memory usage: 296.0+ bytes
 3    d    NaN
 4    e  16.41
 
-# info 
+# info
 >>> df.info()
+<class 'pandas.DataFrame'>
+RangeIndex: 5 entries, 0 to 4
 Data columns (total 2 columns):
-     Column  Non-Null Count  Dtype  
+ #   Column  Non-Null Count  Dtype  
 ---  ------  --------------  -----  
- 0   item    5 non-null      object 
+ 0   item    5 non-null      str    
  1   price   3 non-null      float64
-dtypes: float64(1), object(1)
-memory usage: 208.0+ bytes
+dtypes: float64(1), str(1)
+memory usage: 212.0 bytes
 
 # approach 1 --- delete all cases where a missing value is present
 >>> df.dropna()
@@ -5224,7 +5331,7 @@ memory usage: 208.0+ bytes
 
 \begin{paracol}{2}
 	\question{\raggedright Can a Series contain multiple data types?}
-	\note{Yes, a Series can contain multiple data types (hence, a DataFrame can). In this sense, Pandas offers a more flexible data structure than NumPy arrays, which must contain objects of the same type. Snippet 6.10 shows that a list with mixed types is downgraded to a NumPy array with string objects. Instead, a Series preserves the type of each object (see line 22).}
+	\note{Yes, a Series can contain multiple data types (hence, a DataFrame can). In this sense, Pandas offers a more flexible data structure than NumPy arrays, which must contain objects of the same type. Snippet 6.10 shows that a list with mixed types is downgraded to a NumPy array with string objects. Instead, a Series preserves the type of each object (see line 23).}
 \end{paracol}
 \clearpage
 
@@ -5234,7 +5341,7 @@ memory usage: 208.0+ bytes
 >>> import pandas as pd
 
 # a list with a string, a float, and an integer
->>> L = ["xyz", -17.64, 0] 
+>>> L = ["xyz", -17.64, 0]
 
 # create a NumPy array from the list
 >>> A = np.array(L)
@@ -5247,6 +5354,7 @@ memory usage: 208.0+ bytes
 0      xyz
 1   -17.64
 2        0
+dtype: object
 
 # proof that Series preserves the type of the individual object
 # --+ fetch the second item of the list and carry out a mathematical operation
@@ -5268,7 +5376,7 @@ memory usage: 208.0+ bytes
 	\note{Pandas has three kinds of objects that can be used to store and represent information on time-related quantities:
 
 	\begin{itemize}
-		\item \href{https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html}{\textt{.Timestamp}}, the Pandas replacement for \href{https://docs.python.org/3/library/datetime.html}{Python's \texttt{Datatime}} object, represent a specific point in time 
+		\item \href{https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html}{\texttt{.Timestamp}}, the Pandas replacement for \href{https://docs.python.org/3/library/datetime.html}{Python's \texttt{Datatime}} object, represent a specific point in time 
 		\item \href{https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html}{\texttt{.Timedelta}} represents two dates or time
 		\item \href{https://pandas.pydata.org/docs/reference/api/pandas.Period.html}{\texttt{.Period}} represents a period of time
 	\end{itemize}
@@ -5279,9 +5387,9 @@ memory usage: 208.0+ bytes
 
 \begin{paracol}{2}
 	\question{\raggedright Can you give me an example of \texttt{.Timestamp} and \texttt{.Timedelta} objects?}
-	\note{Snippet 6.11 illustrates how to initialize and use \href{https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html}{\texttt{.Timestamp}} and \href{https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html}{\texttt{.Timedelta}} objects. The output of line 30 shows that the column \texttt{timestamp} has been parsed as a string. At this point, we cannot perform any operation on it (e.g., getting the time elapsed since an event). Hence, in line 43 we pass the values under the column \texttt{timestamp} to \href{https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html}{\texttt{.Timestamp}}. To apply the transformation column-wise, we draw on the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html}{\texttt{.apply()}} method, which takes a function as an argument. Specifically, we build our function using a \href{https://docs.python.org/3/tutorial/controlflow.html}{\texttt{lambda expression}} getting the \href{https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html}{\texttt{.Timestamp}} of an element \texttt{s} (that is, the individual values included in \texttt{timestamp}). The output of line 45 indicates that, after the transformation, the column \texttt{timestamp} contains \href{https://docs.python.org/3/library/datetime.html}{time quantities}.
+	\note{Snippet 6.11 illustrates how to initialize and use \href{https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html}{\texttt{.Timestamp}} and \href{https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html}{\texttt{.Timedelta}} objects. The output of line 30 shows that the column \texttt{timestamp} has been parsed as a string. At this point, we cannot perform any operation on it (e.g., getting the time elapsed since an event). Hence, in line 46 we pass the values under the column \texttt{timestamp} to \href{https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html}{\texttt{.Timestamp}}. To apply the transformation column-wise, we draw on the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html}{\texttt{.apply()}} method, which takes a function as an argument. Specifically, we build our function using a \href{https://docs.python.org/3/tutorial/controlflow.html}{\texttt{lambda expression}} getting the \href{https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html}{\texttt{.Timestamp}} of an element \texttt{s} (that is, the individual values included in \texttt{timestamp}). The output of line 49 indicates that, after the transformation, the column \texttt{timestamp} contains \href{https://docs.python.org/3/library/datetime.html}{time quantities}.
 	
-	\quad The remainder of the snippet illustrates how to extract the individual attributes of a \href{https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html}{\texttt{.Timestamp}} object (see lines 58 - 68) and create a \href{https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html}{\texttt{.Timedelta}} object (see line 88).
+	\quad The remainder of the snippet illustrates how to extract the individual attributes of a \href{https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html}{\texttt{.Timestamp}} object (see lines 64 - 74) and create a \href{https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html}{\texttt{.Timedelta}} object (see line 93).
 	}
 \end{paracol}
 
@@ -5290,120 +5398,127 @@ memory usage: 208.0+ bytes
 >>> import pandas as pd
 
 # fake product review data
->>> df = pd.DataFrame.from\_dict(
-        {
-            "timestamp": [
-                "2017-10-08 12:03:05",
-                "2020-09-07 08:09:45",
-                "2021-04-11 10:12:13",
-            ],
-            "product": [
-		"Darth Vader plush",
-		"Obi-Wan Kenobi lightsaber",
-		"Yoda pijamas"
-       ],
-            "reviewer": ["Sheldon", "Sheldon", "Leonard"],
-            "rating": [1, 2, 5],
-        }
-    )
+>>> df = pd.DataFrame.from_dict(
+...     {
+...         "timestamp": [
+...             "2017-10-08 12:03:05",
+...             "2020-09-07 08:09:45",
+...             "2021-04-11 10:12:13",
+...         ],
+...         "product": [
+...             "Darth Vader plush",
+...             "Obi-Wan Kenobi lightsaber",
+...             "Yoda pyjamas",
+...         ],
+...         "reviewer": ["Sheldon", "Sheldon", "Leonard"],
+...         "rating": [1, 2, 5],
+...     }
+... )
 
 # data view
 >>> df.head()
              timestamp                    product reviewer  rating
 0  2017-10-08 12:03:05          Darth Vader plush  Sheldon       1
 1  2020-09-07 08:09:45  Obi-Wan Kenobi lightsaber  Sheldon       2
-2  2021-04-11 10:12:13               Yoda pajamas  Leonard       5
+2  2021-04-11 10:12:13               Yoda pyjamas  Leonard       5
 
 # get basic info
 >>> df.info()
+<class 'pandas.DataFrame'>
 RangeIndex: 3 entries, 0 to 2
 Data columns (total 4 columns):
-     Column     Non-Null Count  Dtype 
----  ------     --------------  ----- 
- 0   timestamp  3 non-null      object
- 1   product    3 non-null      object
- 2   reviewer   3 non-null      object
- 3   rating     3 non-null      int64 
-dtypes: int64(1), object(3)
-memory usage: 224.0+ bytes
+ #   Column     Non-Null Count  Dtype
+---  ------     --------------  -----
+ 0   timestamp  3 non-null      str  
+ 1   product    3 non-null      str  
+ 2   reviewer   3 non-null      str  
+ 3   rating     3 non-null      int64
+dtypes: int64(1), str(3)
+memory usage: 228.0 bytes
 
-# convert 'timestamp' from string to Timestamp type
->>> df.loc[:, "timestamp"] = df["timestamp"].apply(lambda s: pd.Timestamp(s))
-# info shows that timestamp has datetime dtype  
+# convert 'timestamp' from string to Timestamp type. NOTE the plain []
+# assignment: .loc writes INTO the existing column and so must respect its
+# dtype, and on Pandas 3 pushing timestamps into a str column raises
+# TypeError. pd.to_datetime is also vectorised, so it beats .apply
+>>> df["timestamp"] = pd.to_datetime(df["timestamp"])
+# info shows that timestamp has datetime dtype
 >>> df.info()
+<class 'pandas.DataFrame'>
+RangeIndex: 3 entries, 0 to 2
 Data columns (total 4 columns):
-     Column     Non-Null Count  Dtype         
+ #   Column     Non-Null Count  Dtype         
 ---  ------     --------------  -----         
- 0   timestamp  3 non-null      datetime64[ns]
- 1   product    3 non-null      object        
- 2   reviewer   3 non-null      object        
+ 0   timestamp  3 non-null      datetime64[us]
+ 1   product    3 non-null      str           
+ 2   reviewer   3 non-null      str           
  3   rating     3 non-null      int64         
-dtypes: datetime64[ns](1), int64(1), object(2)
-memory usage: 224.0+ bytes
+dtypes: datetime64[us](1), int64(1), str(2)
+memory usage: 228.0 bytes
 
 # extract the timestamp components and assign them to new columns
 # --+ year
->>> df.loc[:, "year"] = df["timestamp"].dt.year
+>>> df["year"] = df["timestamp"].dt.year
 # --+ month
->>> df.loc[:, "month"] = df["timestamp"].dt.month
+>>> df["month"] = df["timestamp"].dt.month
 # --+ day
->>> df.loc[:, "day"] = df["timestamp"].dt.day
+>>> df["day"] = df["timestamp"].dt.day
 # --+ hour
->>> df.loc[:, "hour"] = df["timestamp"].dt.hour
-# --+ hour
->>> df.loc[:, "minute"] = df["timestamp"].dt.minute
+>>> df["hour"] = df["timestamp"].dt.hour
+# --+ minute
+>>> df["minute"] = df["timestamp"].dt.minute
 # --+ second
->>> df.loc[:, "second"] = df["timestamp"].dt.second
+>>> df["second"] = df["timestamp"].dt.second
 # --+ data view
-            timestamp                    product reviewer  rating  year  \
-0 2017-10-08 12:03:05          Darth Vader plush  Sheldon       1  2017   
-1 2020-09-07 08:09:45  Obi-Wan Kenobi lightsaber  Sheldon       2  2020   
-2 2021-04-11 10:12:13               Yoda pijamas  Leonard       5  2021   
+>>> df
+            timestamp                    product reviewer  rating  year  month  day  \
+0 2017-10-08 12:03:05          Darth Vader plush  Sheldon       1  2017     10    8   
+1 2020-09-07 08:09:45  Obi-Wan Kenobi lightsaber  Sheldon       2  2020      9    7   
+2 2021-04-11 10:12:13               Yoda pyjamas  Leonard       5  2021      4   11   
 
-   month  day  hour  minute  second  
-0     10    8    12       3       5  
-1      9    7     8       9      45  
-2      4   11    10      12      13 
+   hour  minute  second  
+0    12       3       5  
+1     8       9      45  
+2    10      12      13  
 
-# calculate the time elapsed since the product launch and the review
-# --+ fake product launch timestamps 
->>> df.loc[:, "launch"] = pd.to_datetime(
-	["2011-11-01 08:45:19", "2012-02-07 13:07:07", "2011-05-10 13:04:05"]
-	)
-# --+ get launch as a Timestamp object
->>> df.loc[:, "launch"] = df["launch"].apply(lambda s: pd.Timestamp(s))
+# calculate the time elapsed between the product launch and the review
+# --+ fake product launch timestamps
+>>> df["launch"] = pd.to_datetime(
+...     ["2011-11-01 08:45:19", "2012-02-07 13:07:07", "2011-05-10 13:04:05"]
+...     )
 # --+ here is a Timedelta object
->>> df.loc[:, "deltat"] = df["timestamp"] - df["launch"]
-# --+ data view 
-            timestamp                    product reviewer  rating  year  \
-0 2017-10-08 12:03:05          Darth Vader plush  Sheldon       1  2017   
-1 2020-09-07 08:09:45  Obi-Wan Kenobi lightsaber  Sheldon       2  2020   
-2 2021-04-11 10:12:13               Yoda pijamas  Leonard       5  2021   
+>>> df["deltat"] = df["timestamp"] - df["launch"]
+# --+ data view
+>>> df
+            timestamp                    product reviewer  rating  year  month  day  \
+0 2017-10-08 12:03:05          Darth Vader plush  Sheldon       1  2017     10    8   
+1 2020-09-07 08:09:45  Obi-Wan Kenobi lightsaber  Sheldon       2  2020      9    7   
+2 2021-04-11 10:12:13               Yoda pyjamas  Leonard       5  2021      4   11   
 
-   month  day  hour  minute  second              launch             deltat  
-0     10    8    12       3       5 2011-11-01 08:45:19 2168 days 03:17:46  
-1      9    7     8       9      45 2012-02-07 13:07:07 3134 days 19:02:38  
-2      4   11    10      12      13 2011-05-10 13:04:05 3623 days 21:08:08 
-# --+ data info 
+   hour  minute  second              launch             deltat  
+0    12       3       5 2011-11-01 08:45:19 2168 days 03:17:46  
+1     8       9      45 2012-02-07 13:07:07 3134 days 19:02:38  
+2    10      12      13 2011-05-10 13:04:05 3623 days 21:08:08  
+# --+ data info
 >>> df.info()
+<class 'pandas.DataFrame'>
+RangeIndex: 3 entries, 0 to 2
 Data columns (total 12 columns):
-     Column     Non-Null Count  Dtype          
+ #   Column     Non-Null Count  Dtype          
 ---  ------     --------------  -----          
- 0   timestamp  3 non-null      datetime64[ns] 
- 1   product    3 non-null      object         
- 2   reviewer   3 non-null      object         
+ 0   timestamp  3 non-null      datetime64[us] 
+ 1   product    3 non-null      str            
+ 2   reviewer   3 non-null      str            
  3   rating     3 non-null      int64          
- 4   year       3 non-null      int64          
- 5   month      3 non-null      int64          
- 6   day        3 non-null      int64          
- 7   hour       3 non-null      int64          
- 8   minute     3 non-null      int64          
- 9   second     3 non-null      int64          
- 10  launch     3 non-null      datetime64[ns] 
- 11  deltat     3 non-null      timedelta64[ns]
-dtypes: datetime64[ns](2), int64(7), object(2), timedelta64[ns](1)
-memory usage: 416.0+ bytes
-
+ 4   year       3 non-null      int32          
+ 5   month      3 non-null      int32          
+ 6   day        3 non-null      int32          
+ 7   hour       3 non-null      int32          
+ 8   minute     3 non-null      int32          
+ 9   second     3 non-null      int32          
+ 10  launch     3 non-null      datetime64[us] 
+ 11  deltat     3 non-null      timedelta64[us]
+dtypes: datetime64[us](2), int32(6), int64(1), str(2), timedelta64[us](1)
+memory usage: 348.0 bytes
 \end{pythoncode}
 \clearpage
 
@@ -5417,33 +5532,32 @@ memory usage: 416.0+ bytes
 # import pandas with the socially acceptable alias pd
 >>> import pandas as pd
 
-# a timestamp as a string 
+# a timestamp as a string
 >>> s = "2011-11-01 23:17:01"
 
-# get a period object 
+# get a period object
 >>> p = pd.Period(s, freq="s")
 
-# extract sample information from p 
+# extract sample information from p
 # --+ calendar day
 >>> p.day
 1
 
 # --+ day of the week (Monday is 0)
 >>> p.dayofweek
-1 
+1
 
-# --+ month 
+# --+ month
 >>> p.month
 11
 
-# --+ quarter 
+# --+ quarter
 >>> p.quarter
 4
 
 # --+ week of the year (ranging from 0 to 59)
 >>> p.weekofyear
-4
-
+44
 \end{pythoncode}
 
 \section{Shaping and Reshaping DataFrames}
@@ -5477,12 +5591,12 @@ memory usage: 416.0+ bytes
 	\begin{tabular}{|c|c|c|c|c|c|c|}
 		\hline
 		\textbf{Case} & \textbf{$p_{0}$} & \textbf{$p_{1}$} & \ldots & \textbf{$p_{i}$} & \ldots & \textbf{$p_{k}$} \\ \hline
-		\textbf{1}    & p_{1,0} & p_{1,1} & \ldots & p_{1,i} & \ldots & p_{1,k} \\
-		\textbf{2}    & p_{2,0} & p_{2,1} & \ldots & p_{2,i} & \ldots & p_{2,k} \\
+		\textbf{1}    & $p_{1,0}$ & $p_{1,1}$ & \ldots & $p_{1,i}$ & \ldots & $p_{1,k}$ \\
+		\textbf{2}    & $p_{2,0}$ & $p_{2,1}$ & \ldots & $p_{2,i}$ & \ldots & $p_{2,k}$ \\
                 \multicolumn{7}{c}{}\\
-		\textbf{j}    & p_{j,0} & p_{j,1} & \ldots & p_{j,i} & \ldots & p_{j,k} \\
+		\textbf{j}    & $p_{j,0}$ & $p_{j,1}$ & \ldots & $p_{j,i}$ & \ldots & $p_{j,k}$ \\
                 \multicolumn{7}{c}{}\\
-		\textbf{n}    & p_{n,1} & p_{n,2} & \ldots & p_{n,j} & \ldots & p_{n,k} \\
+		\textbf{n}    & $p_{n,1}$ & $p_{n,2}$ & \ldots & $p_{n,j}$ & \ldots & $p_{n,k}$ \\
 		\hline 
 	\end{tabular}
 	\caption{A stylized representation of a `wide' data structure}
@@ -5535,36 +5649,36 @@ memory usage: 416.0+ bytes
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\textbf{Case} & \textbf{Time} & \textbf{Value} \\ \hline
-		\textbf{1}    & 0 & p_{1,0}  \\
-		\textbf{1}    & 1 & p_{1,1}  \\
- 		\textbf{1}    & 2 & p_{1,2}  \\
+		\textbf{1}    & 0 & $p_{1,0}$  \\
+		\textbf{1}    & 1 & $p_{1,1}$  \\
+ 		\textbf{1}    & 2 & $p_{1,2}$  \\
 		\ldots & \ldots & \ldots \\
- 		\textbf{1}    & i & p_{1,i}  \\
+ 		\textbf{1}    & i & $p_{1,i}$  \\
 		\ldots & \ldots & \ldots \\
- 		\textbf{1}    & k & p_{1,k}  \\ 
-		\textbf{2}    & 0 & p_{2,0}  \\
-		\textbf{2}    & 1 & p_{2,1}  \\
- 		\textbf{2}    & 2 & p_{2,2}  \\
+ 		\textbf{1}    & k & $p_{1,k}$  \\ 
+		\textbf{2}    & 0 & $p_{2,0}$  \\
+		\textbf{2}    & 1 & $p_{2,1}$  \\
+ 		\textbf{2}    & 2 & $p_{2,2}$  \\
 		\ldots & \ldots & \ldots \\
- 		\textbf{2}    & i & p_{2,i}  \\
+ 		\textbf{2}    & i & $p_{2,i}$  \\
 		\ldots & \ldots & \ldots \\
- 		\textbf{2}    & k & p_{2,k}  \\ 
+ 		\textbf{2}    & k & $p_{2,k}$  \\ 
 		\multicolumn{3}{c}{}\\
-		\textbf{j}    & 0 & p_{j,0}  \\
-		\textbf{j}    & 1 & p_{j,1}  \\
- 		\textbf{j}    & 2 & p_{j,2}  \\
+		\textbf{j}    & 0 & $p_{j,0}$  \\
+		\textbf{j}    & 1 & $p_{j,1}$  \\
+ 		\textbf{j}    & 2 & $p_{j,2}$  \\
 		\ldots & \ldots & \ldots \\
- 		\textbf{j}    & i & p_{j,i}  \\
+ 		\textbf{j}    & i & $p_{j,i}$  \\
 		\ldots & \ldots & \ldots \\
- 		\textbf{j}    & k & p_{j,k}  \\ 
+ 		\textbf{j}    & k & $p_{j,k}$  \\ 
 		\multicolumn{3}{c}{}\\
-		\textbf{n}    & 0 & p_{n,0}  \\
-		\textbf{n}    & 1 & p_{n,1}  \\
- 		\textbf{n}    & 2 & p_{n,2}  \\
+		\textbf{n}    & 0 & $p_{n,0}$  \\
+		\textbf{n}    & 1 & $p_{n,1}$  \\
+ 		\textbf{n}    & 2 & $p_{n,2}$  \\
 		\ldots & \ldots & \ldots \\
- 		\textbf{n}    & i & p_{n,i}  \\
+ 		\textbf{n}    & i & $p_{n,i}$  \\
 		\ldots & \ldots & \ldots \\
- 		\textbf{n}    & k & p_{n,k}  \\ \hline
+ 		\textbf{n}    & k & $p_{n,k}$  \\ \hline
 	\end{tabular}
 	\caption{A stylized representation of a `long' data structure}
 	\label{fig:long_dataframe}
@@ -5573,9 +5687,9 @@ memory usage: 416.0+ bytes
 
 \begin{paracol}{2}
 	\question{\raggedright How can I move from a wide to a long data structure or the other way around?}
-	\note{To get a long data structure, one may want to use the Pandas function \href{https://pandas.pydata.org/docs/reference/api/pandas.melt.html?highlight=melt#pandas.melt}{\texttt{pd.melt()}}, and, to achieve a wide structure, the Pandas function \href{https://pandas.pydata.org/docs/reference/api/pandas.pivot.html?highlight=pivot#pandas.pivot}{\texttt{pd.pivot()}}.
+	\note{To get a long data structure, one may want to use the Pandas function \href{https://pandas.pydata.org/docs/reference/api/pandas.melt.html?highlight=melt\#pandas.melt}{\texttt{pd.melt()}}, and, to achieve a wide structure, the Pandas function \href{https://pandas.pydata.org/docs/reference/api/pandas.pivot.html?highlight=pivot\#pandas.pivot}{\texttt{pd.pivot()}}.
 
-	\quad Per Snippet 6.13, typically we pass four inputs to \href{https://pandas.pydata.org/docs/reference/api/pandas.melt.html?highlight=melt#pandas.melt}{\texttt{pd.melt()}} (see line 16):
+	\quad Per Snippet 6.13, typically we pass four inputs to \href{https://pandas.pydata.org/docs/reference/api/pandas.melt.html?highlight=melt\#pandas.melt}{\texttt{pd.melt()}} (see line 16):
 	
 	\begin{itemize}
 		\item  \texttt{frame}: the source DataFrame to re-arrange 
@@ -5584,7 +5698,7 @@ memory usage: 416.0+ bytes
 		\item  \texttt{value\_name}: the name of the source DataFrame column containing the values to re-arrange
 	\end{itemize}
 
-	\quad Snippet 6.13 also passes from a long to a wide data structure. In line 47, we pass the following inputs to \href{https://pandas.pydata.org/docs/reference/api/pandas.pivot.html?highlight=pivot#pandas.pivot}{\texttt{pd.pivot()}}:
+	\quad Snippet 6.13 also passes from a long to a wide data structure. In line 53, we pass the following inputs to \href{https://pandas.pydata.org/docs/reference/api/pandas.pivot.html?highlight=pivot\#pandas.pivot}{\texttt{pd.pivot()}}:
 	
 	\begin{itemize}
 		\item \texttt{data}: the source DataFrame to re-arrange
@@ -5601,19 +5715,19 @@ memory usage: 416.0+ bytes
 
 # create a wide data frame
 >>> df = pd.DataFrame.from_dict(
-        {
-            "product": ["a", "b", "c"],
-            "t0sales": [10, 5, 0],
-            "t1sales": [7, 6, 5],
-            "t2sales": [4, 6, 9],
-        }
-    )
+...     {
+...         "product": ["a", "b", "c"],
+...         "t0sales": [10, 5, 0],
+...         "t1sales": [7, 6, 5],
+...         "t2sales": [4, 6, 9],
+...     }
+...     )
 
 # get a long data frame
-# --+ let us use the melt method 
+# --+ let us use the melt method
 >>> molten = pd.melt(
-	frame = df, id_vars=["product"], var_name="time", value_name="sales"
-    )
+...     frame=df, id_vars=["product"], var_name="time", value_name="sales"
+...     )
 # --+ the result is a long data frame
 >>> molten
   product     time  sales
@@ -5627,19 +5741,25 @@ memory usage: 416.0+ bytes
 7       b  t2sales      6
 8       c  t2sales      9
 # --+ the time column is not clean, though. Let us clean it
-# ----+ get rid of non-numeric characters
->>> molten.loc[:, "time"] = molten["time"].str.replace("t|sales", "")
-# ----+ convert the time column to an integer
->>> molten.loc[:, "time"] = molten["time"].astype(int)
+# ----+ get rid of non-numeric characters. NOTE regex=True: since Pandas 2.0
+#       .str.replace treats its argument as a literal string by default, so
+#       the alternation "t|sales" would otherwise match nothing at all
+>>> molten["time"] = molten["time"].str.replace("t|sales", "", regex=True)
+# ----+ convert the time column to an integer. NOTE the plain [] assignment
+#       rather than .loc -- see Snippet 6.8
+>>> molten["time"] = molten["time"].astype(int)
 # ----+ get info
+>>> molten.info()
+<class 'pandas.DataFrame'>
+RangeIndex: 9 entries, 0 to 8
 Data columns (total 3 columns):
-     Column   Non-Null Count  Dtype 
----  ------   --------------  ----- 
- 0   product  9 non-null      object
- 1   time     9 non-null      int64 
- 2   sales    9 non-null      int64 
-dtypes: int64(2), object(1)
-memory usage: 344.0+ bytes
+ #   Column   Non-Null Count  Dtype
+---  ------   --------------  -----
+ 0   product  9 non-null      str  
+ 1   time     9 non-null      int64
+ 2   sales    9 non-null      int64
+dtypes: int64(2), str(1)
+memory usage: 348.0 bytes
 # ----+ data view
 >>> molten
   product  time  sales
@@ -5653,10 +5773,20 @@ memory usage: 344.0+ bytes
 7       b     2      6
 8       c     2      9
 
-# from long data to wide 
+# from long data to wide
+# NOTE pd.pivot_table AGGREGATES, and its default aggfunc is "mean", so the
+# result is float even when every cell holds a single integer. Use pd.pivot
+# for a pure reshape that keeps the integers
 >>> wide = pd.pivot_table(
-	data = molten, index="product", columns="time", values="sales"
-    )
+...     data=molten, index="product", columns="time", values="sales"
+...     )
+>>> wide
+time        0    1    2
+product                
+a        10.0  7.0  4.0
+b         5.0  6.0  6.0
+c         0.0  5.0  9.0
+>>> pd.pivot(molten, index="product", columns="time", values="sales")
 time      0  1  2
 product          
 a        10  7  4
@@ -5679,11 +5809,11 @@ c         0  5  9
 
 \begin{paracol}{2}
 	\question{\raggedright Got it. How can I do this in Pandas?}
-	\note{Pandas has a class to help with this task, namely,\href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html#pandas.DataFrame.groupby}{\texttt{.groupby}}. Mainly, this class captures the nested structure of the data and allows to aggregate or transform the data (see next section \ref{sec:groupby_transform}) according to the nested structure.
+	\note{Pandas has a class to help with this task, namely,\href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html\#pandas.DataFrame.groupby}{\texttt{.groupby}}. Mainly, this class captures the nested structure of the data and allows to aggregate or transform the data (see next section \ref{sec:groupby_transform}) according to the nested structure.
 	
-	\quad Snippet 6.14 shows how to use \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html#pandas.DataFrame.groupby}{\texttt{.groupby}} for aggregation purposes. The sample DataFrame contains monthly sales data for three products, each observed for three months (line 14). First, we must tell Pandas what grouping data to consider. We do that in line 27, wherein we pass the column name used to group the data. In this example, we use the \texttt{product} column. That means we will pass from product-time data points (i.e., monthly data) to product data points (e.g., the total sales for each product over the three months). Since the grouping structure is defined by one column only, the input is a string with the column's name. An array of strings must be passed if the grouping structure is based on multiple columns.
+	\quad Snippet 6.14 shows how to use \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html\#pandas.DataFrame.groupby}{\texttt{.groupby}} for aggregation purposes. The sample DataFrame contains monthly sales data for three products, each observed for three months (line 14). First, we must tell Pandas what grouping data to consider. We do that in line 27, wherein we pass the column name used to group the data. In this example, we use the \texttt{product} column. That means we will pass from product-time data points (i.e., monthly data) to product data points (e.g., the total sales for each product over the three months). Since the grouping structure is defined by one column only, the input is a string with the column's name. An array of strings must be passed if the grouping structure is based on multiple columns.
 	
-	\quad As shown in line 27, calling the object \texttt{gr} does not affect the data. Instead, the signature of the object is displayed. To aggregate the data, we must deploy \texttt{gr} as shown in line 33. The string between brackets is the target column whose values we want to consider; \href{https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.aggregate.html?highlight=aggregate#pandas.core.groupby.DataFrameGroupBy.aggregate}{\texttt{.aggregate()}} defines the operation to carry out based on the grouping; the array of NumPy functions is the set of mathematical operations to perform as the data are aggregated. In our example, we ask for the total sales for each product and the average monthly sales over the three months (see line 34).
+	\quad As shown in line 27, calling the object \texttt{gr} does not affect the data. Instead, the signature of the object is displayed. To aggregate the data, we must deploy \texttt{gr} as shown in line 34. The string between brackets is the target column whose values we want to consider; \href{https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.aggregate.html?highlight=aggregate\#pandas.core.groupby.DataFrameGroupBy.aggregate}{\texttt{.aggregate()}} defines the operation to carry out based on the grouping; the array of NumPy functions is the set of mathematical operations to perform as the data are aggregated. In our example, we ask for the total sales for each product and the average monthly sales over the three months (see line 36).
 	}
 \end{paracol}
 
@@ -5693,34 +5823,36 @@ c         0  5  9
 
 # create a long data frame
 >>> df = pd.DataFrame.from_dict(
-	{
-	    "product": ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c'],	
-	    "month": [0, 0, 0, 1, 1, 1, 2, 2, 2],
-	    "sales": [10,  5,  0,  7,  6,  5,  4,  6,  9]
-	}
-    )
+...     {
+...         "product": ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c'],
+...         "month": [0, 0, 0, 1, 1, 1, 2, 2, 2],
+...         "sales": [10,  5,  0,  7,  6,  5,  4,  6,  9]
+...     }
+...     )
 
 # data view
 >>> df
-  product  time  sales
-0       a     0     10
-1       b     0      5
-2       c     0      0
-3       a     1      7
-4       b     1      6
-5       c     1      5
-6       a     2      4
-7       b     2      6
-8       c     2      9
+  product  month  sales
+0       a      0     10
+1       b      0      5
+2       c      0      0
+3       a      1      7
+4       b      1      6
+5       c      1      5
+6       a      2      4
+7       b      2      6
+8       c      2      9
 
 # group by
 >>> gr = df.groupby("product")
 # --+ what do we get if we call gr?
 >>> gr
-<pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fb909d4f9d0>
+<pandas.api.typing.DataFrameGroupBy object at 0x10ea28ec0>
 
-# aggregate sales data around the grouping structure
->>> gr["sales"].aggregate([np.sum, np.mean])
+# aggregate sales data around the grouping structure. NOTE the aggregation
+# functions are named as STRINGS: passing the NumPy callables np.sum and
+# np.mean was deprecated in Pandas 2.0
+>>> gr["sales"].aggregate(["sum", "mean"])
          sum      mean
 product               
 a         21  7.000000
@@ -5735,7 +5867,7 @@ c         14  4.666667
 	\question{\raggedright Aggregate Vs. transform}
 	\note{Once we have created a grouping structure, we can use it for aggregating the data (i.e., passing from monthly to yearly data points, see the previous section \ref{sec:groupby_aggr}) as well as for expanding the source data. This procedure is called transformation and does not affect the number of rows in the DataFrame.
 	
-	\quad In Snippet 6.15, we get the cumulative sum of a product's sales for each period (the output of line 28 shows the structure of the data). Having defined the grouping structure (line 41), we use the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.transform.html?highlight=transform#pandas.DataFrame.transform}{\texttt{.transform()}} method to apply NumPy's \href{https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html}{\texttt{cumsum}} function to the values of \texttt{sales} that regard the same product. As shown in line 44, the outcome of the transformation is assigned to the new column \texttt{cumulative\_size}.
+	\quad In Snippet 6.15, we get the cumulative sum of a product's sales for each period (the output of line 27 shows the structure of the data). Having defined the grouping structure (line 41), we use the \href{https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.transform.html?highlight=transform\#pandas.DataFrame.transform}{\texttt{.transform()}} method to apply NumPy's \href{https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html}{\texttt{cumsum}} function to the values of \texttt{sales} that regard the same product. As shown in line 46, the outcome of the transformation is assigned to the new column \texttt{cumulative\_size}.
 	}
 \end{paracol}
 
@@ -5745,12 +5877,12 @@ c         14  4.666667
 
 # the data frame
 >>> df = pd.DataFrame.from_dict(
-	{
-	    "product": ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c'],	
-	    "month": [0, 0, 0, 1, 1, 1, 2, 2, 2],
-	    "sales": [10,  5,  0,  7,  6,  5,  4,  6,  9]
-	}
-    )
+...     {
+...         "product": ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c'],
+...         "month": [0, 0, 0, 1, 1, 1, 2, 2, 2],
+...         "sales": [10,  5,  0,  7,  6,  5,  4,  6,  9]
+...     }
+...     )
 
 # data view
 >>> df
@@ -5765,9 +5897,9 @@ c         14  4.666667
 7       b      2      6
 8       c      2      9
 
-
 # sort the data by product and month values
 >>> df.sort_values(by=["product", "month"], inplace=True)
+>>> df
   product  month  sales
 0       a      0     10
 3       a      1      7
@@ -5782,8 +5914,11 @@ c         14  4.666667
 # group by
 >>> gr = df.groupby("product")
 
-# tranform the data
->>> df.loc[:, "cumulative_sales"] = gr["sales"].transform(np.cumsum)
+# transform the sales data: unlike aggregate, transform returns a result
+# the same length as the input, so it can go straight back into the frame.
+# NOTE the string "cumsum" rather than the NumPy callable np.cumsum, which
+# was deprecated in Pandas 2.0
+>>> df["cumulative_sales"] = gr["sales"].transform("cumsum")
 >>> df
   product  month  sales  cumulative_sales
 0       a      0     10                10
@@ -5812,7 +5947,7 @@ c         14  4.666667
 
 \begin{paracol}{2}
 	\question{\raggedright How do I concatenate two DataFrame objects in Pandas?}
-	\note{The \href{https://pandas.pydata.org/docs/reference/api/pandas.concat.html?highlight=concat#pandas.concat}{\texttt{.concat()}} method is used to concatenate two or more data frames. The method takes an array of DataFrames as input and returns a new data frame with the rows or columns from all the input data frames.
+	\note{The \href{https://pandas.pydata.org/docs/reference/api/pandas.concat.html?highlight=concat\#pandas.concat}{\texttt{.concat()}} method is used to concatenate two or more data frames. The method takes an array of DataFrames as input and returns a new data frame with the rows or columns from all the input data frames.
 	
 	\quad In Snippet 6.15, we carry out the following:
 	
@@ -5830,13 +5965,13 @@ c         14  4.666667
 >>> import pandas as pd
 
 # concatenate along the first axis (axis = 0)
-# --+ the data frames 
+# --+ the data frames
 >>> df0 = pd.DataFrame.from_dict(
-	{"quarter": ["first", "second"], "sales": [10, 30]}
-    )
+... 	{"quarter": ["first", "second"], "sales": [10, 30]}
+...     )
 >>> df1 = pd.DataFrame.from_dict(
-	{"quarter": ["third", "fourth"], "sales": [10, 40]}
-    )
+... 	{"quarter": ["third", "fourth"], "sales": [10, 40]}
+...     )
 # --+ set the indices to match the data frames
 >>> df0.set_index("quarter", inplace=True)
 >>> df1.set_index("quarter", inplace=True)
@@ -5849,14 +5984,14 @@ second      30
 third       10
 fourth      40
 
-# concatenate along the second axis (axis = 1) 
+# concatenate along the second axis (axis = 1)
 # --+ the data frames
 >>> df0 = pd.DataFrame.from_dict(
-	{"product": [1, 2, 3], "sales": [10, 30, 20]}
-    )
+... 	{"product": [1, 2, 3], "sales": [10, 30, 20]}
+...     )
 >>> df1 = pd.DataFrame.from_dict(
-	{"product": [1, 2, 3], "units_sold": [3, 6, 2]}
-    )
+... 	{"product": [1, 2, 3], "units_sold": [3, 6, 2]}
+...     )
 # --+ set the indices to match the data frames
 >>> df0.set_index("product", inplace=True)
 >>> df1.set_index("product", inplace=True)
@@ -5867,12 +6002,11 @@ product
 1           10           3
 2           30           6
 3           20           2
-
 \end{pythoncode}
 
 \begin{paracol}{2}
 	\question{\raggedright How do I merge two DataFrame objects in Pandas?}
-	\note{The \href{https://pandas.pydata.org/docs/reference/api/pandas.merge.html?highlight=merge#pandas.merge}{\texttt{.merge()}} method is used to merge two or more data frames. The method takes the following inputs:
+	\note{The \href{https://pandas.pydata.org/docs/reference/api/pandas.merge.html?highlight=merge\#pandas.merge}{\texttt{.merge()}} method is used to merge two or more data frames. The method takes the following inputs:
 	
 	\begin{itemize}
 		\item \texttt{left} and \texttt{right} are the DataFrae objects to be merged
@@ -5891,47 +6025,43 @@ product
 \clearpage
 
 \begin{pythoncode}[linenos=True]{colback=base_c!5, colframe=base_c, title=\sffamily Shaping and Reshaping DataFrames}
-# import pandas with the socially accepted alias pd
+# import pandas with the socially accepted alias 'pd'
 >>> import pandas as pd
 
-# the data frames
+# the data
 >>> df0 = pd.DataFrame.from_dict(
-	{"product": [1, 2, 3], "sales": [10, 30, 20]}
-    )
+...     {"product": [1, 2, 3], "sales": [10, 30, 20]}
+...     )
 >>> df1 = pd.DataFrame.from_dict(
-	{"product": [2, 3, 4], "margin": [0.13, 0.31, 0.21]}
-    )
+...     {"product": [2, 3, 4], "margin": [0.13, 0.31, 0.21]}
+...     )
 
-# merge the data frames
-# --+ keep all the cases from the left data frame
->>> pd.merge(df0, df1, on="propduct", how="left")
+# merge on a shared column. NOTE the key is "product" -- a misspelt key
+# raises KeyError rather than falling back to anything
+>>> pd.merge(df0, df1, on="product", how="left")
    product  sales  margin
 0        1     10     NaN
 1        2     30    0.13
 2        3     20    0.31
-# --+ keep all the cases from the right data frame
->>> pd.merge(df0, df1, on="propduct", how="right")
+>>> pd.merge(df0, df1, on="product", how="right")
    product  sales  margin
 0        2   30.0    0.13
 1        3   20.0    0.31
 2        4    NaN    0.21
-# --+ keep all cases 
->>> pd.merge(df0, df1, on="propduct", how="outer")
+>>> pd.merge(df0, df1, on="product", how="outer")
    product  sales  margin
 0        1   10.0     NaN
 1        2   30.0    0.13
 2        3   20.0    0.31
 3        4    NaN    0.21
-# --+ keep the cases that are present in both data frames 
->>> pd.merge(df0, df1, on="propduct", how="inner")
+>>> pd.merge(df0, df1, on="product", how="inner")
    product  sales  margin
 0        2     30    0.13
 1        3     20    0.31
-# ---+ merge using the indices
-# ----+ set the indices
+
+# merge on the index instead
 >>> df0.set_index("product", inplace=True)
 >>> df1.set_index("product", inplace=True)
-# ----+ merge the data frames
 >>> pd.merge(df0, df1, left_index=True, right_index=True)
          sales  margin
 product               
@@ -6173,37 +6303,37 @@ product
 \toprule \toprule 
 Universal Function & Synopsis \\
 \midrule
-\texttt{add(x1, x2, /[, out, where, casting, order, ...])}& Add arguments element-wise}\\
-\texttt{subtract(x1, x2, /[, out, where, cas:ting, ...])}& Subtract arguments, element-wise}\\
-\texttt{multiply(x1, x2, /[, out, where, castin:g, ...])}& Multiply arguments element-wise}\\
-\texttt{matmul(x1, x2, /[, out, casting, order, ...])}& Matrix product of two arrays}\\
-\texttt{divide(x1, x2, /[, out, where, casting, ...])}& Divide arguments element-wise}\\
-\texttt{logaddexp(x1, x2, /[, out, where, casting, ...])}& Logarithm of the sum of exponentiations of the inputs}\\
-\texttt{logaddexp2(x1, x2, /[, out, where, casting, ...])}& Logarithm of the sum of exponentiations of the inputs in base-2}\\
-\texttt{true\_divide(x1, x2, /[, out, where, ...])}& Divide arguments element-wise}\\
-\texttt{floor\_divide(x1, x2, /[, out, where, ...])}& Return the largest integer smaller or equal to the division of the inputs}\\
-\texttt{negative(x, /[, out, where, casting, order, ...])}& Numerical negative, element-wise}\\
-\texttt{positive(x, /[, out, where, casting, order, ...])}& Numerical positive, element-wise}\\
-\texttt{power(x1, x2, /[, out, where, casting, ...])}& First array elements raised to powers from second array, element-wise}\\
-\texttt{float\_power(x1, x2, /[, out, where, ...])}& First array elements raised to powers from second array, element-wise}\\
-\texttt{remainder(x1, x2, /[, out, where, casting, ...])}& Returns the element-wise remainder of division}\\
-\texttt{mod(x1, x2, /[, out, where, casting, order, ...])}& Returns the element-wise remainder of division}\\
-\texttt{fmod(x1, x2, /[, out, where, casting, ...])}& Returns the element-wise remainder of division}\\
-\texttt{divmod(x1, x2[, out1, out2], / [[, out, ...])}& Return element-wise quotient and remainder simultaneously}\\
-\texttt{absolute(x, /[, out, where, casting, order, ...])}& Calculate the absolute value element-wise}\\
-\texttt{fabs(x, /[, out, where, casting, order, ...])}& Compute the absolute values element-wise}\\
-\texttt{rint(x, /[, out, where, casting, order, ...])}& Round elements of the array to the nearest integer}\\
-\texttt{sign(x, /[, out, where, casting, order, ...])}& Returns an element-wise indication of the sign of a number}\\
-\texttt{heaviside(x1, x2, /[, out, where, casting, ...])}& Compute the Heaviside step function}\\
-\texttt{conj(x, /[, out, where, casting, order, ...])}& Return the complex conjugate, element-wise}\\
-\texttt{conjugate(x, /[, out, where, casting, ...])}& Return the complex conjugate, element-wise}\\
-\texttt{exp(x, /[, out, where, casting, order, ...])}& Calculate the exponential of all elements in the input array}\\
-\texttt{exp2(x, /[, out, where, casting, order, ...])}& Calculate 2**p for all p in the input array}\\
-\texttt{log(x, /[, out, where, casting, order, ...])}& Natural logarithm, element-wise}\\
-\texttt{log2(x, /[, out, where, casting, order, ...])}& Base-2 logarithm of x}\\
-\texttt{log10(x, /[, out, where, casting, order, ...])}& Return the base 10 logarithm of the input array, element-wise}\\
-\texttt{expm1(x, /[, out, where, casting, order, ...])}& Calculate exp(x) - 1 for all elements in the array}\\
-\texttt{sqrt(x, /[, out, where, casting, order, ...])}& Return the non-negative square-root of an array, element-wise}\\
+\texttt{add(x1, x2, /[, out, where, casting, order, ...])}& Add arguments element-wise\\
+\texttt{subtract(x1, x2, /[, out, where, cas:ting, ...])}& Subtract arguments, element-wise\\
+\texttt{multiply(x1, x2, /[, out, where, castin:g, ...])}& Multiply arguments element-wise\\
+\texttt{matmul(x1, x2, /[, out, casting, order, ...])}& Matrix product of two arrays\\
+\texttt{divide(x1, x2, /[, out, where, casting, ...])}& Divide arguments element-wise\\
+\texttt{logaddexp(x1, x2, /[, out, where, casting, ...])}& Logarithm of the sum of exponentiations of the inputs\\
+\texttt{logaddexp2(x1, x2, /[, out, where, casting, ...])}& Logarithm of the sum of exponentiations of the inputs in base-2\\
+\texttt{true\_divide(x1, x2, /[, out, where, ...])}& Divide arguments element-wise\\
+\texttt{floor\_divide(x1, x2, /[, out, where, ...])}& Return the largest integer smaller or equal to the division of the inputs\\
+\texttt{negative(x, /[, out, where, casting, order, ...])}& Numerical negative, element-wise\\
+\texttt{positive(x, /[, out, where, casting, order, ...])}& Numerical positive, element-wise\\
+\texttt{power(x1, x2, /[, out, where, casting, ...])}& First array elements raised to powers from second array, element-wise\\
+\texttt{float\_power(x1, x2, /[, out, where, ...])}& First array elements raised to powers from second array, element-wise\\
+\texttt{remainder(x1, x2, /[, out, where, casting, ...])}& Returns the element-wise remainder of division\\
+\texttt{mod(x1, x2, /[, out, where, casting, order, ...])}& Returns the element-wise remainder of division\\
+\texttt{fmod(x1, x2, /[, out, where, casting, ...])}& Returns the element-wise remainder of division\\
+\texttt{divmod(x1, x2[, out1, out2], / [[, out, ...])}& Return element-wise quotient and remainder simultaneously\\
+\texttt{absolute(x, /[, out, where, casting, order, ...])}& Calculate the absolute value element-wise\\
+\texttt{fabs(x, /[, out, where, casting, order, ...])}& Compute the absolute values element-wise\\
+\texttt{rint(x, /[, out, where, casting, order, ...])}& Round elements of the array to the nearest integer\\
+\texttt{sign(x, /[, out, where, casting, order, ...])}& Returns an element-wise indication of the sign of a number\\
+\texttt{heaviside(x1, x2, /[, out, where, casting, ...])}& Compute the Heaviside step function\\
+\texttt{conj(x, /[, out, where, casting, order, ...])}& Return the complex conjugate, element-wise\\
+\texttt{conjugate(x, /[, out, where, casting, ...])}& Return the complex conjugate, element-wise\\
+\texttt{exp(x, /[, out, where, casting, order, ...])}& Calculate the exponential of all elements in the input array\\
+\texttt{exp2(x, /[, out, where, casting, order, ...])}& Calculate 2**p for all p in the input array\\
+\texttt{log(x, /[, out, where, casting, order, ...])}& Natural logarithm, element-wise\\
+\texttt{log2(x, /[, out, where, casting, order, ...])}& Base-2 logarithm of x\\
+\texttt{log10(x, /[, out, where, casting, order, ...])}& Return the base 10 logarithm of the input array, element-wise\\
+\texttt{expm1(x, /[, out, where, casting, order, ...])}& Calculate exp(x) - 1 for all elements in the array\\
+\texttt{sqrt(x, /[, out, where, casting, order, ...])}& Return the non-negative square-root of an array, element-wise\\
 \bottomrule
 \end{tabular}
 \end{sidewaystable}
@@ -6214,17 +6344,17 @@ Universal Function & Synopsis \\
 \centering
 \begin{tabular}{lp{13cm}}
 \toprule \toprule 
-Universal Function & Synopsis }\\
+Universal Function & Synopsis \\
 \midrule
-\texttt{sin(x, /[, out, where, casting, order, ...])} & Trigonometric sine, element-wise}\\
-\texttt{cos(x, /[, out, where, casting, order, ...])} & Cosine element-wise}\\
-\texttt{tan(x, /[, out, where, casting, order, ...])} & Compute tangent element-wise}\\
-\texttt{arcsin(x, /[, out, where, casting, order, ...])} & Inverse sine, element-wise}\\
-\texttt{arccos(x, /[, out, where, casting, order, ...])} & Trigonometric inverse cosine, element-wise}\\
-\texttt{arctan(x, /[, out, where, casting, order, ...])} & Trigonometric inverse tangent, element-wise}\\
-\texttt{arctan2(x1, x2, /[, out, where, casting, ...])} & Element-wise arc tangent of x1/x2 choosing the quadrant correctly}\\
-\texttt{hypot(x1, x2, /[, out, where, casting, ...])} & Given the "legs" of a right triangle, return its hypotenuse}\\
-\texttt{sinh(x, /[, out, where, casting, order, ...])} & Hyperbolic sine, element-wise}\\
+\texttt{sin(x, /[, out, where, casting, order, ...])} & Trigonometric sine, element-wise\\
+\texttt{cos(x, /[, out, where, casting, order, ...])} & Cosine element-wise\\
+\texttt{tan(x, /[, out, where, casting, order, ...])} & Compute tangent element-wise\\
+\texttt{arcsin(x, /[, out, where, casting, order, ...])} & Inverse sine, element-wise\\
+\texttt{arccos(x, /[, out, where, casting, order, ...])} & Trigonometric inverse cosine, element-wise\\
+\texttt{arctan(x, /[, out, where, casting, order, ...])} & Trigonometric inverse tangent, element-wise\\
+\texttt{arctan2(x1, x2, /[, out, where, casting, ...])} & Element-wise arc tangent of x1/x2 choosing the quadrant correctly\\
+\texttt{hypot(x1, x2, /[, out, where, casting, ...])} & Given the "legs" of a right triangle, return its hypotenuse\\
+\texttt{sinh(x, /[, out, where, casting, order, ...])} & Hyperbolic sine, element-wise\\
 \texttt{cosh(x, /[, out, where, casting, order, ...])} & Hyperbolic cosine, element-wise\\
 \texttt{tanh(x, /[, out, where, casting, order, ...])} & Compute hyperbolic tangent element-wise\\
 \texttt{arcsinh(x, /[, out, where, casting, order, ...])} & Inverse hyperbolic sine element-wise\\
@@ -6276,17 +6406,17 @@ Universal Function & Synopsis \\
 \toprule \toprule 
 Universal Function & Synopsis \\ \midrule
 \texttt{greater(x1, x2, /[, out, where, casting, ...])}
-& Return the truth value of (x1 > x2)} element-wise\\
+& Return the truth value of (x1 > x2) element-wise\\
 \texttt{greater\_equal(x1, x2, /[, out, where, ...])}
-& Return the truth value of (x1 >= x2)} element-wise\\
+& Return the truth value of (x1 >= x2) element-wise\\
 \texttt{less(x1, x2, /[, out, where, casting, ...])}
-& Return the truth value of (x1 < x2)} element-wise\\
+& Return the truth value of (x1 < x2) element-wise\\
 \texttt{less\_equal(x1, x2, /[, out, where, casting, ...])}
-& Return the truth value of (x1 <= x2)} element-wise\\
+& Return the truth value of (x1 <= x2) element-wise\\
 \texttt{not\_equal(x1, x2, /[, out, where, casting, ...])}
-& Return (x1 != x2)} element-wise\\
+& Return (x1 != x2) element-wise\\
 \texttt{equal(x1, x2, /[, out, where, casting, ...])}
-& Return (x1 == x2)} element-wise\\
+& Return (x1 == x2) element-wise\\
 \texttt{logical\_and(x1, x2, /[, out, where, ...])}
 & Compute the truth value of x1 AND x2 element-wise\\
 \texttt{logical\_or(x1, x2, /[, out, where, casting, ...])}
@@ -6489,7 +6619,7 @@ GitHub is one of the most prominent Internet hosting service for software develo
 
 \section{GitHub in the Education Sector}
 
-Since the 2018/19 academic year, my Python-related teaching has been based on GitHub. According to recent research, GitHub has many distinctive features (see Figure \ref{fig:github_features}) that make it a valuable teaching tool in teaching quantitative business subjects. Particularly, Zagalsky and colleagues\footnote{Zagalsky, Alexey, Joseph Feliciano, Margaret-Anne Storey, Yiyun Zhao, and Weiliang Wang. ``The emergence of GitHub as a collaborative platform for education'' In \textit{Proceedings of the 18th ACM conference on computer supported cooperative work & social computing}, pp. 1906-1917. 2015.} identify the following benefits of using GitHub for education:
+Since the 2018/19 academic year, my Python-related teaching has been based on GitHub. According to recent research, GitHub has many distinctive features (see Figure \ref{fig:github_features}) that make it a valuable teaching tool in teaching quantitative business subjects. Particularly, Zagalsky and colleagues\footnote{Zagalsky, Alexey, Joseph Feliciano, Margaret-Anne Storey, Yiyun Zhao, and Weiliang Wang. ``The emergence of GitHub as a collaborative platform for education'' In \textit{Proceedings of the 18th ACM conference on computer supported cooperative work \& social computing}, pp. 1906-1917. 2015.} identify the following benefits of using GitHub for education:
 
 \begin{itemize}
 	\item Transparency of activities
@@ -6517,7 +6647,7 @@ Since the 2018/19 academic year, my Python-related teaching has been based on Gi
 
 \quad Unlike a traditional Moodle page, GitHub has a very granular and public logging system and visualizations that highlight any change in the set of materials hosted in a repository (see, for example, Figure \ref{fig:github_repo}). Furthermore, learners can decide how and to what extent to receive notifications on the changes affecting a GitHub repository.\footnote{Especially, GitHub users can fine-tune the amount of information to receive by selecting the following options: i) by following the user owning a repository, a learner gets their GitHub homepage with the recent activities performed by that user; ii) by starring a repository, a learner has access to shortcuts to quickly and conveniently access a GitHub repository; iii) by watching a repository, a learner receives emails regarding any edit regarding a GitHub repository.} Regarding `SMM694, Applied Natural Language Processing' --- delivered between May and July 2025 --- 15 students out of 67 (22\%) decided `to watch' the GitHub repository hosting my teaching materials. Hence, they received real-time notifications on any edits of the 81 commits I made in the Summer Term;\footnote{The inter-temporal distribution of commits regarding SMM694 is available at \url{https://github.com/simoneSantoni/NLP-orgs-markets/graphs/commit-activity}} 43 students out of 67 (64\%) added my GitHub repository to their library; 31 out of 67 (42\%) reused my repository's material for a new project.
 
-\quad \textit{Second}, by engaging with GitHub, learners familiarise themselves with the industry-standard versioning software and collaborative platform. \textit{Third}, GitHub is a piece of open-source and free software. As such, it presents no entry barriers for learners and can be deployed to sustain inclusive forms of teaching over and beyond the boundaries of individual academic institutions.\footnote{Iiyoshi, Toru, and M. S. V. Kumar. \textit{Opening up education: The collective advancement of education through open technology, open content, and open knowledge}. The MIT Press, 2010.} According to the tracking system of GitHub, as of today, there are 154 projects (a.k.a., forks) that build on my teaching materials covering Python, network analytics, data visualization, and NLP. \texit{Finally}, in the case of hybrid teaching, the public logging system of GitHub provides the group of face-to-face learners and the group of remote learners with equivalent information about the functioning of the module and teaching materials. In other words, GitHub can prevent the formation of information asymmetry that potentially penalize remote learners because of their lack of physical proximity to the lecturer and fellow learners.
+\quad \textit{Second}, by engaging with GitHub, learners familiarise themselves with the industry-standard versioning software and collaborative platform. \textit{Third}, GitHub is a piece of open-source and free software. As such, it presents no entry barriers for learners and can be deployed to sustain inclusive forms of teaching over and beyond the boundaries of individual academic institutions.\footnote{Iiyoshi, Toru, and M. S. V. Kumar. \textit{Opening up education: The collective advancement of education through open technology, open content, and open knowledge}. The MIT Press, 2010.} According to the tracking system of GitHub, as of today, there are 154 projects (a.k.a., forks) that build on my teaching materials covering Python, network analytics, data visualization, and NLP. \textit{Finally}, in the case of hybrid teaching, the public logging system of GitHub provides the group of face-to-face learners and the group of remote learners with equivalent information about the functioning of the module and teaching materials. In other words, GitHub can prevent the formation of information asymmetry that potentially penalize remote learners because of their lack of physical proximity to the lecturer and fellow learners.
 
 \begin{sidewaysfigure}[!htbp]
 \centering
@@ -6533,7 +6663,7 @@ Since the 2018/19 academic year, my Python-related teaching has been based on Gi
 To work with GitHub, you need to have an account. You can create one for free at \url{https://github.com}. Programming newbies may want to interact with GitHub through GitHub Desktop (see Figure \ref{fig:github_desktop}) rather than through the command line. The graphical installer of GitHub Desktop is available at \url{https://desktop.github.com/downloads} and is free to use.
 
 \begin{figure}[!htbp]
-	\centerin
+	\centering
 	\includegraphics[width=0.95\textwidth]{github_desktop}
 	\caption{A screenshot of the GitHub desktop application webpage}
 	\label{fig:github_desktop}

@@ -59,17 +59,32 @@ RangeIndex: 3 entries, 0 to 2
 Data columns (total 3 columns):
      Column   Non-Null Count  Dtype
 ---  ------   --------------  -----
- 0   product  3 non-null      object
+ 0   product  3 non-null      str
  1   price    3 non-null      float64
- 2   color   3 non-null      object
-dtypes: float64(1), object(2)
-memory usage: 200.0+ bytes
+ 2   color    3 non-null      str
+dtypes: float64(1), str(2)
+memory usage: 204.0 bytes
 
-# select the first the two cases using a range of indices
+# select the first two cases using a range of indices
+# CAREFUL: .loc is label-based and INCLUDES the upper bound, so 0:2 is
+# three rows, not two
 >>> df.loc[0:2]
-      product  price  color
-    0       a   9.87  green
-    1       b   8.63  green
+  product  price  color
+0       a   9.87  green
+1       b   8.63  green
+2       c   6.45   blue
+
+# for the first two, either stop one label earlier ...
+>>> df.loc[0:1]
+  product  price  color
+0       a   9.87  green
+1       b   8.63  green
+
+# ... or use .iloc, which is positional and excludes the upper bound
+>>> df.iloc[0:2]
+  product  price  color
+0       a   9.87  green
+1       b   8.63  green
 
 # select the column "price" for the first two cases using a boolean array
 >>> df.loc[0:2, "price"]

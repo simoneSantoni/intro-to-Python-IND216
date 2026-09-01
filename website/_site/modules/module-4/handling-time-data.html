@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>handling-time-data – IND216 - Introduction to Python</title>
+<title>handling-time-data – IND219 - Introduction to Python</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -73,14 +79,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-175ac23ff9617b3c6f02b6b88bf67eec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-951f10bc480951396db0efebfd2f02f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-175ac23ff9617b3c6f02b6b88bf67eec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-f18305aec767f3e61481d23c5ecc5da5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-39ce561d5916039b7243f5be1805a965.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-f18305aec767f3e61481d23c5ecc5da5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -298,12 +304,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../imgs/python-module-icon-light.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216" title="Repository" class="quarto-navigation-tool px-1" aria-label="Repository"><i class="bi bi-github"></i></a>
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216/edit/master/{{< meta quarto:source >}}" title="Edit this page" class="quarto-navigation-tool px-1" aria-label="Edit this page"><i class="bi bi-pencil-square"></i></a>
-    <a href="https://github.com/simoneSantoni/intro-to-Python-IND216/issues/new" title="Report an issue" class="quarto-navigation-tool px-1" aria-label="Report an issue"><i class="bi bi-bug"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219" title="Repository" class="quarto-navigation-tool px-1" aria-label="Repository"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219/edit/master/{{< meta quarto:source >}}" title="Edit this page" class="quarto-navigation-tool px-1" aria-label="Edit this page"><i class="bi bi-pencil-square"></i></a>
+    <a href="https://github.com/simoneSantoni/intro-to-Python-IND219/issues/new" title="Report an issue" class="quarto-navigation-tool px-1" aria-label="Report an issue"><i class="bi bi-bug"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div>
@@ -715,7 +722,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas with the socially accepted alias 'pd'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas with the socially accepted alias 'pd'</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># fake product review data</span></span>
@@ -741,7 +748,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>             timestamp                    product reviewer  rating</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>  <span class="dv">2017</span><span class="op">-</span><span class="dv">10</span><span class="op">-</span><span class="dv">0</span><span class="er">8</span> <span class="dv">12</span>:<span class="dv">0</span><span class="er">3</span>:<span class="dv">0</span><span class="er">5</span>          Darth Vader plush  Sheldon       <span class="dv">1</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>  <span class="dv">2020</span><span class="op">-</span><span class="dv">0</span><span class="er">9</span><span class="op">-</span><span class="dv">0</span><span class="er">7</span> <span class="dv">0</span><span class="er">8</span>:<span class="dv">0</span><span class="er">9</span>:<span class="dv">45</span>  Obi<span class="op">-</span>Wan Kenobi lightsaber  Sheldon       <span class="dv">2</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>  <span class="dv">2021</span><span class="op">-</span><span class="dv">0</span><span class="er">4</span><span class="op">-</span><span class="dv">11</span> <span class="dv">10</span>:<span class="dv">12</span>:<span class="dv">13</span>               Yoda pajamas  Leonard       <span class="dv">5</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>  <span class="dv">2021</span><span class="op">-</span><span class="dv">0</span><span class="er">4</span><span class="op">-</span><span class="dv">11</span> <span class="dv">10</span>:<span class="dv">12</span>:<span class="dv">13</span>               Yoda pijamas  Leonard       <span class="dv">5</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># get basic info</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
@@ -749,89 +756,92 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">4</span> columns):</span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>     Column     Non<span class="op">-</span>Null Count  Dtype</span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>     <span class="op">--------------</span>  <span class="op">-----</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   timestamp  <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   product    <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   reviewer   <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   timestamp  <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   product    <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   reviewer   <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   rating     <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>dtypes: int64(<span class="dv">1</span>), <span class="bu">object</span>(<span class="dv">3</span>)</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">224.0</span><span class="op">+</span> <span class="bu">bytes</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>dtypes: int64(<span class="dv">1</span>), <span class="bu">str</span>(<span class="dv">3</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">228.0</span> <span class="bu">bytes</span></span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co"># convert 'timestamp' from string to Timestamp type</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"timestamp"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> s: pd.Timestamp(s))</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co"># info shows that timestamp has datetime dtype</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">4</span> columns):</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>     Column     Non<span class="op">-</span>Null Count  Dtype</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>     <span class="op">--------------</span>  <span class="op">-----</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   timestamp  <span class="dv">3</span> non<span class="op">-</span>null      datetime64[ns]</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   product    <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   reviewer   <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   rating     <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>dtypes: datetime64[ns](<span class="dv">1</span>), int64(<span class="dv">1</span>), <span class="bu">object</span>(<span class="dv">2</span>)</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">224.0</span><span class="op">+</span> <span class="bu">bytes</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="co"># extract the timestamp components and assign them to new columns</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ year</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"year"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].dt.year</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ month</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"month"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].dt.month</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ day</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"day"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].dt.day</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ hour</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"hour"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].dt.hour</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ hour</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"minute"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].dt.minute</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ second</span></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"second"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].dt.second</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ data view</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>            timestamp                    product reviewer  rating  year  <span class="op">\</span></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span> <span class="dv">2017</span><span class="op">-</span><span class="dv">10</span><span class="op">-</span><span class="dv">0</span><span class="er">8</span> <span class="dv">12</span>:<span class="dv">0</span><span class="er">3</span>:<span class="dv">0</span><span class="er">5</span>          Darth Vader plush  Sheldon       <span class="dv">1</span>  <span class="dv">2017</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="dv">2020</span><span class="op">-</span><span class="dv">0</span><span class="er">9</span><span class="op">-</span><span class="dv">0</span><span class="er">7</span> <span class="dv">0</span><span class="er">8</span>:<span class="dv">0</span><span class="er">9</span>:<span class="dv">45</span>  Obi<span class="op">-</span>Wan Kenobi lightsaber  Sheldon       <span class="dv">2</span>  <span class="dv">2020</span></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="dv">2021</span><span class="op">-</span><span class="dv">0</span><span class="er">4</span><span class="op">-</span><span class="dv">11</span> <span class="dv">10</span>:<span class="dv">12</span>:<span class="dv">13</span>               Yoda pijamas  Leonard       <span class="dv">5</span>  <span class="dv">2021</span></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>   month  day  hour  minute  second</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>     <span class="dv">10</span>    <span class="dv">8</span>    <span class="dv">12</span>       <span class="dv">3</span>       <span class="dv">5</span></span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>      <span class="dv">9</span>    <span class="dv">7</span>     <span class="dv">8</span>       <span class="dv">9</span>      <span class="dv">45</span></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>      <span class="dv">4</span>   <span class="dv">11</span>    <span class="dv">10</span>      <span class="dv">12</span>      <span class="dv">13</span></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the time elapsed since the product launch and the review</span></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ fake product launch timestamps</span></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"launch"</span>] <span class="op">=</span> pd.to_datetime(</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"2011-11-01 08:45:19"</span>, <span class="st">"2012-02-07 13:07:07"</span>, <span class="st">"2011-05-10 13:04:05"</span>]</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ get launch as a Timestamp object</span></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"launch"</span>] <span class="op">=</span> df[<span class="st">"launch"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> s: pd.Timestamp(s))</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ here is a Timedelta object</span></span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"deltat"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>] <span class="op">-</span> df[<span class="st">"launch"</span>]</span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ data view</span></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>            timestamp                    product reviewer  rating  year  <span class="op">\</span></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span> <span class="dv">2017</span><span class="op">-</span><span class="dv">10</span><span class="op">-</span><span class="dv">0</span><span class="er">8</span> <span class="dv">12</span>:<span class="dv">0</span><span class="er">3</span>:<span class="dv">0</span><span class="er">5</span>          Darth Vader plush  Sheldon       <span class="dv">1</span>  <span class="dv">2017</span></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="dv">2020</span><span class="op">-</span><span class="dv">0</span><span class="er">9</span><span class="op">-</span><span class="dv">0</span><span class="er">7</span> <span class="dv">0</span><span class="er">8</span>:<span class="dv">0</span><span class="er">9</span>:<span class="dv">45</span>  Obi<span class="op">-</span>Wan Kenobi lightsaber  Sheldon       <span class="dv">2</span>  <span class="dv">2020</span></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="dv">2021</span><span class="op">-</span><span class="dv">0</span><span class="er">4</span><span class="op">-</span><span class="dv">11</span> <span class="dv">10</span>:<span class="dv">12</span>:<span class="dv">13</span>               Yoda pijamas  Leonard       <span class="dv">5</span>  <span class="dv">2021</span></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>   month  day  hour  minute  second              launch             deltat</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>     <span class="dv">10</span>    <span class="dv">8</span>    <span class="dv">12</span>       <span class="dv">3</span>       <span class="dv">5</span> <span class="dv">2011</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">0</span><span class="er">1</span> <span class="dv">0</span><span class="er">8</span>:<span class="dv">45</span>:<span class="dv">19</span> <span class="dv">2168</span> days <span class="dv">0</span><span class="er">3</span>:<span class="dv">17</span>:<span class="dv">46</span></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>      <span class="dv">9</span>    <span class="dv">7</span>     <span class="dv">8</span>       <span class="dv">9</span>      <span class="dv">45</span> <span class="dv">2012</span><span class="op">-</span><span class="dv">0</span><span class="er">2</span><span class="op">-</span><span class="dv">0</span><span class="er">7</span> <span class="dv">13</span>:<span class="dv">0</span><span class="er">7</span>:<span class="dv">0</span><span class="er">7</span> <span class="dv">3134</span> days <span class="dv">19</span>:<span class="dv">0</span><span class="er">2</span>:<span class="dv">38</span></span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>      <span class="dv">4</span>   <span class="dv">11</span>    <span class="dv">10</span>      <span class="dv">12</span>      <span class="dv">13</span> <span class="dv">2011</span><span class="op">-</span><span class="dv">0</span><span class="er">5</span><span class="op">-</span><span class="dv">10</span> <span class="dv">13</span>:<span class="dv">0</span><span class="er">4</span>:<span class="dv">0</span><span class="er">5</span> <span class="dv">3623</span> days <span class="dv">21</span>:<span class="dv">0</span><span class="er">8</span>:<span class="dv">0</span><span class="er">8</span></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ data info</span></span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">12</span> columns):</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>     Column     Non<span class="op">-</span>Null Count  Dtype</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>     <span class="op">--------------</span>  <span class="op">-----</span></span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   timestamp  <span class="dv">3</span> non<span class="op">-</span>null      datetime64[ns]</span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   product    <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   reviewer   <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">object</span></span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   rating     <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>   year       <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span>   month      <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a> <span class="dv">6</span>   day        <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a> <span class="dv">7</span>   hour       <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a> <span class="dv">8</span>   minute     <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a> <span class="dv">9</span>   second     <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a> <span class="dv">10</span>  launch     <span class="dv">3</span> non<span class="op">-</span>null      datetime64[ns]</span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a> <span class="dv">11</span>  deltat     <span class="dv">3</span> non<span class="op">-</span>null      timedelta64[ns]</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>dtypes: datetime64[ns](<span class="dv">2</span>), int64(<span class="dv">7</span>), <span class="bu">object</span>(<span class="dv">2</span>), timedelta64[ns](<span class="dv">1</span>)</span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">416.0</span><span class="op">+</span> <span class="bu">bytes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co"> plain [] and not .loc: .loc would write INTO the existing text</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co"># column, and on Pandas 3 that raises</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co"># TypeError: Invalid value '&lt;DatetimeArray&gt;...' for dtype 'str'</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df[<span class="st">"timestamp"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> s: pd.Timestamp(s))</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co"># info shows that timestamp has datetime dtype</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">4</span> columns):</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>     Column     Non<span class="op">-</span>Null Count  Dtype</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>     <span class="op">--------------</span>  <span class="op">-----</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   timestamp  <span class="dv">3</span> non<span class="op">-</span>null      datetime64[us]</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   product    <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   reviewer   <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   rating     <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>dtypes: datetime64[us](<span class="dv">1</span>), int64(<span class="dv">1</span>), <span class="bu">str</span>(<span class="dv">2</span>)</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">228.0</span> <span class="bu">bytes</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co"># extract the timestamp components and assign them to new columns</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ year</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"year"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].dt.year</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ month</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"month"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].dt.month</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ day</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"day"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].dt.day</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ hour</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"hour"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].dt.hour</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ hour</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"minute"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].dt.minute</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ second</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"second"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>].dt.second</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ data view</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>            timestamp                    product reviewer  rating  year  <span class="op">\</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span> <span class="dv">2017</span><span class="op">-</span><span class="dv">10</span><span class="op">-</span><span class="dv">0</span><span class="er">8</span> <span class="dv">12</span>:<span class="dv">0</span><span class="er">3</span>:<span class="dv">0</span><span class="er">5</span>          Darth Vader plush  Sheldon       <span class="dv">1</span>  <span class="dv">2017</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="dv">2020</span><span class="op">-</span><span class="dv">0</span><span class="er">9</span><span class="op">-</span><span class="dv">0</span><span class="er">7</span> <span class="dv">0</span><span class="er">8</span>:<span class="dv">0</span><span class="er">9</span>:<span class="dv">45</span>  Obi<span class="op">-</span>Wan Kenobi lightsaber  Sheldon       <span class="dv">2</span>  <span class="dv">2020</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="dv">2021</span><span class="op">-</span><span class="dv">0</span><span class="er">4</span><span class="op">-</span><span class="dv">11</span> <span class="dv">10</span>:<span class="dv">12</span>:<span class="dv">13</span>               Yoda pijamas  Leonard       <span class="dv">5</span>  <span class="dv">2021</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>   month  day  hour  minute  second</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>     <span class="dv">10</span>    <span class="dv">8</span>    <span class="dv">12</span>       <span class="dv">3</span>       <span class="dv">5</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>      <span class="dv">9</span>    <span class="dv">7</span>     <span class="dv">8</span>       <span class="dv">9</span>      <span class="dv">45</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>      <span class="dv">4</span>   <span class="dv">11</span>    <span class="dv">10</span>      <span class="dv">12</span>      <span class="dv">13</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the time elapsed since the product launch and the review</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ fake product launch timestamps</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"launch"</span>] <span class="op">=</span> pd.to_datetime(</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"2011-11-01 08:45:19"</span>, <span class="st">"2012-02-07 13:07:07"</span>, <span class="st">"2011-05-10 13:04:05"</span>]</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ get launch as a Timestamp object</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"launch"</span>] <span class="op">=</span> df[<span class="st">"launch"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> s: pd.Timestamp(s))</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ here is a Timedelta object</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.loc[:, <span class="st">"deltat"</span>] <span class="op">=</span> df[<span class="st">"timestamp"</span>] <span class="op">-</span> df[<span class="st">"launch"</span>]</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ data view</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>            timestamp                    product reviewer  rating  year  <span class="op">\</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span> <span class="dv">2017</span><span class="op">-</span><span class="dv">10</span><span class="op">-</span><span class="dv">0</span><span class="er">8</span> <span class="dv">12</span>:<span class="dv">0</span><span class="er">3</span>:<span class="dv">0</span><span class="er">5</span>          Darth Vader plush  Sheldon       <span class="dv">1</span>  <span class="dv">2017</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="dv">2020</span><span class="op">-</span><span class="dv">0</span><span class="er">9</span><span class="op">-</span><span class="dv">0</span><span class="er">7</span> <span class="dv">0</span><span class="er">8</span>:<span class="dv">0</span><span class="er">9</span>:<span class="dv">45</span>  Obi<span class="op">-</span>Wan Kenobi lightsaber  Sheldon       <span class="dv">2</span>  <span class="dv">2020</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="dv">2021</span><span class="op">-</span><span class="dv">0</span><span class="er">4</span><span class="op">-</span><span class="dv">11</span> <span class="dv">10</span>:<span class="dv">12</span>:<span class="dv">13</span>               Yoda pijamas  Leonard       <span class="dv">5</span>  <span class="dv">2021</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>   month  day  hour  minute  second              launch             deltat</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>     <span class="dv">10</span>    <span class="dv">8</span>    <span class="dv">12</span>       <span class="dv">3</span>       <span class="dv">5</span> <span class="dv">2011</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">0</span><span class="er">1</span> <span class="dv">0</span><span class="er">8</span>:<span class="dv">45</span>:<span class="dv">19</span> <span class="dv">2168</span> days <span class="dv">0</span><span class="er">3</span>:<span class="dv">17</span>:<span class="dv">46</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>      <span class="dv">9</span>    <span class="dv">7</span>     <span class="dv">8</span>       <span class="dv">9</span>      <span class="dv">45</span> <span class="dv">2012</span><span class="op">-</span><span class="dv">0</span><span class="er">2</span><span class="op">-</span><span class="dv">0</span><span class="er">7</span> <span class="dv">13</span>:<span class="dv">0</span><span class="er">7</span>:<span class="dv">0</span><span class="er">7</span> <span class="dv">3134</span> days <span class="dv">19</span>:<span class="dv">0</span><span class="er">2</span>:<span class="dv">38</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>      <span class="dv">4</span>   <span class="dv">11</span>    <span class="dv">10</span>      <span class="dv">12</span>      <span class="dv">13</span> <span class="dv">2011</span><span class="op">-</span><span class="dv">0</span><span class="er">5</span><span class="op">-</span><span class="dv">10</span> <span class="dv">13</span>:<span class="dv">0</span><span class="er">4</span>:<span class="dv">0</span><span class="er">5</span> <span class="dv">3623</span> days <span class="dv">21</span>:<span class="dv">0</span><span class="er">8</span>:<span class="dv">0</span><span class="er">8</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ data info</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df.info()</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>Data columns (total <span class="dv">12</span> columns):</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>     Column     Non<span class="op">-</span>Null Count  Dtype</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="op">---</span>  <span class="op">------</span>     <span class="op">--------------</span>  <span class="op">-----</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>   timestamp  <span class="dv">3</span> non<span class="op">-</span>null      datetime64[us]</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span>   product    <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>   reviewer   <span class="dv">3</span> non<span class="op">-</span>null      <span class="bu">str</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span>   rating     <span class="dv">3</span> non<span class="op">-</span>null      int64</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>   year       <span class="dv">3</span> non<span class="op">-</span>null      int32</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span>   month      <span class="dv">3</span> non<span class="op">-</span>null      int32</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a> <span class="dv">6</span>   day        <span class="dv">3</span> non<span class="op">-</span>null      int32</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a> <span class="dv">7</span>   hour       <span class="dv">3</span> non<span class="op">-</span>null      int32</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a> <span class="dv">8</span>   minute     <span class="dv">3</span> non<span class="op">-</span>null      int32</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a> <span class="dv">9</span>   second     <span class="dv">3</span> non<span class="op">-</span>null      int32</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a> <span class="dv">10</span>  launch     <span class="dv">3</span> non<span class="op">-</span>null      datetime64[us]</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a> <span class="dv">11</span>  deltat     <span class="dv">3</span> non<span class="op">-</span>null      timedelta64[us]</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>dtypes: datetime64[us](<span class="dv">2</span>), int32(<span class="dv">6</span>), int64(<span class="dv">1</span>), <span class="bu">str</span>(<span class="dv">2</span>), timedelta64[us](<span class="dv">1</span>)</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>memory usage: <span class="fl">348.0</span> <span class="bu">bytes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="can-you-give-me-an-example-of-a-.period-object" class="level2">
 <h2 class="anchored" data-anchor-id="can-you-give-me-an-example-of-a-.period-object">Can you give me an example of a .Period object?</h2>
@@ -846,7 +856,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas with the socially acceptable alias pd</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas with the socially acceptable alias pd</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a timestamp as a string</span></span>
@@ -872,9 +882,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> p.quarter</span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span></span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ week of the year (ranging from 0 to 59)</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># --+ week of the year (ISO week, 1 to 53)</span></span>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> p.weekofyear</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="dv">44</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -990,13 +1000,14 @@ document.addEventListener('DOMContentLoaded', function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1011,7 +1022,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/simonesantoni\.github\.io\/intro-to-Python-IND216");
+        var filterRegex = new RegExp("https:\/\/simonesantoni\.github\.io\/intro-to-Python-IND219");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1357,7 +1368,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>© 2025 Simone Santoni</p>
 </div>   
     <div class="nav-footer-center">
-<p><a href="https://github.com/simoneSantoni/intro-to-Python-IND216">IND216 - Introduction to Python</a></p>
+<p><a href="https://github.com/simoneSantoni/intro-to-Python-IND219">IND219 - Introduction to Python</a></p>
 </div>
     <div class="nav-footer-right">
 <p>Made with <a href="https://quarto.org/">Quarto</a></p>

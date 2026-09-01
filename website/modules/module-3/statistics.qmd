@@ -93,7 +93,9 @@ The code snippet below shows how to create a typical set of summary stats, inclu
 >>> import numpy as np
 
 # import a module for arranging numbers in a tabular format
->>> import tabulate
+# NOTE: 'tabulate' is both the package and the function inside it; plain
+# 'import tabulate' gives you the module, which is not callable
+>>> from tabulate import tabulate
 
 # the array
 >>> X = np.array([0, 0, -3, 12, 7, 2, -4, 6, 9, -1, 5, 3, -1, 3, 10, 9])
